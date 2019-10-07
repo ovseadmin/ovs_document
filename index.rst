@@ -3,6 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. |br| raw:: html
 
 Open V2X Service Enabler Web Document
 =======================================
@@ -22,7 +23,7 @@ Contents:
 .. toctree::
    :numbered:
    :maxdepth: 3
-   
+
    architecture
 
 
