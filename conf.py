@@ -40,11 +40,6 @@ release = u''
 # ones.
 extensions = [
     'recommonmark',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.autodoc',
-    'sphinx.ext.mathjax',
-    'sphinx.ext.viewcode',
-    'sphinxcontrib.httpdomain',
     'sphinx_rtd_theme',
     ]
 
