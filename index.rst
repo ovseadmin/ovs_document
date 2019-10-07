@@ -3,18 +3,27 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to ovs_document's documentation!
-========================================
+
+Open V2X Service Enabler Web Document
+=======================================
+
+Change Logs:
+
+========  ===============  ========================================
+Version   Last Modified    Change Logs
+========  ===============  ========================================
+1.0.0     2019/10          Initial Publish
+========  ===============  ========================================
+
+|br|
+
+Contents:
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :numbered:
+   :maxdepth: 3
+   
+   architecture
 
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
