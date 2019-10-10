@@ -42,9 +42,11 @@ Entity Name   Description
 ============  ===================================================================
 OVS           | ``Open V2X Service Enabler Server`` 의 약자로 V2X Application을
               | 개발을 위해 필요한 다양한 기능을 제공하는 백앤드 서버로써 주요 기능은 아래
-              | ``Service Functions of OVS`` 절에서 명세합니다. 본 엔티티의 기능은
-              | ``vsc interface`` 와 ``vss interface`` 를 통해 외부로 제공됩니다.
-OVC           | 
+              | ``Service Functions of OVS`` 절에서 명세합니다. 
+              | 본 엔티티의 기능은 ``vsc interface`` 와 ``vss interface`` 를 통해 외부로 제공됩니다.
+OVC           | ``Open V2X Service Enabler Client`` 의 약자로 단말용 V2X Application을
+              | 개발을 위해 필요한 다양한 기능을 제공하는 클라이언트 미들웨어입니다.
+              | 본 엔티티의 기능은 ``vcc interface`` 를 통해서 외부로 제공됩니다.
 ============  ===================================================================
 
 Functional Interfaces Description
