@@ -31,4 +31,5 @@ Contents:
 
    introduction
    architecture
+   client
 

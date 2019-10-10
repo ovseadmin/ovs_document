@@ -28,9 +28,6 @@ Open V2X Service Enabler ``OVSEn`` 의 기능적 구조 모델은 상기 도식�
 
 Functional Entity and Interfaces Description
 --------------------------------------------
-.. rst-class:: table-width-fix
-.. rst-class:: text-align-justify
-.. rst-class:: table-width-full
 
 Functional Entity Description
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -98,3 +95,8 @@ Route Planning             to-be-specified
 AAA                        to-be-specified
 Event Logs                 to-be-specified
 =========================  ===================================================================
+
+
+
+Deployment Scenarios (Case Studies)
+-----------------------------------
