@@ -11,7 +11,7 @@ Functional Architecture Model
 	:align: center
 
 
-Open V2X Service Enabler ``OVSEn`` 의 기능적 구조 모델은 상기 도식과 같습니다.
+Open V2X Service Enabler ``OVSE`` 의 기능적 구조 모델은 상기 도식과 같습니다.
 기본적으로 시스템은 ``Enabler Layer`` 와 ``Application Layer`` 로 구분됩니다.
 
 - ``Enabler Layer`` : V2X Application 개발을 위해서 필요한 기능을 제공하는 계층으로 일반적으로 API 형태로 기능들이 외부로 제공됩니다.
@@ -49,8 +49,8 @@ VAC           Out-of-Scope   to-be-specified
 
 .. note::
 	
-    상기 표에 컬럼 중 ``Scope`` 컬럼은 OVSEn 전체 시스템에서 제공하는 엔티티인지 여부를 명세합니다. 
-    ``In-Scope`` 인 엔티티는 OVSEn에서 제공되는 엔티티이며, ``Out-of-Scope`` 인 엔티티는 고객사에서 직접 개발하시는 영역을 의미합니다.
+    상기 표에 컬럼 중 ``Scope`` 컬럼은 OVSE 전체 시스템에서 제공하는 엔티티인지 여부를 명세합니다. 
+    ``In-Scope`` 인 엔티티는 OVSE에서 제공되는 엔티티이며, ``Out-of-Scope`` 인 엔티티는 고객사에서 직접 개발하시는 영역을 의미합니다.
 
 
 Functional Interfaces Description
@@ -73,7 +73,7 @@ asc             Out-of-Scope   to-be-specified
 Service Functions of OVS
 ------------------------
 
-OVSEn 시스템의 핵심 엔티티는 OVS 엔티티입니다. 
+OVSE 시스템의 핵심 엔티티는 OVS 엔티티입니다. 
 외부 고객사에서 V2X 서비스를 쉽게 개발할 수 있도록 V2X에 필요한 주요 기능 ``Service Functions`` 을 구현하여 인터페이스를 통해서 제공합니다.
 
 OVS를 통해서 제공되는 주요 기능은 아래 도식과 같으며, 주요 기능의 상세 설명은 아래 표에 기술합니다.
