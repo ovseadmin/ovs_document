@@ -47,7 +47,8 @@ V2X Event Notification Reception  | OVS가 타 OVC로부터 전달받은 V2X Eve
 아래부터는 상기 vsc-g Flow의 순서를 간단한 예제 코드와 함께 설명합니다.
 
 1. 
-``Connect to OVS`` 순서에서는 OVC-g가 OVS에 연결하는 단계입니다. MQTT Broker에 접속하는 connect 단계와 동일합니다.
+``Connect to OVS`` 순서에서는 OVC-g가 OVS에 연결하는 단계입니다. MQTT Broker에 접속하는 connect 단계 
+`MQTT Connect 참고 <https://www.hivemq.com/blog/mqtt-essentials-part-3-client-broker-connection-establishment/>`__ 와 동일합니다.
 단, 접속할 때는 다음 Parameter를 적용하여 connect 합니다.
 
 =============  =============================================
@@ -78,6 +79,7 @@ keepAlive      60
         clean: true,
         keepalive: 60,
         protocol: 'mqtt'
+    });
 
     //OVS 접속 시도에 따른 Callback
     messageSender.on('connect', function(connack) {
@@ -89,9 +91,30 @@ keepAlive      60
     });
 
 
-https://www.hivemq.com/blog/mqtt-essentials-part-3-client-broker-connection-establishment/
-
 2.
+``Subscribe a topic for receiving V2X notification`` 순서에서는 
+OVC-g가 향후에 V2X Event 수신 할 수 있도록 V2X Event을 제공하는 Topic에 Subscription을 합니다. 
+Topic은 아래와 같은 룰을 따라 설정합니다.
+
+=============  =============================================
+Topic          v2x/device/{userName}
+=============  =============================================
+
+``Example Code`` 
+
+.. code-block:: javascript
+
+    messageSender.subscribe('v2x/device/{userName}, {qos: 1}, function(err, granted) {
+
+        if (err)
+        {
+          // Topic에 정상적으로 Subscribe 되지 않는 경우 원인
+        } else {
+          // Topic에 정상적으로 Subscribe 된 경우       
+        }
+        
+      });
+
 
 3.
 
