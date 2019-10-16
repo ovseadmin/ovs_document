@@ -9,7 +9,7 @@ Client Types
 Two OVC Types
 -------------
 
-OVSEn 시스템에서 연동될 수 있는 ``OVC`` 타입은 2가지로 구분할 수 있습니다. ``GPS only OVC (OVC-g)`` 와 ``Map Mapping Capable OVC (OVC-m)`` 입니다. 
+OVSE 시스템에서 연동될 수 있는 ``OVC`` 타입은 2가지로 구분할 수 있습니다. ``GPS only OVC (OVC-g)`` 와 ``Map Mapping Capable OVC (OVC-m)`` 입니다. 
 각 타입은 다음 표와 같이 구분될 수 있습니다.
 
 ========  ===================================================================

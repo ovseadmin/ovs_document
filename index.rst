@@ -32,4 +32,5 @@ Contents:
    introduction
    architecture
    client
+   interface
 
