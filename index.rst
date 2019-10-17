@@ -32,5 +32,5 @@ Contents:
    introduction
    architecture
    client
-   interface
+   ovc_interface
 
