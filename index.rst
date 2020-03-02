@@ -5,7 +5,7 @@
 
 .. |br| raw:: html
 
-Open V2X Service Enabler Web Document
+Open V2X Service Enabler Web Document.
 =======================================
 
 본 기술 문서는 SK Telecom의 Open V2X Service Enabler ``OVSE`` 기반 V2X Application 개발을 위한 문서입니다.
