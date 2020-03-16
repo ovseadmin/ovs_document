@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = u'ovs_document'
-copyright = u'2019, SK Telecom'
+copyright = u'2020, SK Telecom'
 author = u'SK Telecom'
 
 # The short X.Y version
