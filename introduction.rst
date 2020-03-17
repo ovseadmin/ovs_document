@@ -18,9 +18,10 @@ SK Telecom의 V2X Service
 
 * Tmap V2X Service 화면 예시
 
-.. image:: ../images/introduction/tmap.png 
-
-
+.. image:: /images/introduction/tmap.png 
+    :width: 100%
+	:align: center
+	
 
 
 주요 특징
@@ -48,14 +49,14 @@ SKT의 V2X는 통신기술의 제약을 받지 않습니다. WAVE, C-V2X 등을 
 
 ETSI TC 102 637-2 표준 
 
-.. image:: ../images/introduction/etsi standard.png
+.. image:: /images/introduction/etsi standard.png
 
 
 .. rst-class:: text-align-justify
 
 SKT의 V2X Platform은 위의 기준 이상의 low latency 성능을 제공합니다. 
 
-.. image:: ../images/introduction/latency.png
+.. image:: /images/introduction/latency.png
 
 
 * 이와 같은 SKT 고유의 V2X 서비스 기술을 **SKT V2N (Vehicle-to-Network) 서비스**라고 부릅니다.
@@ -74,6 +75,6 @@ Open V2N Service Enabler
 
 SKT의 Open V2N Service Enabler (이하 OVSE)는 현재 Tmap에 제공 중인 V2N 서비스를 OEM, 단말 제조사 등과 같은 외부 개발 파트너사에서 쉽게 개발할 수 있도록, API (Application Programming Interface)를 제공하는 Platform 입니다. 
 
-.. image:: ../images/introduction/ovse concept.png
+.. image:: /images/introduction/ovse concept.png
 
 
