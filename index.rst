@@ -34,3 +34,4 @@ Contents:
    architecture
    client
    ovc_interface
+   api_spec
