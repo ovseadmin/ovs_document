@@ -93,37 +93,12 @@ Entity Model
 
 .. rst-class:: text-align-justify
 
-REST API에서는 다음과 같은 Entity들이 정의되어 있으며, 세부 데이터 모델 내용은 `Smart[Fleet] REST API Web Document <https://app.swaggerhub.com/apis/tremoteye/tremoteyeapi/1.0.0>`__ 내용을 참고하시기 바랍니다.
-
--  JWT
+REST API에서는 다음과 같은 Entity들이 정의되어 있으며, 세부 데이터 모델 내용은 `OVS Document <https://ovs-document.readthedocs.io/en/latest/index.html>`__ 내용을 참고하시기 바랍니다.
 
 -  Company
 
--  User
+-  Device
 
--  Vehicle
-
--  Sensor
-
--  Trip
-
--  MicroTrip
-
--  CompanyToCompany
-
--  CompanyToVehicle
-
--  UserToVehicle
-
--  RPCRequest
-
--  RPCResponse
-
--  RPCResult
-
--  TextPageLink
-
--  TimePageLink
 
 
 
