@@ -14,7 +14,7 @@ Open V2X Service Enabler
 ------------------------
 
 SK Telecom의 Open V2X Service Enabler는 V2X 서비스를 쉽게 개발하기 위한 API ``Application Programming Interface`` 를 제공하는 시스템입니다.
-외부 고객사들께서는 본 서비스를 기반으로 테스트 내용 기입
+외부 고객사들께서는 본 서비스를 기반으로 (테스트) 손쉽게 통계 및 관제 서비스 가능합니다.
 
 
 SK Telecom V2X Services
