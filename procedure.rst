@@ -17,7 +17,7 @@ OVS 플랫폼을 사용하려는 파트너들을 위한 매뉴얼입니다. 파�
 
 OVS 플랫폼을 이용하기 위한 절차는 다음과 같이 구성되어 있습니다.
 
-.. image:: ../images/procedure/1.png
+.. image:: ../images/procedure1.png
 
 위 절차들은 `OVS 웹 포털 사이트 <https://tbd.co.kr/>`__ 에 접속하거나 플랫폼에서 제공하는 `Open API <https://skopen apic>`__ 를 이용하여 이용할 수 있습니다.
 
