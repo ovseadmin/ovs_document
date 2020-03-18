@@ -12,6 +12,7 @@ V2X는 Vehicle to Everything의 약자로 운전 중, 무선망을 이용하여 
 하지만 전용 통신 프로토콜의 혼재, 서비스를 위한 신규 통신 Infra 및 관련 지원 단말의 확산을 위한 많은 시간적, 비용 문제 등 풀어야할 난제가 많아, 실제 서비스 체험이 어려운 상황입니다.
 
 
+
 SK Telecom의 V2N Service
 -----------------------------
 SK Telecom(이하 SKT)에서는 V2X의 확산의 난제를 극복하고 더 많은 고객분들이 체험하실 수 있도록, Platform 기반의 V2N (Vehicle-to-Network) 기술을 개발, 상용 서비스를 하고 있습니다.
@@ -103,7 +104,5 @@ SKT의 Open V2N Service Enabler(이하 OVSE)는 위에서 소개된 현재 T맵�
 .. image:: /images/introduction/ovse_concept.png
 
 OVSE를 활용하시면 단말 및 서버의 구성에 상관없이 쉽게 V2N Application을 구현하실 수 있습니다.
-* V2N Partner with Device : 단말을 직접 연결을 희망하는 파트너사 (i.e., IVI, 블박 등)
-* V2N Partner with Server : 서버로 연결하고, 단말의 직접 연결을 지양하는 파트너사 (i.e, 자체 Backend 보유 OEM)
 
 OVSE의 주요 기능 및 특징은 다음 페이지에서 보다 자세히 기술하겠습니다. 
