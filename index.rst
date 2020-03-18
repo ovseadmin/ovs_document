@@ -32,6 +32,8 @@ Contents:
 
    introduction
    architecture
+   procedure
+   entity
    client
    ovc_interface
    api_spec
