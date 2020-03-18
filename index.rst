@@ -5,12 +5,12 @@
 
 .. |br| raw:: html
 
-Open V2X Service Enabler Web Document
+Open V2N Service Enabler Web Document
 =======================================
 
-본 기술 문서는 SK Telecom의 Open V2X Service Enabler (**OVSE**) 를 기반으로 V2X Application 개발하기 위한 Guide 문서입니다.
+본 기술 문서는 SK Telecom의 V2N 서비스 개발 지원 플랫폼인 Open V2N Service Enabler (**OVSE**)의 개발자를 위한 Web Document 입니다.
 
-SKT의 OVSE는 다양한 고객사에서 V2X Application을 보다 쉽고, 빠르고, 정확하게 개발 하실 수 있도록 **API** (Application Programming Interface) 를 제공합니다.
+기술적인 질문은 admin@ovs.sktelecom.com 으로 부탁드립니다. 
 
 Change Logs:
 
