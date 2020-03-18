@@ -3,21 +3,21 @@ Open V2N Service Enabler 소개
 
 .. rst-class:: text-align-justify
 
-About V2X Service 
+General V2X Service 
 -----------------------------------------
-V2X는 Vehicle to Everything의 약자로 운전 중, 무선망을 이용하여 다른 차량 및 도로 등 인프라가 구축된 사물과 교통정보와 같은 정보를 교환하는 통신기술입니다. 
+V2X는 Vehicle to Everything의 약자로 운전 중, 무선망을 이용하여 다른 차량 및 도로 등 인프라가 구축된 사물과 정보를 교환하는 통신기술입니다. 
 
 차량 간 통신(V2V, Vehicle to Vehicle), 차량과 도로 인프라 간 통신(V2I, Vehicle to Infra), 차량과 보행자 간 통신(V2P, Vehicle to Pedestrian) 등 도로 위의 차량에 적용 가능한 모든 형태의 통신 기술을 포함하는 개념으로, 다가올 자율주행 시대를 대비하기 위한 핵심기술로 학계 및 산업계에서 지속적인 연구개발이 진행되고 있습니다.
 
-하지만 전용 통신 프로토콜의 혼재, 서비스를 위한 신규 통신 Infra 및 관련 지원 단말의 확산을 위한 많은 시간적, 비용 문제 등 풀어야할 난제가 많이 있어 실제 서비스 체험이 어려운 상황입니다.
+하지만 전용 통신 프로토콜의 혼재, 서비스를 위한 신규 통신 Infra 및 관련 지원 단말의 확산을 위한 많은 시간적, 비용 문제 등 풀어야할 난제가 많아, 실제 서비스 체험이 어려운 상황입니다.
 
 
-SK Telecom의 V2X Service
+SK Telecom의 V2N Service
 -----------------------------
-SK Telecom(이하 SKT)에서는 V2X의 확산의 난제를 극복하고 더 많은 고객분들이 체험하실 수 있도록, Platform 기반의 V2X 기술을 개발, 상용 서비스를 하고 있습니다.
+SK Telecom(이하 SKT)에서는 V2X의 확산의 난제를 극복하고 더 많은 고객분들이 체험하실 수 있도록, Platform 기반의 V2N (Vehicle-to-Network) 기술을 개발, 상용 서비스를 하고 있습니다.
 차량과 차량, 다른 서비스와의 연동을 통하여 주행 경로 상의 데이터를 공유 하고 안전한 운행 환경 제공하기 위한 서비스 입니다. 
 
-* Tmap V2X Service 화면 예시
+* Tmap V2N Service 화면 예시
 
 .. image:: /images/introduction/tmap.png 
 
@@ -29,7 +29,7 @@ SK Telecom(이하 SKT)에서는 V2X의 확산의 난제를 극복하고 더 많�
 **1. Connectivity Agnostic Function**
 
 .. rst-class:: text-align-justify
-일반 적인 V2X 서비스는 전용 통신 장비 및 차량 센서 디바이스 등이 필요 하여 진입 장벽이 높아 체험 하기가 어렵습니다. 저희 서비스는 T map 설치 가능 기기만 보유 하면 V2X 기반 서비스를 곧바로 체험 하실 수 있도록 구현 되어 확장성 및 범용성을 확보 하였습니다
+일반 적인 V2X 서비스는 전용 통신 장비 및 차량 센서 디바이스 등이 필요 하여 진입 장벽이 높아 체험 하기가 어렵습니다. 저희 V2N 서비스는 T맵 설치 가능 기기만 보유 하면 곧바로 체험 하실 수 있도록 구현 되어 확장성 및 범용성을 확보 하였습니다
 
 **2. V2X Service Problem Solver**
 
@@ -44,17 +44,16 @@ SK Telecom(이하 SKT)에서는 V2X의 확산의 난제를 극복하고 더 많�
 차량 내 스마트폰 에서 수집된 정보를 분석 하여 이벤트 수신 적합 대상 차량 에게 전달 하는 V2X 서비스는 반드시 이벤트의 유효 시간 내, 이벤트 메시지가 전달 되어야 합니다. 
 국제표준의 V2X 안전메세지를 위한 지연요구사항에서는 대부분 100ms 이내의 지연시간을 제시하고 있습니다.
 
-ETSI TC 102 637-2 표준 
+* ETSI TC 102 637-2 표준 예
 
 .. image:: /images/introduction/etsi_standard.png
 
+저희는 전송 구간 별 지연 시간 최적화 기법을 통하여 처리 시간을 50msec 이하로 구현 하였습니다. (LTE 기준)
 
-저희는 전송 구간 별 지연 시간 최적화 기법을 통하여 처리 시간을 50msec 이하로 구현 하였습니다.
+* End-to-End Latency Test Result over LTE
 
 .. image:: /images/introduction/latency.png
 
-
-* 이와 같은 특징의 SKT 고유의 V2X 서비스 기술을 **SKT V2N (Vehicle-to-Network) 서비스**라고 합니다.
 
 
 제공 서비스 
@@ -82,20 +81,29 @@ T맵 이용 차량이 급제동할 경우, 스마트폰 모션 센서와 위성�
 
 **3. 도로공사 C-ITS 연동 실시간 도로상황 알림 서비스**
 
-도로공사가 추진하는 차세대 지능형 도로교통시스템(C-ITS)과의 연계를 통해, 레이더, CCTV 등의 고성능 단말로부터 실시간으로 감지된 낙하물, 역주행 등과 같은 정보를 T맵을 사용중인 운전자에게 신속하게 전달합니다. (일부 고속도로 구간)
+도로공사가 추진하는 차세대 지능형 도로교통시스템(C-ITS)과의 연계를 통해, 레이더, CCTV 등의 고성능 단말로부터 실시간으로 감지된 낙하물, 역주행 등과 같은 정보를 T맵을 사용중인 운전자에게 신속하게 전달합니다. (일부 고속도로 구간 제한 서비스)
 
-위험상황경고 (보행자, 역주행, 정지차, 정체), 위험상황제보 (사고, 낙하물), 갓길 등 정지차량 경고, 터널 사고 정보 제공 (터널 내 정지차, 역주행, 보행자), 긴급차량 접근 경고 (도로공사 관리 긴급차량)의 총 5종의 서비스를 제공합니다.
+하기 총 5종의 서비스를 제공하고 있습니다.
+1. 위험상황경고 (보행자, 역주행, 정지차, 정체)
+2. 위험상황제보 (사고, 낙하물)
+3. 갓길 등 정지차량 경고
+4. 터널 사고 정보 제공 (터널 내 정지차, 역주행, 보행자)
+5. 긴급차량 접근 경고 (도로공사 관리 긴급 출동 차량)
 
-
+(screenshot 추가 예정)
 
 
 
 Open V2N Service Enabler
 ----------------------------
 
-SKT의 Open V2N Service Enabler (이하 OVSE)는 위에서 소개된 현재 Tmap에 제공 중인 V2N 서비스를 OEM, 단말 제조사 등과 같은 외부 개발 파트너사에서 쉽게 개발할 수 있도록, API (Application Programming Interface)를 제공하는 Platform 입니다. 
+SKT의 Open V2N Service Enabler(이하 OVSE)는 위에서 소개된 현재 T맵에 제공 중인 V2N 서비스를 OEM, 단말 제조사 등과 같은 외부 개발 파트너사에서 쉽게 개발할 수 있도록, API (Application Programming Interface)를 제공하는 Platform 입니다. 
 
 
 .. image:: /images/introduction/ovse_concept.png
 
+OVSE를 활용하시면 단말 및 서버의 구성에 상관없이 쉽게 V2N Application을 구현하실 수 있습니다.
+* V2N Partner with Device : 단말을 직접 연결을 희망하는 파트너사 (i.e., IVI, 블박 등)
+* V2N Partner with Server : 서버로 연결하고, 단말의 직접 연결을 지양하는 파트너사 (i.e, 자체 Backend 보유 OEM)
 
+OVSE의 주요 기능 및 특징은 다음 페이지에서 보다 자세히 기술하겠습니다. 

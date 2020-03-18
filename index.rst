@@ -8,7 +8,7 @@
 Open V2N Service Enabler Web Document
 =======================================
 
-본 기술 문서는 SK Telecom의 V2N 서비스 개발 지원 플랫폼인 Open V2N Service Enabler (**OVSE**)의 개발자를 위한 Web Document 입니다.
+본 기술 문서는 SK Telecom의 V2N 서비스 개발 지원 플랫폼인 **Open V2N Service Enabler** (**OVSE**)의 개발자를 위한 Web Document 입니다.
 
 기술적인 질문은 admin@ovs.sktelecom.com 으로 부탁드립니다. 
 
@@ -31,7 +31,8 @@ Contents:
    :maxdepth: 3
 
    introduction
-   architecture
+   ovse_intro
+   entity_architecture
    procedure
    entity
    client
