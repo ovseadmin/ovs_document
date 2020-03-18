@@ -36,5 +36,5 @@ Contents:
    procedure
    entity
    client
-   ovc_interface
    api_spec
+   ovc_interface
