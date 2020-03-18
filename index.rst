@@ -32,6 +32,7 @@ Contents:
 
    introduction
    architecture
+   procedure
    client
    ovc_interface
    api_spec
