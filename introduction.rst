@@ -77,7 +77,7 @@ T맵 이용 차량이 급제동할 경우, 스마트폰 모션 센서와 위성�
 
 알람은 응급차량이 운전자로부터 멀리(700m~1500m)서 운행할 때와 가까이(300m~700m) 다가올 때 두 번 팝업 형태로 제공됩니다. 운전자는 응급차량과 거리를 확인하고 미리 차선을 바꿀 수 있습니다.
 
-.. image:: /images/introduction/tmap_ev.png
+.. image:: /images/introduction/tmap_ev2.png
 
 
 **3. 도로공사 C-ITS 연동 실시간 도로상황 알림 서비스**
@@ -92,7 +92,7 @@ T맵 이용 차량이 급제동할 경우, 스마트폰 모션 센서와 위성�
 * 터널 사고 정보 제공 (터널 내 정지차, 역주행, 보행자)
 * 긴급차량 접근 경고 (도로공사 관리 긴급 출동 차량)
 
-(screenshot 추가 예정)
+.. image:: /images/introduction/tmap_excits.png
 
 
 
@@ -103,6 +103,7 @@ SKT의 Open V2N Service Enabler(이하 OVSE)는 위에서 소개된 현재 T맵�
 
 
 .. image:: /images/introduction/ovse_concept.png
+
 (그림 변경 필요)
 
 OVSE를 활용하시면 단말 및 서버의 연동에 상관없이 쉽게 V2N Application을 구현하실 수 있습니다.
