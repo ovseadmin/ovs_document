@@ -5,13 +5,12 @@ OVSE의 주요 특징 및 기능
 
 OVSE는 SKT에서 제공하는 OPEN API 플랫폼으로 V2N 솔루션을 개발 및 적용하고자 하는 파트너사들에게 보다 쉽고, 빠르게, 유용한 서비스를 안전하게 개발할 수 있는 기능들을 제공합니다.
 
-아래 그림과 같이 코어 엔진 부분에 V2N Service Engine, Map Matcher, Route Planning, Road Translator, Message Controller 등의 5가지 핵심기능이 구현되어 있습니다.
+아래 그림과 같이 코어 엔진 부분에 V2N Service Engine, Map Matcher, Road Translator, Route Planning, Message Controller 등의 5가지 핵심기능이 구현되어 있습니다.
 
-(ovse image 추가)
+.. image:: /images/ovse_intro/ovse_arch.png
 
-OVSE의 주요 특징 및 5가지 핵심기능은 다음과 같습니다.
+OVSE의 주요 특징 및 핵심 기능은 다음과 같습니다.
 
-|br|
 
 .. rst-class:: text-align-justify
 
@@ -76,9 +75,7 @@ V2N 솔루션을 효과적으로 구현하기 위한 Device 연동 규격을 제
 |                       | 또한 Starter Kit(링크 - 김경훈님 작업필요) 솔루션을 활용하여 쉽게 단말 연동 기능 시험 및 프로토타입 솔루션을 기획하실 수 있습니다. |
 +-----------------------+----------------------------------------------------------------------------------------------------------------+
 
-Device 
 
-|br|
 
 2. V2N Partner with Server 
 
@@ -91,7 +88,7 @@ RUUT는 고객 편의성, 데이터 및 인터페이스 호환성, 제공 정보
 자세한 절차들은 `RUUT 개발자 사이트 <https://ruut.readthedocs.io/>`__ 에 접속하거나 플랫폼에서 제공하는 `Open API (링크 추가 오픈 예정)>`__ 에서 확인하실 수 있습니다.
 
 
-|br|
+
 
 
 
