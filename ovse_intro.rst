@@ -30,16 +30,14 @@ OVSE의 주요 특징 및 핵심 기능은 다음과 같습니다.
 
 OVSE 플랫폼과 V2N Application Device/Server간 연동을 쉽게 개발할 수 있도록 간결하고, 다양한 API들을 제공하고 있습니다.
 
-Simple API
-'''''''''''''''''
+* Simple API
 
 OVSE 연동 Device (예 : ADAS, IVI, Blackbox 등) 및 Server (예 : GPT 센터 등)에게는 최소한의 API만을 제공하여 개발의 복잡도를 낮춰 드립니다.  
 
 이를 위해서 기존에 많이 사용되는 HTTP 프로토콜과 비교하여 저전력, 보다 빠른 데이터 처리, 가벼운 통신 규격을 지원하는 MQTT 프로토콜을 지원하고 있습니다.  
 
 
-Useful API
-'''''''''''''''''
+* Useful API
 
 회사 등록/관리, Device 등록/관리, V2N Message 전송, 서비스 통계 관리 등과 같은 다양한 서비스를 간편하게 구현할 수 있습니다. 
 
@@ -52,8 +50,7 @@ Device 연동 API를 통해서 정보를 올려주면, OVSE 플랫폼에서 복�
 SKT에서는 V2N 서비스 개발 파트너사들을 다음의 두 가지 경우로 고려하고 있습니다.
 
 
-V2N Partner with Device 
-'''''''''''''''''''''''''''
+* V2N Partner with Device 
 
 .. rst-class:: text-align-justify
 
@@ -78,8 +75,7 @@ OVSE 플랫폼과 Device간의 연동 기능 개발을 보다 쉽게 하실 수 
 또한 Starter Kit(링크 - 김경훈님 작업필요) 솔루션을 활용하여 쉽게 단말 연동 기능 시험 및 프로토타입 솔루션을 기획하실 수 있습니다.
 
 
-V2N Partner with Server 
-'''''''''''''''''''''''''''
+* V2N Partner with Server 
 
 디바이스를 OVSE에 직접 연결하지 않고, 보유하고 있는 Server를 이용하여 V2N 서비스를 이용하고자 하는 파트너들 (예: 자체 Backend를 보유한 OEM 등) 을 위한 인터페이스 역시 제공합니다. 
 
@@ -123,7 +119,8 @@ OVSE 플랫폼은 파트너업체들이 시장에서 경쟁력 있는 V2N Applic
 
 V2N Service Enabler
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-다양한 V2N 서비스를 서비스 종류 별로 
+V2N Service Enabler (이하 VSE)는 V2N 서비스를 하기 위한 도로 내의 다양한 상황 (예: 차량의 선/후관계, 동일차선/반대차선, 거리 등)을 분석하고, 
+상황을 분석하고 서비스 별로 다양한 V2N 서비스를 서비스 종류 별로 
 
 
 Map Matcher
