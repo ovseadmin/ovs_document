@@ -58,8 +58,6 @@ OVS northbound는 다음과 같은 REST API를 제공합니다. 상세한 내용
             | -  단말별 메시지 전달                              | POST    
 =========   ==================================================   ===============================
 
-
-
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
 
