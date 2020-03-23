@@ -177,7 +177,6 @@ Web App을 개발하는 개발자는 :ref:`7.2. Web Application Simulator <web-a
 -------------------------------
 
 .. rst-class:: table-width-fix
-.. rst-class:: table-width-fix-first
 .. rst-class:: text-align-justify
 
 +-----------------------+----------------------------------------------------------------------------------------------------------------+
