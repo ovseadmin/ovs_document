@@ -19,6 +19,8 @@ OVSE 플랫폼을 이용하기 위한 절차는 다음과 같이 구성되어 �
 .. image:: ./images/procedure1.png
 -->
 ** 아래 절차로 그림 변경 필요 ** 
+
+
 1. 포털 가입 및 인증키 발급 
  SK Open API 포털 계정 신청
  SK Open API 포털 계정 승인
@@ -173,7 +175,7 @@ Web App을 개발하는 개발자는 :ref:`7.2. Web Application Simulator <web-a
 
 
 
-기본 구성요소 (Basic Entity)
+표 그리기 테스트 
 -------------------------------
 
 .. rst-class:: table-width-fix
