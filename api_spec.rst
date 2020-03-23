@@ -1,4 +1,4 @@
-API Specification 
+﻿API Specification 
 =======================================
 
 About API Specification
@@ -75,6 +75,38 @@ Auth          | * 로그인                                           | POST
               | * 사용자 이메일 검색                               | POST
 ===========   ==================================================   ===============================
 
+
+
+REST API21
+------------
+
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
+
++------------------------+------------+----------+----------+
+| Header row, column 1   | Header 2   | Header 3 | Header 4 |
+| (header rows optional) |            |          |          |
++========================+============+==========+==========+
+| body row 1, column 1   | column 2   | column 3 | column 4 |
++------------------------+------------+----------+----------+
+| body row 2             | ...        | ...      |          |
++------------------------+------------+----------+----------+
+
+
+REST API22
+------------
+
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
+
+=====  =====  =======
+A      B      A and B
+=====  =====  =======
+False  False  False
+True   False  False
+False  True   False
+True   True   True
+=====  =====  =======
 
 
 REST API3
