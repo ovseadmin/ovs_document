@@ -35,7 +35,7 @@ VSC Interface for ``OVC-g`` (a.k.a. vsc-g Interface)
 
 OVC-g 단말을 위한 VSC Interface의 Flow는 다음과 같으며, 각 단계별로 절차를 ``Node.js`` 기반 코드로 소개합니다.
 
-.. image:: /images/interface_01.png
+.. image:: /images/device_procedure/ovcg_procedure.png
 	:width: 100%
 	:align: center
 
