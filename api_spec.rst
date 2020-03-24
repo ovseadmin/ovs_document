@@ -1,4 +1,6 @@
-﻿API Specification 
+﻿.. _api-specification:
+
+API Specification 
 =======================================
 
 About API Specification
