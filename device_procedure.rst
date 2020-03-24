@@ -16,7 +16,7 @@ OVSE 플랫폼과 Device를 연동하여 서비스하기 위해서는 다음의 
 
 * **VSC Interface**
 
-``VSC Interface`` 는 ``OVC`` 와  ``OVSE`` 간 인터페이스이며, 해당 인터페이스는 ``MQTT`` 프로토콜로 개발되어있습니다.
+``VSC Interface`` 는 ``OVC`` 와  ``OVSE`` 간 인터페이스이며, 해당 인터페이스는 ``MQTT`` 프로토콜로 개발되었습니다.
 
 본 섹션에서는 vsc interface 상에서 OVS 기능을 활용한 프로토콜을 명세하며, 상세 프로토콜은 
 `Device Types <https://ovs-document.readthedocs.io/en/latest/entity_architecture.html>`__ 에 명세된 단말의 타입에 따라 상이하게 기술됩니다.
