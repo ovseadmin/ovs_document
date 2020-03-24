@@ -39,4 +39,5 @@ Contents:
    api_spec
    message_format
    sdk
+   device_simulator
    miscellaneous
