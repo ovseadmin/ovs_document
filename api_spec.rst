@@ -14,6 +14,8 @@ REST API
 
 OVS northbound는 다음과 같은 REST API를 제공합니다. 상세한 내용은 `OVS Document <https://ovs-document.readthedocs.io/en/latest/index.html>`__ 내용을 참고하시기 바랍니다.
 
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
 
 =======  ==============================================   =======
 구분     설명                                             Method 
