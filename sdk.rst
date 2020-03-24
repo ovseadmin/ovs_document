@@ -1,4 +1,5 @@
 .. |br| raw:: html
+.. _platform-sdk:
 
 SDK
 =================
