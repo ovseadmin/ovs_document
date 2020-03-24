@@ -1,13 +1,22 @@
 .. |br| raw:: html
 
+.. _device-registration:
+
 Device 연동 절차
 =================
 
+이 매뉴얼은 OVSE 플랫폼에 연결되는 단말장치를 개발하는 파트너들을 위한 것입니다. 장치가 어떻게 플랫폼과 통신하는지 설명합니다.
 
-vsc Interface
--------------
+OVSE 플랫폼을 사용하여 V2N Service Application을 개발/서비스 하고자 하는 파트너는 :ref:`5. 구성요소(Entity) 등록 <entity-registration>` 를 참고하십시오. App 개발자는 :ref:`7. API 규격 <api-specification>` 과 :ref:`9. SDK <platform-sdk>` 를 참고하십시오.
 
-``vsc interface`` 는 ``OVC`` 와  ``OVS`` 간 인터페이스이며, 
+이 매뉴얼에서는 단말이 OVSE 플랫폼과 어떻게 연결되는지 설명합니다. 실제 단말과 OVSE플랫폼이 주고받는 메시지에 대한 상세한 내용은 :ref:`8. 메시지 포맷 <message-format>` 을 참고하십시오.
+
+
+
+VSC Interface
+----------------
+
+``VSC Interface`` 는 ``OVC`` 와  ``OVSE`` 간 인터페이스이며, 
 해당 인터페이스은 ``MQTT`` 프로토콜로 개발되며, 
 본 섹션에서는 vsc interface 상에서 OVS 기능을 활용한 프로토콜을 명세하며 상세 프로토콜은 
 `Device Types <https://ovs-document.readthedocs.io/en/latest/entity_architecture.html>`__ 에 명세된 단말의 타입에 따라 상이하게 기술됩니다.
@@ -21,7 +30,7 @@ vsc Interface
 
 
 
-vsc Interface for ``OVC-g`` (a.k.a. vsc-g Interface)
+VSC Interface for ``OVC-g`` (a.k.a. vsc-g Interface)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 OVC-g 단말을 위한 vsc Interface의 Flow는 다음과 같으며, 각 단계별로 절차를 ``Node.js`` 기반 코드로 소개합니다.
