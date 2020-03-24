@@ -1,4 +1,4 @@
-OVSE 주요 구성요소 (Entity Architecture)
+주요 구성요소 (Entity Architecture)
 =======================================
 
 .. rst-class:: text-align-justify
@@ -8,10 +8,14 @@ OVSE 플랫폼은 서비스 특성에 맞도록 설계된 유연한 데이터 �
 OVSE 서비스를 위한 Entity 간의 관계를 표현하면 다음과 같습니다.
 
 .. image:: /images/entity_architecture/ovse_entity_arch.png
+	:width: 100%
+	:align: center
 
 그 중 Company 내부의 관계는 다음과 같습니다.
 
 .. image:: /images/entity_architecture/ovse_company.png
+	:width: 100%
+	:align: center
 
 
 기본 구성요소 (Basic Entity)
@@ -49,3 +53,22 @@ Device                          | * OVSE와 플랫폼과 통신하여 V2N Applic
 
 
 
+Device Types
+--------------
+
+다음은 단말의 특성에 따라 구분될 수 있는 OVSE Client 인 ''OVC''의 두 가지 타입을 명세합니다.
+
+* Two OVSE Client (이하 OVC) Types
+
+OVSE 플랫폼에서 연동할 수 있는 ``OVC`` 타입은 2가지로 구분할 수 있습니다. ``GPS only OVC (OVC-g)`` 와 ``Map Mapping Capable OVC (OVC-m)`` 입니다. 
+각 타입은 다음 표와 같이 구분될 수 있습니다.
+
+========  =======================================================================================================================
+Type      Description              
+========  =======================================================================================================================
+OVC-g     | OVC-g는 단말에 탑재되는 OVC 미들웨어 또는 외부 S/W에 Map Matching 기능이 없는 OVC를 의미합니다.
+          | 해당 OVC-g는 GPS 칩을 통해 WGS84 좌표계를 획득할 수 있습니다. 
+OVC-m     | OVC-m은 단말에 탑재되는 OVC 미들웨어 또는 외부 S/W에 GPS 좌표로부터 Map Matching을 할 수 있는 기능이 있으며,
+          | 매칭을 위한 맵은 T맵 지도 및 도로 링크 체계를 따르는 OVC를 의미합니다. 
+          | 해당 OVC-m는 OVC-g의 기능에 자체적으로 T맵 Map Matching 기능과 주기적으로 갱신되는 T맵 지도을 갱신하는 기능을 가지고 있습니다.
+========  =======================================================================================================================
