@@ -4,13 +4,11 @@
 About API Specification
 --------------------------------
 
--OVS API Spec 소개
-OVS 제공하는 API 종류 및 프로토콜 Spec에 대한 설명
+OVSE 플랫폼은 인증, 회사 및 단말관리, 통계를 위한 API를 제공합니다. 
 
 
 REST API
 -----------
-
 
 OVS northbound는 다음과 같은 REST API를 제공합니다. 상세한 내용은 `OVS Document <https://ovs-document.readthedocs.io/en/latest/index.html>`__ 내용을 참고하시기 바랍니다.
 
@@ -19,7 +17,7 @@ OVS northbound는 다음과 같은 REST API를 제공합니다. 상세한 내용
 
 
 =========  ===================================================  ===========  =====================================================
- 구분       |  설명                                              | Method    | URL
+|구분       |  설명                                              | Method    | URL
 =========  ===================================================  ===========  =====================================================
  Auth       | -  로그인                                          | POST      | /api/auth/login
             | -  토큰 갱신                                       | POST      | /api/auth/token
