@@ -35,6 +35,8 @@ Contents:
    entity_architecture
    procedure
    entity
-   client
+   device_procedure
    api_spec
-   ovc_interface
+   message_format
+   sdk
+   miscellaneous
