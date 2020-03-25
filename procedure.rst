@@ -16,19 +16,8 @@ OVSE 플랫폼을 사용하려는 파트너들을 위한 매뉴얼입니다.
 OVSE 플랫폼을 이용하기 위한 절차는 다음과 같이 구성되어 있습니다.
 
 <!--
-.. image:: ./images/procedure1.png
+.. image:: ./images/procedure_ovs.png
 -->
-** 아래 절차로 그림 변경 필요 ** 
-
-
-1. 포털 가입 및 인증키 발급 
- SK Open API 포털 계정 신청
- SK Open API 포털 계정 승인
- auth token 발급 
-2. 회사(Company), 관리자(Director), 단말(Device) 등록 
- 발급받은 token을 이용하여 API로 등록 
-3. 서비스 활용
-4. 통계
 
 위 절차들은 `SK 오픈 API 포털에서 제공하는 `Open API <https://openapi.sk.com/>`__ 혹은 본 'OVSE 웹문서 <https://ovs-document.readthedocs.io/>`__ 에서 확인할 수 있습니다.
 
