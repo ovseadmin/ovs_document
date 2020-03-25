@@ -15,7 +15,7 @@ OVSE 플랫폼을 사용하려는 파트너들을 위한 매뉴얼입니다.
 
 OVSE 플랫폼을 이용하기 위한 절차는 다음과 같이 구성되어 있습니다.
 
-.. image:: images/procedure_ovs.png
+.. image:: images/procedure_ovs2.png
 	:width: 70%
 	:align: center
 
