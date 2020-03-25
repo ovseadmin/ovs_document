@@ -52,16 +52,15 @@ Device                          | * OVSE와 플랫폼과 통신하여 V2N Applic
 
 
 
-
 Device Types
 --------------
 
-다음은 단말의 특성에 따라 구분될 수 있는 OVSE Client 인 ''OVC''의 두 가지 타입을 명세합니다.
+다음은 단말의 특성에 따라 구분될 수 있는 Open V2N Service Client 인 ''OVC''의 두 가지 타입을 명세합니다.
 
-* Two OVSE Client (이하 OVC) Types
+* Open V2N Service Client (이하 OVC) Types
 
-OVSE 플랫폼에서 연동할 수 있는 ``OVC`` 타입은 2가지로 구분할 수 있습니다. ``GPS only OVC (OVC-g)`` 와 ``Map Mapping Capable OVC (OVC-m)`` 입니다. 
-각 타입은 다음 표와 같이 구분될 수 있습니다.
+OVSE 플랫폼에서 연동할 수 있는 ``OVC`` 타입은 ``GPS only OVC (OVC-g)`` 와 ``Map Mapping Capable OVC (OVC-m)`` 로 구분됩니다.
+각 타입의 특징은 아래 표를 참고하시기 바랍니다. 
 
 ========  =======================================================================================================================
 Type      Description              

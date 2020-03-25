@@ -162,6 +162,7 @@ Topic          v2x/location
 =============  =============================================
 
 본 순서에서 메시지를 전달할때는 다음 메시지를 ``JSON`` 형태로 포함합니다.
+(이는 :ref:`8. 메세지 포맷 <message-format>`의 VDPosition에 해당합니다.)
 
 =============  ====  ========  =============================================
 Key            M/O   Type      Description
@@ -219,6 +220,7 @@ Topic          v2x/event
 =============  =============================================
 
 본 순서에서 메시지를 전달할때는 다음 메시지를 ``JSON`` 형태로 포함합니다.
+(이는 :ref:`8. 메세지 포맷 <message-format>`의 VDEventReport에 해당합니다.)
 
 ================  ====  ========  =============================================
 Key               M/O   Type      Description
@@ -296,6 +298,8 @@ Receive a V2N Event Notification relevant to OVC-g
         responseOVSEventMsg(requestId);
         }
     });
+
+그리고 이때 수신되는 Event 메세지의 종류는 :ref:`8. 메세지 포맷 <message-format>`의 OVSE V2N Message를 참고하시기 바랍니다.
 
 Publish the result of the notifcation message handling
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
