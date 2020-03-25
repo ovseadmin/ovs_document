@@ -11,7 +11,7 @@
 
 Device 와 플랫폼을 연동하는 방법은 :ref:`5. Device 연동 절차 <device-interface>` 와 :ref:`8. 메시지 포맷 <message-format>` 을 참고하십시오. App 개발자는 :ref:`6. API 규격 <api-specification>` 과 :ref:`7. SDK <platform-sdk>` 를 참고하십시오.
 
-SK Open API 포털에서 token을 발급받은 이후에는 `OVS Open API <https://openapi.sk.com>`__ 를 이용하여 HTTP 기반 Rest API로 등록할 수 있습니다. 
+SK Open API 포털에서 token을 발급받은 이후에는 `OVSE Open API <https://openapi.sk.com>`__ 를 이용하여 HTTP 기반 Rest API로 등록할 수 있습니다. 
 
 
 서비스 등록 (Service Registration)
