@@ -66,79 +66,14 @@ OEM 및 Device 개발사
 
   .. rst-class:: text-align-justify
 
-  커넥티드카 서비스 대상 차량을 등록합니다. 차량 내 각종 정보를 수집하기 위해서 부착되는 센서들이 차량 정보를 인식할 수 있도록 차량에 대한 자세한 정보를 입력합니다.
-  세부 절차는 :ref:`4.3. 차량 등록 절차 <vehicle-registration-portal>` 를 참고하시기 바랍니다.
-
-5. 센서 등록
-
-  .. rst-class:: text-align-justify
-
-  등록한 차량에 부착된, 또는 부착할 센서 장치 등을 등록합니다. 세부 절차는 :ref:`4.4. 센서 등록 절차 <sensor-registration-portal>` 를 참고하시기 바랍니다.
-
-6. 차량과 센서 연결
+  서비스 대상 단말을 등록합니다. 
+  
+5. 관리자(디렉터) 등록
 
   .. rst-class:: text-align-justify
 
-  차량과 센서를 포털에 등록하면 OVS 플랫폼이 자동으로 차량과 센서간 연결을 제어하고, 차량으로부터 커넥티드카 서비스를 위한 각종 정보들을 수집하기 시작합니다.
+  등록된 단말이 다수이어서 소수의 관리자가 관리하기 어려울 경우에는 복수의 디렉터를 할당할 수 있습니다. 세부 절차는 :ref:`4.5. 디렉터 등록 절차 <director-registration-portal>` 를 참고하시기 바랍니다.
 
-7. 디렉터 등록
-
-  .. rst-class:: text-align-justify
-
-  등록된 차량이 다수이어서 소수의 관리자가 관리하기 어려울 경우에는 복수의 디렉터를 할당할 수 있습니다. 세부 절차는 :ref:`4.5. 디렉터 등록 절차 <director-registration-portal>` 를 참고하시기 바랍니다.
-
-8. 드라이버 등록
-
-  .. rst-class:: text-align-justify
-
-  차량을 관리하지 않지만 실제 운전을 담당할 운전자를 드라이버로 등록할 수 있습니다. 세부 절차는 :ref:`4.6. 운전자 등록 절차 <driver-registration-portal>` 를 참고하시기 바랍니다.
-
-9. 차량 위임
-
-  .. rst-class:: text-align-justify
-
-  커넥티드카 서비스 모델에 따라서 고객사의 차량을 협력사(예: 보험회사 등)에 관리권한을 위임할 수 있습니다. 위임받은 협력사는 귀사의 차량을 관리할 수 있으며, 차량관리 정보는 귀사에게 보고됩니다. 세부 절차는 :ref:`4.7. 위임회사 등록 절차 <delegated-company-registration-portal>` 를 참고하시기 바랍니다.
-
-Device 개발자
-~~~~~~~~~~~~~~
-
-.. rst-class:: text-align-justify
-
-차량 내 부착되는 Device는 OVS platform과 MQTT프로토콜을 이용하여 통신합니다. MQTT에 대한 자세한 사항은 `MQTT.org <http://mqtt.org/>`__ 를 참고하시기 바랍니다.
-
-.. rst-class:: text-align-justify
-
-1. 사전 준비 사항
-
-  .. rst-class:: text-align-justify
-
-  OVS 플랫폼을 사용하려면 서비스와 회사가 먼저 등록되어야 합니다. :ref:`4.1. 서비스 등록 절차 <service-registration-portal>` , :ref:`4.2. 회사(협력사) 등록 절차 <company-registration-portal>` 를 참고하여 Smart[Fleet] 플랫폼에 연결하는 방법을 확인시기 바랍니다.
-
-2. Activation
-
-  .. rst-class:: text-align-justify
-
-  Device에 따라 Activation이 필요할 수도 있습니다. Activation이 필요한 센서에 대해서는 :ref:`4.3. 차량 등록 절차 <vehicle-registration-portal>` 절차 내용을 참고하시기 바랍니다.
-
-3. 메시지 전송
-
-  .. rst-class:: text-align-justify
-
-  OVS 플랫폼과 연결이 완료되면 차량 내 부착된 센서들로부터 수집된 정보를 플랫폼으로 전송하기 시작합니다. 세부 절차는 :ref:`4.4. 센서 등록 절차 <sensor-registration-portal>` 절차를 참고하시기 바랍니다.
-
-  차량 내 센서가 OVS 플랫폼으로 센싱한 정보를 정상적으로 전송하기 위해서는 OVS 플랫폼에서 정의한 단말기 메시지 포맷을 맞추어야 합니다. 단말기 메시지 포맷 규격은 :ref:`8. 메시지 포맷 <message-format>` 내용을 참고하시기 바랍니다.
-
-4. RPC
-
-  .. rst-class:: text-align-justify
-
-  어플리케이션에서 센서로부터 특정 데이터를 요구하거나, 특정 행동을 요청할 경우에는 RPC를 사용합니다. RPC 이용 절차는 :ref:`5.2. Sensor RPC <device-rpc>` 내용을 참고하시기 바랍니다.
-
-5. SDK
-
-  .. rst-class:: text-align-justify
-
-  마지막으로 SDK를 참고하여 개발을 하실 수 있습니다. OBD2나 ADAS와 같이 센서가 부착된 디바이스를 개발하는 개발자는 :ref:`7.1. Embedded-C SDK <embedded-c-sdk>` 를 참고하시고, 스마트폰의 GPS를 사용하여 개발하는 개발자는 :ref:`7.2 Android SDK <android-sdk>` , :ref:`7.3. Object-C(iOS) SDK <object-c-sdk>` 내용을 참고하시기 바랍니다.
 
 App 개발자
 ~~~~~~~~~~~~~
@@ -170,27 +105,6 @@ OVS 에서 제공하는 포털을 사용하지 않을 경우 고객사에서 자
 .. rst-class:: text-align-justify
 
 Web App을 개발하는 개발자는 :ref:`7.2. Web Application Simulator <web-application-simulator>` 내용을 참고하시기 바랍니다.
-
-
-
-
-
-
-표 그리기 테스트 
--------------------------------
-
-.. rst-class:: table-width-fix
-.. rst-class:: text-align-justify
-
-+-----------------------+----------------------------------------------------------------------------------------------------------------+
-| 구분                  | 설명                                                                                                           |
-+-----------------------+----------------------------------------------------------------------------------------------------------------+
-
-
-+----------+----------------------------------------------------+
-| 구분     | APIs                                               |
-+==========+====================================================+
-
 
 
 
