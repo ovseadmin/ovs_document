@@ -80,7 +80,7 @@ App 개발자
 
 .. rst-class:: text-align-justify
 
-OVS 에서 제공하는 포털을 사용하지 않을 경우 고객사에서 자체적으로 App을 제작할 수 있습니다. 자체 App 개발을 진행하는 경우에는 OVS 플랫폼에서 제공하는 Open API를 활용하여 커넥티드카 서비스 App을 보다 쉽게 개발할 수 있습니다.
+OVSE 에서 제공하는 포털을 사용하지 않을 경우 고객사에서 자체적으로 App을 제작할 수 있습니다. 자체 App 개발을 진행하는 경우에는 OVS 플랫폼에서 제공하는 Open API를 활용하여 커넥티드카 서비스 App을 보다 쉽게 개발할 수 있습니다.
 
 .. rst-class:: text-align-justify
 
@@ -88,13 +88,13 @@ OVS 에서 제공하는 포털을 사용하지 않을 경우 고객사에서 자
 
   .. rst-class:: text-align-justify
 
-  우선 OVS 구성 요소의 등록 방법은 :ref:`4. 구성요소(Entity) 등록 <entity-registration>` 절차를 통해서 자세하게 확인할 수 있습니다.
+  우선 OVSE 구성 요소의 등록 방법은 :ref:`4. 구성요소(Entity) 등록 <entity-registration>` 절차를 통해서 자세하게 확인할 수 있습니다.
 
 2. Open API
 
   .. rst-class:: text-align-justify
 
-  OVS 플랫폼은 Restful Open API를 제공합니다. API를 통해 OVS 플랫폼에 데이터를 만들고 조회할 수 있습니다. Open API 규격에 대해서는 :ref:`6. API 규격 <api-specification>` 내용을 참고하시기 바랍니다.
+  OVSE 플랫폼은 Restful Open API를 제공합니다. API를 통해 OVSE 플랫폼에 데이터를 만들고 조회할 수 있습니다. Open API 규격에 대해서는 :ref:`6. API 규격 <api-specification>` 내용을 참고하시기 바랍니다.
 
 3. 메시지 포맷
 
