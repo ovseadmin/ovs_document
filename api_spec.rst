@@ -1,4 +1,8 @@
-﻿API Specification 
+﻿.. |br| raw:: html
+
+.. _entity-registration:
+
+API Specification 
 =======================================
 
 About API Specification
@@ -38,7 +42,6 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
             | -  회사 관리자 삭제                                | DELETE    | /api/ovs/v1/company/{companyId}/admin/{adminId}
             | -  회사 관리자 리스트 조회                         | GET       | /api/ovs/v1/company/{companyId}/admins
             | -  소유한 단말 리스트 조회                         | GET       | /api/ovs/v1/company/{companyId}/devices
-            | -  특정 회사 모든 단말의 기간별 이벤트 통계        | GET       | /api/ovs/v1/company/{companyId}/statistics/event
             | -  특정 회사 모든 단말에 메시지 전달               | POST      | /api/ovs/v1/company/{companyId}/message
 ---------  ---------------------------------------------------  -----------  -----------------------------------------------------
  Device     | -  단말 등록                                       | POST      | /api/ovs/v1/device
@@ -49,10 +52,11 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
             | -  전체 단말 리스트 조회                           | GET       | /api/ovs/v1/devices
             | -  특정 Service Type에 속하는 단말의 수 조회       | GET       | /api/ovs/v1/devices/cnt
             | -  소유한 전체 단말 수	                         | GET       | /api/ovs/v1/devices/owned/cnt 
-            | -  특정 단말 기간별 이벤트 통계                    | GET       | /api/ovs/v1/device/{deviceId}/statistics/event
             | -  단말별 메시지 전달                              | POST      | /api/ovs/v1/device/{deviceId}/message 
+---------  ---------------------------------------------------  -----------  -----------------------------------------------------
+ Stats      | -  특정 회사 모든 단말의 기간별 이벤트 통계        | GET       | /api/ovs/v1/company/{companyId}/statistics/event
+            | -  특정 단말 기간별 이벤트 통계                    | GET       | /api/ovs/v1/device/{deviceId}/statistics/event
 =========  ===================================================  ===========  =====================================================
-
 
 
 Entity Model
