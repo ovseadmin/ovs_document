@@ -95,6 +95,8 @@ REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 
 요청 파라미터를 입력할 때 ServiceType이 중복되지 않도록 해야 합니다. ServiceType은 Unique 값으로 하나의 ServiceType에 한 운영사만 등록할 수 있습니다.
 
 
+
+
 .. _company-registration-api:
 
 회사 정보 등록 API
@@ -103,9 +105,9 @@ REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
 
-+------------+--------------------------------------+
-| **POST**   | `/api/ovs/v1/company <https://TBD`__ |
-+------------+--------------------------------------+
++------------+---------------------------------------+
+| **POST**   | `/api/ovs/v1/company <https://TBD>`__ |
++------------+---------------------------------------+
 
 - Header
 
@@ -436,14 +438,7 @@ REST API를 사용할 때 입력하는 Company ID는 Response 데이터에 있�
 단말 등록 (Device Registration)
 -------------------------------
 
-.. _device-registration-portal:
-
-OVS 포털을 통한 등록
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. rst-class:: text-align-justify
-
-(삭제) 
+.. _device-registration-api:
 
 API를 활용한 등록
 ~~~~~~~~~~~~~~~~~
@@ -459,9 +454,7 @@ API를 활용한 등록
 .. rst-class:: text-align-justify
 
 +------------+--------------------------------------------+
-| **POST**   | `/api/ovs/v1/device <https://app.swaggerh  |
-|            | ub.com/apis/tremoteye/tremoteyeapi/1.0.0#/ |
-|            | Sensor/post_api_tre_v1_sensor>`__          |
+| **POST**   | `/api/ovs/v1/device <https://TBD>`__       |
 +------------+--------------------------------------------+
 
 
@@ -558,36 +551,29 @@ API를 활용한 등록
 |br|
 처음 등록할 때 단말은 DEACTIVATED 상태로 설정됩니다. 
 
-디렉터 등록 (Director Registration)
+.. _director-registration:
+
+회사 관리자 등록 (Company Admin Registration)
 -----------------------------------
 
-.. _director-registration-portal:
-
-OVS 포털을 통한 등록
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. rst-class:: text-align-justify
-
-(삭제)
+.. _director-registration-api:
 
 API를 활용한 등록
 ~~~~~~~~~~~~~~~~~
 
 .. rst-class:: text-align-justify
 
-디렉터는 COMPANY_ADMIN 권한을 가진 회사 계정으로만 등록할 수 있습니다. 특정 차량들에 대해 관리자로 지정되어 관리하거나, 타 회사의 차량을 위임받아서 모니터링 할 수 있습니다.
+회사관리자는 COMPANY_ADMIN 권한을 가진 회사 계정으로만 등록할 수 있습니다. 특정 차량들에 대해 관리자로 지정되어 관리하거나, 타 회사의 차량을 위임받아서 모니터링 할 수 있습니다.
 
-디렉터 정보 등록 API
+회사 관리자 정보 등록 API
 ^^^^^^^^^^^^^^^^^^^^
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
 
 +------------+----------------------------------------------+
-| **POST**   | `/api/tre/v1/director <https://app.swaggerhub|
-|            | .com/apis/tremoteye/tremoteyeapi/            |
-|            | 1.0.0#/Director/post_api_tre_v1_d            |
-|            | irector>`__                                  |
+| **POST**   | `/api/ovs/v1/company/{companyId}/admin       |
+|            | <https://TBD>`__                             |
 +------------+----------------------------------------------+
 
 -   Header
@@ -613,7 +599,7 @@ API를 활용한 등록
 +----------+--------+-------------+
 | Key      | Type   | Description |
 +==========+========+=============+
-| name     | string | 디렉터 이름 |
+| name     | string | 관리자 이름 |
 +----------+--------+-------------+
 | email    | string | 이메일      |
 +----------+--------+-------------+
