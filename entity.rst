@@ -17,16 +17,13 @@ SK Open API 포털에서 token을 발급받은 이후에는 `OVS Open API <https
 서비스 등록 (Service Registration)
 -----------------------------------
 
-API를 활용한 등록
+로그인 요청 API
 ~~~~~~~~~~~~~~~~~~
 
 .. rst-class:: text-align-justify
 
 SK Open API 가입승인후 OVSE 플랫폼용 JSON Web Token을 발급받을 수 있습니다. 
 REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 같습니다.
-
-로그인 요청 API
-^^^^^^^^^^^^^^^^^^^^
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -100,7 +97,7 @@ REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 
 .. _company-registration-api:
 
 회사 정보 등록 API
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -242,10 +239,7 @@ API를 활용한 등록
 .. rst-class:: text-align-justify
 
 +------------+----------------------------------------+
-| **POST**   | `/api/auth/login  <https://app.swagger |
-|            | hub.com/apis/tremoteye/tremoteyeap     |
-|            | i/1.0.0#/Auth/post_api_auth_logi       |
-|            | n>`__                                  |
+| **POST**   | `/api/auth/login  <https://TBD>`__     |
 +------------+----------------------------------------+
 
 - Header
@@ -307,9 +301,7 @@ API를 활용한 등록
 .. rst-class:: text-align-justify
 
 +-------------+-----------------------------------------------+
-|  **POST**   | `api/tre/v1/company <https://app.swaggerhub.c |
-|             | om/apis/tremoteye/tremoteyeapi/1.0.0#/Company |
-|             | /post_api_tre_v1_comapany>`__                 |
+|  **POST**   | `api/ovs/v1/company <https://TBD>`__          |
 +-------------+-----------------------------------------------+
 
 
