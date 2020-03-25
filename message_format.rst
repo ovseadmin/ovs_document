@@ -196,7 +196,7 @@ ty                M     Integer   Event 메세지 타입 구분
 event_id          M     String    Unique event 식별자
 event_type        M     Integer   알림 메세지 타입
 tunnel            M     Boolean   Tunnel 안의 이벤트인지 아닌지 (급정거는 모두 FALSE)
-distanceToEvent   O     Integer   | 이벤트 지점까지의 거리 (m)
+distanceToEvent   M     Integer   | 이벤트 지점까지의 거리 (m)
                                   | + : 전방
                                   | - : 후방
 location          M               | 이벤트 발생 위치 정보 (WGS84 Coordination)
