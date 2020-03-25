@@ -20,7 +20,7 @@ OVSE 플랫폼을 이용하기 위한 절차는 다음과 같이 구성되어 �
 	:align: center
 
 
-위 절차들은 `SK 오픈 API 포털에서 제공하는 `Open API <https://openapi.sk.com/>`__ 혹은 본 `OVSE 웹문서 <https://ovs-document.readthedocs.io/>`__ 에서 확인할 수 있습니다.
+위 절차들은 SK 오픈 API 포털에서 제공하는 `Open API <https://openapi.sk.com/>`__ 혹은 본 `OVSE 웹문서 <https://ovs-document.readthedocs.io/>`__ 에서 확인할 수 있습니다.
 
 서비스 이용 안내
 ---------------------
