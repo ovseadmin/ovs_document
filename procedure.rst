@@ -50,7 +50,7 @@ OEM 및 Device 개발사
   .. rst-class:: text-align-justify
 
   서비스 및 함께 사업을 할 협력회사를 등록합니다. 귀사로부터 귀사의 차량을 위임받을 수도 있고, 반대로 협력사의 차량을 위임받아서 귀사가 관리할 수 있습니다.
-  세부 절차는 :ref:`4.2. 회사(협력사) 등록 절차 <company-registration-portal>` 를 참고하시기 바랍니다.
+  세부 절차는 :ref:`5.2. 회사(협력사) 등록 절차 <company-registration-portal>` 를 참고하시기 바랍니다.
 
 4. 단말(Device) 등록
 
@@ -62,7 +62,7 @@ OEM 및 Device 개발사
 
   .. rst-class:: text-align-justify
 
-  등록된 단말이 다수이어서 소수의 관리자가 관리하기 어려울 경우에는 복수의 디렉터를 할당할 수 있습니다. 세부 절차는 :ref:`4.5. 디렉터 등록 절차 <director-registration-portal>` 를 참고하시기 바랍니다.
+  등록된 단말이 다수이어서 소수의 관리자가 관리하기 어려울 경우에는 복수의 디렉터를 할당할 수 있습니다. 세부 절차는 :ref:`5.4. 디렉터 등록 절차 <director-registration-portal>` 를 참고하시기 바랍니다.
 
 
 App 개발자
