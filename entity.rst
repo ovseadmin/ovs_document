@@ -17,7 +17,7 @@ SK Open API 포털에서 token을 발급받은 이후에는 `OVSE Open API <http
 서비스 등록 (Service Registration)
 -----------------------------------
 
-API를 활용한 등록
+로그인 요청 API
 ~~~~~~~~~~~~~~~~~~
 
 .. rst-class:: text-align-justify
@@ -25,14 +25,11 @@ API를 활용한 등록
 SK Open API 가입승인후 OVSE 플랫폼용 JSON Web Token을 발급받을 수 있습니다. 
 REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 같습니다.
 
-로그인 요청 API
-^^^^^^^^^^^^^^^^^^^^
-
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
 
 +------------+------------------------------------+
-| **POST**   | `/api/auth/login <https://TBD>`__                           |
+| **POST**   | `/api/auth/login <https://TBD>`__  |
 +------------+------------------------------------+
 
 - Header
@@ -100,7 +97,7 @@ REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 
 .. _company-registration-api:
 
 회사 정보 등록 API
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -228,24 +225,18 @@ REST API를 사용할 때 입력하는 Company ID는 Response 데이터에 있�
 
 .. _company-registration-portal:
 
-API를 활용한 등록
-~~~~~~~~~~~~~~~~~~
+로그인 요청 정보 API
+~~~~~~~~~~~~~~~~~~~~
 
 .. rst-class:: text-align-justify
 
 운영사 계정을 통해서 협력사를 생성할 수 있습니다. 협력사를 등록하기 전에 운영사 계정으로 로그인하여 토큰 데이터를 얻습니다. :ref:`4.1.2.2. 회사 정보 등록 API <company-registration-api>` 와 비교하면 계정이 가진 권한에 차이가 있을 뿐 등록 절차는 동일합니다.
 
-로그인 요청 정보 API
-^^^^^^^^^^^^^^^^^^^^
-
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
 
 +------------+----------------------------------------+
-| **POST**   | `/api/auth/login  <https://app.swagger |
-|            | hub.com/apis/tremoteye/tremoteyeap     |
-|            | i/1.0.0#/Auth/post_api_auth_logi       |
-|            | n>`__                                  |
+| **POST**   | `/api/auth/login  <https://TBD>`__     |
 +------------+----------------------------------------+
 
 - Header
@@ -301,15 +292,13 @@ API를 활용한 등록
 요청 파라미터를 입력할 때 협력사 ServiceType에는 운영사와 동일한 ServiceType을 기입합니다. 요청이 성공하면(code:200) Response에서 인증 토큰으로 사용할 token 필드를 얻을 수 있습니다. 토큰을 얻었으면 회사 정보 등록 API를 통해 서비스를 등록합니다.
 
 회사 정보 등록 API
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
 
 +-------------+-----------------------------------------------+
-|  **POST**   | `api/tre/v1/company <https://app.swaggerhub.c |
-|             | om/apis/tremoteye/tremoteyeapi/1.0.0#/Company |
-|             | /post_api_tre_v1_comapany>`__                 |
+|  **POST**   | `api/ovs/v1/company <https://TBD>`__          |
 +-------------+-----------------------------------------------+
 
 
@@ -440,15 +429,12 @@ REST API를 사용할 때 입력하는 Company ID는 Response 데이터에 있�
 
 .. _device-registration-api:
 
-API를 활용한 등록
+단말 등록 API
 ~~~~~~~~~~~~~~~~~
 
 .. rst-class:: text-align-justify
 
 단말은 COMPANY_ADMIN 권한을 가진 회사 계정으로만 등록할 수 있습니다.
-
-단말 등록 API
-^^^^^^^^^^^^^
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -558,15 +544,12 @@ API를 활용한 등록
 
 .. _director-registration-api:
 
-API를 활용한 등록
+회사 관리자 정보 등록 API
 ~~~~~~~~~~~~~~~~~
 
 .. rst-class:: text-align-justify
 
 회사관리자는 COMPANY_ADMIN 권한을 가진 회사 계정으로만 등록할 수 있습니다. 특정 차량들에 대해 관리자로 지정되어 관리하거나, 타 회사의 차량을 위임받아서 모니터링 할 수 있습니다.
-
-회사 관리자 정보 등록 API
-^^^^^^^^^^^^^^^^^^^^
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
