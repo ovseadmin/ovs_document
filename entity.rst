@@ -226,7 +226,7 @@ REST API를 사용할 때 입력하는 Company ID는 Response 데이터에 있�
 .. _company-registration-portal:
 
 로그인 요청 정보 API
-~~~~~~~~~~~~~~~~~~_
+~~~~~~~~~~~~~~~~~~~~
 
 .. rst-class:: text-align-justify
 
