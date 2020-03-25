@@ -292,7 +292,7 @@ REST API를 사용할 때 입력하는 Company ID는 Response 데이터에 있�
 요청 파라미터를 입력할 때 협력사 ServiceType에는 운영사와 동일한 ServiceType을 기입합니다. 요청이 성공하면(code:200) Response에서 인증 토큰으로 사용할 token 필드를 얻을 수 있습니다. 토큰을 얻었으면 회사 정보 등록 API를 통해 서비스를 등록합니다.
 
 회사 정보 등록 API
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
