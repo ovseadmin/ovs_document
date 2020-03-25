@@ -225,15 +225,12 @@ REST API를 사용할 때 입력하는 Company ID는 Response 데이터에 있�
 
 .. _company-registration-portal:
 
-API를 활용한 등록
-~~~~~~~~~~~~~~~~~~
+로그인 요청 정보 API
+~~~~~~~~~~~~~~~~~~_
 
 .. rst-class:: text-align-justify
 
 운영사 계정을 통해서 협력사를 생성할 수 있습니다. 협력사를 등록하기 전에 운영사 계정으로 로그인하여 토큰 데이터를 얻습니다. :ref:`4.1.2.2. 회사 정보 등록 API <company-registration-api>` 와 비교하면 계정이 가진 권한에 차이가 있을 뿐 등록 절차는 동일합니다.
-
-로그인 요청 정보 API
-^^^^^^^^^^^^^^^^^^^^
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -432,15 +429,12 @@ REST API를 사용할 때 입력하는 Company ID는 Response 데이터에 있�
 
 .. _device-registration-api:
 
-API를 활용한 등록
+단말 등록 API
 ~~~~~~~~~~~~~~~~~
 
 .. rst-class:: text-align-justify
 
 단말은 COMPANY_ADMIN 권한을 가진 회사 계정으로만 등록할 수 있습니다.
-
-단말 등록 API
-^^^^^^^^^^^^^
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -550,15 +544,12 @@ API를 활용한 등록
 
 .. _director-registration-api:
 
-API를 활용한 등록
+회사 관리자 정보 등록 API
 ~~~~~~~~~~~~~~~~~
 
 .. rst-class:: text-align-justify
 
 회사관리자는 COMPANY_ADMIN 권한을 가진 회사 계정으로만 등록할 수 있습니다. 특정 차량들에 대해 관리자로 지정되어 관리하거나, 타 회사의 차량을 위임받아서 모니터링 할 수 있습니다.
-
-회사 관리자 정보 등록 API
-^^^^^^^^^^^^^^^^^^^^
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
