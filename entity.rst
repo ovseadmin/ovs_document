@@ -9,7 +9,7 @@
 
 이 매뉴얼은 OVSE 플랫폼을 사용하기 원하는 파트너들에게 플랫폼 사용을 위한 절차를 설명하기 위한 것입니다.
 
-Device 와 플랫폼을 연동하는 방법은 :ref:`5. Device 연동 절차 <device-interface>` 와 :ref:`8. 메시지 포맷 <message-format>` 을 참고하십시오. App 개발자는 :ref:`6. API 규격 <api-specification>` 과 :ref:`7. SDK <platform-sdk>` 를 참고하십시오.
+Device 와 플랫폼을 연동하는 방법은 :ref:`6. Device 연동 절차 <device-procedure>` 와 :ref:`8. 메시지 포맷 <message-format>` 을 참고하십시오. App 개발자는 :ref:`7. API 규격 <api-specification>` 과 :ref:`9. SDK <platform-sdk>` 를 참고하십시오.
 
 SK Open API 포털에서 token을 발급받은 이후에는 `OVSE Open API <https://openapi.sk.com>`__ 를 이용하여 HTTP 기반 Rest API로 등록할 수 있습니다. 
 
@@ -89,9 +89,7 @@ REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 
 |br|
 토큰을 얻었으면 회사 정보 등록 API를 통해 서비스를 등록합니다.
 |br|
-요청 파라미터를 입력할 때 ServiceType이 중복되지 않도록 해야 합니다. ServiceType은 Unique 값으로 하나의 ServiceType에 한 운영사만 등록할 수 있습니다.
-
-
+요청 파라미터를 입력할 때 ServiceType이 중복되지 않도록 해야하며, 기존 ServiceType과 중복으로 error 발생한 경우 ServiceType을 변경하여 재시도해주시기 바랍니다. ServiceType은 Unique 값으로 하나의 ServiceType에 한 운영사만 등록할 수 있습니다.
 
 
 .. _company-registration-api:
