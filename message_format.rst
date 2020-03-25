@@ -78,11 +78,12 @@ OVC가 OVSE로 보내는 메세지는 주기보고 타입과 비주기 보고 �
 =============  ====  ========  =============================================
 Key            M/O   Type      Description
 =============  ====  ========  =============================================
-ts             M     Integer   메세지 전달 시간 (msec, epoch)
+ts             M     Integer   | 메세지 전달 시간 (msec, epoch)
+                               | * YYYYMMDDHH24MISS
 ty             M     Integer   메세지 타입 구분 
 dev_type       M     Integer   OVC를 탑재한 단말의 타입
 dev_id         M     String    OVSE에 등록된 단말 식별자
-speed          O     Integer   현재 속도 값
+speed          O     Integer   현재 속도 값 (kph)
 location       M               | 현재 위치 좌표 (WGS84 Coordination)
                                | Child key로 "lat", "lon" 를 적시
 =============  ====  ========  =============================================
@@ -131,13 +132,14 @@ dev_type   설명
 ================  ====  ========  =============================================
 Key               M/O   Type      Description
 ================  ====  ========  =============================================
-ts                M     Integer   메세지 전달 시간 (msec, epoch)
+ts                M     Integer   | 메세지 전달 시간 (msec, epoch)
+                                  | * YYYYMMDDHH24MISS
 ty                M     Integer   메세지 타입 구분 
 dev_type          M     Integer   OVC를 탑재한 단말의 타입
 dev_id            M     String    OVSE에 등록된 단말 식별자
 event_type        M     Integer   Event 종류 식별자
 event_id          M     String    Unique event 식별자
-distanceToEvent   O     Integer   이벤트 지점까지의 거리
+distanceToEvent   O     Integer   | 이벤트 지점까지의 거리 (m)
                                   | + : 전방
                                   | - : 후방
 location          M               | 이벤트 발생 위치 정보 (WGS84 Coordination)
@@ -188,13 +190,13 @@ OVSE에서 OVC로 다양한 V2N 이벤트 알림 메세지가 전달됩니다.
 ================  ====  ========  =============================================
 Key               M/O   Type      Description
 ================  ====  ========  =============================================
-ts                M     Integer   메세지 전달 시간 (msec, epoch)
+ts                M     Integer   | 메세지 전달 시간 (msec, epoch)
                                   | * YYYYMMDDHH24MISS
 ty                M     Integer   Event 메세지 타입 구분
 event_id          M     String    Unique event 식별자
 event_type        M     Integer   알림 메세지 타입
 tunnel            M     Boolean   Tunnel 안의 이벤트인지 아닌지 (급정거는 모두 FALSE)
-distanceToEvent   O     Integer   이벤트 지점까지의 거리
+distanceToEvent   M     Integer   | 이벤트 지점까지의 거리 (m)
                                   | + : 전방
                                   | - : 후방
 location          M               | 이벤트 발생 위치 정보 (WGS84 Coordination)
