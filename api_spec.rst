@@ -10,7 +10,7 @@ OVSE 플랫폼은 인증, 회사 및 단말관리, 통계를 위한 API를 제�
 REST API
 -----------
 
-OVS northbound는 다음과 같은 REST API를 제공합니다. 상세한 내용은 `OVS Document <https://ovs-document.readthedocs.io/en/latest/index.html>`__ 내용을 참고하시기 바랍니다.
+OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내용은 `OVSE Document <https://ovs-document.readthedocs.io/en/latest/index.html>`__ 내용을 참고하시기 바랍니다.
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -60,7 +60,7 @@ Entity Model
 
 .. rst-class:: text-align-justify
 
-REST API에서는 다음과 같은 Entity들이 정의되어 있으며, 세부 데이터 모델 내용은 `OVS Document <https://ovs-document.readthedocs.io/en/latest/index.html>`__ 내용을 참고하시기 바랍니다.
+REST API에서는 다음과 같은 Entity들이 정의되어 있으며, 세부 데이터 모델 내용은 `OVSE Document <https://ovs-document.readthedocs.io/en/latest/index.html>`__ 내용을 참고하시기 바랍니다.
 
 -  Company
 
