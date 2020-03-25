@@ -7,16 +7,12 @@
 구성요소(Entity) 등록
 =======================================
 
-이 매뉴얼은 OVS 플랫폼을 사용하기 원하는 파트너들에게 플랫폼 사용을 위한 절차를 설명하기 위한 것입니다.
+이 매뉴얼은 OVSE 플랫폼을 사용하기 원하는 파트너들에게 플랫폼 사용을 위한 절차를 설명하기 위한 것입니다.
 
 Device 와 플랫폼을 연동하는 방법은 :ref:`5. Device 연동 절차 <device-interface>` 와 :ref:`8. 메시지 포맷 <message-format>` 을 참고하십시오. App 개발자는 :ref:`6. API 규격 <api-specification>` 과 :ref:`7. SDK <platform-sdk>` 를 참고하십시오.
 
-구성요소를 등록하는 방법은 2가지가 제공되고 있습니다.
+SK Open API 포털에서 token을 발급받은 이후에는 `OVS Open API <https://openapi.sk.com>`__ 를 이용하여 HTTP 기반 Rest API로 등록할 수 있습니다. 
 
-1. `OVS 포털' - ** 현재 제공 계획 없음 - 삭제 ** 
-2. `OVS Open API <https://openapi.sk.com>`__ : OVS 플랫폼에서 제공하는 HTTP 기반 Rest API를 이용하는 방법
-
-각 등록 절차마다 두 가지 방법이 설명되어 있으니 참고하시기 바랍니다.
 
 서비스 등록 (Service Registration)
 -----------------------------------
@@ -29,7 +25,7 @@ API를 활용한 등록
 SK Open API 가입승인후 OVSE 플랫폼용 JSON Web Token을 발급받을 수 있습니다. 
 REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 같습니다.
 
-로그인 요청 정보 API
+로그인 요청 API
 ^^^^^^^^^^^^^^^^^^^^
 
 .. rst-class:: table-width-fix
@@ -98,6 +94,7 @@ REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 
 |br|
 요청 파라미터를 입력할 때 ServiceType이 중복되지 않도록 해야 합니다. ServiceType은 Unique 값으로 하나의 ServiceType에 한 운영사만 등록할 수 있습니다.
 
+
 .. _company-registration-api:
 
 회사 정보 등록 API
@@ -107,10 +104,7 @@ REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 
 .. rst-class:: text-align-justify
 
 +------------+--------------------------------------+
-| **POST**   | `/api/tre/v1/company <https://app.sw |
-|            | aggerhub.com/apis/tremoteye/tremotey |
-|            | eapi/1.0.0#/Company/post_api_tre_v1_ |
-|            | company>`__                          |
+| **POST**   | `/api/ovs/v1/company <https://TBD`__ |
 +------------+--------------------------------------+
 
 - Header
@@ -231,13 +225,6 @@ REST API를 사용할 때 입력하는 Company ID는 Response 데이터에 있�
 ----------------------------------------------------
 
 .. _company-registration-portal:
-
-OVS 포털을 통한 등록
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. rst-class:: text-align-justify
-
-(제공 계획 없으므로 삭제) 
 
 API를 활용한 등록
 ~~~~~~~~~~~~~~~~~~
