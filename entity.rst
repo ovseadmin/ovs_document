@@ -29,7 +29,7 @@ REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 
 .. rst-class:: text-align-justify
 
 +------------+------------------------------------+
-| **POST**   | `/api/auth/login <https://TBD>`__                           |
+| **POST**   | `/api/auth/login <https://TBD>`__  |
 +------------+------------------------------------+
 
 - Header
