@@ -11,7 +11,7 @@ OVSE 서비스를 위한 Entity 간의 관계를 표현하면 다음과 같습�
 	:width: 80%
 	:align: center
 
-위 그림에서 보이는 바와 같이 하나의 서비스를 생성하면, 해당 서비스를 위한 (1) Company (2) Director (3) Device의 Entity를 추가하고 관계를 설정해주게 됩니다.
+하나의 서비스를 생성하면, 해당 서비스를 위한 (1) Company (2) Director (3) Device의 Entity를 추가하고 관계를 설정해주게 됩니다.
 
 그 중 Company 내부의 관계는 다음과 같습니다.
 
