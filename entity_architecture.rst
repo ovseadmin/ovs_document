@@ -7,9 +7,11 @@ OVSE 플랫폼은 서비스 특성에 맞도록 설계된 유연한 데이터 �
 
 OVSE 서비스를 위한 Entity 간의 관계를 표현하면 다음과 같습니다.
 
-.. image:: /images/entity_architecture/ovse_entity_arch.png
+.. image:: /images/entity_architecture/ovse_entity_arch2.png
 	:width: 80%
 	:align: center
+
+하나의 서비스를 생성하면, 해당 서비스를 위한 (1) Company (2) Director (3) Device의 Entity를 추가하고 관계를 설정해주게 됩니다.
 
 그 중 Company 내부의 관계는 다음과 같습니다.
 
@@ -34,18 +36,17 @@ Company                         | * V2N 서비스 단말의 제조사 혹은 관
                                 | * Company는 운영사(Master Company)와 협력사(Partner Company)로 구분됩니다.
                                 |
                                 |   운영사 (Master)
-                                |
                                 |   - OVSE 시스템 관리자에 의해서 등록됩니다.
                                 |   - Device를 등록, 수정, 삭제할 수 있습니다.
                                 |   - 협력사를 등록하고 수정, 삭제할 수 있습니다. (협력사가 등록한 협력사의 수정, 삭제도 가능)
                                 |
                                 |   협력사 (Partner)
-                                |   
                                 |   - Company 관리자에 의해서 등록됩니다.
                                 |   - Device를 등록, 수정, 삭제할 수 있습니다.
                                 |   - 협력사를 등록할 수 있습니다. (수정/삭제는 불가)
+                                |
 Director                        | * V2N Application Device를 소유/관리/운용하고 있는 사용자 
-                                | * Device의 등록/삭제를 할 수 있으며, 타 Director가 등록한 Device는 접근할 수 없다.
+                                | * Device의 등록/삭제를 할 수 있으며, 타 Director가 등록한 Device는 접근할 수 없습니다.
 Device                          | * OVSE와 플랫폼과 통신하여 V2N Application을 제공하는 주체. 
                                 | * 차량의 위치, Event 정보를 센싱하여 플랫폼으로 전달하고, 플랫폼으로 부터 V2N Event 메세지를 수신하여 서비스한다. 
 =============================   ==================================================================================================
