@@ -7,7 +7,7 @@ OVSE 플랫폼은 서비스 특성에 맞도록 설계된 유연한 데이터 �
 
 OVSE 서비스를 위한 Entity 간의 관계를 표현하면 다음과 같습니다.
 
-.. image:: /images/entity_architecture/ovse_entity_arch.png
+.. image:: /images/entity_architecture/ovse_entity_arch2.png
 	:width: 80%
 	:align: center
 
