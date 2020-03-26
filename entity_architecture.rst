@@ -44,6 +44,7 @@ Company                         | * V2N 서비스 단말의 제조사 혹은 관
                                 |   - Company 관리자에 의해서 등록됩니다.
                                 |   - Device를 등록, 수정, 삭제할 수 있습니다.
                                 |   - 협력사를 등록할 수 있습니다. (수정/삭제는 불가)
+                                |
 Director                        | * V2N Application Device를 소유/관리/운용하고 있는 사용자 
                                 | * Device의 등록/삭제를 할 수 있으며, 타 Director가 등록한 Device는 접근할 수 없습니다.
 Device                          | * OVSE와 플랫폼과 통신하여 V2N Application을 제공하는 주체. 
