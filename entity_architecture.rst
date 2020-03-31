@@ -8,17 +8,10 @@ OVSE 플랫폼은 서비스 특성에 맞도록 설계된 유연한 데이터 �
 OVSE 서비스를 위한 Entity 간의 관계를 표현하면 다음과 같습니다.
 
 .. image:: /images/entity_architecture/ovse_entity_arch2.png
-	:width: 80%
+	:width: 100%
 	:align: center
 
 하나의 서비스를 생성하면, 해당 서비스를 위한 (1) Company (2) Director (3) Device의 Entity를 추가하고 관계를 설정해주게 됩니다.
-
-그 중 Company 내부의 관계는 다음과 같습니다.
-
-.. image:: /images/entity_architecture/ovse_company.png
-	:width: 80%
-	:align: center
-
 
 기본 구성요소 (Basic Entity)
 -------------------------------
@@ -30,21 +23,11 @@ OVSE 서비스를 위한 Entity 간의 관계를 표현하면 다음과 같습�
 =============================   ==================================================================================================
 구분                             설명
 =============================   ==================================================================================================
-Company                         | * V2N 서비스 단말의 제조사 혹은 관리 업체 (예: 블랙박스, IVI 제조사, 자체 Backend를 보유한 OEM ) 
-                                | * 관리자 계정을 통해서 서비스 대상 단말을 등록 및 관리합니다.
+Company                         | * Company는 V2N 서비스 단말의 제조사 혹은 관리 업체를 의미합니다. 
+                                |   (예: 블랙박스, IVI 제조사, 자체 Backend를 보유한 OEM ) 
+                                | * OVSE 시스템 관리자 (sysadmin) 에 의해서 등록됩니다.
+                                | * 관리자 계정(Company admin)을 통해서 서비스 대상 단말을 등록 및 관리(수정/삭제)합니다.
                                 | * 등록된 Device 들을 Director에게 할당합니다.
-                                | * Company는 운영사(Master Company)와 협력사(Partner Company)로 구분됩니다.
-                                |
-                                |   운영사 (Master)
-                                |   - OVSE 시스템 관리자에 의해서 등록됩니다.
-                                |   - Device를 등록, 수정, 삭제할 수 있습니다.
-                                |   - 협력사를 등록하고 수정, 삭제할 수 있습니다. (협력사가 등록한 협력사의 수정, 삭제도 가능)
-                                |
-                                |   협력사 (Partner)
-                                |   - Company 관리자에 의해서 등록됩니다.
-                                |   - Device를 등록, 수정, 삭제할 수 있습니다.
-                                |   - 협력사를 등록할 수 있습니다. (수정/삭제는 불가)
-                                |
 Director                        | * V2N Application Device를 소유/관리/운용하고 있는 사용자 
                                 | * Device의 등록/삭제를 할 수 있으며, 타 Director가 등록한 Device는 접근할 수 없습니다.
 Device                          | * OVSE와 플랫폼과 통신하여 V2N Application을 제공하는 주체. 
@@ -57,6 +40,7 @@ Device Types
 --------------
 
 다음은 단말의 특성에 따라 구분될 수 있는 Open V2N Service Client 인 ''OVC''의 두 가지 타입을 명세합니다.
+실제 Device는 GPS, ADAS, IVI 등 여러 종류가 있을 수 있으나, OVSE플랫폼 입장에서는 연동되는 Device를 T맵의 유무를 기준으로 크게 두 종으로 나눕니다. 
 
 * Open V2N Service Client (이하 OVC) Types
 
