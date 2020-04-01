@@ -31,12 +31,6 @@ OVSE 플랫폼과 OVC를 연동하여 서비스하기 위해서는 다음의 VSC
         - Node.js Program Language 
 
 
-.. note::
-
-   본 장에 명세된 표 내용 중 ``M`` / ``O`` 는 ``Mandatory`` / ``Optional`` 의 약자로, Mandatory는 필수로 포함해야 하는 데이터를 Optional은 필요에 따라 기입 여부를 개발사에서 판단하시면 됩니다.
-
-
-
 VSC Interface for ``OVC-g`` (a.k.a. vsc-g Interface)
 ----------------------------------------------------------------
 
