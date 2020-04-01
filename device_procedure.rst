@@ -35,7 +35,7 @@ VSC Interface for ``OVC-g`` (a.k.a. vsc-g Interface)
 
 OVC-g 단말을 위한 VSC Interface의 Flow는 다음과 같으며, 각 단계별로 절차를 ``Node.js`` 기반 코드로 소개합니다.
 
-.. image:: /images/device_procedure/ovcg_procedure.png
+.. image:: /images/device_procedure/ovcg_procedure_v2.png
 	:width: 100%
 	:align: center
 
@@ -78,17 +78,21 @@ Connect to OVSE
 `MQTT Connect 참고 <https://www.hivemq.com/blog/mqtt-essentials-part-3-client-broker-connection-establishment/>`__ 와 동일합니다.
 단, 접속할 때는 다음 Parameter를 적용하여 connect 합니다.
 
-=============  =============================================
+=============  ===========================================================
 Parameters     Value
-=============  =============================================
-host           tcp://192.168.1.170
-port           1883
-username       발급된 고객사의 userName
+=============  ===========================================================
+host           tcp://192.168.1.170 (*Will be changed*) 
+port           1883 (*Will be changed*) 
+username       발급된 고객사의 userName (할당 받은 Access Token (20자리) 값)
 password       발급된 고객사의 passWord
 clientId       단말 식별 번호 (기능상 UserName과 동일하게 처리 가능)
 cleanSession   true
 keepAlive      60
-=============  =============================================
+=============  ===========================================================
+
+.. rst-class:: text-align-justify
+
+Username 필드에는 해당 단말의 Credentials ID 값을 입력합니다. 단말의 Credentials ID 값은 `Smart[Fleet] REST API <https://app.swaggerhub.com/apis/tremoteye/tremoteyeapi/1.0.0#/Sensor/get_api_tre_v1_sensor>`__ 를 통해서 얻을 수 있습니다. cleanSession 필드가 true면 이전 세션 정보가 아직 존재할 경우 클라이언트와 서버에서 이전 세션 정보를 삭제합니다. MQTT 버전은 3.1.1을 사용합니다.
 
 
 ``Example Code`` 
@@ -334,6 +338,37 @@ OVSE에서 발송한 메세지의 처리 결과를 일정 시간(To-be-specified
 VSC Interface for ``OVC-m``
 ------------------------------------------------
 
+OVC-m 단말을 위한 VSC Interface의 Flow는 다음과 같으며, 각 단계별로 절차를 ``Node.js`` 기반 코드로 소개합니다.
+
+.. image:: /images/device_procedure/ovcm_procedure_v1.png
+	:width: 100%
+	:align: center
+
+
+OVC-m 과 OVC-g의 가장 큰 차이는 T맵의 사용 유무입니다. 이에 따라 OVSE와 주고 받는 데이터 형태가 달라집니다. 
+
+도식화된 Flow는 크게 4가지 단계 ``Stage`` 로 구성됩니다. 일반적으로 ``V2N Event Report`` 와 
+``V2N Event Notification Reception`` 은 순서와 상관없이 이벤트 발생에 따라 비동기적으로 발생합니다. 
+
+================================  ===================================================================
+Stages                            Description              
+================================  ===================================================================
+Preparation                       | OVC-m과 OVSE 상호 간 서비스를 호출하기 위해서 필요한 연결, 
+                                  | 인증 등 기본적인 항목을 준비하는 단계
+                                  | 1. Connect to OVSE
+                                  | 
+                                  |
+Location Report                   | OVC-g가 GPS로부터 수신한 현재 위치를 OVSE에 주기적으로 반복 보고하는 단계
+                                  | 3. Publish OVC-g's Current Location
+                                  |
+V2N Event Report                  | OVC-g가 VAC로부터 전달받은 V2N Event를 OVSE에 보고하는 단계
+                                  | 4. Publish V2N Event detected by OVC-g
+                                  |
+V2N Event Notification Reception  | OVSE가 타 OVC로부터 전달받은 V2N Event 중 해당 OVC-g와 연계된 Event를 
+                                  | 푸시하여 OVC-g가 수신하는 단계
+                                  | 5. Receive a V2N Event Notification relevant to OVC-g
+                                  | 6. Publish the result of the notifcation message handling
+================================  ===================================================================
 
 
 
