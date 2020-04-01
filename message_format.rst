@@ -31,7 +31,6 @@ OVSE 플랫폼의 기본 메세지 구조는 JSON Format으로 Header, Payload�
 .. code-block:: json
 
     {
-        // Header
         "timestamp" : 1571273913571, // timestamp     
         "dev_type": 2,
         "dev_id": 3333,
@@ -45,10 +44,10 @@ OVSE 플랫폼의 기본 메세지 구조는 JSON Format으로 Header, Payload�
 
 메세지의 종류는 Device Type과 송/수신 대상에 따라 세부내용이 달라집니다.
 
-* Device Type: OVC-g or OVC-m
+* Device Type: OVC-g (1) or OVC-m (2)
 * 송신 >> 수신: OVC >> OVSE or OVSE >> OVC
 
-.. _message-format-for-ovcg:
+.. _message-format-ovcg:
 
 OVC-g Message Format
 -----------------------------
@@ -58,6 +57,8 @@ OVC-g >> OVSE Message
 
 OVC-g가 OVSE로 보내는 메세지는 주기보고 타입과 비주기 보고 타입이 있습니다.
 
+
+.. _message-format-ovcg-ovcposition:
 
 주기보고 메세지 타입 (OVCPosition)
 ``````````````````````````````````
@@ -91,6 +92,7 @@ location       M               | 현재 위치 좌표 (WGS84 Coordination)
         }
     }
 
+.. _message-format-ovcg-ovceventreport:
 
 비주기보고 메세지 타입 (OVCEventReport)
 ``````````````````````````````````````````
@@ -105,7 +107,7 @@ Key               M/O   Type      Description
 ================  ====  ========  =============================================
 ts                M     Integer   | 메세지 전달 시간 (msec, epoch)
                                   | * YYYYMMDDHH24MISS
-dev_type          M     Integer   OVC를 탑재한 단말의 타입
+dev_type          M     Integer   OVC-g 단말 타입 (1)
 dev_id            M     String    OVSE에 등록된 단말 식별자
 event_type        M     Integer   Event 종류 식별자
 event_id          M     String    Unique event 식별자
@@ -145,6 +147,7 @@ event_type    설명
     }
 
 
+.. _message-format-ovcg-ovsev2nevent:
 
 OVSE >> OVC-g Message
 '''''''''''''''''''''''''
@@ -209,6 +212,8 @@ OVC-m >> OVSE Message
 '''''''''''''''''''''''''
 OVC-m은 OVC-g와 달리 내부에 T맵을 이용하여 도로상의 위치를 파악할 수 있기 때문에, OVSE로 위치 주기보고 메세지를 보낼 필요가 없습니다.
 그래서 OVC-m은 비주기 보고 타입만 있으며, 그 형태는 OVC-g와 유사합니다. 
+
+.. _message-format-ovcm-ovceventreport:
 
 비주기보고 메세지 타입 (OVCEventReport)
 ``````````````````````````````````````````
