@@ -295,7 +295,7 @@ VSC Interface for ``OVC-m``
 
 OVC-m 단말을 위한 VSC Interface의 Flow는 다음과 같으며, 각 단계별로 절차를 ``Node.js`` 기반 코드로 소개합니다.
 
-.. image:: /images/device_procedure/ovcm_procedure_v1.png
+.. image:: /images/device_procedure/ovcm_procedure_v2.png
 	:width: 100%
 	:align: center
 
