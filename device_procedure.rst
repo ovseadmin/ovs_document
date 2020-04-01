@@ -48,8 +48,8 @@ OVC-g 단말을 위한 VSC Interface의 Flow는 다음과 같으며, 각 단계�
 ================================  ===================================================================
 Stages                            Description              
 ================================  ===================================================================
-Preparation                       | OVC-g가 OVSE 상호 간 서비스를 호출하기 위해서 필요한 연결, 인증, 푸시 메세지 수신을
-                                  | 위한 설정 등 기본적인 항목을 준비하는 단계
+Preparation                       | OVC-g가 OVSE 상호 간 서비스를 호출하기 위해서 필요한 연결, 인증, 
+                                  | 푸시 메세지 수신을 위한 설정 등 기본적인 항목을 준비하는 단계
 Location Report                   | OVC-g가 GPS로부터 수신한 현재 위치를 OVSE에 주기적으로 반복 보고하는 단계
 V2N Event Report                  | OVC-g가 VAC로부터 전달받은 V2N Event를 OVSE에 보고하는 단계
 V2N Event Notification Reception  | OVSE가 타 OVC로부터 전달받은 V2N Event 중 해당 OVC-g와 연계된 Event를 
@@ -68,7 +68,7 @@ Connect to OVSE
 ''''''''''''''''''
 
 ``Connect to OVSE`` 순서에서는 OVC-g가 OVSE에 연결하는 단계입니다. MQTT Broker에 접속하는 connect 단계 
-`MQTT Connect 참고 <https://www.hivemq.com/blog/mqtt-essentials-part-3-client-broker-connection-establishment/>`__ 와 동일합니다.
+`MQTT Connect 참고 <https://www.hivemq.com/blog/mqtt-essentials-part-3-client-broker-connection-establishment/>` 와 동일합니다.
 단, 접속할 때는 다음 Parameter를 적용하여 connect 합니다.
 
 =============  ===========================================================
@@ -85,7 +85,7 @@ keepAlive      60
 
 .. rst-class:: text-align-justify
 
-Username 필드에는 해당 단말의 Credentials ID 값을 입력합니다. 단말의 Credentials ID 값은 `OVSE REST API /api/ovs/v1/device`__ 를 통해서 얻을 수 있습니다. cleanSession 필드가 true면 이전 세션 정보가 아직 존재할 경우 클라이언트와 서버에서 이전 세션 정보를 삭제합니다.
+Username 필드에는 해당 단말의 Credentials ID 값을 입력합니다. 단말의 Credentials ID 값은 `OVSE REST API /api/ovs/v1/device` 를 통해서 얻을 수 있습니다. cleanSession 필드가 true면 이전 세션 정보가 아직 존재할 경우 클라이언트와 서버에서 이전 세션 정보를 삭제합니다.
 
 
 ``Example Code`` 

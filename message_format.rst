@@ -7,9 +7,7 @@
 
 .. rst-class:: text-align-justify
 
-OVSE 플랫폼에 연동되는 다양한 Open V2N Service Device (이하 OVC) 들이 플랫폼에 전송하는 메세지에 대해서 정의합니다.
-
-이 매뉴얼은 단말이 MQTTS 프로토콜로 OVSE 플랫폼과 연동하기 위한 메세지 포맷입니다. 
+이 매뉴얼은 Open V2N Service Device (이하 OVC)와 OVSE 플랫폼이 MQTTS 프로토콜 기반으로 연동하기 위한 메세지 포맷에 대해서 정의합니다.
 
 Entity 등록을 위한 HTTP Rest API 사용은 :ref:`5. 구성요소(Entity) 등록 <entity-registration>` 문서를, App 개발자를 위한 OVSE API 는 :ref:`7. API 규격<api-specification>` 문서를, 단말의 연동 절차를 위해서는 :ref:`6. Device 연동 절차 <device-registration>` 문서를 참고하시기 바랍니다.
 
