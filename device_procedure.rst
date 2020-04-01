@@ -31,7 +31,7 @@ OVSE 플랫폼과 OVC를 연동하여 서비스하기 위해서는 다음의 VSC
         - Node.js Program Language 
 
 
-VSC Interface for ``OVC-g`` (a.k.a. vsc-g Interface)
+VSC Interface for ``OVC-g``
 ----------------------------------------------------------------
 
 OVC-g 단말을 위한 VSC Interface의 Flow는 다음과 같으며, 각 단계별로 절차를 ``Node.js`` 기반 코드로 소개합니다.
