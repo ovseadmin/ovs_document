@@ -50,19 +50,10 @@ Stages                            Description
 ================================  ===================================================================
 Preparation                       | OVC-g가 OVSE 상호 간 서비스를 호출하기 위해서 필요한 연결, 인증, 푸시 메세지 수신을
                                   | 위한 설정 등 기본적인 항목을 준비하는 단계
-                                  | 1. Connect to OVSE
-                                  | 2. Subscribe a Topic for Receiving V2N Notification
-                                  |
 Location Report                   | OVC-g가 GPS로부터 수신한 현재 위치를 OVSE에 주기적으로 반복 보고하는 단계
-                                  | 3. Publish OVC-g's Current Location
-                                  |
 V2N Event Report                  | OVC-g가 VAC로부터 전달받은 V2N Event를 OVSE에 보고하는 단계
-                                  | 4. Publish V2N Event detected by OVC-g
-                                  |
 V2N Event Notification Reception  | OVSE가 타 OVC로부터 전달받은 V2N Event 중 해당 OVC-g와 연계된 Event를 
                                   | 푸시하여 OVC-g가 수신하는 단계
-                                  | 5. Receive a V2N Event Notification relevant to OVC-g
-                                  | 6. Publish the result of the notifcation message handling
 ================================  ===================================================================
 
 아래부터는 상기 vsc-g Flow의 순서를 간단한 예제 코드와 함께 설명합니다.
