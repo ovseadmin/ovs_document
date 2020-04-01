@@ -9,7 +9,7 @@
 
 이 매뉴얼은 OVSE 플랫폼을 사용하기 원하는 파트너들에게 플랫폼 사용을 위한 절차를 설명하기 위한 것입니다.
 
-Device 와 플랫폼을 연동하는 방법은 :ref:`6. Device 연동 절차 <device-procedure>` 와 :ref:`8. 메시지 포맷 <message-format>` 을 참고하십시오. App 개발자는 :ref:`7. API 규격 <api-specification>` 과 :ref:`9. SDK <platform-sdk>` 를 참고하십시오.
+Device 와 플랫폼을 연동하는 방법은 :ref:`6. Device 연동 절차 <device-procedure>` 와 :ref:`8. 메시지 포맷 <message-format>` 을 참고하십시오. App 개발자는 :ref:`7. API 규격 <api-specification>` 과 :ref:`9. Device Simulator <device-simulator>` 를 참고하십시오.
 
 SK Open API 포털에서 token을 발급받은 이후에는 `OVSE Open API <https://openapi.sk.com>`__ 를 이용하여 HTTP 기반 Rest API로 등록할 수 있습니다. 
 
@@ -21,6 +21,7 @@ SK Open API 포털에서 token을 발급받은 이후에는 `OVSE Open API <http
 ~~~~~~~~~~~~~~~~~~
 
 .. rst-class:: text-align-justify
+
 
 SK Open API 가입승인후 OVSE 플랫폼용 JSON Web Token을 발급받을 수 있습니다. 
 REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 같습니다.

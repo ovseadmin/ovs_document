@@ -1,4 +1,6 @@
 .. |br| raw:: html
+.. _device-simulator:
+
 
 Device Simulator
 =================

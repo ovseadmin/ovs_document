@@ -13,7 +13,7 @@ App 개발자는 :ref:`7. API 규격 <api-specification>` 과 :ref:`9. SDK <plat
 
 이 매뉴얼에서는 OVC가 OVSE 플랫폼과 어떻게 연결되는지 설명합니다. 실제 OVC 단말과 OVSE플랫폼이 주고받는 메세지에 대한 상세한 내용은 :ref:`8. 메세지 포맷 <message-format>` 을 참고하십시오.
 
-OVSE 플랫폼과 OVC를 연동하여 서비스하기 위해서는 다음의 VSC Interface를 이해하여야 합니다. 그리고 :ref:`5. 구성요소(Entity) 등록 <entity-registration>`의 단말 등록이 완료된 상황임을 가정합니다. 
+OVSE 플랫폼과 OVC를 연동하여 서비스하기 위해서는 다음의 VSC Interface를 이해하여야 합니다. 그리고 :ref:`5. 구성요소(Entity) 등록 <entity-registration>`의 단말 등록이 완료되어야 합니다.
 
 
 * **VSC Interface**
@@ -29,6 +29,11 @@ OVSE 플랫폼과 OVC를 연동하여 서비스하기 위해서는 다음의 VSC
 
         - MQTT Protocol
         - Node.js Program Language 
+
+
+.. note::
+
+   본 장에 명세된 표 내용 중 ``M`` / ``O`` 는 ``Mandatory`` / ``Optional`` 의 약자로, Mandatory는 필수로 포함해야 하는 데이터를 Optional은 필요에 따라 기입 여부를 개발사에서 판단하시면 됩니다.
 
 
 
@@ -50,10 +55,10 @@ Stages                            Description
 ================================  ===================================================================
 Preparation                       | OVC-g가 OVSE 상호 간 서비스를 호출하기 위해서 필요한 연결, 인증, 
                                   | 푸시 메세지 수신을 위한 설정 등 기본적인 항목을 준비하는 단계
-Location Report                   | OVC-g가 GPS로부터 수신한 현재 위치를 OVSE에 주기적으로 반복 보고하는 단계
+Location Report                   | OVC-g가 GPS로부터 수신한 현재 위치를 OVSE에 주기적으로 보고하는 단계
 V2N Event Report                  | OVC-g가 VAC로부터 전달받은 V2N Event를 OVSE에 보고하는 단계
-V2N Event Notification Reception  | OVSE가 타 OVC로부터 전달받은 V2N Event 중 해당 OVC-g와 연계된 Event를 
-                                  | 푸시하여 OVC-g가 수신하는 단계
+V2N Event Notification Reception  | OVSE가 타 OVC로부터 전달받은 V2N Event 중  
+                                  | 해당 OVC-g와 관련된 Event를 푸시하여 OVC-g가 수신하는 단계
 ================================  ===================================================================
 
 아래부터는 상기 vsc-g Flow의 순서를 간단한 예제 코드와 함께 설명합니다.
@@ -67,25 +72,29 @@ Preparation 단계는 OVSE에 접속하는 단계와 토픽 Subscription의 두 
 Connect to OVSE
 ''''''''''''''''''
 
-``Connect to OVSE`` 순서에서는 OVC-g가 OVSE에 연결하는 단계입니다. MQTT Broker에 접속하는 connect 단계 
-`MQTT Connect 참고 <https://www.hivemq.com/blog/mqtt-essentials-part-3-client-broker-connection-establishment/>` 와 동일합니다.
+``Connect to OVSE`` 는 OVC-g가 OVSE에 연결하는 단계입니다. MQTT Broker에 접속하는 connect 단계 
+`MQTT Connect <https://www.hivemq.com/blog/mqtt-essentials-part-3-client-broker-connection-establishment/>`__ 와 동일합니다.
 단, 접속할 때는 다음 Parameter를 적용하여 connect 합니다.
 
-=============  ===========================================================
+=============  =================================================================
 Parameters     Value
-=============  ===========================================================
+=============  =================================================================
 host           tcp://192.168.1.170 (*Will be changed*) 
 port           1883 (*Will be changed*) 
-username       발급된 고객사의 userName (할당 받은 Access Token (20자리) 값)
-password       발급된 고객사의 passWord
+username       발급된 고객사의 userName (ex. 제조사 할당 Serial Number)
+password       발급된 고객사의 passWord (ex. 제조사 할당 Access Token(20자리) 값)
 clientId       단말 식별 번호 (기능상 UserName과 동일하게 처리 가능)
 cleanSession   true
 keepAlive      60
-=============  ===========================================================
+=============  =================================================================
 
 .. rst-class:: text-align-justify
 
-Username 필드에는 해당 단말의 Credentials ID 값을 입력합니다. 단말의 Credentials ID 값은 `OVSE REST API /api/ovs/v1/device` 를 통해서 얻을 수 있습니다. cleanSession 필드가 true면 이전 세션 정보가 아직 존재할 경우 클라이언트와 서버에서 이전 세션 정보를 삭제합니다.
+Username 필드에는 해당 단말의 식별자를 입력합니다. 예를 들어 제조사에서 할당하는 고유의 Serial Number가 이에 해당할 수 있습니다. 
+
+Password 필드에는 Credentials ID 값을 입력합니다. 단말의 Credentials ID 값 역시 제조사에서 단말별로 고유 할당하는 것으로 20자리의 Access Token 값이 되겠습니다.
+
+cleanSession 필드가 true면 이전 세션 정보가 아직 존재할 경우 클라이언트와 서버에서 이전 세션 정보를 삭제합니다.
 
 
 ``Example Code`` 
@@ -151,49 +160,23 @@ Publish OVC-g's Current Location
 ``Publish OVC-g's Current Location`` 순서에서 선행되어야 하는 조건은 OVC-g 단말이 GPS 센서로 현재 자신의 위치 좌표를 받는 것입니다. 
 GPS 좌표를 정상적으로 수신 한 경우에 OVC-g는 자신의 위치를 OVSE에 전달 ``Publish`` 합니다. 전달 시에는 다음의 Topic에 Publish를 합니다.
 
-추가로 본 과정은 OVC-g가 GPS 좌표를 획득할때 마다 반복되며, 일반적으로 V2X 서비스 품질을 고려하여서는 1초마다 진행해야 하나 고객사의 입장에
-따라 주기가 증가할 수 있으나 주기가 증가할 수록 일부 V2N 서비스 및 서비스 품질이 떨어집니다.
+추가로 본 과정은 OVC-g가 GPS 좌표를 획득할때 마다 반복되며, 일반적으로 V2N 서비스 품질을 고려하여서는 최소 1초 주기의 전송을 Recommend 합니다.
+물론 고객사의 입장에 따라 주기가 증가할 수 있으나, 주기가 증가할 수록 일부 V2N 서비스 및 서비스 품질이 떨어집니다.
 
-=============  =============================================
+=============  =============================================================================================
 Topic          v2x/location
-=============  =============================================
+=============  =============================================================================================
+메시지 포맷       :ref:`8.2. OVC-g 주기보고 메세지 타입 (OVCPosition) <message-format-ovcg-ovcposition>` 참고
+=============  =============================================================================================
 
-본 순서에서 메세지를 전달할때는 다음 메세지를 ``JSON`` 형태로 포함합니다.
-(이는 :ref:`8. 메세지 포맷 <message-format>`의 VDPosition에 해당합니다.)
-
-=============  ====  ========  =============================================
-Key            M/O   Type      Description
-=============  ====  ========  =============================================
-dev_type       M     Integer   OVC-g를 탑재한 단말의 타입
-time           M     Integer   메세지 전달 시간 (msec, epoch)
-dev_id         M     String    OVSE에 등록된 단말 식별자
-speed          O     Integer   현재 속도 값
-location       M               | 현재 위치 좌표 (WGS84 Coordination)
-                               | Child key로 "lat", "lon" 를 적시
-=============  ====  ========  =============================================
-
-``Example Data``
-
-.. code-block:: json
-
-    {
-        "dev_type": 97,
-        "time": 1571273913571,
-        "dev_id": 3333,
-        "speed": 60,
-        "location": {
-            "lat": 37.510296,
-            "lon": 127.062512
-        }
-    }
 
 ``Example Code``
 
 .. code-block:: javascript
 
   var locationReportData = {
-    "dev_type": {dev_type},
     "time": new Date().getTime(),
+    "dev_type": {dev_type},
     "dev_id": {deviceID},
     "speed": {speed},
     "location": {
@@ -205,6 +188,7 @@ location       M               | 현재 위치 좌표 (WGS84 Coordination)
   sendingMSG = JSON.stringify(eval(locationReportData));
   messageSender.publish('v2x/location', sendingMSG, {qos: 1}, function());
 
+
 Publish V2N Event detected by OVC-g
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ``Publish V2N Event detected by OVC-g`` 순서에서는 OVC-g가 VAC로부터 
@@ -212,36 +196,11 @@ Publish V2N Event detected by OVC-g
 
 Topic은 아래와 같은 룰을 따라 설정합니다.
 
-=============  =============================================
+=============  =============================================================================================
 Topic          v2x/event
-=============  =============================================
-
-본 순서에서 메세지를 전달할때는 다음 메세지를 ``JSON`` 형태로 포함합니다.
-(이는 :ref:`8. 메세지 포맷 <message-format>`의 VDEventReport에 해당합니다.)
-
-================  ====  ========  =============================================
-Key               M/O   Type      Description
-================  ====  ========  =============================================
-time              M     Integer   메세지 전달 시간 (msec, epoch)
-eventType         M     Integer   이벤트 종류 (To-be-specified)
-distanceToEvent   O     Integer   이벤트 지점까지의 거리
-location          M               | 이벤트 발생 위치 정보 (WGS84 Coordination)
-                                  | Child key로 "lat", "lon" 를 적시
-================  ====  ========  =============================================
-
-``Example Data``
-
-.. code-block:: json
-
-    {
-        "time": 1571308818766,
-        "eventType": 1,
-        "distanceToEvent": -10,
-        "location": {
-            "lat": 37.51477,
-            "lon": 127.060067
-        }
-    }
+=============  =============================================================================================
+메시지 포맷       :ref:`8.3. OVC-g 비주기보고 메세지 타입 (OVCEventReport) <message-format-ovcg-ovceventreport>` 참고
+=============  =============================================================================================
 
 ``Example Code``
 
@@ -249,8 +208,10 @@ location          M               | 이벤트 발생 위치 정보 (WGS84 Coordi
 
   var v2xEventReportData = {
     "time": new Date().getTime(),
-    "eventType": 1,
-    "distanceToEvent": -10,
+    "dev_Type": 1,
+    "dev_id": 3333,
+    "event_Type": 201,
+    "distanceToEvent": 679,
     "location": {
       "lat": latitudeValue[sequence % latitudeValue.length],
       "lon": longitudeValue[sequence % latitudeValue.length]
@@ -284,7 +245,7 @@ Receive a V2N Event Notification relevant to OVC-g
         var topic = topic.toString();
         var requestId = topic.toString().split('/')[5];
 
-        // 수신한 V2X 메세지 로그 출력
+        // 수신한 V2N 메세지 로그 출력
         if (msgs != null){      
         console.log(colors.magenta(' == Receive the V2N event Message from OVSE == ') + '\n');
         console.log(colors.magenta('Topic :' + topic + '\n' 
@@ -296,12 +257,13 @@ Receive a V2N Event Notification relevant to OVC-g
         }
     });
 
-그리고 이때 수신되는 Event 메세지의 종류는 :ref:`8. 메세지 포맷 <message-format>`의 OVSE V2N Message를 참고하시기 바랍니다.
+그리고 이때 수신되는 Event 메세지의 종류는 :ref:`8.3 OVSE >> OVC-g Message <message-format-ovcg-ovsev2nevent>`을 참고하시기 바랍니다.
+
 
 Publish the result of the notifcation message handling
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-``Publish the result of the notifcation message handling`` 순서는 OVC에서 5번째 순서에서 수신한 이벤트를 
+``Publish the result of the notifcation message handling`` 순서는 OVC-g에서 5번째 순서에서 수신한 이벤트를 
 처리한 결과를 OVSE로 송신하는 순서입니다. 본 순서는 향후 OVSE를 활용하는 고객사들께서 V2N 서비스 통계 자료 제공에 중요한 과정입니다.
 
 OVSE에서 발송한 메세지의 처리 결과를 일정 시간(To-be-specified) 내 수신하지 못하면 정상 처리가 안된 것으로 간주합니다. 
@@ -350,12 +312,9 @@ OVC-m은 T맵을 가지고 있으므로, 현재 자신의 위치 정보를 자�
 Stages                            Description              
 ================================  ===================================================================
 Preparation                       | OVC-m과 OVSE 상호 간 서비스를 호출하기 위해서 필요한 연결, 인증의 기본 준비 단계
-                                  |
 Location Topic Update             | OVC-m이 탑재한 T맵을 기반으로 현재 위치의 도로정보를 파악하고, 
                                   | 이를 기반으로 V2N 이벤트 송/수신을 위한 Topic을 만드는 단계
-                                  |
 V2N Event Report                  | OVC-m에서 감지한 V2N Event를 OVSE에 보고하는 단계
-                                  |
 V2N Event Notification Reception  | OVSE가 타 OVC로부터 전달받은 V2N Event 중 해당 OVC-m와 연관된 Event를 
                                   | 푸시하여 OVC-m이 수신하는 단계
 ================================  ===================================================================
@@ -372,22 +331,25 @@ Connect to OVSE
 `MQTT Connect 참고 <https://www.hivemq.com/blog/mqtt-essentials-part-3-client-broker-connection-establishment/>`__ 와 동일합니다.
 단, 접속할 때는 다음 Parameter를 적용하여 connect 합니다.
 
-=============  ===========================================================
+=============  =================================================================
 Parameters     Value
-=============  ===========================================================
+=============  =================================================================
 host           tcp://192.168.1.170 (*Will be changed*) 
 port           1883 (*Will be changed*) 
-username       발급된 고객사의 userName (할당 받은 Access Token (20자리) 값)
-password       발급된 고객사의 passWord
+username       발급된 고객사의 userName (ex. 제조사 할당 Serial Number)
+password       발급된 고객사의 passWord (ex. 제조사 할당 Access Token(20자리) 값)
 clientId       단말 식별 번호 (기능상 UserName과 동일하게 처리 가능)
 cleanSession   true
 keepAlive      60
-=============  ===========================================================
+=============  =================================================================
 
 .. rst-class:: text-align-justify
 
-Username 필드에는 해당 단말의 Credentials ID 값을 입력합니다. 단말의 Credentials ID 값은 `OVSE REST API /api/ovs/v1/device`__ 를 통해서 얻을 수 있습니다. cleanSession 필드가 true면 이전 세션 정보가 아직 존재할 경우 클라이언트와 서버에서 이전 세션 정보를 삭제합니다.
+Username 필드에는 해당 단말의 식별자를 입력합니다. 예를 들어 제조사에서 할당하는 고유의 Serial Number가 이에 해당할 수 있습니다. 
 
+Password 필드에는 Credentials ID 값을 입력합니다. 단말의 Credentials ID 값 역시 제조사에서 단말별로 고유 할당하는 것으로 20자리의 Access Token 값이 되겠습니다.
+
+cleanSession 필드가 true면 이전 세션 정보가 아직 존재할 경우 클라이언트와 서버에서 이전 세션 정보를 삭제합니다.
 
 ``Example Code`` 
 
@@ -513,38 +475,14 @@ Publish V2N Event detected by OVC-m
 ``Publish V2N Event detected by OVC-m`` 순서에서는 OVC-m가 VAC로부터 
 해당 단말이 인식한 V2N Event를 수신 받은 경우, 이를 OVSE에 리포팅하여 OVSE가 다른 OVC 에게 전달하는 과정을 유도하는 과정을 기술합니다.
 
-Topic은 아래와 같은 룰을 따라 설정합니다.
+Topic은 위의 Topic Generation 부분에서 설명된 룰을 따라 설정합니다.
 
-=============  =============================================
-Topic          v2x/event
-=============  =============================================
+=============  ==========================================================================================
+Topic          NEW:12345678
+=============  ==========================================================================================
+메시지 포맷       :ref:`8.3.1. OVC-m 비주기보고 메세지 타입 <message-format-ovcm-ovceventreport>` 참고
+=============  ==========================================================================================
 
-본 순서에서 메세지를 전달할때는 다음 메세지를 ``JSON`` 형태로 포함합니다.
-(이는 :ref:`8. 메세지 포맷 <message-format>`의 VDEventReport에 해당합니다.)
-
-================  ====  ========  =============================================
-Key               M/O   Type      Description
-================  ====  ========  =============================================
-time              M     Integer   메세지 전달 시간 (msec, epoch)
-eventType         M     Integer   이벤트 종류 (To-be-specified)
-distanceToEvent   O     Integer   이벤트 지점까지의 거리
-location          M               | 이벤트 발생 위치 정보 (WGS84 Coordination)
-                                  | Child key로 "lat", "lon" 를 적시
-================  ====  ========  =============================================
-
-``Example Data``
-
-.. code-block:: json
-
-    {
-        "time": 1571308818766,
-        "eventType": 1,
-        "distanceToEvent": -10,
-        "location": {
-            "lat": 37.51477,
-            "lon": 127.060067
-        }
-    }
 
 ``Example Code``
 
@@ -552,12 +490,18 @@ location          M               | 이벤트 발생 위치 정보 (WGS84 Coordi
 
   var v2xEventReportData = {
     "time": new Date().getTime(),
-    "eventType": 1,
-    "distanceToEvent": -10,
+    "dev_type": 2,
+    "dev_id": 12342,
+    "event_Type": 201,
+    "event_id": 1021,
+    "distanceToEvent": 679,
     "location": {
       "lat": latitudeValue[sequence % latitudeValue.length],
       "lon": longitudeValue[sequence % latitudeValue.length]
-    } 
+    },
+    "meshid": 57150000,
+    "linkid": 4333,
+    "roadType": 1    
   };
 
   sendingMSG = JSON.stringify(eval(v2xEventReportData));
