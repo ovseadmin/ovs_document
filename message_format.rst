@@ -31,7 +31,7 @@ OVSE 플랫폼의 기본 메세지 구조는 JSON Format으로 Header, Payload�
 .. code-block:: json
 
     {
-        "timestamp" : 1571273913571, // timestamp     
+        "ts" : 1571273913571,  //timestamp 
         "dev_type": 2,
         "dev_id": 3333,
         "speed": 60,
@@ -44,8 +44,18 @@ OVSE 플랫폼의 기본 메세지 구조는 JSON Format으로 Header, Payload�
 
 메세지의 종류는 Device Type과 송/수신 대상에 따라 세부내용이 달라집니다.
 
-* Device Type: OVC-g (1) or OVC-m (2)
-* 송신 >> 수신: OVC >> OVSE or OVSE >> OVC
+=============  ========  =============================================
+Key            Type      Description
+=============  ========  =============================================
+Device Type    OVC-g     1
+               OVC-m     2
+=============  ========  =============================================
+Sender         OVC-g     OVCPosition
+                         OVCEventReport
+               OVC-m     OVCEventReport
+               OVSE      V2N Event Notification 
+=============  ========  =============================================
+
 
 .. _message-format-ovcg:
 
@@ -67,9 +77,8 @@ OVC-g가 OVSE로 보내는 메세지는 주기보고 타입과 비주기 보고 
 =============  ====  ========  =============================================
 Key            M/O   Type      Description
 =============  ====  ========  =============================================
-ts             M     Integer   | 메세지 전달 시간 (msec, epoch)
-                               | * YYYYMMDDHH24MISS
-dev_type       M     Integer   OVC-g를 단말 타입 (1)
+ts             M     Integer   메세지 전달 시간 (msec, epoch)
+dev_type       M     Integer   OVC-g 단말 타입 (1)
 dev_id         M     String    Device 고유 단말 식별자
 speed          O     Integer   현재 속도 값 (kph)
 location       M               | 현재 위치 좌표 (WGS84 Coordination)
@@ -82,7 +91,7 @@ location       M               | 현재 위치 좌표 (WGS84 Coordination)
 .. code-block:: json
 
     {
-        "ts" : 1571273913571, // timestamp
+        "ts" : 1571273913571,
         "dev_type": 1,
         "dev_id": 3333,
         "speed": 60,
@@ -105,8 +114,7 @@ location       M               | 현재 위치 좌표 (WGS84 Coordination)
 ================  ====  ========  =============================================
 Key               M/O   Type      Description
 ================  ====  ========  =============================================
-ts                M     Integer   | 메세지 전달 시간 (msec, epoch)
-                                  | * YYYYMMDDHH24MISS
+ts                M     Integer   메세지 전달 시간 (msec, epoch)
 dev_type          M     Integer   OVC-g 단말 타입 (1)
 dev_id            M     String    OVSE에 등록된 단말 식별자
 event_type        M     Integer   Event 종류 식별자
@@ -157,8 +165,7 @@ OVSE에서 OVC-g로 다양한 V2N 이벤트 알림 메세지가 전달됩니다.
 ================  ====  ========  =============================================
 Key               M/O   Type      Description
 ================  ====  ========  =============================================
-ts                M     Integer   | 메세지 전달 시간 (msec, epoch)
-                                  | * YYYYMMDDHH24MISS
+ts                M     Integer   메세지 전달 시간 (msec, epoch)
 event_type        M     Integer   알림 메세지 타입
 event_id          M     String    Unique event 식별자
 tunnel            M     Boolean   Tunnel 안의 이벤트인지 아닌지 (급정거는 모두 FALSE)
@@ -225,8 +232,7 @@ OVC-m은 OVC-g와 달리 내부에 T맵을 이용하여 도로상의 위치를 �
 ================  ====  ========  =============================================
 Key               M/O   Type      Description
 ================  ====  ========  =============================================
-ts                M     Integer   | 메세지 전달 시간 (msec, epoch)
-                                  | * YYYYMMDDHH24MISS
+ts                M     Integer   메세지 전달 시간 (msec, epoch)
 dev_type          M     Integer   OVC-m 단말 타입 (2)
 dev_id            M     String    OVSE에 등록된 단말 식별자
 event_type        M     Integer   Event 종류 식별자
@@ -281,8 +287,7 @@ OVSE에서 OVC-m으로 전달되는 V2N 이벤트 메세지는 OVC-g의 것과 �
 ================  ====  ========  =============================================
 Key               M/O   Type      Description
 ================  ====  ========  =============================================
-ts                M     Integer   | 메세지 전달 시간 (msec, epoch)
-                                  | * YYYYMMDDHH24MISS
+ts                M     Integer   메세지 전달 시간 (msec, epoch)
 event_type        M     Integer   알림 메세지 타입
 event_id          M     String    Unique event 식별자
 tunnel            M     Boolean   Tunnel 안의 이벤트인지 아닌지 (급정거는 모두 FALSE)
