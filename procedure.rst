@@ -15,7 +15,7 @@ OVSE 플랫폼을 사용하려는 파트너들을 위한 매뉴얼입니다.
 
 OVSE 플랫폼을 이용하기 위한 절차는 다음과 같이 구성되어 있습니다.
 
-.. image:: images/procedure_ovs3.png
+.. image:: images/procedure_ovs4.png
 	:width: 70%
 	:align: center
 
@@ -38,19 +38,17 @@ OEM 및 Device 개발사
 
   SK Open API내 OVSE ‘Support/사업문의’ 메뉴를 통해서 OVSE 플랫폼 활용방안 문의 및 SKT OVSE 사업 담당자에게 연결됩니다. 
 
-2. 서비스  등록
+2. 서비스 및 회사 등록
 
   .. rst-class:: text-align-justify
 
-  SK Open API 내 
-  구체적인 사업 계획이 잡히고 SKT 담당자와의 협의가 완성되면 포털에서 서비스 등록을 신청합니다. 세부 절차는 :ref:`4.1. 서비스 등록 절차 <service-registration-portal>` 를 참고하시기 바랍니다.
+  SK Open API포털에서 발급받은 계정으로 서비스 및 회사를 신청합니다. 세부 절차는 :ref:`5.1. 서비스 등록 절차 <service-registration-api>` 를 참고하시기 바랍니다.
 
-3. 회사 등록
+3. 관리자(디렉터) 등록
 
   .. rst-class:: text-align-justify
 
-  서비스 및 사업을 담당할 회사를 등록합니다. 
-  세부 절차는 :ref:`5.2. 회사 등록 절차 <company-registration-portal>` 를 참고하시기 바랍니다.
+  단말 관리를 위해 복수의 디렉터를 할당할 수 있습니다. 세부 절차는 :ref:`5.4. 디렉터 등록 절차 <director-registration-api>` 를 참고하시기 바랍니다.
 
 4. 단말(Device) 등록
 
@@ -58,11 +56,6 @@ OEM 및 Device 개발사
 
   서비스 대상 단말을 등록합니다. 
   
-5. 관리자(디렉터) 등록
-
-  .. rst-class:: text-align-justify
-
-  등록된 단말이 다수이어서 소수의 관리자가 관리하기 어려울 경우에는 복수의 디렉터를 할당할 수 있습니다. 세부 절차는 :ref:`5.4. 디렉터 등록 절차 <director-registration-portal>` 를 참고하시기 바랍니다.
 
 
 App 개발자
@@ -93,9 +86,6 @@ OVSE 에서 제공하는 포털을 사용하지 않을 경우 고객사에서 �
   차량에 부착된 센서들로부터 전송되는 자동차 운행과 관련된 정보의 메시지 포맷은 :ref:`8. 메시지 포맷 <message-format>` 내용을 참고하시기 바랍니다.
 
 .. rst-class:: text-align-justify
-
-Web App을 개발하는 개발자는 :ref:`7.2. Web Application Simulator <web-application-simulator>` 내용을 참고하시기 바랍니다.
-
 
 
 |br|

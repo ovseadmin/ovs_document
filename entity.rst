@@ -7,12 +7,15 @@
 구성요소(Entity) 등록
 =======================================
 
-이 매뉴얼은 OVSE 플랫폼을 사용하기 원하는 파트너들에게 플랫폼 사용을 위한 절차를 설명하기 위한 것입니다.
+이 매뉴얼은 OVSE 플랫폼 사용을 위한 절차를 설명하기 위한 것입니다.
 
-Device 와 플랫폼을 연동하는 방법은 :ref:`6. Device 연동 절차 <device-procedure>` 와 :ref:`8. 메시지 포맷 <message-format>` 을 참고하십시오. App 개발자는 :ref:`7. API 규격 <api-specification>` 과 :ref:`9. Device Simulator <device-simulator>` 를 참고하십시오.
+Device와 플랫폼을 연동하는 방법은 :ref:`6. Device 연동 절차 <device-procedure>` 와 :ref:`8. 메시지 포맷 <message-format>` 을 참고하십시오. 
 
-SK Open API 포털에서 token을 발급받은 이후에는 `OVSE Open API <https://openapi.sk.com>`__ 를 이용하여 HTTP 기반 Rest API로 등록할 수 있습니다. 
+App 개발자는 :ref:`7. API 규격 <api-specification>` 과 :ref:`9. Device Simulator <device-simulator>` 를 참고하십시오.
 
+SK Open API 포털에서 계정을 발급받은 이후에는 `OVSE Open API <https://openapi.sk.com>`__ 를 이용하여 HTTP 기반 REST API로 등록할 수 있습니다. 
+
+.. _service-registration-api:
 
 서비스 및 운영사 등록 (Service Registration)
 -----------------------------------
@@ -21,7 +24,6 @@ SK Open API 포털에서 token을 발급받은 이후에는 `OVSE Open API <http
 ~~~~~~~~~~~~~~~~~~
 
 .. rst-class:: text-align-justify
-
 
 SK Open API 가입승인후 OVSE 플랫폼용 JSON Web Token을 발급받을 수 있습니다. 
 REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 같습니다.
@@ -144,18 +146,9 @@ REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 
 +-------------------+---------+-----------------------------------------+
 | picDivision       | string  | 등록할 COMPANY_ADMIN 소속 부서          |
 +-------------------+---------+-----------------------------------------+
-| sktManagerName    | string  | SKT 담당 매니저 이름                    |
-+-------------------+---------+-----------------------------------------+
-| sktManagerEmail   | string  | SKT 담당 매니저 이메일                  |
-+-------------------+---------+-----------------------------------------+
-| cooperationTask   | string  | 협력사 정보, 협력사 업무에 대해 기술    |
-+-------------------+---------+-----------------------------------------+
 | description       | string  | 추가 정보                               |
 +-------------------+---------+-----------------------------------------+
-| notifyHost        | string  | Push 메시지 수신 서버 경로 정보         | 
-+-------------------+---------+-----------------------------------------+
-| notifyMsgType     | string  | 수신하고자 하는 Push 메시지 타입 정보   |
-+-------------------+---------+-----------------------------------------+
+
 
 - Example Code
 
@@ -175,12 +168,7 @@ REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 
         "picPhone":"010-0000-0000",
         "picPasswd":"1234",
         "picDivision":"사업1팀",
-        "sktManagerName":"박매니저",
-        "sktManagerEmail":"manager@skt.com",
-        "cooperationTask":"수리",
-        "description":"additional description",
-        "notifyHost":"http://192.168.0.100:9090/noti",
-        "notifyMsgType":"0f"
+        "description":"additional description"
     }
 
 :underline:`Response (code: 200)`
@@ -203,12 +191,8 @@ REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 
         "picPhone": "010-0000-0000",
         "picEmail": "companya@example.com",
         "picDivision": "사업1팀",
-        "sktManagerName": "박매니저",
-        "sktManagerEmail": "manager@skt.com",
-        "cooperationTask": "수리",
         "description": "additional description",
-        "notifyHost": "http://192.168.0.100:9090/noti",
-        "notifyMsgType": "0f"
+        "tokenPrefix": "enh03"
     }
 
 .. rst-class:: text-align-justify
