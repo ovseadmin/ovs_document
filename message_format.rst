@@ -49,9 +49,8 @@ Key            Type      Description
 =============  ========  =============================================
 Device Type    OVC-g     1
                OVC-m     2
-=============  ========  =============================================
-Sender         OVC-g     OVCPosition
-                         OVCEventReport
+Sender         OVC-g     | OVCPosition
+                         | OVCEventReport
                OVC-m     OVCEventReport
                OVSE      V2N Event Notification 
 =============  ========  =============================================
