@@ -1,6 +1,8 @@
 주요 구성요소 (Entity Architecture)
 =======================================
 
+.. _entity-architecture:
+
 .. rst-class:: text-align-justify
 
 OVSE 플랫폼은 서비스 특성에 맞도록 설계된 유연한 데이터 구조를 지원합니다.

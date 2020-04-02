@@ -9,7 +9,7 @@ Device 연동 절차
 
 OVSE 플랫폼을 사용하여 V2N Service Application을 개발/서비스 하고자 하는 파트너는 :ref:`5. 구성요소(Entity) 등록 <entity-registration>` 를 참고하십시오. 
 
-App 개발자는 :ref:`7. API 규격 <api-specification>` 과 :ref:`9. SDK <platform-sdk>` 를 참고하십시오.
+App 개발자는 :ref:`7. API 규격 <api-specification>` 과 :ref:`9. Device Simulator <device-simulator>` 를 참고하십시오.
 
 이 매뉴얼에서는 OVC가 OVSE 플랫폼과 어떻게 연결되는지 설명합니다. 실제 OVC 단말과 OVSE플랫폼이 주고받는 메세지에 대한 상세한 내용은 :ref:`8. 메세지 포맷 <message-format>` 을 참고하십시오.
 
