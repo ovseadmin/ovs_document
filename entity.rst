@@ -35,6 +35,7 @@ REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 
 | **POST**   | `/api/auth/login <https://TBD>`__  |
 +------------+------------------------------------+
 
+
 - Header
 
 .. rst-class:: table-width-fix
