@@ -56,6 +56,17 @@ Sender         OVC-g     | OVCPosition
 =============  ========  =============================================
 
 
+=============  ========  =============================================
+Key            Type      Description
+=============  ========  =============================================
+Device Type    OVC-g     device_type = 1
+               OVC-m     device_type = 2
+Sender         OVC-g     OVCPosition
+                         OVCEventReport
+               OVC-m     OVCEventReport
+               OVSE      V2N Event Notification
+=============  ========  =============================================               
+
 .. _message-format-ovcg:
 
 OVC-g Message Format
