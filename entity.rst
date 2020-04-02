@@ -25,8 +25,8 @@ SK Open API 포털에서 계정을 발급받은 이후에는 `OVSE Open API <htt
 
 .. rst-class:: text-align-justify
 
-SK Open API 가입승인후 OVSE 플랫폼용 JSON Web Token을 발급받을 수 있습니다. 
-REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 같습니다.
+SK Open API 가입승인후 회사정보와 서비스등록 API를 위한 OVSE 플랫폼용 JSON Web Token을 발급받을 수 있습니다. 
+REST API로 Token을 확인하는 방법은 다음과 같습니다.
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -92,13 +92,15 @@ REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 
 |br|
 토큰을 얻었으면 회사 정보 등록 API를 통해 서비스를 등록합니다.
 |br|
-요청 파라미터를 입력할 때 ServiceType이 중복되지 않도록 해야하며, 기존 ServiceType과 중복으로 error 발생한 경우 ServiceType을 변경하여 재시도해주시기 바랍니다. ServiceType은 Unique 값으로 하나의 ServiceType에 한 운영사만 등록할 수 있습니다.
-
 
 .. _company-registration-api:
 
 회사 정보 등록 API
 ~~~~~~~~~~~~~~~~~~
+
+.. rst-class:: text-align-justify
+
+발급받은 Token으로 회사정보, 서비스 정보를 등록합니다. 
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -160,15 +162,14 @@ REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
 
     {
-        "name":"운영사A",
-        "region":"대한민국",
-        "serviceType":"example",
-        "picName":"김담당자",
-        "picEmail":"companya@example.com",
-        "picPhone":"010-0000-0000",
-        "picPasswd":"1234",
-        "picDivision":"사업1팀",
-        "description":"additional description"
+        "name":"test_companyname_ovse2",
+        "serviceType":"test_servicetype_ovse2",
+        "picName":"createcompanynam2e",
+        "picEmail":"test_servicetype_ovse2@sktint.com",
+        "picPhone":"010-1111-1234",
+        "picPasswd":"test_companyname_ovse",
+        "picDivision":"team1",
+        "description":"description"
     }
 
 :underline:`Response (code: 200)`
@@ -177,20 +178,16 @@ REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 
 
     {
         "id": {
-            "id": "c7fc12a0-beea-11e7-8bdf-af923035d741"
+            "id": "4813f210-73ab-11ea-ac0c-d950be57c747"
         },
-        "createdTime": 1509530124485,
-        "name": "운영사A",
-        "serviceType": "example",
-        "master": true,
-        "masterId": {
-            "id": "c7fc12a0-beea-11e7-8bdf-af923035d741"
-        },
-        "picPasswd": "1234",
-        "picName": "김담당자",
-        "picPhone": "010-0000-0000",
-        "picEmail": "companya@example.com",
-        "picDivision": "사업1팀",
+        "createdTime": 1585699007148,
+        "name": "test_companyname_ovse2",
+        "serviceType": "test_servicetype_ovse2",
+        "picPasswd": "test_companyname_ovse",
+        "picName": "createcompanynam2e",
+        "picPhone": "010-1111-1234",
+        "picEmail": "test_servicetype_ovse2@sktint.com",
+        "picDivision": "team1",
         "description": "additional description",
         "tokenPrefix": "enh03"
     }
@@ -198,10 +195,11 @@ REST API로 정상적으로 등록된 Token을 확인하는 방법은 다음과 
 .. rst-class:: text-align-justify
 
 정상적으로 등록하면(code:200) 위와 같이 생성된 회사 정보를 Response 값으로 확인할 수 있습니다.
-
-운영사는 master 필드가 true로 출력되므로 master 필드를 통해 이 회사가 운영사로 등록됐는지 구분할 수 있습니다. 생성한 회사 계정으로 처음 로그인할 때 입력한 picEmail를 아이디, picPasswd를 패스워드로 사용합니다. 예시로 보면 아이디는 "companya@example.com", 패스워드는 "123가"입니다. 패스워드는 로그인 후에 변경할 수 있습니다.
-
-REST API를 사용할 때 입력하는 Company ID는 Response 데이터에 있는 id 필드입니다. 예시에 있는 "c7fc12a0-beea-11e7-8bdf-af923035d741"이 Company ID입니다.
+REST API를 사용할 때 입력하는 Company ID는 Response 데이터에 있는 id 필드로,
+예시에 있는 "4813f210-73ab-11ea-ac0c-d950be57c747"이 Company ID입니다.
+요청 파라미터를 입력할 때 ServiceType이 중복되지 않도록 해야하며, 기존 ServiceType과 중복으로 
+error 발생한 경우 ServiceType을 변경하여 재시도해주시기 바랍니다. 
+ServiceType은 Unique 값으로 하나의 ServiceType에 한 운영사만 등록할 수 있습니다.
 
 
 .. _device-registration:
