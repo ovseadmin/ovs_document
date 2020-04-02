@@ -320,17 +320,18 @@ ServiceType은 Unique 값으로 하나의 ServiceType에 한 운영사만 등록
 
 .. _director-registration:
 
-회사 관리자 등록 (Company Admin Registration)
+관리자 등록 (Director Registration)
 -----------------------------------
 
 .. _director-registration-api:
 
-회사 관리자 정보 등록 API
+관리자 정보 등록 API
 ~~~~~~~~~~~~~~~~~
 
 .. rst-class:: text-align-justify
 
-회사관리자는 COMPANY_ADMIN 권한을 가진 회사 계정으로만 등록할 수 있습니다. 특정 차량들에 대해 관리자로 지정되어 관리하거나, 타 회사의 차량을 위임받아서 모니터링 할 수 있습니다.
+관리자는 COMPANY_ADMIN 권한을 가진 회사 계정으로만 등록할 수 있습니다. 
+관리자는 특정 단말들에 대해 관리자로 지정되거나 직접 단말을 등록할 수 있습니다. 
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -399,7 +400,7 @@ ServiceType은 Unique 값으로 하나의 ServiceType에 한 운영사만 등록
         },
         "createdTime": 1509695813887,
         "companyId": {
-            "id": "c7fc12a0-beea-11e7-8bdf-af923035d741"
+            "id": "4813f210-73ab-11ea-ac0c-d950be57c747"
         },
         "name": "디렉터C",
         "phone": "010-0000-0000",
@@ -416,5 +417,6 @@ ServiceType은 Unique 값으로 하나의 ServiceType에 한 운영사만 등록
 
 .. rst-class:: text-align-justify
 
-등록할 때 입력한 email이 아이디입니다. Example Code에서 아이디는 directorc@example.com 이고, 패스워드는 1234 입니다. Authority 필드를 통해 해당 계정이 DIRECTOR 계정인지 DRIVER 계정인지 구분할 수 있습니다.
+등록할 때 입력한 email이 아이디입니다. Example Code에서 아이디는 directorc@example.com 이고, 패스워드는 1234 입니다. 
+Authority 필드로 해당 계정의 DIRECTOR 계정여부를 구분할 수 있습니다.
 
