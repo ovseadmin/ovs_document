@@ -47,12 +47,12 @@ OVSE 플랫폼의 기본 메세지 구조는 JSON Format으로 Header, Payload�
 =============  ========  =============================================
 Key            Type      Description
 =============  ========  =============================================
-Device Type    OVC-g     1
-               OVC-m     2
+Device Type    OVC-g     | 1
+               OVC-m     | 2
 Sender         OVC-g     | OVCPosition
                          | OVCEventReport
-               OVC-m     OVCEventReport
-               OVSE      V2N Event Notification 
+               OVC-m     | OVCEventReport
+               OVSE      | V2N Event Notification 
 =============  ========  =============================================
 
 
