@@ -62,43 +62,43 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
 
 
 [API 리스트]
-=========  ===================================================  ===========  ===================================================== ======  =====  ====
-| 구분      |  설명                                              | Method    | URL                                                  | SA   | CA   | D 
-=========  ===================================================  ===========  ===================================================== ======  =====  ====
- Auth       | -  로그인                                          | POST      | /api/auth/login                                      | O    | O    | O 
-            | -  토큰 갱신                                       | POST      | /api/auth/token                                      | O    | O    | O 
-            | -  비밀번호 변경                                   | POST      | /api/auth/changePassword                             | O    | O    | O 
-            | -  임시비밀번호 변경                               | POST      | /api/auth/resetPasswordByEmail                       | O    | O    | O 
-            | -  사용자 이메일 검색                              | POST      | /api/auth/findUserEmail                              | O    | O    | O 
----------  ---------------------------------------------------  -----------  ----------------------------------------------------- ------  -----  ----
- Company    | -  회사 정보 등록                                  | POST      | /api/ovs/v1/company	                            | O    | X    | X 
-            | -  회사 정보 조회                                  | GET       | /api/ovs/v1/company/{companyId}                      | O    | O    | O 
-            | -  회사 정보 수정                                  | PUT       | /api/ovs/v1/company/{companyId}                      | O    | O    | X 
-            | -  회사 삭제                                       | DELETE    | /api/ovs/v1/company/{companyId}	                    | O    | O    | X 
-            | -  내 회사 정보 조회                               | GET       | /api/ovs/v1/company/me                               | O    | O    | O 
-            | -  특정 Service Type에 속하는 회사 리스트 조회     | GET       | /api/ovs/v1/companies                                | O    | X    | X 
-            | -  등록된 전체 회사 수 조회                        | GET       | /api/ovs/v1/companies/all                            | O    | X    | X 
-            | -  특정 Service Type에 속하는 회사의 수 조회       | GET       | /api/ovs/v1/companies/cnt                            | O    | X    | X 
-            | -  회사 관리자 등록                                | POST      | /api/ovs/v1/company/{companyId}/admin                | O    | O    | X 
-            | -  회사 관리자 수정                                | PUT       | /api/ovs/v1/company/{companyId}/admin/{adminId}      | O    | O    | X 
-            | -  회사 관리자 삭제                                | DELETE    | /api/ovs/v1/company/{companyId}/admin/{adminId}      | O    | O    | X 
-            | -  회사 관리자 리스트 조회                         | GET       | /api/ovs/v1/company/{companyId}/admins               | O    | O    | X 
-            | -  소유한 단말 리스트 조회                         | GET       | /api/ovs/v1/company/{companyId}/devices              | O    | O    | O 
-            | -  특정 회사 모든 단말에 메시지 전달               | POST      | /api/ovs/v1/company/{companyId}/message              | O    | O    | O 
----------  ---------------------------------------------------  -----------  ----------------------------------------------------- ------  -----  ----
- Device     | -  단말 등록                                       | POST      | /api/ovs/v1/device                                   | O    | O    | O 
-            | -  SerialNo로 단말 조회                            | GET       | /api/ovs/v1/device                                   | O    | O    | O 
-            | -  단말 정보 조회                                  | GET       | /api/ovs/v1/device/{deviceId}                        | O    | O    | O 
-            | -  단말 정보 수정                                  | PUT       | /api/ovs/v1/device/{deviceId}                        | O    | O    | O 
-            | -  단말 삭제                                       | DELETE    | /api/ovs/v1/device/{deviceId}                        | O    | O    | O 
-            | -  전체 단말 리스트 조회                           | GET       | /api/ovs/v1/devices                                  | O    | O    | O 
-            | -  특정 Service Type에 속하는 단말의 수 조회       | GET       | /api/ovs/v1/devices/cnt                              | O    | O    | O 
-            | -  소유한 전체 단말 수	                         | GET       | /api/ovs/v1/devices/owned/cnt                        | O    | O    | O 
-            | -  단말별 메시지 전달                              | POST      | /api/ovs/v1/device/{deviceId}/message                | O    | O    | O 
----------  ---------------------------------------------------  -----------  ----------------------------------------------------- ------  -----  ----
- Stats      | -  특정 회사 모든 단말의 기간별 이벤트 통계        | GET       | /api/ovs/v1/company/{companyId}/statistics/event     | O    | O    | O 
-            | -  특정 단말 기간별 이벤트 통계                    | GET       | /api/ovs/v1/device/{deviceId}/statistics/event       | O    | O    | O 
-=========  ===================================================  ===========  ===================================================== ======  =====  ====
+=========  ===================================================  ===========  =====================================================  ======  ======  =====
+| 구분      |  설명                                              | Method    | URL                                                   | SA    | CA    | D 
+=========  ===================================================  ===========  =====================================================  ======  ======  =====
+ Auth       | -  로그인                                          | POST      | /api/auth/login                                       | O     | O     | O 
+            | -  토큰 갱신                                       | POST      | /api/auth/token                                       | O     | O     | O 
+            | -  비밀번호 변경                                   | POST      | /api/auth/changePassword                              | O     | O     | O 
+            | -  임시비밀번호 변경                               | POST      | /api/auth/resetPasswordByEmail                        | O     | O     | O 
+            | -  사용자 이메일 검색                              | POST      | /api/auth/findUserEmail                               | O     | O     | O 
+---------  ---------------------------------------------------  -----------  -----------------------------------------------------  ------  ------  -----
+ Company    | -  회사 정보 등록                                  | POST      | /api/ovs/v1/company                                   | O     | X     | X 
+            | -  회사 정보 조회                                  | GET       | /api/ovs/v1/company/{companyId}                       | O     | O     | O 
+            | -  회사 정보 수정                                  | PUT       | /api/ovs/v1/company/{companyId}                       | O     | O     | X 
+            | -  회사 삭제                                       | DELETE    | /api/ovs/v1/company/{companyId}	                     | O     | O     | X 
+            | -  내 회사 정보 조회                               | GET       | /api/ovs/v1/company/me                                | O     | O     | O 
+            | -  특정 Service Type에 속하는 회사 리스트 조회     | GET       | /api/ovs/v1/companies                                 | O     | X     | X 
+            | -  등록된 전체 회사 수 조회                        | GET       | /api/ovs/v1/companies/all                             | O     | X     | X 
+            | -  특정 Service Type에 속하는 회사의 수 조회       | GET       | /api/ovs/v1/companies/cnt                             | O     | X     | X 
+            | -  회사 관리자 등록                                | POST      | /api/ovs/v1/company/{companyId}/admin                 | O     | O     | X 
+            | -  회사 관리자 수정                                | PUT       | /api/ovs/v1/company/{companyId}/admin/{adminId}       | O     | O     | X 
+            | -  회사 관리자 삭제                                | DELETE    | /api/ovs/v1/company/{companyId}/admin/{adminId}       | O     | O     | X 
+            | -  회사 관리자 리스트 조회                         | GET       | /api/ovs/v1/company/{companyId}/admins                | O     | O     | X 
+            | -  소유한 단말 리스트 조회                         | GET       | /api/ovs/v1/company/{companyId}/devices               | O     | O     | O 
+            | -  특정 회사 모든 단말에 메시지 전달               | POST      | /api/ovs/v1/company/{companyId}/message               | O     | O     | O 
+---------  ---------------------------------------------------  -----------  -----------------------------------------------------  ------  ------  -----
+ Device     | -  단말 등록                                       | POST      | /api/ovs/v1/device                                    | O     | O     | O 
+            | -  SerialNo로 단말 조회                            | GET       | /api/ovs/v1/device                                    | O     | O     | O 
+            | -  단말 정보 조회                                  | GET       | /api/ovs/v1/device/{deviceId}                         | O     | O     | O 
+            | -  단말 정보 수정                                  | PUT       | /api/ovs/v1/device/{deviceId}                         | O     | O     | O 
+            | -  단말 삭제                                       | DELETE    | /api/ovs/v1/device/{deviceId}                         | O     | O     | O 
+            | -  전체 단말 리스트 조회                           | GET       | /api/ovs/v1/devices                                   | O     | O     | O 
+            | -  특정 Service Type에 속하는 단말의 수 조회       | GET       | /api/ovs/v1/devices/cnt                               | O     | O     | O 
+            | -  소유한 전체 단말 수	                         | GET       | /api/ovs/v1/devices/owned/cnt                         | O     | O     | O 
+            | -  단말별 메시지 전달                              | POST      | /api/ovs/v1/device/{deviceId}/message                 | O     | O     | O 
+---------  ---------------------------------------------------  -----------  -----------------------------------------------------  ------  ------  -----
+ Stats      | -  특정 회사 모든 단말의 기간별 이벤트 통계        | GET       | /api/ovs/v1/company/{companyId}/statistics/event      | O     | O     | O 
+            | -  특정 단말 기간별 이벤트 통계                    | GET       | /api/ovs/v1/device/{deviceId}/statistics/event        | O     | O     | O 
+=========  ===================================================  ===========  =====================================================  ======  ======  =====
 
 SA: System Admin
 CA: Company Admin
