@@ -1,6 +1,6 @@
 ﻿.. |br| raw:: html
 
-.. _entity-registration:
+.. _api-specification:
 
 API Specification 
 =======================================
