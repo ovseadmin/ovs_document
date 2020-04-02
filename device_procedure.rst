@@ -1,19 +1,17 @@
 .. |br| raw:: html
 
-.. _device-registration:
+.. _device-procedure:
 
 Device 연동 절차
 =================
 
-이 매뉴얼은 OVSE 플랫폼에 연결되는 단말장치, OVC를 개발하는 파트너들을 위한 것입니다. 장치가 어떻게 플랫폼과 통신하는지 설명합니다.
+이 매뉴얼은 OVSE 플랫폼에 연결되는 단말장치, OVC를 개발하는 파트너들을 위한 것으로 장치(OVC)가 어떻게 플랫폼과 통신하는지 설명합니다.
 
-OVSE 플랫폼을 사용하여 V2N Service Application을 개발/서비스 하고자 하는 파트너는 :ref:`5. 구성요소(Entity) 등록 <entity-registration>` 를 참고하십시오. 
+장치 연동을 위해서는  :ref:`5. 구성요소(Entity) 등록 <entity-registration>` 를 참고하여 구성요소 등록을 마치셔야합니다. 
+자세한 API 규격 및 Device 연동 예는 :ref:`7. API 규격 <api-specification>`  과 :ref:`9. Device Simulator <device-simulator>` 를 참고하십시오.
+실제 OVC 단말과 OVSE플랫폼이 주고받는 메세지에 대한 상세한 내용은 :ref:`8. 메세지 포맷 <message-format>` 을 참고하십시오.
 
-App 개발자는 :ref:`7. API 규격 <api-specification>`  과 :ref:`9. Device Simulator <device-simulator>` 를 참고하십시오.
-
-이 매뉴얼에서는 OVC가 OVSE 플랫폼과 어떻게 연결되는지 설명합니다. 실제 OVC 단말과 OVSE플랫폼이 주고받는 메세지에 대한 상세한 내용은 :ref:`8. 메세지 포맷 <message-format>` 을 참고하십시오.
-
-OVSE 플랫폼과 OVC를 연동하여 서비스하기 위해서는 다음의 VSC Interface를 이해하여야 합니다. 그리고 :ref:`5. 구성요소(Entity) 등록 <entity-registration>`의 단말 등록이 완료되어야 합니다.
+OVSE 플랫폼과 OVC를 연동하여 서비스하기 위해서는 다음의 VSC Interface를 이해하여야 합니다. 
 
 
 * **VSC Interface**
