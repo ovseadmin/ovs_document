@@ -60,6 +60,51 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
             | -  특정 단말 기간별 이벤트 통계                    | GET       | /api/ovs/v1/device/{deviceId}/statistics/event
 =========  ===================================================  ===========  =====================================================
 
+
+[API 리스트]
+
+=========  ===================================================  ===========  =====================================================  =====  =====  ====
+| 구분      |  설명                                              | Method    | URL                                                  | SA   | CA   | D 
+=========  ===================================================  ===========  =====================================================  =====  =====  ====
+ Auth       | -  로그인                                          | POST      | /api/auth/login                                      | O    | O    | O 
+            | -  토큰 갱신                                       | POST      | /api/auth/token                                      | O    | O    | O 
+            | -  비밀번호 변경                                   | POST      | /api/auth/changePassword                             | O    | O    | O 
+            | -  임시비밀번호 변경                               | POST      | /api/auth/resetPasswordByEmail                       | O    | O    | O 
+            | -  사용자 이메일 검색                              | POST      | /api/auth/findUserEmail                              | O    | O    | O 
+---------  ---------------------------------------------------  -----------  -----------------------------------------------------  -----  -----  ----
+ Company    | -  회사 정보 등록                                  | POST      | /api/ovs/v1/company	                            | O    | X    | X 
+            | -  회사 정보 조회                                  | GET       | /api/ovs/v1/company/{companyId}                      | O    | O    | O 
+            | -  회사 정보 수정                                  | PUT       | /api/ovs/v1/company/{companyId}                      | O    | O    | X 
+            | -  회사 삭제                                       | DELETE    | /api/ovs/v1/company/{companyId}	                    | O    | O    | X 
+            | -  내 회사 정보 조회                               | GET       | /api/ovs/v1/company/me                               | O    | O    | O 
+            | -  특정 Service Type에 속하는 회사 리스트 조회     | GET       | /api/ovs/v1/companies                                | O    | X    | X 
+            | -  등록된 전체 회사 수 조회                        | GET       | /api/ovs/v1/companies/all                            | O    | X    | X 
+            | -  특정 Service Type에 속하는 회사의 수 조회       | GET       | /api/ovs/v1/companies/cnt                            | O    | X    | X 
+            | -  회사 관리자 등록                                | POST      | /api/ovs/v1/company/{companyId}/admin                | O    | O    | X 
+            | -  회사 관리자 수정                                | PUT       | /api/ovs/v1/company/{companyId}/admin/{adminId}      | O    | O    | X 
+            | -  회사 관리자 삭제                                | DELETE    | /api/ovs/v1/company/{companyId}/admin/{adminId}      | O    | O    | X 
+            | -  회사 관리자 리스트 조회                         | GET       | /api/ovs/v1/company/{companyId}/admins               | O    | O    | X 
+            | -  소유한 단말 리스트 조회                         | GET       | /api/ovs/v1/company/{companyId}/devices              | O    | O    | O 
+            | -  특정 회사 모든 단말에 메시지 전달               | POST      | /api/ovs/v1/company/{companyId}/message              | O    | O    | O 
+---------  ---------------------------------------------------  -----------  -----------------------------------------------------  -----  -----  ----
+ Device     | -  단말 등록                                       | POST      | /api/ovs/v1/device                                   | O    | O    | O 
+            | -  SerialNo로 단말 조회                            | GET       | /api/ovs/v1/device                                   | O    | O    | O 
+            | -  단말 정보 조회                                  | GET       | /api/ovs/v1/device/{deviceId}                        | O    | O    | O 
+            | -  단말 정보 수정                                  | PUT       | /api/ovs/v1/device/{deviceId}                        | O    | O    | O 
+            | -  단말 삭제                                       | DELETE    | /api/ovs/v1/device/{deviceId}                        | O    | O    | O 
+            | -  전체 단말 리스트 조회                           | GET       | /api/ovs/v1/devices                                  | O    | O    | O 
+            | -  특정 Service Type에 속하는 단말의 수 조회       | GET       | /api/ovs/v1/devices/cnt                              | O    | O    | O 
+            | -  소유한 전체 단말 수	                         | GET       | /api/ovs/v1/devices/owned/cnt                        | O    | O    | O 
+            | -  단말별 메시지 전달                              | POST      | /api/ovs/v1/device/{deviceId}/message                | O    | O    | O 
+---------  ---------------------------------------------------  -----------  -----------------------------------------------------  -----  -----  ----
+ Stats      | -  특정 회사 모든 단말의 기간별 이벤트 통계        | GET       | /api/ovs/v1/company/{companyId}/statistics/event     | O    | O    | O 
+            | -  특정 단말 기간별 이벤트 통계                    | GET       | /api/ovs/v1/device/{deviceId}/statistics/event       | O    | O    | O 
+=========  ===================================================  ===========  =====================================================  =====  =====  ====
+
+SA: System Admin
+CA: Company Admin
+D: Director
+
 .. _api-specification_entity-registration:
 
 Entity Model and Registration
@@ -78,7 +123,7 @@ REST API에서는 다음과 같은 Entity들이 정의되어 있으며, 세부 �
 
 .. _api-specification_authentication:
 
-인증 Authentication
+인증 Authentication API
 ------------------------
 .. rst-class:: text-align-justify
 
@@ -157,12 +202,12 @@ token을 받기 위한 authentication API는 아래와 같습니다.
 
 .. _api-specification_information:
 
-정보 조회 Information Lookup
+정보 조회 API
 ------------------------
 
 .. _api-specification_company-information:
 
-회사 정보 조회 Comapny Information Lookup
+회사 정보 조회
 ~~~~~~~~~~~~~~~~~~
 
 .. rst-class:: text-align-justify
@@ -244,21 +289,19 @@ token을 받기 위한 authentication API는 아래와 같습니다.
 
 .. _api-specification_my-company-information:
 
-내 회사 정보 조회 My Comapny Information
+내 회사 정보 조회
 ~~~~~~~~~~~~~~~~~~
 
 .. rst-class:: text-align-justify
 
-등록절차를 거친 회사의 정보를 조회하는 API 입니다. 회사정보를 조회하기 위해서는 회사 Admin 계정으로 인증받은 token이 필요합니다. 
-관리자(Director) 계정으로는 회사 정보를 조회할 수 없습니다.
-
+나의 계정정보와 내가 속한 회사의 Company ID를 조회하는 API 입니다. 
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
 
-+------------+----------------------------------------------------+
-| **GET**   | `/api/ovs/v1/company/{companyId} <https://TBD>`__  |
-+------------+----------------------------------------------------+
++------------+------------------------------------------+
+| **GET**   | `/api/ovs/v1/company/me <https://TBD>`__  |
++------------+------------------------------------------+
 
 - Header
 
@@ -296,32 +339,114 @@ token을 받기 위한 authentication API는 아래와 같습니다.
     content-type:"application/json"
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
 
-
 :underline:`Response (code: 200)`
 
 .. code-block:: json
-
     {
         "id": {
+            "id": "4823f7a0-73ab-11ea-ac0c-d950be57c747"
+        },
+        "createdTime": 1585699007493,
+        "companyId": {
             "id": "4813f210-73ab-11ea-ac0c-d950be57c747"
         },
-        "createdTime": 1585699007148,
-        "name": "test_companyname_ovse2",
-        "serviceType": "test_servicetype_ovse2",
-        "picPasswd": "null",
-        "picName": "createcompanynam2e",
-        "picPhone": "010-1111-1234",
-        "picEmail": "test_servicetype_ovse2@sktint.com",
-        "picDivision": "team1",
-        "description": "additional description",
-        "tokenPrefix": "enh03"
+        "name": "createcompanynam2e",
+        "phone": "010-1111-1234",
+        "email": "test_servicetype_ovse2@sktint.com",
+        "authority": "COMPANY_ADMIN",
+        "password": null,
+        "additionalInfo": null,
+        "passwordUpdatedTime": 1585699007493
     }
 
 .. rst-class:: text-align-justify
 
-회사ID가 등록되어있고, token이 유효한 경우 정상적으로 조회할 수 있습니다. 
-나의 소속 회사 ID를 모르는 경우, 소속 회사 조회 API로 검색 가능합니다. 
+token이 유효한 경우 정상적으로 조회할 수 있습니다. 
+
 |br|
+
+
+.. _api-specification_my-company-information:
+
+단말 정보 조회
+~~~~~~~~~~~~~~~~~~
+
+.. rst-class:: text-align-justify
+
+단말 ID를 통해 단말 정보를 조회하는 API 입니다. 
+
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
+
++------------+------------------------------------------+
+| **GET**   | `/api/ovs/v1/company/me <https://TBD>`__  |
++------------+------------------------------------------+
+
+- Header
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++--------------+--------+------------------+--------------+
+| option       | Type   | Default          | Description  |
++==============+========+==================+==============+
+| Content-Type | string | application/json | content type |
++--------------+--------+------------------+--------------+
+
+- Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------+--------+-------------------------+
+| Key      | Type   | Description             |
++==========+========+=========================+
+| N/A      | N/A    | N/A                     |
++----------+--------+-------------------------+
+
+.. role:: underline
+        :class: underline
+
+- Example Code
+
+:underline:`Request`
+
+.. code-block:: none
+
+    content-type:"application/json"
+    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+
+:underline:`Response (code: 200)`
+
+.. code-block:: json
+    {
+        "id": {
+            "id": "4823f7a0-73ab-11ea-ac0c-d950be57c747"
+        },
+        "createdTime": 1585699007493,
+        "companyId": {
+            "id": "4813f210-73ab-11ea-ac0c-d950be57c747"
+        },
+        "name": "createcompanynam2e",
+        "phone": "010-1111-1234",
+        "email": "test_servicetype_ovse2@sktint.com",
+        "authority": "COMPANY_ADMIN",
+        "password": null,
+        "additionalInfo": null,
+        "passwordUpdatedTime": 1585699007493
+    }
+
+.. rst-class:: text-align-justify
+
+token이 유효한 경우 정상적으로 조회할 수 있습니다. 
+
+
+
+
+
+
 
 
 
