@@ -376,7 +376,7 @@ OVC-m 단말이 OVSE와 연동하여 V2N 서비스를 하기 위해서는 OVSE�
 
 Topic을 Generation하는 과정은 아래 그림과 같습니다. 
 
-.. image:: /images/device_procedure/ovcm_topicgen_v3.png
+.. image:: /images/device_procedure/ovcm_topicgen_v4.png
 	:width: 100%
 	:align: center
 
