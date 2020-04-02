@@ -2,13 +2,13 @@
 
 .. _api-specification:
 
-API Specification 
+Northbound API Specification 
 =======================================
 
-About API Specification
+About Northbound API Specification
 --------------------------------
 
-OVSE 플랫폼은 인증, 회사 및 단말관리, 통계를 위한 API를 제공합니다. 
+OVSE 플랫폼은 인증, 회사 및 단말 관리, 통계를 위한 Northbound API를 제공합니다. 
 
 
 REST API
@@ -59,18 +59,30 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
 =========  ===================================================  ===========  =====================================================
 
 
-Entity Model
+Entity Model and Registration
 ------------------------
 
 .. rst-class:: text-align-justify
 
-REST API에서는 다음과 같은 Entity들이 정의되어 있으며, 세부 데이터 모델 내용은 `OVSE Document <https://ovs-document.readthedocs.io/en/latest/index.html>`__ 내용을 참고하시기 바랍니다.
+REST API에서는 다음과 같은 Entity들이 정의되어 있으며, 세부 데이터 모델과 등록 방법은 
+:ref:`5. 구성요소(Entity) 등록 <entity-registration>`__ 내용을 참고하시기 바랍니다.
 
 -  Company
 
 -  Device
 
--  Company Admin(Director)
+-  Director
+
+
+Entity Lookup
+------------------------
+
+
+
+
+
+
+
 
 
 
