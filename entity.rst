@@ -252,12 +252,14 @@ ServiceType은 Unique 값으로 하나의 ServiceType에 한 운영사만 등록
 +--------------------+---------+-----------+---------------------------------+
 | credentialsId      | string  |           | Access Token                    |
 +--------------------+---------+-----------+---------------------------------+
+| modelName          | string  |           | 제품 모델 이름                  |
++--------------------+---------+-----------+---------------------------------+
+| modelCode          | string  |           | 제품 모델 코드                  |
++--------------------+---------+-----------+---------------------------------+
 | vendor             | string  |           | 제조사                          |
 +--------------------+---------+-----------+---------------------------------+
-| type               | string  | OBD2 |br| | 단말 타입                       |
-|                    |         | ADAS      |                                 |
-+--------------------+---------+-----------+---------------------------------+
-| activationRequired | boolean |           | RPC로 단말 활성화 필요한지 여부 |
+| type               | string  | OVS-g|br| | 단말 타입                       |
+|                    |         | OVS-m     |                                 |
 +--------------------+---------+-----------+---------------------------------+
 | missionType        | string  |           | 변속기 타입                     |
 +--------------------+---------+-----------+---------------------------------+
@@ -274,11 +276,12 @@ ServiceType은 Unique 값으로 하나의 ServiceType에 한 운영사만 등록
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
 
     {
-        "serialNo": "A1",
+        "serialNo": "SN1234567890",
         "credentialsId": "00000000000000000002",
+        "modelName": "Brand Name",
+        "modelCode": "BN-001",        
         "vendor": "sk",
-        "type": "OBD2",
-        "activationRequired": true,
+        "type": "OVS-g",
         "additionalInfo": "string"
     }
 
@@ -292,31 +295,27 @@ ServiceType은 Unique 값으로 하나의 ServiceType에 한 운영사만 등록
             "id": "05a55bc0-bf63-11e7-8bdf-af923035d741"
         },
         "createdTime": 1509581767542,
-        "vehicleId": {
-            "id": "13814000-1dd2-11b2-8080-808080808080"
-        },
         "companyId": {
             "id": "c7fc12a0-beea-11e7-8bdf-af923035d741"
         },
         "directorId": {
             "id": "13814000-1dd2-11b2-8080-808080808080"
         },
-        "status": "DEACTIVATED",
+        "serialNo": "SN1234567890",
+        "credentialsId": "00000000000000000002",
+        "modelName": "Brand Name",
+        "modelCode": "BN-001",        
         "vendor": "sk",
-        "type": "OBD2",
-        "additionalInfo": "string",
-        "lastTripMsgType": null,
-        "activationRequired": true,
-        "vehicleNo": null,
-        "serialNo": "A1",
-        "credentialsId": "00000000000000000002"
+        "type": "OVS-g",
+        "additionalInfo": "string"
     }
 
 .. rst-class:: text-align-justify
 
-요청이 성공하면(code:200) Response에서 Device ID를 얻을 수 있습니다. Device ID는 Response 데이터에 있는 id 필드 내의 id 값입니다. 예시에 있는 45f8a100-bef0-11e7-8bdf-af923035d741이 Device ID입니다.
+요청이 성공하면(code:200) Response에서 Device ID를 얻을 수 있습니다. 
+Device ID는 Response 데이터에 있는 id 필드 내의 id 값입니다. 
+예시에 있는 05a55bc0-bf63-11e7-8bdf-af923035d741이 Device ID입니다.
 |br|
-처음 등록할 때 단말은 DEACTIVATED 상태로 설정됩니다. 
 
 .. _director-registration:
 
@@ -383,12 +382,11 @@ ServiceType은 Unique 값으로 하나의 ServiceType에 한 운영사만 등록
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
 
     {
-        "name": "디렉터C",
-        "email": "directorc@example.com",
-        "phone": "010-0000-0000",
-        "password": "1234",
+        "name":"director_ovse",
+        "email": "test_director_ovse3@sktint.com",
+        "phone": "010-1111-2222",
+        "password": "test_companyname_ovse"
     }
-
 
 :underline:`Response (code: 200)`
 
@@ -396,23 +394,20 @@ ServiceType은 Unique 값으로 하나의 ServiceType에 한 운영사만 등록
 
     {
         "id": {
-            "id": "8e904530-c06c-11e7-8bdf-af923035d741"
+            "id": "a6e3aa50-73e3-11ea-ac0c-d950be57c747"
         },
-        "createdTime": 1509695813887,
+        "createdTime": 1585723218232,
         "companyId": {
             "id": "4813f210-73ab-11ea-ac0c-d950be57c747"
         },
-        "name": "디렉터C",
-        "phone": "010-0000-0000",
+        "name": "director_ovse",
+        "phone": "010-1111-2222",
         "vehicleId": null,
-        "latestTripId": {
-            "id": "13814000-1dd2-11b2-8080-808080808080"
-        },
-        "email": "directorc@example.com",
+        "email": "test_servicetype_ovse3@sktint.com",
         "authority": "DIRECTOR",
         "password": null,
         "additionalInfo": null,
-        "passwordUpdatedTime": 1509695813887
+        "passwordUpdatedTime": 1585723218232
     }
 
 .. rst-class:: text-align-justify
