@@ -79,7 +79,7 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
  Company    | -  회사 정보 등록                                  | POST      | /api/ovs/v1/company                                  | O   
             | -  회사 정보 조회                                  | GET       | /api/ovs/v1/company/{companyId}                      | O   
             | -  회사 정보 수정                                  | PUT       | /api/ovs/v1/company/{companyId}                      | O   
-            | -  회사 삭제                                       | DELETE    | /api/ovs/v1/company/{companyId}	                    | O   
+            | -  회사 삭제                                       | DELETE    | /api/ovs/v1/company/{companyId}                      | O   
             | -  내 회사 정보 조회                               | GET       | /api/ovs/v1/company/me                               | O   
             | -  특정 Service Type에 속하는 회사 리스트 조회     | GET       | /api/ovs/v1/companies                                | O   
             | -  등록된 전체 회사 수 조회                        | GET       | /api/ovs/v1/companies/all                            | O   
