@@ -298,6 +298,7 @@ token을 받기 위한 authentication API는 아래와 같습니다.
 :underline:`Request`
 
 .. code-block:: none
+
     content-type:"application/json"
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
 
@@ -305,6 +306,7 @@ token을 받기 위한 authentication API는 아래와 같습니다.
 :underline:`Response (code: 200)`
 
 .. code-block:: json
+
     {
         "id": {
             "id": "4823f7a0-73ab-11ea-ac0c-d950be57c747"
@@ -385,12 +387,15 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 :underline:`Request`
 
 .. code-block:: none
+
     content-type:"application/json"
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+
 
 :underline:`Response (code: 200)`
 
 .. code-block:: json
+
     {
         "id": {
             "id": "4823f7a0-73ab-11ea-ac0c-d950be57c747"
@@ -471,6 +476,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 :underline:`Request`
 
 .. code-block:: none
+
     content-type:"application/json"
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
     {
@@ -482,6 +488,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 :underline:`Response (code: 200)`
 
 .. code-block:: json
+
     {
         "id": {
             "id": "4823f7a0-73ab-11ea-ac0c-d950be57c747"
