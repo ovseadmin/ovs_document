@@ -32,7 +32,7 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
             | -  사용자 이메일 검색                              | POST      | /api/auth/findUserEmail                              | O     | O     | O 
 ---------  ---------------------------------------------------  -----------  -----------------------------------------------------  ------  ------  -----
  Company    | -  회사 정보 등록                                  | POST      | /api/ovs/v1/company                                  | O     | X     | X 
-            | -  회사 정보 조회                                  | GET       | /api/ovs/v1/company/{companyId}                      | O     | O     | O 
+            | -  회사 정보 조회                                  | GET       | /api/ovs/v1/company/{companyId}                      | O     | O     | X 
             | -  회사 정보 수정                                  | PUT       | /api/ovs/v1/company/{companyId}                      | O     | O     | X 
             | -  회사 삭제                                       | DELETE    | /api/ovs/v1/company/{companyId}                      | O     | O     | X 
             | -  내 회사 정보 조회                               | GET       | /api/ovs/v1/company/me                               | O     | O     | O 
@@ -255,7 +255,7 @@ token을 받기 위한 authentication API는 아래와 같습니다.
 
 .. rst-class:: text-align-justify
 
-나의 계정정보와 내가 속한 회사의 Company ID를 조회하는 API 입니다. 
+내가 속한 회사의 Company ID를 조회하는 API 입니다. 
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -413,6 +413,8 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 
 token이 유효한 경우 정상적으로 조회할 수 있습니다. 
 
+
+
 .. _api-specification_information_modification:
 
 정보 수정 API
@@ -425,7 +427,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 
 .. rst-class:: text-align-justify
 
-나의 계정정보와 내가 속한 회사의 Company ID를 수정하는 API 입니다. 
+나의 계정정보와 내가 속한 회사의 Company ID를 수정하는 API 입니다. 회사 admin만 사용가능합니다. (director는 사용불가) 
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -457,7 +459,9 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 +----------+--------+-------------------------+
 | Key      | Type   | Description             |
 +==========+========+=========================+
-| N/A      | N/A    | N/A                     |
+| picPhone | string | data field(for example) |
++----------+--------+-------------------------+
+| ...      | ....   | any other field         |
 +----------+--------+-------------------------+
 
 .. role:: underline
@@ -471,7 +475,10 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 
     content-type:"application/json"
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
-
+    {
+        "picPhone": "010-1111-1235"
+        ... any other field to change ...
+    }
 :underline:`Response (code: 200)`
 
 .. code-block:: json
@@ -484,7 +491,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
             "id": "4813f210-73ab-11ea-ac0c-d950be57c747"
         },
         "name": "createcompanynam2e",
-        "phone": "010-1111-1234",
+        "phone": "010-1111-1235",
         "email": "test_servicetype_ovse2@sktint.com",
         "authority": "COMPANY_ADMIN",
         "password": null,
@@ -494,11 +501,6 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 
 .. rst-class:: text-align-justify
 
-token이 유효한 경우 정상적으로 조회할 수 있습니다. 
-
-|br|
-
-
 
 .. _api-specification_device-information-modification:
 
@@ -507,26 +509,33 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 
 .. _api-specification_director-information-modification:
 
+To be added
+
 관리자 정보 수정
 ~~~~~~~~~~~~~~~~~~
 
 .. _api-specification_statistics:
+
+To be added
 
 이벤트 통계 API
 ------------------------
 
 .. _api-specification_statistics1:
 
+To be added
+
 통계1
 ~~~~~~~~~~~~~~~~~~
 
 .. _api-specification_statistics2:
+
+To be added
 
 통계2
 ~~~~~~~~~~~~~~~~~~
 
 .. _api-specification_statistics3:
 
-통계3
-~~~~~~~~~~~~~~~~~~
+To be added
 
