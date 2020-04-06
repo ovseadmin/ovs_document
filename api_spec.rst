@@ -432,9 +432,9 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
 
-+------------+-------------------------------------------------------------------+
-| **GET**   | `/api/ovs/v1/company/{companyId}/admin/{adminId} <https://TBD>`__  |
-+------------+-------------------------------------------------------------------+
++------------+---------------------------------------------------+
+| **PUT**   | `/api/ovs/v1/company/{companyId} <https://TBD>`__  |
++------------+---------------------------------------------------+
 
 - Header
 
@@ -456,13 +456,13 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 .. rst-class:: table-width-full
 .. rst-class:: text-align-justify
 
-+----------+--------+-------------------------+
-| Key      | Type   | Description             |
-+==========+========+=========================+
-| picPhone | string | data field(for example) |
-+----------+--------+-------------------------+
-| ...      | ....   | any other field         |
-+----------+--------+-------------------------+
++----------+--------+----------------------------+
+| Key      | Type   | Description                |
++==========+========+============================+
+| picPhone | string | data field(for example)    |
++----------+--------+----------------------------+
+| ...      | ....   | any other field to change  |
++----------+--------+----------------------------+
 
 .. role:: underline
         :class: underline
@@ -476,8 +476,8 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
     content-type:"application/json"
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
     {
-        "picPhone": "010-1111-1235"
-        ... any other field to change ...
+        "picPhone": "010-1111-1235",
+        "... any other field to change ..."
     }
 :underline:`Response (code: 200)`
 
