@@ -73,7 +73,7 @@ Entity Model and Registration
 .. rst-class:: text-align-justify
 
 REST API에서는 다음과 같은 Entity들이 정의되어 있으며, 세부 데이터 모델과 등록 방법은 
-:ref:`5. 구성요소(Entity) 등록 <entity-registration>`__ 내용을 참고하시기 바랍니다.
+:ref:`5. 구성요소(Entity) 등록 <entity-registration>` 내용을 참고하시기 바랍니다.
 
 -  Company
 
@@ -246,7 +246,6 @@ token을 받기 위한 authentication API는 아래와 같습니다.
 
 회사ID가 등록되어있고, token이 유효한 경우 정상적으로 조회할 수 있습니다. 
 나의 소속 회사 ID를 모르는 경우, 소속 회사 조회 API로 검색 가능합니다. 
-|br|
 
 
 .. _api-specification_my-company-information:
@@ -423,6 +422,83 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 
 회사 정보 수정
 ~~~~~~~~~~~~~~~~~~
+
+.. rst-class:: text-align-justify
+
+나의 계정정보와 내가 속한 회사의 Company ID를 수정하는 API 입니다. 
+
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
+
++------------+-------------------------------------------------------------------+
+| **GET**   | `/api/ovs/v1/company/{companyId}/admin/{adminId} <https://TBD>`__  |
++------------+-------------------------------------------------------------------+
+
+- Header
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+--------+------------------+--------------+
+| option          | Type   | Default          | Description  |
++=================+========+==================+==============+
+| Content-Type    | string | application/json | content type |
++-----------------+--------+------------------+--------------+
+| X-authorization | string |                  | auth token   |
++-----------------+--------+------------------+--------------+
+
+- Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------+--------+-------------------------+
+| Key      | Type   | Description             |
++==========+========+=========================+
+| N/A      | N/A    | N/A                     |
++----------+--------+-------------------------+
+
+.. role:: underline
+        :class: underline
+
+- Example Code
+
+:underline:`Request`
+
+.. code-block:: none
+
+    content-type:"application/json"
+    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+
+:underline:`Response (code: 200)`
+
+.. code-block:: json
+    {
+        "id": {
+            "id": "4823f7a0-73ab-11ea-ac0c-d950be57c747"
+        },
+        "createdTime": 1585699007493,
+        "companyId": {
+            "id": "4813f210-73ab-11ea-ac0c-d950be57c747"
+        },
+        "name": "createcompanynam2e",
+        "phone": "010-1111-1234",
+        "email": "test_servicetype_ovse2@sktint.com",
+        "authority": "COMPANY_ADMIN",
+        "password": null,
+        "additionalInfo": null,
+        "passwordUpdatedTime": 1585699007493
+    }
+
+.. rst-class:: text-align-justify
+
+token이 유효한 경우 정상적으로 조회할 수 있습니다. 
+
+|br|
+
+
 
 .. _api-specification_device-information-modification:
 
