@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'ovs_document'
+project = u'ovse_document'
 copyright = u'2020, SK Telecom'
 author = u'SK Telecom'
 
