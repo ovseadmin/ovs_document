@@ -121,17 +121,20 @@ Subscribe a Topic for Receiving V2N Notification
 
 ``Subscribe a Topic for Receiving V2N Notification`` 순서에서는 
 OVC-g가 향후에 V2N Event 수신 할 수 있도록 V2N Event을 제공하는 Topic에 Subscription을 합니다. 
-Topic은 아래와 같은 룰을 따라 설정합니다.
+Topic은 아래와 같은 룰을 따라 설정합니다. 
 
 =============  =============================================
-Topic          v2x/device/{userName}
+Topic          v2x/device/{deviceId}
 =============  =============================================
+
+OVSE에서는 각각의 OVC-g 디바이스 위치를 관리하여, 해당 디바이스에 V2N Event를 전달합니다. 
+그래서 각각의 OVC-g 별로 Topic을 만들도록 Rule이 설정되어 있습니다.
 
 ``Example Code`` 
 
 .. code-block:: javascript
 
-    messageSender.subscribe('v2x/device/{userName}, {qos: 1}, function(err, granted) {
+    messageSender.subscribe('v2x/device/{deviceId}, {qos: 1}, function(err, granted) {
 
         if (err)
         {
