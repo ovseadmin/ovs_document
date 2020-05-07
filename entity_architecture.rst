@@ -9,15 +9,14 @@ OVSE 플랫폼은 서비스 특성에 맞도록 설계된 유연한 데이터 �
 
 OVSE 서비스를 위한 Entity 간의 관계를 표현하면 다음과 같습니다.
 
-.. image:: /images/entity_architecture/ovse_entity_arch2.png
+.. image:: /images/entity_architecture/ovse_entity_arch.png
 	:width: 100%
 	:align: center
 
-하나의 서비스를 생성하면, 해당 서비스를 위한 다음의 3가지 Basic Entity를 추가하고 관계를 설정해주어야 합니다. 
+OVSE 서비스를 생성하면, 해당 서비스를 제공하는 Company Entity와 그 Company에 속해있는 Device Entity의 등록 및 관계 형성이 이루어집니다. 
 
 1. Company
-2. Director
-3. Device
+2. Device
 
 
 기본 구성요소 (Basic Entity)
@@ -34,9 +33,6 @@ Company                         | * Company는 V2N 서비스 단말의 제조사
                                 |  (예: 블랙박스, IVI 제조사, 자체 Backend를 보유한 OEM ) 
                                 | * OVSE 시스템 관리자 (sysadmin) 에 의해서 등록됩니다.
                                 | * 관리자 계정(Company admin)을 통해서 서비스 대상 단말을 등록 및 관리(수정/삭제)합니다.
-                                | * 등록된 Device 들을 Director에게 할당합니다.
-Director                        | * V2N Application Device를 소유/관리/운용하고 있는 사용자 
-                                | * Device의 등록/삭제를 할 수 있으며, 타 Director가 등록한 Device는 접근할 수 없습니다.
 Device                          | * OVSE와 플랫폼과 통신하여 V2N Application을 제공하는 주체. 
                                 | * 차량의 위치, Event 정보를 센싱하여 플랫폼으로 전달하고, 
                                 |   플랫폼으로 부터 V2N Event 메세지를 수신하여 서비스한다. 
