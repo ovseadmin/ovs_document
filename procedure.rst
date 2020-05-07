@@ -74,38 +74,14 @@ OVSE API가 포함된 프로젝트가 생성된 경우 API 호출 혹은 API 콘
 +------------+--------+----------------------------+--------------------------+
 
 단말등록 API의 세부 필드는 :ref:`5.2 단말 등록 <device-registration>` 을 참조하세요. 
+단말-OVSE플랫폼간 연동절차 및 프로토콜은 :ref:`6. Device 연동 절차 <device-procedure>` 를 참조하세요.
 
 
-App 개발자
-~~~~~~~~~~~~~
+.. _service-procedure-step4:
 
-.. rst-class:: text-align-justify
-
-OVSE 에서 제공하는 포털을 사용하지 않을 경우 고객사에서 자체적으로 App을 제작할 수 있습니다. 자체 App 개발을 진행하는 경우에는 OVS 플랫폼에서 제공하는 Open API를 활용하여 커넥티드카 서비스 App을 보다 쉽게 개발할 수 있습니다.
-
-.. rst-class:: text-align-justify
-
-1. 구성 요소 등록
-
-  .. rst-class:: text-align-justify
-
-  우선 OVSE 구성 요소의 등록 방법은 :ref:`5. 구성요소(Entity) 등록 <entity-registration>` 절차를 통해서 자세하게 확인할 수 있습니다.
-
-2. Open API
-
-  .. rst-class:: text-align-justify
-
-  OVSE 플랫폼은 Restful Open API를 제공합니다. API를 통해 OVSE 플랫폼에 데이터를 만들고 조회할 수 있습니다. Open API 규격에 대해서는 :ref:`6. API 규격 <api-specification>` 내용을 참고하시기 바랍니다.
-
-3. 메시지 포맷
-
-  .. rst-class:: text-align-justify
-
-  차량에 부착된 센서들로부터 전송되는 자동차 운행과 관련된 정보의 메시지 포맷은 :ref:`8. 메시지 포맷 <message-format>` 내용을 참고하시기 바랍니다.
-
-.. rst-class:: text-align-justify
+단말 통계 조회 
+---------------------
+OVSE플랫폼에 단말 등록 및 연동절차를 정상적으로 진행되었으면 정상적으로 OVSE 서비스를 받을 수 있으며, 
+서비스에 대한 단말별, 서비스별 통계를 조회할 수 있습니다. 
 
 
-|br|
-
-.. _entity-procedure:
