@@ -30,7 +30,23 @@ SK Open API 포털에서 제공하는 `OVSE API <https://openapi.sk.com/>`__ 혹
 
 SK Open API 가입
 ---------------------
-OVSE 플랫폼 및 API는 `SK Open API 포털<https://openapi.sk.com/>`__ 가입후 이용할 수 있습니다. 
+OVSE 플랫폼 및 API는 SK Open API 포털 `https://openapi.sk.com <https://openapi.sk.com/>`__ 가입후 이용할 수 있습니다. 
+https://openapi.sk.com 접속 후 "회원가입" 메뉴를 통해 가입절차를 진행합니다. 
+
+.. image:: images/skoa_1.png
+	:width: 70%
+	:align: center
+
+
+.. _service-procedure-step2:
+
+프로젝트 생성
+---------------------
+OVSE API 사용을 위해 SK Open API 포털내 "My Project" 메뉴에서 "프로젝트 생성" 후 OVSE API를 추가합니다. 
+
+.. image:: images/skoa_2.png
+	:width: 70%
+	:align: center
 
 
 
