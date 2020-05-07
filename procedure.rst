@@ -51,47 +51,29 @@ OVSE API 사용을 위해 SK Open API 포털내 "My Project" 메뉴에서 "프�
 생성된 프로젝트는 "My Project"의 "Dashboard" 메뉴에서 확인할 수 있으며, 
 이후 "Service" 메뉴에서 OVSE API를 추가하면 해당 프로젝트에서 OVSE API를 사용할 수 있습니다. 
 
-동일 프로젝트를 여러명의 사용자가 관리하는 경우 "My Project"의 "Team" 메뉴를 통하 멤버를 추가할 수 있습니다.
+동일 프로젝트를 여러명의 사용자가 관리하는 경우 "My Project"의 "Team" 메뉴에서 멤버를 추가할 수 있습니다.
 
 .. image:: images/skoa_3.png
 	:width: 70%
 	:align: center
 
 
-서비스 이용 안내
+.. _service-procedure-step3:
+
+단말 등록
 ---------------------
+OVSE API가 포함된 프로젝트가 생성된 경우 API 호출 혹은 API 콘솔에서 단말 등록 가능합니다. 
+단말등록은 5자리의 회사코드 및 15자리의 일련번호로 이루어진 단말ID와 단말credential의 조합으로 이루어집니다. 
 
-.. rst-class:: text-align-justify
++------------+--------+----------------------------+--------------------------+
+| Key        | Type   | Description                | Example                  |
++============+========+============================+==========================+
+| Device ID  | string | {company code}{serial No.} | abcde123456789012345     |
++------------+--------+----------------------------+--------------------------+
+| credential | string | {password}                 | abcd1234!@#$             |
++------------+--------+----------------------------+--------------------------+
 
-OVSE 플랫폼을 이용하는 개발자, 파트너사는 아래 절차를 참고하여 이용하실 수 있습니다.
-
-OEM 및 Device 개발사
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. 사업 문의
-
-  .. rst-class:: text-align-justify
-
-  SK Open API내 OVSE ‘Support/사업문의’ 메뉴를 통해서 OVSE 플랫폼 활용방안 문의 및 SKT OVSE 사업 담당자에게 연결됩니다. 
-
-2. 서비스 및 회사 등록
-
-  .. rst-class:: text-align-justify
-
-  SK Open API포털에서 발급받은 계정으로 서비스 및 회사를 신청합니다. 세부 절차는 :ref:`5.1. 서비스 등록 절차 <service-registration-api>` 를 참고하시기 바랍니다.
-
-3. 관리자(디렉터) 등록
-
-  .. rst-class:: text-align-justify
-
-  단말 관리를 위해 복수의 디렉터를 할당할 수 있습니다. 세부 절차는 :ref:`5.4. 디렉터 등록 절차 <director-registration-api>` 를 참고하시기 바랍니다.
-
-4. 단말(Device) 등록
-
-  .. rst-class:: text-align-justify
-
-  서비스 대상 단말을 등록합니다. 
-  
+단말등록 API의 세부 필드는 :ref:`5.2 단말 등록 <device-registration>` 을 참조하세요. 
 
 
 App 개발자
