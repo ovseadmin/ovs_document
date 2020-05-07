@@ -11,19 +11,29 @@
 OVSE 플랫폼을 사용하려는 파트너들을 위한 매뉴얼입니다. 
 
 
-전체 세부 절차
+.. _service-procedure-overview:
+
+전체 절차
 ------------------
 
 .. rst-class:: text-align-justify
 
-OVSE 플랫폼을 이용하기 위한 절차는 다음과 같이 구성되어 있습니다.
+OVSE 플랫폼을 이용하기 위한 절차는 다음과 같이 구성되어 있으며,
+SK Open API 포털에서 제공하는 `OVSE API <https://openapi.sk.com/>`__ 혹은 본 `OVSE 웹문서 <https://ovs-document.readthedocs.io/>`__ 에서 확인할 수 있습니다.
 
 .. image:: images/procedure_ovs4.png
 	:width: 70%
 	:align: center
 
 
-위 절차들은 SK 오픈 API 포털에서 제공하는 `Open API <https://openapi.sk.com/>`__ 혹은 본 `OVSE 웹문서 <https://ovs-document.readthedocs.io/>`__ 에서 확인할 수 있습니다.
+.. _service-procedure-step1:
+
+SK Open API 가입
+---------------------
+OVSE 플랫폼 및 API는 `SK Open API 포털<https://openapi.sk.com/>`__ 가입후 이용할 수 있습니다. 
+
+
+
 
 서비스 이용 안내
 ---------------------
