@@ -58,8 +58,6 @@ OVSE API 사용을 위해 SK Open API 포털내 "My Project" 메뉴에서 "프�
 	:align: center
 
 
-
-
 .. _service-procedure-step3:
 
 토큰 조회
