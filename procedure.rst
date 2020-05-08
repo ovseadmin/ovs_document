@@ -64,6 +64,7 @@ OVSE API 사용을 위해 SK Open API 포털내 "My Project" 메뉴에서 "프�
 ---------------------
 OVSE API 호출시 인증을 위하여 유효한 token을 포함하여야 합니다. 
 token은 "My Project"의 "Key" 메뉴에서 조회 가능합니다. 
+TBD: OVSE API 추가하고 Key값 표시된 화면으로 업데이트할것(현재 key 없음)
 
 .. image:: images/skoa_4.png
 	:width: 70%
@@ -78,6 +79,7 @@ token을 포함한 API 규격은 :ref:`7. API 규격 <api-specification>` 을 �
 ---------------------
 OVSE API가 포함된 프로젝트가 생성된 경우 API 호출 혹은 API 콘솔에서 단말 등록 가능합니다. 
 단말등록은 단말ID(serialNo)와 단말credential(credentialsId)의 조합으로 이루어지며 회사코드(company prefix)가 앞부분에 포함되어 있어야 합니다. 
+
 단말credential(credentialsId)은 5자리의 회사코드(company prefix)와 15자리의 개별암호로 이루어지며, 
 단말ID(serialNo)는 길이의 제한은 없습니다. 
 
@@ -92,9 +94,10 @@ TBD: SK open API console을 통하여 등록하는 장면 캡쳐
 +---------------+--------+-----------------------------------+--------------------------+
 
 단말등록 API의 세부 필드는 :ref:`5.2 단말 등록 <device-registration>` 을 참조하세요. 
+
 단말-OVSE플랫폼간 연동절차 및 프로토콜은 :ref:`6. Device 연동 절차 <device-procedure>` 를 참조하세요.
 
-TBD: SK open API console을 통하여 등록하는 장면 캡쳐
+TBD: SK open API console을 통하여 등록하는 장면 캡쳐(현재 화면없음)
 
 .. _service-procedure-step5:
 
