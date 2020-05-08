@@ -66,6 +66,7 @@ OVSE API 사용을 위해 SK Open API 포털내 "My Project" 메뉴에서 "프�
 ---------------------
 OVSE API 호출시 인증을 위하여 유효한 token을 포함하여야 합니다. 
 token은 "My Project"의 "Key" 메뉴에서 조회 가능합니다. 
+
 .. image:: images/skoa_4.png
 	:width: 70%
 	:align: center
