@@ -8,7 +8,7 @@ Northbound API Specification
 About Northbound API Specification
 ---------------------------------------
 
-OVSE 플랫폼은 인증, 회사 및 단말 관리, 통계를 위한 Northbound API를 제공합니다. 
+OVSE 플랫폼은 정보 조회, 단말 관리, 통계를 위한 Northbound API를 제공합니다. 
 
 
 .. _api-specification_rest-api:
@@ -38,7 +38,7 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
             | -  소유한 전체 단말 수	                         | GET       | /api/ovs/v1/devices/owned/cnt                      
             | -  단말별 메시지 전달                              | POST      | /api/ovs/v1/device/{deviceId}/message              
 ---------  ---------------------------------------------------  -----------  -----------------------------------------------------
- Stats      | -  특정 회사 모든 단말의 기간별 이벤트 통계        | GET       | /api/ovs/v1/company/{companyId}/statistics/event   
+ Stats      | -  회사 모든 단말의 기간별 이벤트 통계             | GET       | /api/ovs/v1/company/{companyId}/statistics/event   
             | -  특정 단말 기간별 이벤트 통계                    | GET       | /api/ovs/v1/device/{deviceId}/statistics/event     
 =========  ===================================================  ===========  =====================================================
 .. rst-class:: text-align-justify
@@ -63,7 +63,7 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
 .. rst-class:: text-align-justify
 
 +------------+----------------------------------------------------+
-| **GET**   | `/api/ovs/v1/company/{companyId} <https://TBD>`__  |
+| **GET**    | `/api/ovs/v1/company/{companyId} <https://TBD>`__  |
 +------------+----------------------------------------------------+
 
 - Header
