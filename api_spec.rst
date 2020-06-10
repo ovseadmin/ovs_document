@@ -126,36 +126,36 @@ token은 SK Open API 홈페이지에서, 회사ID(companyId)는 "내 회사 정�
 
 .. code-block:: json
 
-{
-    "id": {
-        "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
-    },
-    "createdTime": 1590654831577,
-    "name": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
-    "serviceType": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
-    "master": true,
-    "masterId": {
-        "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
-    },
-    "picPasswd": null,
-    "picName": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
-    "picPhone": null,
-    "picEmail": "l7xx73e3323ea2124bd89d5ce708bcb26fd8@skopenapi.com",
-    "picDivision": null,
-    "sktManagerName": null,
-    "sktManagerEmail": null,
-    "cooperationTask": null,
-    "description": null,
-    "notifyHost": null,
-    "notifyMsgType": null,
-    "notifyErrIdleMin": 0,
-    "pwAccess": null,
-    "dataAnalytics": null,
-    "bcn": null,
-    "tokenPrefix": "uio35",
-    "ovs": true,
-    "tokenExpr": -1
-}
+    {
+        "id": {
+            "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
+        },
+        "createdTime": 1590654831577,
+        "name": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
+        "serviceType": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
+        "master": true,
+        "masterId": {
+            "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
+        },
+        "picPasswd": null,
+        "picName": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
+        "picPhone": null,
+        "picEmail": "l7xx73e3323ea2124bd89d5ce708bcb26fd8@skopenapi.com",
+        "picDivision": null,
+        "sktManagerName": null,
+        "sktManagerEmail": null,
+        "cooperationTask": null,
+        "description": null,
+        "notifyHost": null,
+        "notifyMsgType": null,
+        "notifyErrIdleMin": 0,
+        "pwAccess": null,
+        "dataAnalytics": null,
+        "bcn": null,
+        "tokenPrefix": "uio35",
+        "ovs": true,
+        "tokenExpr": -1
+    }
 
 .. rst-class:: text-align-justify
 
@@ -280,24 +280,18 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 
 .. _api-specification_my-company-information:
 
-회사 관리자(Director) 리스트 조회 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-.. _api-specification_my-company-information:
-
 단말 정보 조회
 ~~~~~~~~~~~~~~~~~~
 
 .. rst-class:: text-align-justify
 
-단말 ID를 통해 단말 정보를 조회하는 API 입니다. 
+단말 시리얼번호(serialNo)를 통해 단말 ID등 단말정보를 조회하는 API 입니다. 
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
 
 +------------+-------------------------------------------------+
-| **GET**   | `/api/ovs/v1/device/{deviceId} <https://TBD>`__  |
+| **GET**    | `/api/ovs/v1/device/{serialNo} <https://TBD>`__ |
 +------------+-------------------------------------------------+
 
 - Header
@@ -311,7 +305,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 +=================+========+==================+==============+
 | Content-Type    | string | application/json | content type |
 +-----------------+--------+------------------+--------------+
-| X-authorization | string |                  | auth token   |
+| X-authorization | string | {{authToken}}    | auth token   |
 +-----------------+--------+------------------+--------------+
 
 - Body
@@ -325,6 +319,23 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 +==========+========+=========================+
 | N/A      | N/A    | N/A                     |
 +----------+--------+-------------------------+
+
+- Response fields
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+----------------------------------------------------+
+| Field           | Description                                        |
++=================+====================================================+
+| id              | unique device id                                   |
++-----------------+----------------------------------------------------+
+| companyId       | unique company id                                  |
++-----------------+----------------------------------------------------+
+| type            | device type(OVC-G or OVC-M)                        |
++-----------------+----------------------------------------------------+
+
 
 .. role:: underline
         :class: underline
@@ -345,19 +356,18 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 
     {
         "id": {
-            "id": "4823f7a0-73ab-11ea-ac0c-d950be57c747"
+            "id": "37c6b060-a0be-11ea-a9b8-ff6a8104c32f"
         },
-        "createdTime": 1585699007493,
+        "createdTime": 1590654942693,
         "companyId": {
-            "id": "4813f210-73ab-11ea-ac0c-d950be57c747"
+            "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
         },
-        "name": "createcompanynam2e",
-        "phone": "010-1111-1234",
-        "email": "test_servicetype_ovse2@sktint.com",
-        "authority": "COMPANY_ADMIN",
-        "password": null,
+        "vendor": "SKT1",
+        "type": "OVC-G",
         "additionalInfo": null,
-        "passwordUpdatedTime": 1585699007493
+        "activationRequired": false,
+        "serialNo": "uio35fine1236",
+        "credentialsId": null
     }
 
 .. rst-class:: text-align-justify
