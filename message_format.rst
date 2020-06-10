@@ -47,41 +47,41 @@ OVSE 플랫폼의 기본 메세지 구조는 JSON Format으로 Header, Payload�
 =============  ============================================
 Device Type    Value
 =============  ============================================
-OVC-g          device_type = 1
-OVC-m          device_type = 2
+OVC-G          device_type = 1
+OVC-M          device_type = 2
 =============  ============================================
 
 =============  =============  =============================================
 Sendor         Receiver       Message
 =============  =============  =============================================
-OVC-g          OVSE           | OVCPosition
+OVC-G          OVSE           | OVCPosition
                               | OVCEventReport
-OVC-m          OVSE           OVCEventReport
-OVSE           OVC-g/m        V2N Event Notification
+OVC-M          OVSE           OVCEventReport
+OVSE           OVC-G/M        V2N Event Notification
 =============  =============  =============================================               
 
 .. _message-format-ovcg:
 
-OVC-g Message Format
+OVC-G Message Format
 -----------------------------
 
-OVC-g >> OVSE Message
+OVC-G >> OVSE Message
 '''''''''''''''''''''''''
 
-OVC-g가 OVSE로 보내는 메세지는 주기보고 타입과 비주기 보고 타입이 있습니다.
+OVC-G가 OVSE로 보내는 메세지는 주기보고 타입과 비주기 보고 타입이 있습니다.
 
 
 .. _message-format-ovcg-ovcposition:
 
 주기보고 메세지 타입 (OVCPosition)
 ``````````````````````````````````
-주기보고 메세지는 OVSE 규격을 따르는 OVC-g가 주기적으로 차량의 운행 정보를 전달할 때 명세하는 메세지 타입입니다. 
+주기보고 메세지는 OVSE 규격을 따르는 OVC-G가 주기적으로 차량의 운행 정보를 전달할 때 명세하는 메세지 타입입니다. 
 
 =============  ====  ========  =============================================
 Key            M/O   Type      Description
 =============  ====  ========  =============================================
 ts             M     long      메세지 전달 시간 (msec, epoch)
-dev_type       M     Integer   OVC-g 단말 타입 (1)
+dev_type       M     Integer   OVC-G 단말 타입 (1)
 dev_id         M     String    Device 고유 단말 식별자
 speed          O     Integer   현재 속도 값 (kph)
 location       M               | 현재 위치 좌표 (WGS84 Coordination)
@@ -108,7 +108,7 @@ location       M               | 현재 위치 좌표 (WGS84 Coordination)
 
 비주기보고 메세지 타입 (OVCEventReport)
 ``````````````````````````````````````````
-비주기보고 메세지는 OVSE 규격을 따르는 OVC-g가 내부의 Event Detection Algorithm에 따라 발생된 비주기 Event를 OVSE에 전송하는 메세지 입니다.
+비주기보고 메세지는 OVSE 규격을 따르는 OVC-G가 내부의 Event Detection Algorithm에 따라 발생된 비주기 Event를 OVSE에 전송하는 메세지 입니다.
 
 비주기 보고 메세지는 SKT가 Guide하는 Device Certification Process를 만족한 경우에 추가 등록 및 사용이 가능합니다.
 
@@ -118,7 +118,7 @@ location       M               | 현재 위치 좌표 (WGS84 Coordination)
 Key               M/O   Type      Description
 ================  ====  ========  =============================================
 ts                M     long      메세지 전달 시간 (msec, epoch)
-dev_type          M     Integer   OVC-g 단말 타입 (1)
+dev_type          M     Integer   OVC-G 단말 타입 (1)
 dev_id            M     String    OVSE에 등록된 단말 식별자
 event_type        M     Integer   Event 종류 식별자
 event_id          M     String    Unique event 식별자
@@ -160,9 +160,9 @@ event_type    설명
 
 .. _message-format-ovcg-ovsev2nevent:
 
-OVSE >> OVC-g Message
+OVSE >> OVC-G Message
 '''''''''''''''''''''''''
-OVSE에서 OVC-g로 다양한 V2N 이벤트 알림 메세지가 전달됩니다. 
+OVSE에서 OVC-G로 다양한 V2N 이벤트 알림 메세지가 전달됩니다. 
 티맵, 소방방재청, 지자체 (도로공사 등), 그리고 다른 OVC 등을 통해서 수집된 이벤트에 대한 알림 메세지이며 그 종류 및 내용은 다음과 같습니다.
 
 ================  ====  ========  =============================================
@@ -215,19 +215,19 @@ event_type    발생 이벤트 메세지 설명
 ============  ==================================
 
 
-OVC-m Message Format
+OVC-M Message Format
 -----------------------------
 
-OVC-m >> OVSE Message
+OVC-M >> OVSE Message
 '''''''''''''''''''''''''
-OVC-m은 OVC-g와 달리 내부에 T맵을 이용하여 도로상의 위치를 파악할 수 있기 때문에, OVSE로 위치 주기보고 메세지를 보낼 필요가 없습니다.
-그래서 OVC-m은 비주기 보고 타입만 있으며, 그 형태는 OVC-g와 유사합니다. 
+OVC-M은 OVC-G와 달리 내부에 T맵을 이용하여 도로상의 위치를 파악할 수 있기 때문에, OVSE로 위치 주기보고 메세지를 보낼 필요가 없습니다.
+그래서 OVC-M은 비주기 보고 타입만 있으며, 그 형태는 OVC-G와 유사합니다. 
 
 .. _message-format-ovcm-ovceventreport:
 
 비주기보고 메세지 타입 (OVCEventReport)
 ``````````````````````````````````````````
-비주기보고 메세지는 OVSE 규격을 따르는 OVC-m이 내부의 Event Detection Algorithm에 따라 발생된 비주기 Event를 OVSE에 전송하는 메세지 입니다.
+비주기보고 메세지는 OVSE 규격을 따르는 OVC-M이 내부의 Event Detection Algorithm에 따라 발생된 비주기 Event를 OVSE에 전송하는 메세지 입니다.
 비주기보고 메세지는 SKT가 Guide하는 Device Certification Process를 만족한 경우에 추가 등록 및 사용이 가능합니다.
 
 (*Certified Program 추가 필요)
@@ -236,7 +236,7 @@ OVC-m은 OVC-g와 달리 내부에 T맵을 이용하여 도로상의 위치를 �
 Key               M/O   Type      Description
 ================  ====  ========  =============================================
 ts                M     long      메세지 전달 시간 (msec, epoch)
-dev_type          M     Integer   OVC-m 단말 타입 (2)
+dev_type          M     Integer   OVC-M 단말 타입 (2)
 dev_id            M     String    OVSE에 등록된 단말 식별자
 event_type        M     Integer   Event 종류 식별자
 event_id          M     String    Unique event 식별자
@@ -282,10 +282,10 @@ event_type    설명
     }
 
 
-OVSE >> OVC-m Message
+OVSE >> OVC-M Message
 '''''''''''''''''''''''''
 
-OVSE에서 OVC-m으로 전달되는 V2N 이벤트 메세지는 OVC-g의 것과 유사하며, 전달되는 Interface에서 차이가 있습니다. 
+OVSE에서 OVC-M으로 전달되는 V2N 이벤트 메세지는 OVC-G의 것과 유사하며, 전달되는 Interface에서 차이가 있습니다. 
 
 ================  ====  ========  =============================================
 Key               M/O   Type      Description
