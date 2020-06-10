@@ -22,25 +22,25 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
 .. rst-class:: text-align-justify
 
 
-=========  ===================================================  ===========  =====================================================
-| 구분      |  설명                                              | Method    | URL                                                
-=========  ===================================================  ===========  =====================================================
- Company    | -  회사 정보 조회                                  | GET       | /api/ovs/v1/company/{companyId}                    
-            | -  내 회사 정보 조회                               | GET       | /api/ovs/v1/company/me                             
-            | -  특정 회사 모든 단말에 메시지 전달               | POST      | /api/ovs/v1/company/{companyId}/message            
----------  ---------------------------------------------------  -----------  -----------------------------------------------------
- Device     | -  단말 등록                                       | POST      | /api/ovs/v1/device                                 
-            | -  단말 정보 조회                                  | GET       | /api/ovs/v1/device/{deviceId}                      
-            | -  단말 정보 수정                                  | PUT       | /api/ovs/v1/device/{deviceId}                      
-            | -  단말 삭제                                       | DELETE    | /api/ovs/v1/device/{deviceId}                      
-            | -  전체 단말 리스트 조회                           | GET       | /api/ovs/v1/devices                                
-            | -  특정 Service Type에 속하는 단말의 수 조회       | GET       | /api/ovs/v1/devices/cnt                            
-            | -  소유한 전체 단말 수	                         | GET       | /api/ovs/v1/devices/owned/cnt                      
-            | -  단말별 메시지 전달                              | POST      | /api/ovs/v1/device/{deviceId}/message              
----------  ---------------------------------------------------  -----------  -----------------------------------------------------
- Stats      | -  회사 모든 단말의 기간별 이벤트 통계             | GET       | /api/ovs/v1/company/{companyId}/statistics/event   
-            | -  특정 단말 기간별 이벤트 통계                    | GET       | /api/ovs/v1/device/{deviceId}/statistics/event     
-=========  ===================================================  ===========  =====================================================
+=========  ===============================================  ===========  =====================================================
+| 구분      |  설명                                          | Method    | URL                                                
+=========  ===============================================  ===========  =====================================================
+ Company    | -  회사 정보 조회                              | GET       | /api/ovs/v1/company/{companyId}                    
+            | -  내 회사 정보 조회                           | GET       | /api/ovs/v1/company/me                             
+            | -  회사의 모든 단말에 메시지 전달                | POST      | /api/ovs/v1/company/{companyId}/message            
+---------  -----------------------------------------------  -----------  -----------------------------------------------------
+ Device     | -  단말 등록                                   | POST      | /api/ovs/v1/device                                 
+            | -  단말 정보 조회                              | GET       | /api/ovs/v1/device/{deviceId}                      
+            | -  단말 정보 수정                              | PUT       | /api/ovs/v1/device/{deviceId}                      
+            | -  단말 삭제                                   | DELETE    | /api/ovs/v1/device/{deviceId}                      
+            | -  전체 단말 정보 조회                         | GET       | /api/ovs/v1/devices                                
+            | -  회사 전체 단말의 수 조회                    | GET       | /api/ovs/v1/devices/cnt                            
+            | -  소유한 전체 단말 수	                     | GET       | /api/ovs/v1/devices/owned/cnt                      
+            | -  단말별 메시지 전달                          | POST      | /api/ovs/v1/device/{deviceId}/message              
+---------  -----------------------------------------------  -----------  -----------------------------------------------------
+ Stats      | -  회사 모든 단말의 기간별 이벤트 통계         | GET       | /api/ovs/v1/company/{companyId}/statistics/event   
+            | -  특정 단말 기간별 이벤트 통계                | GET       | /api/ovs/v1/device/{deviceId}/statistics/event     
+=========  ===============================================  ===========  =====================================================
 .. rst-class:: text-align-justify
 
 .. _api-specification_information:
@@ -240,36 +240,36 @@ token은 SK Open API 홈페이지에서, 회사ID(companyId)는 "내 회사 정�
 
 .. code-block:: json
 
-{
-    "id": {
-        "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
-    },
-    "createdTime": 1590654831577,
-    "name": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
-    "serviceType": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
-    "master": true,
-    "masterId": {
-        "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
-    },
-    "picPasswd": null,
-    "picName": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
-    "picPhone": null,
-    "picEmail": "l7xx73e3323ea2124bd89d5ce708bcb26fd8@skopenapi.com",
-    "picDivision": null,
-    "sktManagerName": null,
-    "sktManagerEmail": null,
-    "cooperationTask": null,
-    "description": null,
-    "notifyHost": null,
-    "notifyMsgType": null,
-    "notifyErrIdleMin": 0,
-    "pwAccess": null,
-    "dataAnalytics": null,
-    "bcn": null,
-    "tokenPrefix": "uio35",
-    "ovs": true,
-    "tokenExpr": -1
-}
+    {
+        "id": {
+            "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
+        },
+        "createdTime": 1590654831577,
+        "name": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
+        "serviceType": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
+        "master": true,
+        "masterId": {
+            "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
+        },
+        "picPasswd": null,
+        "picName": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
+        "picPhone": null,
+        "picEmail": "l7xx73e3323ea2124bd89d5ce708bcb26fd8@skopenapi.com",
+        "picDivision": null,
+        "sktManagerName": null,
+        "sktManagerEmail": null,
+        "cooperationTask": null,
+        "description": null,
+        "notifyHost": null,
+        "notifyMsgType": null,
+        "notifyErrIdleMin": 0,
+        "pwAccess": null,
+        "dataAnalytics": null,
+        "bcn": null,
+        "tokenPrefix": "uio35",
+        "ovs": true,
+        "tokenExpr": -1
+    }
 
 .. rst-class:: text-align-justify
 
@@ -278,14 +278,15 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 |br|
 
 
-.. _api-specification_my-company-information:
+.. _api-specification_device-information:
 
 단말 정보 조회
 ~~~~~~~~~~~~~~~~~~
 
 .. rst-class:: text-align-justify
 
-단말 시리얼번호(serialNo)를 통해 단말 ID등 단말정보를 조회하는 API 입니다. 
+단말 시리얼번호(serialNo)를 통해 단말 ID, 단말 형태 등 단말정보를 조회하는 API 입니다. token이 유효한 경우 정상적으로 조회할 수 있습니다. 
+
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -372,8 +373,109 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 
 .. rst-class:: text-align-justify
 
-token이 유효한 경우 정상적으로 조회할 수 있습니다. 
 
+.. _api-specification_device-list-information:
+
+전체 단말 리스트 조회
+~~~~~~~~~~~~~~~~~~~~
+
+.. rst-class:: text-align-justify
+
+전체 단말 정보를 조회하는 API 입니다. token이 유효한 경우 정상적으로 조회할 수 있습니다. 
+
+
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
+
++------------+-------------------------------------------------+
+| **GET**    | `/api/ovs/v1/devices <https://TBD>`__           |
++------------+-------------------------------------------------+
+| **GET**    | `/api/ovs/v1/devices?limit=10 <https://TBD>`__  |
++------------+-------------------------------------------------+
+
+- Header
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+--------+------------------+--------------+
+| option          | Type   | Default          | Description  |
++=================+========+==================+==============+
+| Content-Type    | string | application/json | content type |
++-----------------+--------+------------------+--------------+
+| X-authorization | string | {{authToken}}    | auth token   |
++-----------------+--------+------------------+--------------+
+
+- Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------+--------+-------------------------+
+| Key      | Type   | Description             |
++==========+========+=========================+
+| N/A      | N/A    | N/A                     |
++----------+--------+-------------------------+
+
+- Response fields
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+----------------------------------------------------+
+| Field           | Description                                        |
++=================+====================================================+
+| id              | unique device id                                   |
++-----------------+----------------------------------------------------+
+| companyId       | unique company id                                  |
++-----------------+----------------------------------------------------+
+| type            | device type(OVC-G or OVC-M)                        |
++-----------------+----------------------------------------------------+
+
+
+.. role:: underline
+        :class: underline
+
+- Example Code
+
+:underline:`Request`
+
+.. code-block:: none
+
+    content-type:"application/json"
+    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+
+
+:underline:`Response (code: 200)`
+
+.. code-block:: json
+
+    {
+        "data": [
+            {
+                "id": {
+                    "id": "37c6b060-a0be-11ea-a9b8-ff6a8104c32f"
+                },
+                "createdTime": 1590654942693,
+                "companyId": {
+                    "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
+                },
+                "vendor": "SKT1",
+                "type": "OVC-G",
+                "additionalInfo": null,
+                "activationRequired": false,
+                "serialNo": "uio35fine1236",
+                "credentialsId": null
+            }
+        ],
+        "nextPageLink": null,
+        "hasNext": false
+    }
+
+.. rst-class:: text-align-justify
 
 
 .. _api-specification_information_modification:
@@ -394,7 +496,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 .. rst-class:: text-align-justify
 
 +------------+---------------------------------------------------+
-| **PUT**   | `/api/ovs/v1/company/{companyId} <https://TBD>`__  |
+| **PUT**    | `/api/ovs/v1/company/{companyId} <https://TBD>`__ |
 +------------+---------------------------------------------------+
 
 - Header
@@ -408,7 +510,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 +=================+========+==================+==============+
 | Content-Type    | string | application/json | content type |
 +-----------------+--------+------------------+--------------+
-| X-authorization | string |                  | auth token   |
+| X-authorization | string | {{authToken}}    | auth token   |
 +-----------------+--------+------------------+--------------+
 
 - Body
