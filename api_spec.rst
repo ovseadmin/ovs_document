@@ -55,9 +55,8 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
 
 .. rst-class:: text-align-justify
 
-등록된 회사의 정보를 조회하는 API 입니다. 회사정보를 조회하기 위해서는 회사 Admin 계정으로 인증받은 token이 필요합니다. 
-관리자(Director) 계정으로는 회사 정보를 조회할 수 없습니다.
-
+등록된 회사의 정보를 조회하는 API 입니다. 회사정보를 조회하기 위해서는 인증받은 token과 회사ID(companyId) 가 필요합니다. 
+token은 SK Open API 홈페이지에서, 회사ID(companyId)는 "내 회사 정보 조회" API로 확인할 수 있습니다. 
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -72,13 +71,13 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
 .. rst-class:: table-width-full
 .. rst-class:: text-align-justify
 
-+-----------------+--------+------------------+--------------+
-| option          | Type   | Default          | Description  |
-+=================+========+==================+==============+
-| Content-Type    | string | application/json | content type |
-+-----------------+--------+------------------+--------------+
-| X-authorization | string |                  | auth token   |
-+-----------------+--------+------------------+--------------+
++-----------------+--------+------------------+-----------------------------+
+| option          | Type   | Default          | Description                 |
++=================+========+==================+=============================+
+| Content-Type    | string | application/json | content type                |
++-----------------+--------+------------------+-----------------------------+
+| X-authorization | string | {{authToken}}    | auth token of each company  |
++-----------------+--------+------------------+-----------------------------+
 
 - Body
 
@@ -91,6 +90,24 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
 +==========+========+=========================+
 | N/A      | N/A    | N/A                     |
 +----------+--------+-------------------------+
+
+- Response fields
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+----------------------------------------------------+
+| Field           | Description                                        |
++=================+====================================================+
+| id              | ID of my company                                   |
++-----------------+----------------------------------------------------+
+| name            | service name(automatically generated)              |
++-----------------+----------------------------------------------------+
+| serviceType     | service type(automatically generated)              |
++-----------------+----------------------------------------------------+
+| tokenPrefix     | company prefix for serialNo and credentialsId      |
++-----------------+----------------------------------------------------+
 
 .. role:: underline
         :class: underline
@@ -109,26 +126,39 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
 
 .. code-block:: json
 
-    {
-        "id": {
-            "id": "4813f210-73ab-11ea-ac0c-d950be57c747"
-        },
-        "createdTime": 1585699007148,
-        "name": "test_companyname_ovse2",
-        "serviceType": "test_servicetype_ovse2",
-        "picPasswd": "null",
-        "picName": "createcompanynam2e",
-        "picPhone": "010-1111-1234",
-        "picEmail": "test_servicetype_ovse2@sktint.com",
-        "picDivision": "team1",
-        "description": "additional description",
-        "tokenPrefix": "enh03"
-    }
+{
+    "id": {
+        "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
+    },
+    "createdTime": 1590654831577,
+    "name": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
+    "serviceType": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
+    "master": true,
+    "masterId": {
+        "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
+    },
+    "picPasswd": null,
+    "picName": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
+    "picPhone": null,
+    "picEmail": "l7xx73e3323ea2124bd89d5ce708bcb26fd8@skopenapi.com",
+    "picDivision": null,
+    "sktManagerName": null,
+    "sktManagerEmail": null,
+    "cooperationTask": null,
+    "description": null,
+    "notifyHost": null,
+    "notifyMsgType": null,
+    "notifyErrIdleMin": 0,
+    "pwAccess": null,
+    "dataAnalytics": null,
+    "bcn": null,
+    "tokenPrefix": "uio35",
+    "ovs": true,
+    "tokenExpr": -1
+}
 
 .. rst-class:: text-align-justify
 
-회사ID가 등록되어있고, token이 유효한 경우 정상적으로 조회할 수 있습니다. 
-나의 소속 회사 ID를 모르는 경우, 소속 회사 조회 API로 검색 가능합니다. 
 
 
 .. _api-specification_my-company-information:
@@ -144,7 +174,7 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
 .. rst-class:: text-align-justify
 
 +------------+------------------------------------------+
-| **GET**   | `/api/ovs/v1/company/me <https://TBD>`__  |
+| **GET**    | `/api/ovs/v1/company/me <https://TBD>`__ |
 +------------+------------------------------------------+
 
 - Header
@@ -158,7 +188,7 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
 +=================+========+==================+==============+
 | Content-Type    | string | application/json | content type |
 +-----------------+--------+------------------+--------------+
-| X-authorization | string |                  | auth token   |
+| X-authorization | string | {{authToken}}    | auth token   |
 +-----------------+--------+------------------+--------------+
 
 - Body
@@ -172,6 +202,26 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
 +==========+========+=========================+
 | N/A      | N/A    | N/A                     |
 +----------+--------+-------------------------+
+
+
+- Response fields
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+----------------------------------------------------+
+| Field           | Description                                        |
++=================+====================================================+
+| id              | ID of my company                                   |
++-----------------+----------------------------------------------------+
+| name            | service name(automatically generated)              |
++-----------------+----------------------------------------------------+
+| serviceType     | service type(automatically generated)              |
++-----------------+----------------------------------------------------+
+| tokenPrefix     | company prefix for serialNo and credentialsId      |
++-----------------+----------------------------------------------------+
+
 
 .. role:: underline
         :class: underline
@@ -190,22 +240,36 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
 
 .. code-block:: json
 
-    {
-        "id": {
-            "id": "4823f7a0-73ab-11ea-ac0c-d950be57c747"
-        },
-        "createdTime": 1585699007493,
-        "companyId": {
-            "id": "4813f210-73ab-11ea-ac0c-d950be57c747"
-        },
-        "name": "createcompanynam2e",
-        "phone": "010-1111-1234",
-        "email": "test_servicetype_ovse2@sktint.com",
-        "authority": "COMPANY_ADMIN",
-        "password": null,
-        "additionalInfo": null,
-        "passwordUpdatedTime": 1585699007493
-    }
+{
+    "id": {
+        "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
+    },
+    "createdTime": 1590654831577,
+    "name": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
+    "serviceType": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
+    "master": true,
+    "masterId": {
+        "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
+    },
+    "picPasswd": null,
+    "picName": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
+    "picPhone": null,
+    "picEmail": "l7xx73e3323ea2124bd89d5ce708bcb26fd8@skopenapi.com",
+    "picDivision": null,
+    "sktManagerName": null,
+    "sktManagerEmail": null,
+    "cooperationTask": null,
+    "description": null,
+    "notifyHost": null,
+    "notifyMsgType": null,
+    "notifyErrIdleMin": 0,
+    "pwAccess": null,
+    "dataAnalytics": null,
+    "bcn": null,
+    "tokenPrefix": "uio35",
+    "ovs": true,
+    "tokenExpr": -1
+}
 
 .. rst-class:: text-align-justify
 
