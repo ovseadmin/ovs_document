@@ -29,10 +29,10 @@ OVSE 플랫폼과 OVC를 연동하여 서비스하기 위해서는 다음의 VSC
         - Node.js Program Language 
 
 
-VSC Interface for ``OVC-g``
+VSC Interface for ``OVC-G``
 ----------------------------------------------------------------
 
-OVC-g 단말을 위한 VSC Interface의 Flow는 다음과 같으며, 각 단계별로 절차를 ``Node.js`` 기반 코드로 소개합니다.
+OVC-G 단말을 위한 VSC Interface의 Flow는 다음과 같으며, 각 단계별로 절차를 ``Node.js`` 기반 코드로 소개합니다.
 
 .. image:: /images/device_procedure/ovcg_procedure_v3.png
 	:width: 100%
@@ -45,15 +45,15 @@ OVC-g 단말을 위한 VSC Interface의 Flow는 다음과 같으며, 각 단계�
 ================================  ===================================================================
 Stages                            Description              
 ================================  ===================================================================
-Preparation                       | OVC-g가 OVSE 상호 간 서비스를 호출하기 위해서 필요한 연결, 인증, 
+Preparation                       | OVC-G가 OVSE 상호 간 서비스를 호출하기 위해서 필요한 연결, 인증, 
                                   | 푸시 메세지 수신을 위한 설정 등 기본적인 항목을 준비하는 단계
-Location Report                   | OVC-g가 GPS로부터 수신한 현재 위치를 OVSE에 주기적으로 보고하는 단계
-V2N Event Report                  | OVC-g가 VAC로부터 전달받은 V2N Event를 OVSE에 보고하는 단계
+Location Report                   | OVC-G가 GPS로부터 수신한 현재 위치를 OVSE에 주기적으로 보고하는 단계
+V2N Event Report                  | OVC-G가 VAC로부터 전달받은 V2N Event를 OVSE에 보고하는 단계
 V2N Event Notification Reception  | OVSE가 타 OVC로부터 전달받은 V2N Event 중  
-                                  | 해당 OVC-g와 관련된 Event를 푸시하여 OVC-g가 수신하는 단계
+                                  | 해당 OVC-G와 관련된 Event를 푸시하여 OVC-G가 수신하는 단계
 ================================  ===================================================================
 
-아래부터는 상기 vsc-g Flow의 순서를 간단한 예제 코드와 함께 설명합니다.
+아래부터는 상기 VSC-G Flow의 순서를 간단한 예제 코드와 함께 설명합니다.
 
 Preparation 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -64,7 +64,7 @@ Preparation 단계는 OVSE에 접속하는 단계와 토픽 Subscription의 두 
 Connect to OVSE
 ''''''''''''''''''
 
-``Connect to OVSE`` 는 OVC-g가 OVSE에 연결하는 단계입니다. MQTT Broker에 접속하는 connect 단계 
+``Connect to OVSE`` 는 OVC-G가 OVSE에 연결하는 단계입니다. MQTT Broker에 접속하는 connect 단계 
 `MQTT Connect <https://www.hivemq.com/blog/mqtt-essentials-part-3-client-broker-connection-establishment/>`__ 와 동일합니다.
 단, 접속할 때는 다음 Parameter를 적용하여 connect 합니다.
 
@@ -120,15 +120,15 @@ Subscribe a Topic for Receiving V2N Notification
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 ``Subscribe a Topic for Receiving V2N Notification`` 순서에서는 
-OVC-g가 향후에 V2N Event 수신 할 수 있도록 V2N Event을 제공하는 Topic에 Subscription을 합니다. 
+OVC-G가 향후에 V2N Event 수신 할 수 있도록 V2N Event을 제공하는 Topic에 Subscription을 합니다. 
 Topic은 아래와 같은 룰을 따라 설정합니다. 
 
 =============  =============================================
 Topic          v2x/device/{deviceId}
 =============  =============================================
 
-OVSE에서는 각각의 OVC-g 디바이스 위치를 관리하여, 해당 디바이스에 V2N Event를 전달합니다. 
-그래서 각각의 OVC-g 별로 Topic을 만들도록 Rule이 설정되어 있습니다.
+OVSE에서는 각각의 OVC-G 디바이스 위치를 관리하여, 해당 디바이스에 V2N Event를 전달합니다. 
+그래서 각각의 OVC-G 별로 Topic을 만들도록 Rule이 설정되어 있습니다.
 
 ``Example Code`` 
 
@@ -148,20 +148,20 @@ OVSE에서는 각각의 OVC-g 디바이스 위치를 관리하여, 해당 디바
 
 Location Report 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-OVSE 기반 V2N 서비스를 위해서는 OVC-g 단말의 위치가 주기적으로 OVSE로 전송이 되어야 합니다. 
+OVSE 기반 V2N 서비스를 위해서는 OVC-G 단말의 위치가 주기적으로 OVSE로 전송이 되어야 합니다. 
 
-Publish OVC-g's Current Location
+Publish OVC-G's Current Location
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
-``Publish OVC-g's Current Location`` 순서에서 선행되어야 하는 조건은 OVC-g 단말이 GPS 센서로 현재 자신의 위치 좌표를 받는 것입니다. 
-GPS 좌표를 정상적으로 수신 한 경우에 OVC-g는 자신의 위치를 OVSE에 전달 ``Publish`` 합니다. 전달 시에는 다음의 Topic에 Publish를 합니다.
+``Publish OVC-G's Current Location`` 순서에서 선행되어야 하는 조건은 OVC-G 단말이 GPS 센서로 현재 자신의 위치 좌표를 받는 것입니다. 
+GPS 좌표를 정상적으로 수신 한 경우에 OVC-G는 자신의 위치를 OVSE에 전달 ``Publish`` 합니다. 전달 시에는 다음의 Topic에 Publish를 합니다.
 
-추가로 본 과정은 OVC-g가 GPS 좌표를 획득할때 마다 반복되며, 일반적으로 V2N 서비스 품질을 고려하여서는 최소 1초 주기의 전송을 Recommend 합니다.
+추가로 본 과정은 OVC-G가 GPS 좌표를 획득할때 마다 반복되며, 일반적으로 V2N 서비스 품질을 고려하여서는 최소 1초 주기의 전송을 Recommend 합니다.
 물론 고객사의 입장에 따라 주기가 증가할 수 있으나, 주기가 증가할 수록 일부 V2N 서비스 및 서비스 품질이 떨어집니다.
 
 =============  =============================================================================================
 Topic          v2x/location
 =============  =============================================================================================
-메시지 포맷       :ref:`8.2.1.1. OVC-g 주기보고 메세지 타입 <message-format-ovcg-ovcposition>` 참고
+메시지 포맷       :ref:`8.2.1.1. OVC-G 주기보고 메세지 타입 <message-format-ovcg-ovcposition>` 참고
 =============  =============================================================================================
 
 
@@ -184,9 +184,9 @@ Topic          v2x/location
   messageSender.publish('v2x/location', sendingMSG, {qos: 1}, function());
 
 
-Publish V2N Event detected by OVC-g
+Publish V2N Event detected by OVC-G
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
-``Publish V2N Event detected by OVC-g`` 순서에서는 OVC-g가 VAC로부터 
+``Publish V2N Event detected by OVC-G`` 순서에서는 OVC-G가 VAC로부터 
 해당 단말이 인식한 V2N Event를 수신 받은 경우, 이를 OVSE에 리포팅하여 OVSE가 다른 OVC 에게 전달하는 과정을 유도하는 과정을 기술합니다.
 
 Topic은 아래와 같은 룰을 따라 설정합니다.
@@ -194,7 +194,7 @@ Topic은 아래와 같은 룰을 따라 설정합니다.
 =============  =============================================================================================
 Topic          v2x/event
 =============  =============================================================================================
-메시지 포맷       :ref:`8.2.1.2. OVC-g 비주기보고 메세지 타입 <message-format-ovcg-ovceventreport>` 참고
+메시지 포맷       :ref:`8.2.1.2. OVC-G 비주기보고 메세지 타입 <message-format-ovcg-ovceventreport>` 참고
 =============  =============================================================================================
 
 ``Example Code``
@@ -223,11 +223,11 @@ Topic          v2x/event
 V2N Event Notification Reception 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Receive a V2N Event Notification relevant to OVC-g
+Receive a V2N Event Notification relevant to OVC-G
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-``Receive a V2N Event Notification relevant to OVC-g`` 순서는 OVSE에서 타 OVC로부터 수신 받은 V2N 이벤트 중에서 
-해당 OVC-g와 연계된 이벤트인 경우에 해당 이벤트 메세지를 푸시 형태로 수신하는 순서입니다. 
+``Receive a V2N Event Notification relevant to OVC-G`` 순서는 OVSE에서 타 OVC로부터 수신 받은 V2N 이벤트 중에서 
+해당 OVC-G와 연계된 이벤트인 경우에 해당 이벤트 메세지를 푸시 형태로 수신하는 순서입니다. 
 
 기존 2번 순서에서 Subscribe한 Topic으로 해당 메세지를 수신하게 되며, 해당 단계를 구현하기 위한 샘플 코드는 아래와 같습니다.
 
@@ -252,13 +252,13 @@ Receive a V2N Event Notification relevant to OVC-g
         }
     });
 
-그리고 이때 수신되는 Event 메세지의 종류는 :ref:`8.3 OVSE >> OVC-g Message <message-format-ovcg-ovsev2nevent>`을 참고하시기 바랍니다.
+그리고 이때 수신되는 Event 메세지의 종류는 :ref:`8.3 OVSE >> OVC-G Message <message-format-ovcg-ovsev2nevent>`을 참고하시기 바랍니다.
 
 
 Publish the result of the notifcation message handling
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-``Publish the result of the notifcation message handling`` 순서는 OVC-g에서 5번째 순서에서 수신한 이벤트를 
+``Publish the result of the notifcation message handling`` 순서는 OVC-G에서 5번째 순서에서 수신한 이벤트를 
 처리한 결과를 OVSE로 송신하는 순서입니다. 본 순서는 향후 OVSE를 활용하는 고객사들께서 V2N 서비스 통계 자료 제공에 중요한 과정입니다.
 
 OVSE에서 발송한 메세지의 처리 결과를 일정 시간(To-be-specified) 내 수신하지 못하면 정상 처리가 안된 것으로 간주합니다. 
@@ -285,36 +285,36 @@ OVSE에서 발송한 메세지의 처리 결과를 일정 시간(To-be-specified
 
 
 
-VSC Interface for ``OVC-m``
+VSC Interface for ``OVC-M``
 ------------------------------------------------
 
-OVC-m 단말을 위한 VSC Interface의 Flow는 다음과 같으며, 각 단계별로 절차를 ``Node.js`` 기반 코드로 소개합니다.
+OVC-M 단말을 위한 VSC Interface의 Flow는 다음과 같으며, 각 단계별로 절차를 ``Node.js`` 기반 코드로 소개합니다.
 
 .. image:: /images/device_procedure/ovcm_procedure_v2.png
 	:width: 100%
 	:align: center
 
 
-OVC-m 과 OVC-g의 가장 큰 차이는 T맵의 사용 유무입니다. 
+OVC-M 과 OVC-G의 가장 큰 차이는 T맵의 사용 유무입니다. 
 
-OVC-m은 T맵을 가지고 있으므로, 현재 자신의 위치 정보를 자체적으로 판단하여 OVSE와 통신할 수 있습니다. 
+OVC-M은 T맵을 가지고 있으므로, 현재 자신의 위치 정보를 자체적으로 판단하여 OVSE와 통신할 수 있습니다. 
 
-그래서 OVC-g와 다른 Flow를 보이며, 이에 따라 주고받는 데이터도 달라집니다.
+그래서 OVC-G와 다른 Flow를 보이며, 이에 따라 주고받는 데이터도 달라집니다.
 
 도식화된 Flow는 크게 4가지 단계 ``Stage`` 로 구성됩니다. 가장 중요한 부분은 ``Location Topic Update`` 부분입니다.
 
 ================================  ===================================================================
 Stages                            Description              
 ================================  ===================================================================
-Preparation                       | OVC-m과 OVSE 상호 간 서비스를 호출하기 위해서 필요한 연결, 인증의 기본 준비 단계
-Location Topic Update             | OVC-m이 탑재한 T맵을 기반으로 현재 위치의 도로정보를 파악하고, 
+Preparation                       | OVC-M과 OVSE 상호 간 서비스를 호출하기 위해서 필요한 연결, 인증의 기본 준비 단계
+Location Topic Update             | OVC-M이 탑재한 T맵을 기반으로 현재 위치의 도로정보를 파악하고, 
                                   | 이를 기반으로 V2N 이벤트 송/수신을 위한 Topic을 만드는 단계
-V2N Event Report                  | OVC-m에서 감지한 V2N Event를 OVSE에 보고하는 단계
-V2N Event Notification Reception  | OVSE가 타 OVC로부터 전달받은 V2N Event 중 해당 OVC-m와 연관된 Event를 
-                                  | 푸시하여 OVC-m이 수신하는 단계
+V2N Event Report                  | OVC-M에서 감지한 V2N Event를 OVSE에 보고하는 단계
+V2N Event Notification Reception  | OVSE가 타 OVC로부터 전달받은 V2N Event 중 해당 OVC-M와 연관된 Event를 
+                                  | 푸시하여 OVC-M이 수신하는 단계
 ================================  ===================================================================
 
-아래부터는 상기 vsc-m Flow의 순서를 간단한 예제 코드와 함께 설명합니다.
+아래부터는 상기 VSC-M Flow의 순서를 간단한 예제 코드와 함께 설명합니다.
 
 Preparation 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -322,7 +322,7 @@ Preparation
 Connect to OVSE
 ''''''''''''''''''
 
-``Connect to OVSE`` 는 OVC-m이 OVSE에 연결하는 단계로 OVC-g와 동일합니다. MQTT Broker에 접속하는 connect 단계 
+``Connect to OVSE`` 는 OVC-M이 OVSE에 연결하는 단계로 OVC-G와 동일합니다. MQTT Broker에 접속하는 connect 단계 
 `MQTT Connect 참고 <https://www.hivemq.com/blog/mqtt-essentials-part-3-client-broker-connection-establishment/>`__ 와 동일합니다.
 단, 접속할 때는 다음 Parameter를 적용하여 connect 합니다.
 
@@ -375,7 +375,7 @@ cleanSession 필드가 true면 이전 세션 정보가 아직 존재할 경우 �
 
 Location Topic Update 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-OVC-m 단말이 OVSE와 연동하여 V2N 서비스를 하기 위해서는 OVSE에서 Support하는 Topic의 구독이 필요합니다.
+OVC-M 단말이 OVSE와 연동하여 V2N 서비스를 하기 위해서는 OVSE에서 Support하는 Topic의 구독이 필요합니다.
 
 Topic을 Generation하는 과정은 아래 그림과 같습니다. 
 
@@ -385,7 +385,7 @@ Topic을 Generation하는 과정은 아래 그림과 같습니다.
 
 GPS Acquisition
 ''''''''''''''''''
-가장 먼저 OVC-m 단말이 해야하는 것은 내부의 GPS 센서로부터 현재 자신의 위치 좌표를 받는 것입니다. 
+가장 먼저 OVC-M 단말이 해야하는 것은 내부의 GPS 센서로부터 현재 자신의 위치 좌표를 받는 것입니다. 
 최소 1초 간격으로 GPS 값을 읽어 위치를 파악하는 것을 추천합니다. 이보다 더 느려지면 V2N 서비스 품질의 저하가 있을 수 있습니다.
 
 Map Matching
@@ -408,7 +408,7 @@ Topic을 만들기 위해 필요한 parameter는 meshId, linkId, linkDirection�
         return "NEW:" + Integer.toString(meshLink) + Short.toString(linkDirection);
     }
 
-위 샘플 코드의 결과로 나오는 값이 OVC-m 단말에서 구독해야하는 Topic이 됩니다. 
+위 샘플 코드의 결과로 나오는 값이 OVC-M 단말에서 구독해야하는 Topic이 됩니다. 
 
 ``Example Data``
 
@@ -459,15 +459,15 @@ Topic Subscription & Un-Subscription
         } 
     }
 
-위와 같이 주기적으로 OVC-m 단말 장착차량의 도로상 이동 정보를 체크하여, Topic을 만들고, 구독을 하면, V2N 서비스를 위한 준비를 마친 것이 됩니다. 
+위와 같이 주기적으로 OVC-M 단말 장착차량의 도로상 이동 정보를 체크하여, Topic을 만들고, 구독을 하면, V2N 서비스를 위한 준비를 마친 것이 됩니다. 
 
 추가로 본 과정은 일반적인 V2N 서비스 품질을 고려하여서는 최소 1초마다 진행되는 것이 적절합니다.
 고객사의 입장에 따라 주기가 증가할 수 있으나, 주기가 증가할 수록 일부 V2N 서비스 품질이 떨어지게 됩니다.
 
 
-Publish V2N Event detected by OVC-m
+Publish V2N Event detected by OVC-M
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
-``Publish V2N Event detected by OVC-m`` 순서에서는 OVC-m가 VAC로부터 
+``Publish V2N Event detected by OVC-M`` 순서에서는 OVC-M가 VAC로부터 
 해당 단말이 인식한 V2N Event를 수신 받은 경우, 이를 OVSE에 리포팅하여 OVSE가 다른 OVC 에게 전달하는 과정을 유도하는 과정을 기술합니다.
 
 Topic은 위의 Topic Generation 부분에서 설명된 룰을 따라 설정합니다.
@@ -475,7 +475,7 @@ Topic은 위의 Topic Generation 부분에서 설명된 룰을 따라 설정합�
 =============  ==========================================================================================
 Topic          NEW:12345678
 =============  ==========================================================================================
-메시지 포맷       :ref:`8.3.1. OVC-m 비주기보고 메세지 타입 <message-format-ovcm-ovceventreport>` 참고
+메시지 포맷       :ref:`8.3.1. OVC-M 비주기보고 메세지 타입 <message-format-ovcm-ovceventreport>` 참고
 =============  ==========================================================================================
 
 
@@ -510,11 +510,11 @@ Topic          NEW:12345678
 V2N Event Notification Reception 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Receive a V2N Event Notification relevant to OVC-m
+Receive a V2N Event Notification relevant to OVC-M
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-``Receive a V2N Event Notification relevant to OVC-m`` 순서는 OVSE에서 타 OVC로부터 수신 받은 V2N 이벤트 중에서 
-해당 OVC-m와 연계된 이벤트인 경우에 해당 이벤트 메세지를 푸시 형태로 수신하는 순서입니다. 
+``Receive a V2N Event Notification relevant to OVC-M`` 순서는 OVSE에서 타 OVC로부터 수신 받은 V2N 이벤트 중에서 
+해당 OVC-M와 연계된 이벤트인 경우에 해당 이벤트 메세지를 푸시 형태로 수신하는 순서입니다. 
 
 기존 2번 순서에서 Subscribe한 Topic으로 해당 메세지를 수신하게 되며, 해당 단계를 구현하기 위한 샘플 코드는 아래와 같습니다.
 

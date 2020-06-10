@@ -37,9 +37,7 @@ App 개발자는 :ref:`7. API 규격 <api-specification>` 과 :ref:`9. Device Si
 단말 등록 (Device Registration)
 -------------------------------
 
-OVSE 플랫폼 사용을 위해서는 단말이 등록되어야 하며, 유효한 token을 포함한 OVSE API로 등록할 수 있습니다.
-
-token 조회 방법은 :ref:`4.4 토큰 조회 <service-procedure-step3>` 을 참조하세요.
+OVSE 플랫폼 사용을 위해서는 단말이 등록되어야 하며, 유효한 token을 포함한 OVSE API로 등록할 수 있습니다. token 조회 방법은 :ref:`4.4 토큰 조회 <service-procedure-step3>` 을 참조하세요.
 
 .. _device-registration-api:
 
@@ -82,19 +80,19 @@ token 조회 방법은 :ref:`4.4 토큰 조회 <service-procedure-step3>` 을 �
 +====================+=========+===========+=================================+
 | vendor             | string  |           | vendor or manufacturer          |
 +--------------------+---------+-----------+---------------------------------+
-| type               | string  | OVS-G |br|| OVSE device type                |
+| type               | string  | OVS-G     | OVSE device type                |
 |                    |         | OVS-M     |                                 |
 +--------------------+---------+-----------+---------------------------------+
 | credentialsId      | string  |           | Access Token                    |
 |                    |         |           | prefix(5) + unique no.(15)      |
 +--------------------+---------+-----------+---------------------------------+
-| serialNo           | string  |           | 단말 Serial No.                 |
+| serialNo           | string  |           | Device Serial No.               |
 +--------------------+---------+-----------+---------------------------------+
-| modelName          | string  |           | 제품 모델 이름                  |
+| ~modelName~        | string  |           | ~device model name~             |
 +--------------------+---------+-----------+---------------------------------+
-| modelCode          | string  |           | 제품 모델 코드                  |
+| ~modelCode~        | string  |           | ~device model code~             |
 +--------------------+---------+-----------+---------------------------------+
-| additionalInfo     | string  |           | 추가 정보                       |
+| ~additionalInfo~   | string  |           | ~additional device info~        |
 +--------------------+---------+-----------+---------------------------------+
 
 - Example Code
