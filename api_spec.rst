@@ -27,18 +27,18 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
 =========  ===============================================  ===========  =====================================================
  Company    | -  회사 정보 조회                              | GET       | /api/ovs/v1/company/{companyId}                    
             | -  내 회사 정보 조회                           | GET       | /api/ovs/v1/company/me                             
-            | -  회사의 모든 단말에 메시지 전달              | POST      | /api/ovs/v1/company/{companyId}/message            
+            | -  전체 단말에 메시지 전달                     | POST      | /api/ovs/v1/company/{companyId}/message            
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
  Device     | -  단말 등록                                   | POST      | /api/ovs/v1/device                                 
-            | -  단말 정보 조회                              | GET       | /api/ovs/v1/device/{deviceId}                      
-            | -  단말 정보 수정                              | PUT       | /api/ovs/v1/device/{deviceId}                      
-            | -  단말 삭제                                   | DELETE    | /api/ovs/v1/device/{deviceId}                      
+            | -  단말 정보 조회                              | GET       | /api/ovs/v1/device/{serialNo}                      
+            | -  단말 정보 수정                              | PUT       | /api/ovs/v1/device/{serialNo}                      
+            | -  단말 삭제                                   | DELETE    | /api/ovs/v1/device/{serialNo}                      
             | -  전체 단말 정보 조회                         | GET       | /api/ovs/v1/devices                                
             | -  회사 전체 단말 수 조회                      | GET       | /api/ovs/v1/devices/owned/cnt                      
-            | -  단말별 메시지 전달                          | POST      | /api/ovs/v1/device/{deviceId}/message              
+            | -  단말별 메시지 전달                          | POST      | /api/ovs/v1/device/{serialNo}/message              
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
  Stats      | -  회사 모든 단말의 기간별 이벤트 통계         | GET       | /api/ovs/v1/company/{companyId}/statistics/event   
-            | -  특정 단말 기간별 이벤트 통계                | GET       | /api/ovs/v1/device/{deviceId}/statistics/event     
+            | -  특정 단말 기간별 이벤트 통계                | GET       | /api/ovs/v1/device/{serialNo}/statistics/event     
 =========  ===============================================  ===========  =====================================================
 .. rst-class:: text-align-justify
 
@@ -454,6 +454,21 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
         "data": [
             {
                 "id": {
+                    "id": "ee874290-abba-11ea-b482-911940102f00"
+                },
+                "createdTime": 1591862994142,
+                "companyId": {
+                    "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
+                },
+                "vendor": "SKT1",
+                "type": "OVC-G",
+                "additionalInfo": null,
+                "activationRequired": false,
+                "serialNo": "uio35123451234512345",
+                "credentialsId": null
+            },
+            {
+                "id": {
                     "id": "37c6b060-a0be-11ea-a9b8-ff6a8104c32f"
                 },
                 "createdTime": 1590654942693,
@@ -471,6 +486,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
         "nextPageLink": null,
         "hasNext": false
     }
+
 
 .. rst-class:: text-align-justify
 
@@ -627,7 +643,6 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 +----------------+--------+--------------------------------------------------------------------+
 | additionalInfo | string | any information of the device                                      |
 +----------------+--------+--------------------------------------------------------------------+
-
 
 .. role:: underline
         :class: underline
@@ -904,28 +919,407 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 .. rst-class:: text-align-justify
 
 
-.. _api-specification_statistics:
 
-To be added
+
+.. _api-specification_message-delivery:
+
+단말별 메시지 전달
+~~~~~~~~~~~~~~~~~~
+
+특정 단말에 공지 등의 메시지를 전달할 수 있습니다. 본 API에는 유효한 token이 필요합니다. 
+
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
+
++------------+----------------------------------------------------------+
+| **POST**   | `/api/ovs/v1/device/{serialNo}/message  <https://TBD>`__ |
++------------+----------------------------------------------------------+
+
+- Request Header
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+--------+------------------+--------------+
+| option          | Type   | Default          | Description  |
++=================+========+==================+==============+
+| Content-Type    | string | application/json | content type |
++-----------------+--------+------------------+--------------+
+| X-authorization | string | {{authToken}}    | auth token   |
++-----------------+--------+------------------+--------------+
+
+- Request Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------------+--------+--------------------------------------------------------------------+
+| Key            | Type   | Description                                                        |
++================+========+====================================================================+
+| type           | int    | type of message (OTA, event ID et al.)                             |
++----------------+--------+--------------------------------------------------------------------+
+| timestamp      | int    | linux epoch time in miliseconds                                    |
++----------------+--------+--------------------------------------------------------------------+
+| message        | string | message contents                                                   |
++----------------+--------+--------------------------------------------------------------------+
+
+- Response Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------------+--------+--------------------------------------------------------------------+
+| Key            | Type   | Description                                                        |
++================+========+====================================================================+
+| type           | int    | type of message (OTA, event ID et al.)                             |
++----------------+--------+--------------------------------------------------------------------+
+| timestamp      | int    | linux epoch time in miliseconds                                    |
++----------------+--------+--------------------------------------------------------------------+
+| message        | string | message contents                                                   |
++----------------+--------+--------------------------------------------------------------------+
+| serialNo       | string | the device which the message was delivered                         |
++----------------+--------+--------------------------------------------------------------------+
+
+.. role:: underline
+        :class: underline
+
+- Example Code
+
+:underline:`Request`
+
+.. code-block:: none
+
+    content-type:"application/json"
+    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+    {
+        "type": 9999,
+        "timestamp": 1590654942693,
+        "message": "test message"
+    }
+
+:underline:`Request` in curl format
+
+.. code-block:: none
+
+    curl --location --request POST 'http://openapi_gateway:18080/api/ovs/v1/device/uio35fine1236/message' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
+        --data-raw '{
+            "type": 9999,
+            "timestamp": 1590654942693,
+            "message": "test message"
+        }'
+
+
+:underline:`Response (code: 200)`
+
+.. code-block:: json
+
+    {
+        "message": {
+            "type": 9999,
+            "timestamp": 1590654942693,
+            "message": "test message"
+        },
+        "serialNo": "uio35fine1236"
+    }
+
+.. rst-class:: text-align-justify
+
+
+
+.. _api-specification_message-delivery-all:
+
+전체 단말 메시지 전달
+~~~~~~~~~~~~~~~~~~~~~
+
+회사의 전체 단말에 공지 등의 메시지를 전달할 수 있습니다. 본 API에는 유효한 token과 companyId가 필요합니다. 
+companyId는 유효한 token이 있는 경우 /api/ovs/v1/company/me 에서 조회할 수 있습니다. 
+
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
+
++------------+-------------------------------------------------------------+
+| **POST**   | `/api/ovs/v1/company/{companyId}/message  <https://TBD>`__  |
++------------+-------------------------------------------------------------+
+
+- Request Header
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+--------+------------------+--------------+
+| option          | Type   | Default          | Description  |
++=================+========+==================+==============+
+| Content-Type    | string | application/json | content type |
++-----------------+--------+------------------+--------------+
+| X-authorization | string | {{authToken}}    | auth token   |
++-----------------+--------+------------------+--------------+
+
+- Request Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------------+--------+--------------------------------------------------------------------+
+| Key            | Type   | Description                                                        |
++================+========+====================================================================+
+| type           | int    | type of message (OTA, event ID et al.)                             |
++----------------+--------+--------------------------------------------------------------------+
+| timestamp      | int    | linux epoch time in miliseconds                                    |
++----------------+--------+--------------------------------------------------------------------+
+| message        | string | message contents                                                   |
++----------------+--------+--------------------------------------------------------------------+
+
+- Response Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------------+--------+--------------------------------------------------------------------+
+| Key            | Type   | Description                                                        |
++================+========+====================================================================+
+| type           | int    | type of message (OTA, event ID et al.)                             |
++----------------+--------+--------------------------------------------------------------------+
+| timestamp      | int    | linux epoch time in miliseconds                                    |
++----------------+--------+--------------------------------------------------------------------+
+| message        | string | message contents                                                   |
++----------------+--------+--------------------------------------------------------------------+
+| serialNo       | string | the list of devices which the message was delivered                |
++----------------+--------+--------------------------------------------------------------------+
+
+.. role:: underline
+        :class: underline
+
+- Example Code
+
+:underline:`Request`
+
+.. code-block:: none
+
+    content-type:"application/json"
+    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+    {
+        "type": 9999,
+        "timestamp": 1590654942693,
+        "message": "test message all"
+    }
+
+:underline:`Request` in curl format
+
+.. code-block:: none
+
+    curl --location --request POST 'http://openapi_gateway:18080/api/ovs/v1/company/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f/message' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
+        --data-raw '{
+            "type": 9999,
+            "timestamp": 1590654942693,
+            "message": "test message all"
+        }
+
+
+:underline:`Response (code: 200)`
+
+.. code-block:: json
+
+    {
+        "message": {
+            "type": 9999,
+            "timestamp": 1590654942693,
+            "message": "test message all"
+        },
+        "devices": [
+            {
+                "serialNo": "uio35fine1236"
+            },
+            {
+                "serialNo": "uio35123451234512345"
+            }
+        ]
+    }
+
+.. rst-class:: text-align-justify
+
+
+
+
+
+
+.. _api-specification_statistics:
 
 이벤트 통계 API
 ------------------------
 
-.. _api-specification_statistics1:
 
-To be added
+.. _api-specification_statistics-device:
 
-통계1
+단말별 이벤트 통계
 ~~~~~~~~~~~~~~~~~~
 
-.. _api-specification_statistics2:
+단말별 이벤트 통계를 조회할 수 있습니다. 본 API에는 유효한 token과 단말의 serialNo가 필요합니다. 
 
-To be added
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
 
-통계2
-~~~~~~~~~~~~~~~~~~
++------------+-------------------------------------------------------------------+
+| **POST**   | `/api/ovs/v1/device/{serialNo}/statistics/event  <https://TBD>`__ |
++------------+-------------------------------------------------------------------+
 
-.. _api-specification_statistics3:
+- Request Header
 
-To be added
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+--------+------------------+--------------+
+| option          | Type   | Default          | Description  |
++=================+========+==================+==============+
+| Content-Type    | string | application/json | content type |
++-----------------+--------+------------------+--------------+
+| X-authorization | string | {{authToken}}    | auth token   |
++-----------------+--------+------------------+--------------+
+
+- Request Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------+--------+-------------------------+
+| Key      | Type   | Description             |
++==========+========+=========================+
+| N/A      | N/A    | N/A                     |
++----------+--------+-------------------------+
+
+- Response Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------------+--------+--------------------------------------------------------------------+
+| Key            | Type   | Description                                                        |
++================+========+====================================================================+
+| to be added    | int    | to be added                                                        |
++----------------+--------+--------------------------------------------------------------------+
+
+.. role:: underline
+        :class: underline
+
+- Example Code
+
+:underline:`Request`
+
+.. code-block:: none
+
+    content-type:"application/json"
+    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+
+:underline:`Request` in curl format
+
+.. code-block:: none
+
+    curl --location --request POST 'http://openapi_gateway:18080/api/ovs/v1/device/uio35123451234512345/statistics/event ' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
+        --data-raw ''
+
+:underline:`Response (code: 200)`
+
+.. code-block:: json
+
+    // to be added
+
+.. rst-class:: text-align-justify
+
+
+
+.. _api-specification_statistics-company:
+
+회사별 이벤트 통계 
+~~~~~~~~~~~~~~~~~~~~~
+
+회사별 이벤트 통계를 조회할 수 있습니다. 본 API에는 유효한 token과 companyId가 필요합니다. 
+companyId는 유효한 token이 있는 경우 /api/ovs/v1/company/me 에서 조회할 수 있습니다. 
+
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
+
++------------+----------------------------------------------------------------------+
+| **POST**   | `/api/ovs/v1/company/{companyId}/statistics/event  <https://TBD>`__  |
++------------+----------------------------------------------------------------------+
+- Request Header
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+--------+------------------+--------------+
+| option          | Type   | Default          | Description  |
++=================+========+==================+==============+
+| Content-Type    | string | application/json | content type |
++-----------------+--------+------------------+--------------+
+| X-authorization | string | {{authToken}}    | auth token   |
++-----------------+--------+------------------+--------------+
+
+- Request Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------+--------+-------------------------+
+| Key      | Type   | Description             |
++==========+========+=========================+
+| N/A      | N/A    | N/A                     |
++----------+--------+-------------------------+
+
+- Response Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------------+--------+--------------------------------------------------------------------+
+| Key            | Type   | Description                                                        |
++================+========+====================================================================+
+| to be added    | int    | to be added                                                        |
++----------------+--------+--------------------------------------------------------------------+
+
+.. role:: underline
+        :class: underline
+
+- Example Code
+
+:underline:`Request`
+
+.. code-block:: none
+
+    content-type:"application/json"
+    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+
+:underline:`Request` in curl format
+
+.. code-block:: none
+
+    curl --location --request GET 'http://openapi_gateway:18080/api/ovs/v1/company/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f/statistics/event' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
+        --data-raw ''
+
+
+:underline:`Response (code: 200)`
+
+.. code-block:: json
+
+    // to be added
+
+.. rst-class:: text-align-justify
 
