@@ -31,13 +31,13 @@ OVSE 플랫폼의 기본 메세지 구조는 JSON Format으로 Header, Payload�
 .. code-block:: json
 
     {
-        "ts" : 1571273913571,  //timestamp 
-        "dev_type": 2,
-        "dev_id": 3333,
+        "timestamp" : 1571273913571,  //timestamp 
+        "devType": 2,
+        "devId": 3333,
         "speed": 60,
         "location": {
-            "lat": 37.510296,
-            "lon": 127.062512
+            "latitude": 37.510296,
+            "longitude": 127.062512
         }
     }
 
@@ -80,12 +80,12 @@ OVC-G가 OVSE로 보내는 메세지는 주기보고 타입과 비주기 보고 
 =============  ====  ========  =============================================
 Key            M/O   Type      Description
 =============  ====  ========  =============================================
-ts             M     long      메세지 전달 시간 (msec, epoch)
-dev_type       M     Integer   OVC-G 단말 타입 (1)
-dev_id         M     String    Device 고유 단말 식별자
+timestamp      M     long      메세지 전달 시간 (msec, epoch)
+devType        M     Integer   OVC-G 단말 타입 (1)
+devId          M     String    Device 고유 단말 식별자
 speed          O     Integer   현재 속도 값 (kph)
 location       M               | 현재 위치 좌표 (WGS84 Coordination)
-                               | Child key로 "lat", "lon" 를 적시
+                               | Child key로 "latitude", "longitude" 를 적시
 =============  ====  ========  =============================================
 
 
@@ -94,13 +94,13 @@ location       M               | 현재 위치 좌표 (WGS84 Coordination)
 .. code-block:: json
 
     {
-        "ts" : 1571273913571,
-        "dev_type": 1,
-        "dev_id": 3333,
+        "timestamp" : 1571273913571,
+        "devType": 1,
+        "devId": 3333,
         "speed": 60,
         "location": {
-            "lat": 37.510296,
-            "lon": 127.062512
+            "latitude": 37.510296,
+            "longitude": 127.062512
         }
     }
 
@@ -117,22 +117,22 @@ location       M               | 현재 위치 좌표 (WGS84 Coordination)
 ================  ====  ========  =============================================
 Key               M/O   Type      Description
 ================  ====  ========  =============================================
-ts                M     long      메세지 전달 시간 (msec, epoch)
-dev_type          M     Integer   OVC-G 단말 타입 (1)
-dev_id            M     String    OVSE에 등록된 단말 식별자
-event_type        M     Integer   Event 종류 식별자
-event_id          M     String    Unique event 식별자
+timestamp         M     long      메세지 전달 시간 (msec, epoch)
+devType           M     Integer   OVC-G 단말 타입 (1)
+serialNo          M     String    OVSE에 등록된 단말 식별자
+eventType         M     Integer   Event 종류 식별자
+eventId           M     String    Unique event 식별자
 distanceToEvent   O     Integer   | 이벤트 지점까지의 거리 (m)
                                   | + : 전방
                                   | - : 후방
 location          M               | 이벤트 발생 위치 정보 (WGS84 Coordination)
-                                  | Child key로 "lat", "lon" 를 적시
+                                  | Child key로 "latitude", "longitude" 를 적시
 ================  ====  ========  =============================================
 
-비주기 이벤트는 그 종류를 event_type으로 구분하고 있습니다. (*고객사의 제안에 따라 추가될 수 있습니다*)
+비주기 이벤트는 그 종류를 eventType 구분하고 있습니다. (*고객사의 제안에 따라 추가될 수 있습니다*)
 
 ============  ==================================
-event_type    설명
+eventType     설명
 ============  ==================================
 201           급정거 발생 이벤트 메세지       
 202           차량사고 발생 이벤트 메세지
@@ -145,11 +145,11 @@ event_type    설명
 .. code-block:: json
 
     {
-        "ts" : 1571308818766, // timestamp
-        "dev_type": 1,
-        "dev_id": 3333,
-        "event_type": 201, 
-        "event_id": 1021,
+        "timestamp" : 1571308818766, // timestamp
+        "devType": 1,
+        "serialNo": 3333,
+        "eventType": 201, 
+        "eventId": 1021,
         "distanceToEvent": 679,
         "location": {
             "lat": 37.510296,
@@ -168,15 +168,15 @@ OVSE에서 OVC-G로 다양한 V2N 이벤트 알림 메세지가 전달됩니다.
 ================  ====  ========  =============================================
 Key               M/O   Type      Description
 ================  ====  ========  =============================================
-ts                M     long      메세지 전달 시간 (msec, epoch)
-event_type        M     Integer   알림 메세지 타입
-event_id          M     String    Unique event 식별자
+timestamp         M     long      메세지 전달 시간 (msec, epoch)
+eventType         M     Integer   알림 메세지 타입
+eventId           M     String    Unique event 식별자
 tunnel            M     Boolean   Tunnel 안의 이벤트인지 아닌지 (급정거는 모두 FALSE)
 distanceToEvent   M     Integer   | 이벤트 지점까지의 거리 (m)
                                   | + : 전방
                                   | - : 후방
 location          M               | 이벤트 발생 위치 정보 (WGS84 Coordination)
-                                  | Child key로 "lat", "lon" 를 적시
+                                  | Child key로 "latitude", "longitude" 를 적시
 ================  ====  ========  =============================================
 
 
@@ -185,14 +185,14 @@ location          M               | 이벤트 발생 위치 정보 (WGS84 Coordi
 .. code-block:: json
 
     {
-        "ts" : 1571308818766, // timestamp
-        "event_type: 1286, // 보행자 이벤트 발생 예
-        "event_id": 12123, 
+        "timestamp" : 1571308818766, // timestamp
+        "eventType: 1286, // 보행자 이벤트 발생 예
+        "eventId": 12123, 
         "tunnel": TRUE, 
         "distanceToEvent": 1400,
         "location": {
-            "lat": 37.510296,
-            "lon": 127.062512
+            "latitude": 37.510296,
+            "longitude": 127.062512
         }
     }
 
@@ -200,7 +200,7 @@ location          M               | 이벤트 발생 위치 정보 (WGS84 Coordi
 각 이벤트 타입별 세부 detail 정보는 다음과 같습니다.
 
 ============  ==================================
-event_type    발생 이벤트 메세지 설명
+eventType     발생 이벤트 메세지 설명
 ============  ==================================
 0             전방 급정거 발생      
 258           전방 차량 정체 
@@ -235,25 +235,25 @@ OVC-M은 OVC-G와 달리 내부에 T맵을 이용하여 도로상의 위치를 �
 ================  ====  ========  =============================================
 Key               M/O   Type      Description
 ================  ====  ========  =============================================
-ts                M     long      메세지 전달 시간 (msec, epoch)
-dev_type          M     Integer   OVC-M 단말 타입 (2)
-dev_id            M     String    OVSE에 등록된 단말 식별자
-event_type        M     Integer   Event 종류 식별자
-event_id          M     String    Unique event 식별자
+timestamp         M     long      메세지 전달 시간 (msec, epoch)
+devType           M     Integer   OVC-M 단말 타입 (2)
+serialNo          M     String    OVSE에 등록된 단말 식별자
+eventType         M     Integer   Event 종류 식별자
+eventId           M     String    Unique event 식별자
 distanceToEvent   O     Integer   | 이벤트 지점까지의 거리 (m)
                                   | + : 전방
                                   | - : 후방
 location          M               | 이벤트 발생 위치 정보 (WGS84 Coordination)
-                                  | Child key로 "lat", "lon" 를 적시
+                                  | Child key로 "latitude", "longitude" 를 적시
 meshid            O     Integer   T맵 meshid 정보
 linkid            O     Integer   T맵 linkid 정보
 roadType          O     Integer   T맵 기준 현 RoadType 정보    
 ================  ====  ========  =============================================
 
-비주기 이벤트는 그 종류를 event_type으로 구분하고 있습니다. (*고객사의 제안에 따라 추가될 수 있습니다*)
+비주기 이벤트는 그 종류를 eventType으로 구분하고 있습니다. (*고객사의 제안에 따라 추가될 수 있습니다*)
 
 ============  ==================================
-event_type    설명
+eventType     설명
 ============  ==================================
 201           급정거 발생 이벤트 메세지       
 202           차량사고 발생 이벤트 메세지
@@ -266,15 +266,15 @@ event_type    설명
 .. code-block:: json
 
     {
-        "ts" : 1571308818766, // timestamp
-        "dev_type": 2,
-        "dev_id": 3343,
-        "event_type": 201, 
-        "event_id": 1021,
+        "timestamp" : 1571308818766, // timestamp
+        "devType": 2,
+        "serialNo": 3343,
+        "eventType": 201, 
+        "eventId": 1021,
         "distanceToEvent": 679,
         "location": {
-            "lat": 37.510296,
-            "lon": 127.062512
+            "latitude": 37.510296,
+            "longitude": 127.062512
         },
         "meshid": 57150000,
         "linkid": 4333,
@@ -290,15 +290,15 @@ OVSE에서 OVC-M으로 전달되는 V2N 이벤트 메세지는 OVC-G의 것과 �
 ================  ====  ========  =============================================
 Key               M/O   Type      Description
 ================  ====  ========  =============================================
-ts                M     long      메세지 전달 시간 (msec, epoch)
-event_type        M     Integer   알림 메세지 타입
-event_id          M     String    Unique event 식별자
+timestamp         M     long      메세지 전달 시간 (msec, epoch)
+eventType         M     Integer   알림 메세지 타입
+eventId           M     String    Unique event 식별자
 tunnel            M     Boolean   Tunnel 안의 이벤트인지 아닌지 (급정거는 모두 FALSE)
 distanceToEvent   M     Integer   | 이벤트 지점까지의 거리 (m)
                                   | + : 전방
                                   | - : 후방
 location          M               | 이벤트 발생 위치 정보 (WGS84 Coordination)
-                                  | Child key로 "lat", "lon" 를 적시
+                                  | Child key로 "latitude", "longitude" 를 적시
 ================  ====  ========  =============================================
 
 
@@ -307,14 +307,14 @@ location          M               | 이벤트 발생 위치 정보 (WGS84 Coordi
 .. code-block:: json
 
     {
-        "ts" : 1571308818766, // timestamp
-        "event_type: 1286, // 보행자 이벤트 발생 예
-        "event_id": 12123, 
+        "timestamp" : 1571308818766, // timestamp
+        "eventType: 1286, // 보행자 이벤트 발생 예
+        "eventId": 12123, 
         "tunnel": TRUE, 
         "distanceToEvent": 1400,
         "location": {
-            "lat": 37.510296,
-            "lon": 127.062512
+            "latitude": 37.510296,
+            "longitude": 127.062512
         }
     }
 
@@ -322,7 +322,7 @@ location          M               | 이벤트 발생 위치 정보 (WGS84 Coordi
 각 이벤트 타입별 세부 detail 정보는 다음과 같습니다.
 
 ============  ==================================
-event_type    발생 이벤트 메세지 설명
+eventType     발생 이벤트 메세지 설명
 ============  ==================================
 0             전방 급정거 발생      
 258           전방 차량 정체 
