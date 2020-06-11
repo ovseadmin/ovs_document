@@ -6,8 +6,9 @@
 Device Simulator
 =================
 
-본 시뮬레이터는 SKT의 OVS(Open V2X Service) 플랫폼 프로토콜을 따르는 Smartphone, BlackBox, ADAS 등의 단말 동작을 나타내는 시뮬레이터입니다.
-본 시뮬레이터는 OVS 플랫폼의 [기술문서](https://ovs-document.readthedocs.io/en/latest/index.html)를 기반으로 구성되어 있습니다. 상세한 프로토콜은 링크의 기술문서를 참고하세요.
+본 시뮬레이터는 SKT의 OVS(Open V2X Service) 플랫폼 프로토콜을 따르는 Smartphone, BlackBox, ADAS 등의 단말 동작을 나타내는 시뮬레이터로,
+github [링크추가] 에서 받으실 수 있습니다. 
+본 시뮬레이터는 OVS 플랫폼의 [기술문서](https://ovs-document.readthedocs.io/en/latest/index.html)를 기반으로 구성되어 있습니다. 상세한 프로토콜은 :ref:`8. 메시지 포맷 <message-format>`를 참고하세요.
 
 .. _device-simulator-introduction:
 
@@ -20,8 +21,12 @@ OVS Device Simulator Introduction
 Device Simulator 구성
 ~~~~~~~~~~~~~~~~~~~~~~
 
-본 시뮬레이터는 `node.js` 기반으로 구현되어 있으며, 기술 규격에 따라 MQTT 프로토콜에 준수하여 개발이 되어 있습니다. OVS 플랫폼 프로토콜에서 제공하는 단말 타입은 `OVC-G`, `OVC-M` 이며 해당 문서는 `OVC-G` 기준으로 설명되어 있습니다. 아래의 파일에 시뮬레이션 과정이 코딩되어 있습니다.
- * device.js
+본 시뮬레이터는 `node.js` 기반으로 구현되어 있으며, 기술 규격에 따라 MQTT 프로토콜에 준수하여 개발이 되어 있습니다. OVS 플랫폼 프로토콜에서 제공하는 단말 타입은 `OVC-G`, `OVC-M` 이며 해당 문서는 `OVC-G` 기준으로 설명되어 있습니다. 아래의 파일에 시뮬레이션 과정이 포함되어 있습니다.
+ 
+.. code-block:: none
+
+    device.js
+
 
 .. _device-simulator-execution:
 
@@ -31,7 +36,7 @@ Device Simulator 실행 방법
 
 .. code-block:: none
 
-    git clone github repository 추가 필요
+    git clone github repository  [링크추가] 
     npm install
     node device.js
 
@@ -162,7 +167,7 @@ Device Simulator 정상 동작 예시
     }
 
 
-`client`가 Subscribe하고 있는 `topic`에 의해 메세지를 수신한 경우 사용자에게 알림 메세지를 전달합니다. 수신하는 메세지의 종류는 크게 2개 종류로 구분됩니다. 첫 째, 특정 단말에게 **정보성 메세지**를 전달하는 메세지와 둘 째, 긴급제동알림 서비스, 전방 낙하물 주의 등 **V2N 서비스 메세지** 입니다. 
+`client`가 Subscribe하고 있는 `topic`에 의해 메세지를 수신한 경우 사용자에게 알림 메세지를 전달합니다. 수신하는 메세지의 종류는 크게 2개 종류로 구분됩니다. 첫 째, 특정 단말에게 **정보성 메세지** 를 전달하는 메세지와 둘 째, 긴급제동알림 서비스, 전방 낙하물 주의 등 **V2N 서비스 메세지** 입니다. 
 
 .. code-block:: none
 
