@@ -5,9 +5,6 @@
 Northbound API Specification 
 =======================================
 
-About Northbound API Specification
----------------------------------------
-
 OVSE 플랫폼은 정보 조회, 단말 관리, 통계를 위한 Northbound API를 제공합니다. 
 
 

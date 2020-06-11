@@ -5,6 +5,8 @@
 
 .. |br| raw:: html
 
+.. _ovs-webdocument-index:
+
 Open V2N Service Enabler Web Document
 =======================================
 
