@@ -27,14 +27,14 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
 =========  ===============================================  ===========  =====================================================
  Company    | -  회사 정보 조회                              | GET       | /api/ovs/v1/company/{companyId}                    
             | -  내 회사 정보 조회                           | GET       | /api/ovs/v1/company/me                             
-            | -  회사의 모든 단말에 메시지 전달                | POST      | /api/ovs/v1/company/{companyId}/message            
+            | -  회사의 모든 단말에 메시지 전달              | POST      | /api/ovs/v1/company/{companyId}/message            
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
  Device     | -  단말 등록                                   | POST      | /api/ovs/v1/device                                 
             | -  단말 정보 조회                              | GET       | /api/ovs/v1/device/{deviceId}                      
             | -  단말 정보 수정                              | PUT       | /api/ovs/v1/device/{deviceId}                      
             | -  단말 삭제                                   | DELETE    | /api/ovs/v1/device/{deviceId}                      
             | -  전체 단말 정보 조회                         | GET       | /api/ovs/v1/devices                                
-            | -  회사 전체 단말 수                           | GET       | /api/ovs/v1/devices/owned/cnt                      
+            | -  회사 전체 단말 수 조회                      | GET       | /api/ovs/v1/devices/owned/cnt                      
             | -  단말별 메시지 전달                          | POST      | /api/ovs/v1/device/{deviceId}/message              
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
  Stats      | -  회사 모든 단말의 기간별 이벤트 통계         | GET       | /api/ovs/v1/company/{companyId}/statistics/event   
@@ -60,11 +60,12 @@ token은 SK Open API 홈페이지에서, 회사ID(companyId)는 "내 회사 정�
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
 
+- Request API URL
 +------------+----------------------------------------------------+
 | **GET**    | `/api/ovs/v1/company/{companyId} <https://TBD>`__  |
 +------------+----------------------------------------------------+
 
-- Header
+- Request Header
 
 .. rst-class:: table-width-fix
 .. rst-class:: table-width-full
@@ -78,7 +79,7 @@ token은 SK Open API 홈페이지에서, 회사ID(companyId)는 "내 회사 정�
 | X-authorization | string | {{authToken}}    | auth token of each company  |
 +-----------------+--------+------------------+-----------------------------+
 
-- Body
+- Request Body
 
 .. rst-class:: table-width-fix
 .. rst-class:: table-width-full
@@ -176,7 +177,7 @@ token은 SK Open API 홈페이지에서, 회사ID(companyId)는 "내 회사 정�
 | **GET**    | `/api/ovs/v1/company/me <https://TBD>`__ |
 +------------+------------------------------------------+
 
-- Header
+- Request Header
 
 .. rst-class:: table-width-fix
 .. rst-class:: table-width-full
@@ -190,7 +191,7 @@ token은 SK Open API 홈페이지에서, 회사ID(companyId)는 "내 회사 정�
 | X-authorization | string | {{authToken}}    | auth token   |
 +-----------------+--------+------------------+--------------+
 
-- Body
+- Request Body
 
 .. rst-class:: table-width-fix
 .. rst-class:: table-width-full
@@ -201,7 +202,6 @@ token은 SK Open API 홈페이지에서, 회사ID(companyId)는 "내 회사 정�
 +==========+========+=========================+
 | N/A      | N/A    | N/A                     |
 +----------+--------+-------------------------+
-
 
 - Response fields
 
@@ -274,8 +274,6 @@ token은 SK Open API 홈페이지에서, 회사ID(companyId)는 "내 회사 정�
 
 token이 유효한 경우 정상적으로 조회할 수 있습니다. 
 
-|br|
-
 
 .. _api-specification_device-information:
 
@@ -294,7 +292,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 | **GET**    | `/api/ovs/v1/device/{serialNo} <https://TBD>`__ |
 +------------+-------------------------------------------------+
 
-- Header
+- Request Header
 
 .. rst-class:: table-width-fix
 .. rst-class:: table-width-full
@@ -308,7 +306,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 | X-authorization | string | {{authToken}}    | auth token   |
 +-----------------+--------+------------------+--------------+
 
-- Body
+- Request Body
 
 .. rst-class:: table-width-fix
 .. rst-class:: table-width-full
@@ -392,7 +390,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 | **GET**    | `/api/ovs/v1/devices?limit=10 <https://TBD>`__  |
 +------------+-------------------------------------------------+
 
-- Header
+- Request Header
 
 .. rst-class:: table-width-fix
 .. rst-class:: table-width-full
@@ -406,7 +404,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 | X-authorization | string | {{authToken}}    | auth token   |
 +-----------------+--------+------------------+--------------+
 
-- Body
+- Request Body
 
 .. rst-class:: table-width-fix
 .. rst-class:: table-width-full
@@ -477,8 +475,6 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 .. rst-class:: text-align-justify
 
 
-|br|
-
 
 .. _api-specification_device-count:
 
@@ -497,7 +493,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 | **GET**    | `/api/ovs/v1/devices/owned/cnt <https://TBD>`__ |
 +------------+-------------------------------------------------+
 
-- Header
+- Request Header
 
 .. rst-class:: table-width-fix
 .. rst-class:: table-width-full
@@ -511,7 +507,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 | X-authorization | string | {{authToken}}    | auth token   |
 +-----------------+--------+------------------+--------------+
 
-- Body
+- Request Body
 
 .. rst-class:: table-width-fix
 .. rst-class:: table-width-full
@@ -559,10 +555,115 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 
 
 
-.. _api-specification_information_modification:
+.. _api-specification_device-management:
 
-정보 수정 API
+단말 관리 API
 ------------------------
+
+.. _api-specification_device-registration:
+
+단말 등록
+~~~~~~~~~~~~~~~~~~
+
+OVS 서비스를 이용할 신규 단말을 등록합니다. 
+
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
+
++------------+---------------------------------------------------+
+| **POST**   | `/api/ovs/v1/device              <https://TBD>`__ |
++------------+---------------------------------------------------+
+
+- Request Header
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+--------+------------------+--------------+
+| option          | Type   | Default          | Description  |
++=================+========+==================+==============+
+| Content-Type    | string | application/json | content type |
++-----------------+--------+------------------+--------------+
+| X-authorization | string | {{authToken}}    | auth token   |
++-----------------+--------+------------------+--------------+
+
+- Request Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------------+--------+--------------------------------------------------------------------+
+| Key            | Type   | Description                                                        |
++================+========+====================================================================+
+| vendor         | string | company name                                                       |
++----------------+--------+--------------------------------------------------------------------+
+| type           | string | device type(OVS-G or OVS-M)                                        |
++----------------+--------+--------------------------------------------------------------------+
+| credentialsId  | string | device credentails (5 digit company prefix + 15 digit credentails) |
++----------------+--------+--------------------------------------------------------------------+
+| serialNo       | string | device serialNo (5 digit company prefix + unique serial number)    |
++----------------+--------+--------------------------------------------------------------------+
+
+.. role:: underline
+        :class: underline
+
+- Example Code
+
+:underline:`Request`
+
+.. code-block:: none
+
+    content-type:"application/json"
+    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+    {
+        "vendor": "SKT",
+        "type": "OVC-G",
+        "credentialsId":"{{prefix}}123456789012345",
+        "serialNo":"{{prefix}}12345678911234"
+    }
+
+:underline:`Request` in curl format
+
+.. code-block:: none
+
+    curl --location --request POST 'http://openapi_gatweay:18080/api/ovs/v1/device' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
+        --data-raw '{
+            "vendor": "SKT",
+            "type": "OVC-G",
+            "credentialsId":"uio35123456789012345",
+            "serialNo":"uio3512345678911234"
+        }'
+
+
+:underline:`Response (code: 200)`
+
+.. code-block:: json
+
+    {
+        "id": {
+            "id": "128fe3e0-ab98-11ea-b482-911940102f00"
+        },
+        "createdTime": 1591848022149,
+        "companyId": {
+            "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
+        },
+        "vendor": "SKT",
+        "type": "OVC-G",
+        "additionalInfo": null,
+        "activationRequired": false,
+        "serialNo": "uio3512345678911234",
+        "credentialsId": "uio35123456789012345"
+    }
+
+.. rst-class:: text-align-justify
+
+
+
+
 
 .. _api-specification_company-information-modification:
 
@@ -580,7 +681,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 | **PUT**    | `/api/ovs/v1/company/{companyId} <https://TBD>`__ |
 +------------+---------------------------------------------------+
 
-- Header
+- Request Header
 
 .. rst-class:: table-width-fix
 .. rst-class:: table-width-full
@@ -594,7 +695,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 | X-authorization | string | {{authToken}}    | auth token   |
 +-----------------+--------+------------------+--------------+
 
-- Body
+- Request Body
 
 .. rst-class:: table-width-fix
 .. rst-class:: table-width-full
