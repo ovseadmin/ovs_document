@@ -27,12 +27,14 @@ Device Simulator 구성
 
 Device Simulator 실행 방법
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-본 시뮬레이터를 동작을 위해서는 기본적으로 `node.js`가 설치되어 있어야 합니다. `node.js`의 설치 방법은 [node.js 홈페이지](https://nodejs.org/en/)를 참고하시길 부탁 드립니다.
+본 시뮬레이터를 동작을 위해서는 기본적으로 `node.js`가 설치되어 있어야 합니다. `node.js`의 설치 방법은 [node.js 홈페이지](https://nodejs.org/en/)를 참고하세요.
+
 .. code-block:: none
 
     git clone github repository 추가 필요
     npm install
     node device.js
+
 
 .. _device-simulator-configuration:
 
@@ -64,12 +66,14 @@ OVS Device Simulator Flow
 -----------------------------------
 본 시뮬레이터는 아래의 Flow를 기반으로 작성되어 있으며, 아래의 Flow는 [단말 프로시저 규격](https://ovs-document.readthedocs.io/en/latest/procedure.html)과 [단말 전송 메시지 규격](https://ovs-document.readthedocs.io/en/latest/message_format.html)을 참고 바랍니다.
 
-<center><img src="./images/Flow_ovcg.png" width="500" height="500"></center>
+.. image:: /images/device_simulator_flow_ovcg.png
+	:width: 100%
+	:align: center
 
 제공해드리는 단말 시뮬레이터의 코드에는 위 Flow의 각 순서와 대응되는 주석이 표기되어 있습니다. 아래의 동작 예시 설명을 통해 자세히 알아보도록 하겠습니다.
 
 
-.. _device-simulator-normal-behavior:
+.. _device-simulator-behavior-example:
 
 Device Simulator 정상 동작 예시
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
