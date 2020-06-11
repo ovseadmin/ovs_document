@@ -483,7 +483,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 
 .. rst-class:: text-align-justify
 
-회사 소유의 전체 단말 수를 조회하는 API 입니다. token이 유효한 경우 정상적으로 조회할 수 있습니다. 
+회사 전체 단말 수를 조회하는 API 입니다. token이 유효한 경우 정상적으로 조회할 수 있습니다. 
 
 
 .. rst-class:: table-width-fix
@@ -606,6 +606,29 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 | serialNo       | string | device serialNo (5 digit company prefix + unique serial number)    |
 +----------------+--------+--------------------------------------------------------------------+
 
+- Response Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------------+--------+--------------------------------------------------------------------+
+| Key            | Type   | Description                                                        |
++================+========+====================================================================+
+| id             | string | unique device ID                                                   |
++----------------+--------+--------------------------------------------------------------------+
+| companyId      | string | company ID                                                         |
++----------------+--------+--------------------------------------------------------------------+
+| vendor         | string | manufacture name of the device                                     |
++----------------+--------+--------------------------------------------------------------------+
+| credentialsId  | string | device credentails (5 digit company prefix + 15 digit credentails) |
++----------------+--------+--------------------------------------------------------------------+
+| serialNo       | string | device serialNo (5 digit company prefix + unique serial number)    |
++----------------+--------+--------------------------------------------------------------------+
+| additionalInfo | string | any information of the device                                      |
++----------------+--------+--------------------------------------------------------------------+
+
+
 .. role:: underline
         :class: underline
 
@@ -663,22 +686,18 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
 
 
+.. _api-specification_device-modification:
 
-
-.. _api-specification_company-information-modification:
-
-회사 정보 수정
+단말 정보 수정
 ~~~~~~~~~~~~~~~~~~
 
-.. rst-class:: text-align-justify
-
-나의 계정정보와 내가 속한 회사의 Company ID를 수정하는 API 입니다. 회사 admin만 사용가능합니다. (director는 사용불가) 
+소속 회사, 단말 type, credentialsId 등 단말의 등록정보를 수정할 수 있습니다. 본 API에는 유효한 token이 필요합니다. 
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
 
 +------------+---------------------------------------------------+
-| **PUT**    | `/api/ovs/v1/company/{companyId} <https://TBD>`__ |
+| **PUT**    | `/api/ovs/v1/device{serialNo}    <https://TBD>`__ |
 +------------+---------------------------------------------------+
 
 - Request Header
@@ -701,13 +720,42 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 .. rst-class:: table-width-full
 .. rst-class:: text-align-justify
 
-+----------+--------+----------------------------+
-| Key      | Type   | Description                |
-+==========+========+============================+
-| picPhone | string | data field(for example)    |
-+----------+--------+----------------------------+
-| ...      | ....   | any other field to change  |
-+----------+--------+----------------------------+
++----------------+--------+--------------------------------------------------------------------+
+| Key            | Type   | Description                                                        |
++================+========+====================================================================+
+| vendor         | string | company name                                                       |
++----------------+--------+--------------------------------------------------------------------+
+| type           | string | device type(OVS-G or OVS-M)                                        |
++----------------+--------+--------------------------------------------------------------------+
+| credentialsId  | string | device credentails (5 digit company prefix + 15 digit credentails) |
++----------------+--------+--------------------------------------------------------------------+
+| serialNo       | string | device serialNo (5 digit company prefix + unique serial number)    |
++----------------+--------+--------------------------------------------------------------------+
+| additionalInfo | string | any information of the device                                      |
++----------------+--------+--------------------------------------------------------------------+
+
+
+- Response Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------------+--------+--------------------------------------------------------------------+
+| Key            | Type   | Description                                                        |
++================+========+====================================================================+
+| id             | string | unique device ID                                                   |
++----------------+--------+--------------------------------------------------------------------+
+| companyId      | string | company ID                                                         |
++----------------+--------+--------------------------------------------------------------------+
+| vendor         | string | manufacture name of the device                                     |
++----------------+--------+--------------------------------------------------------------------+
+| credentialsId  | string | device credentails (5 digit company prefix + 15 digit credentails) |
++----------------+--------+--------------------------------------------------------------------+
+| serialNo       | string | device serialNo (5 digit company prefix + unique serial number)    |
++----------------+--------+--------------------------------------------------------------------+
+| additionalInfo | string | any information of the device                                      |
++----------------+--------+--------------------------------------------------------------------+
 
 .. role:: underline
         :class: underline
@@ -721,9 +769,22 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
     content-type:"application/json"
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
     {
-        "picPhone": "010-1111-1235",
-        "... any other field to change ..."
+        "vendor": "SKT",
+        "type": "OVC-G",
+        "credentialsId":"{{prefix}}123451234512349",
+        "serialNo":"{{prefix}}fine1236"
     }
+
+:underline:`Request` in curl format
+
+.. code-block:: none
+
+    curl --location --request PUT 'http://openapi_gateway:18080/api/ovs/v1/device/uio3512345678911234' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
+        --data-raw '{
+            "additionalInfo" : "for test"
+        }'
 
 
 :underline:`Response (code: 200)`
@@ -732,36 +793,116 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
     {
         "id": {
-            "id": "4823f7a0-73ab-11ea-ac0c-d950be57c747"
+            "id": "128fe3e0-ab98-11ea-b482-911940102f00"
         },
-        "createdTime": 1585699007493,
+        "createdTime": 1591848022149,
         "companyId": {
-            "id": "4813f210-73ab-11ea-ac0c-d950be57c747"
+            "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
         },
-        "name": "createcompanynam2e",
-        "phone": "010-1111-1235",
-        "email": "test_servicetype_ovse2@sktint.com",
-        "authority": "COMPANY_ADMIN",
-        "password": null,
-        "additionalInfo": null,
-        "passwordUpdatedTime": 1585699007493
+        "vendor": "SKT",
+        "type": "OVC-G",
+        "additionalInfo": "for test",
+        "activationRequired": false,
+        "serialNo": "uio3512345678911234",
+        "credentialsId": null
     }
 
 .. rst-class:: text-align-justify
 
-token이 유효한 경우 정상적으로 조회할 수 있습니다. 
 
-.. _api-specification_device-information-modification:
 
-단말 정보 수정
+.. _api-specification_device-deletion:
+
+단말 삭제
 ~~~~~~~~~~~~~~~~~~
 
-.. _api-specification_director-information-modification:
+등록된 단말을 삭제할 수 있습니다. 본 API에는 유효한 token이 필요합니다. 
 
-To be added
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
 
-관리자 정보 수정
-~~~~~~~~~~~~~~~~~~
++------------+---------------------------------------------------+
+| **DELETE** | `/api/ovs/v1/device{serialNo}    <https://TBD>`__ |
++------------+---------------------------------------------------+
+
+- Request Header
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+--------+------------------+--------------+
+| option          | Type   | Default          | Description  |
++=================+========+==================+==============+
+| Content-Type    | string | application/json | content type |
++-----------------+--------+------------------+--------------+
+| X-authorization | string | {{authToken}}    | auth token   |
++-----------------+--------+------------------+--------------+
+
+- Request Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------------+--------+--------------------------------------------------------------------+
+| Key            | Type   | Description                                                        |
++================+========+====================================================================+
+| N/A            | N/A    | N/A                                                                |
++----------------+--------+--------------------------------------------------------------------+
+
+- Response Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------------+--------+--------------------------------------------------------------------+
+| Key            | Type   | Description                                                        |
++================+========+====================================================================+
+| id             | string | unique device ID                                                   |
++----------------+--------+--------------------------------------------------------------------+
+| companyId      | string | company ID                                                         |
++----------------+--------+--------------------------------------------------------------------+
+| vendor         | string | manufacture name of the device                                     |
++----------------+--------+--------------------------------------------------------------------+
+| credentialsId  | string | device credentails (5 digit company prefix + 15 digit credentails) |
++----------------+--------+--------------------------------------------------------------------+
+| serialNo       | string | device serialNo (5 digit company prefix + unique serial number)    |
++----------------+--------+--------------------------------------------------------------------+
+| additionalInfo | string | any information of the device                                      |
++----------------+--------+--------------------------------------------------------------------+
+
+.. role:: underline
+        :class: underline
+
+- Example Code
+
+:underline:`Request`
+
+.. code-block:: none
+
+    content-type:"application/json"
+    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+
+:underline:`Request` in curl format
+
+.. code-block:: none
+
+    curl --location --request DELETE 'http://openapi_gateway:18080/api/ovs/v1/device/uio3512345678911234' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
+        --data-raw ''
+
+
+:underline:`Response (code: 200)`
+
+.. code-block:: json
+
+    // response 200 OK only, no data body
+
+.. rst-class:: text-align-justify
+
 
 .. _api-specification_statistics:
 
