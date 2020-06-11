@@ -34,8 +34,7 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
             | -  단말 정보 수정                              | PUT       | /api/ovs/v1/device/{deviceId}                      
             | -  단말 삭제                                   | DELETE    | /api/ovs/v1/device/{deviceId}                      
             | -  전체 단말 정보 조회                         | GET       | /api/ovs/v1/devices                                
-            | -  회사 전체 단말의 수 조회                    | GET       | /api/ovs/v1/devices/cnt                            
-            | -  소유한 전체 단말 수	                     | GET       | /api/ovs/v1/devices/owned/cnt                      
+            | -  회사 전체 단말 수                           | GET       | /api/ovs/v1/devices/owned/cnt                      
             | -  단말별 메시지 전달                          | POST      | /api/ovs/v1/device/{deviceId}/message              
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
  Stats      | -  회사 모든 단말의 기간별 이벤트 통계         | GET       | /api/ovs/v1/company/{companyId}/statistics/event   
@@ -425,15 +424,15 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 .. rst-class:: table-width-full
 .. rst-class:: text-align-justify
 
-+-----------------+----------------------------------------------------+
-| Field           | Description                                        |
-+=================+====================================================+
-| id              | unique device id                                   |
-+-----------------+----------------------------------------------------+
-| companyId       | unique company id                                  |
-+-----------------+----------------------------------------------------+
-| type            | device type(OVC-G or OVC-M)                        |
-+-----------------+----------------------------------------------------+
++-----------------+--------+----------------------------------------------------+
+| Field           | Type   | Description                                        |
++=================+========+====================================================+
+| id              | string | unique device id                                   |
++-----------------+--------+----------------------------------------------------+
+| companyId       | string | unique company id                                  |
++-----------------+--------+----------------------------------------------------+
+| type            | string | device type(OVC-G or OVC-M)                        |
++-----------------+--------+----------------------------------------------------+
 
 
 .. role:: underline
@@ -476,6 +475,88 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
     }
 
 .. rst-class:: text-align-justify
+
+
+|br|
+
+
+.. _api-specification_device-count:
+
+회사 전체 단말 수 조회
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. rst-class:: text-align-justify
+
+회사 소유의 전체 단말 수를 조회하는 API 입니다. token이 유효한 경우 정상적으로 조회할 수 있습니다. 
+
+
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
+
++------------+-------------------------------------------------+
+| **GET**    | `/api/ovs/v1/devices/owned/cnt <https://TBD>`__ |
++------------+-------------------------------------------------+
+
+- Header
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+--------+------------------+--------------+
+| option          | Type   | Default          | Description  |
++=================+========+==================+==============+
+| Content-Type    | string | application/json | content type |
++-----------------+--------+------------------+--------------+
+| X-authorization | string | {{authToken}}    | auth token   |
++-----------------+--------+------------------+--------------+
+
+- Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------+--------+-------------------------+
+| Key      | Type   | Description             |
++==========+========+=========================+
+| N/A      | N/A    | N/A                     |
++----------+--------+-------------------------+
+
+- Response fields
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+----------------------------------------------------+
+| Field           | Description                                        |
++=================+====================================================+
+| count           | number of my registered devices                    |
++-----------------+----------------------------------------------------+
+
+.. role:: underline
+        :class: underline
+
+- Example Code
+
+:underline:`Request`
+
+.. code-block:: none
+
+    content-type:"application/json"
+    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+
+
+:underline:`Response (code: 200)`
+
+.. code-block:: json
+
+    1
+
+.. rst-class:: text-align-justify
+
+
 
 
 .. _api-specification_information_modification:
