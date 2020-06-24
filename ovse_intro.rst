@@ -120,6 +120,7 @@ V2N Service Enabler (이하 VSE)는 V2N 서비스를 하기 위한 도로 내의
 Map Matcher
 ````````````````````````````````
 Map Matcher는 Device에서 올라온 GPS 좌표를 SKT가 관리하는 T맵 도로 정보로 변환하는 역할을 합니다. 이 기능을 통해 Map을 가지고 있지 않은 Device들도 위치한 도로를 구분하고 V2N 서비스를 받으실 수 있습니다.
+
 (*) 책임의 한계: 본 Mat Matching 기능은 단말에서 수집된 GPS위치정보에 기반하여 제공됩니다. 따라서 GPS위치정보의 오차로 인하여 Map Matching 기능의 성능이 저하될 수 있으며, 오차가 클 경우 실제 주행하는 도로와 다른 도로로 매칭될 수 있습니다. 
 
 .. image:: /images/ovse_intro/mapmatching.png
