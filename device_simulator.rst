@@ -10,7 +10,7 @@ Device Simulator
 `github ovse device simulator <https://github.com/ovseadmin/ovse_device_simulator>`__ 에서 받으실 수 있습니다. 
 
 본 시뮬레이터는 :ref:`OVS플랫폼 규격 <ovs-webdocument-index>` 를 기반으로 구성되어 있습니다. 
-상세한 프로토콜은 :ref:`규격의 8. 메시지 포맷 <message-format>`을 참고하세요.
+상세한 프로토콜은 :ref:`규격의 8. 메시지 포맷 <message-format>` 을 참고하세요.
 
 .. _device-simulator-introduction:
 
@@ -34,7 +34,8 @@ Device Simulator 구성
 
 Device Simulator 실행 방법
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-본 시뮬레이터를 동작을 위해서는 기본적으로 `node.js`가 설치되어 있어야 합니다. `node.js`의 설치 방법은 [node.js 홈페이지](https://nodejs.org/en/)를 참고하세요.
+본 시뮬레이터를 동작을 위해서는 기본적으로 `node.js`가 설치되어 있어야 합니다. 
+`node.js`의 설치 방법은 `node.js 홈페이지 <https://nodejs.org/en/>`__ 를 참고하세요.
 
 .. code-block:: none
 
@@ -73,8 +74,8 @@ Device Simulator 설정 방법
 OVS Device Simulator Flow
 -----------------------------------
 본 시뮬레이터는 아래의 Flow를 기반으로 작성되어 있으며, 아래의 Flow는 
-`단말 프로시저 규격 <https://ovs-document.readthedocs.io/en/latest/procedure.html>`__과
-`단말 전송 메시지 규격 <https://ovs-document.readthedocs.io/en/latest/message_format.html>`__을 참고 바랍니다.
+`단말 프로시저 규격 <https://ovs-document.readthedocs.io/en/latest/procedure.html>`__ 과
+`단말 전송 메시지 규격 <https://ovs-document.readthedocs.io/en/latest/message_format.html>`__ 을 참고 바랍니다.
 
 .. image:: /images/device_simulator_flow_ovcg.png
 	:width: 100%
