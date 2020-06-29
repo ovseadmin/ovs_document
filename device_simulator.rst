@@ -7,11 +7,10 @@ Device Simulator
 =================
 
 본 시뮬레이터는 SKT의 OVS(Open V2X Service) 플랫폼 프로토콜을 따르는 Smartphone, BlackBox, ADAS 등의 단말 동작을 나타내는 시뮬레이터로,
-`github <https://github.com/ovseadmin/ovse_device_simulator>`__ 에서 받으실 수 있습니다. 
+`github ovse device simulator <https://github.com/ovseadmin/ovse_device_simulator>`__ 에서 받으실 수 있습니다. 
 
-본 시뮬레이터는 :ref:`OVS플랫폼 기술문서 <ovs-webdocument-index>` 를 기반으로 구성되어 있습니다. 상세한 프로토콜은 :ref:`8. 메시지 포맷 <message-format>`를 참고하세요.
-
-
+본 시뮬레이터는 :ref:`OVS플랫폼 규격 <ovs-webdocument-index>` 를 기반으로 구성되어 있습니다. 
+상세한 프로토콜은 :ref:`규격의 8. 메시지 포맷 <message-format>`을 참고하세요.
 
 .. _device-simulator-introduction:
 
@@ -110,7 +109,7 @@ Device Simulator 정상 동작 예시
     const client = mqtt.connect(connectionOptions);
 
 
-`client`가 MQTT Broker와 연결이 완료되면 V2N service message를 수신하기 위한 ***Subscribe 함수*** 와 단말의 위치정보를 주기적으로 전송하기 위한 ***Publish 함수*** 를 호출합니다.
+`client`가 MQTT Broker와 연결이 완료되면 V2N service message를 수신하기 위한 **Subscribe 함수** 와 단말의 위치정보를 주기적으로 전송하기 위한 **Publish 함수** 를 호출합니다.
 
 .. code-block:: none
 
