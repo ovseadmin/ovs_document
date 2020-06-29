@@ -34,7 +34,7 @@ Device Simulator 구성
 
 Device Simulator 실행 방법
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-본 시뮬레이터를 동작을 위해서는 기본적으로 `node.js`가 설치되어 있어야 합니다. 
+본 시뮬레이터를 동작을 위해서는 기본적으로 node.js 가 설치되어 있어야 합니다. 
 `node.js`의 설치 방법은 `node.js 홈페이지 <https://nodejs.org/en/>`__ 를 참고하세요.
 
 .. code-block:: none
