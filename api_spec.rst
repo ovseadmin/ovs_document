@@ -1167,7 +1167,7 @@ companyId는 유효한 token이 있는 경우 /api/ovs/v1/company/me 에서 조�
 .. rst-class:: text-align-justify
 
 +------------+-------------------------------------------------------------------+
-| **POST**   | `/api/ovs/v1/device/{serialNo}/statistics/event  <https://TBD>`__ |
+| **GET**    | `/api/ovs/v1/device/{serialNo}/statistics/event  <https://TBD>`__ |
 +------------+-------------------------------------------------------------------+
 
 - Request Header
@@ -1251,7 +1251,7 @@ companyId는 유효한 token이 있는 경우 /api/ovs/v1/company/me 에서 조�
 .. rst-class:: text-align-justify
 
 +------------+----------------------------------------------------------------------+
-| **POST**   | `/api/ovs/v1/company/{companyId}/statistics/event  <https://TBD>`__  |
+| **GET**    | `/api/ovs/v1/company/{companyId}/statistics/event  <https://TBD>`__  |
 +------------+----------------------------------------------------------------------+
 - Request Header
 
