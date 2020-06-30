@@ -21,6 +21,7 @@ Version   Last Modified    Change Logs
 ========  ===============  ========================================
 1.0.0     2019/10          Initial Publish
 1.0.1     2020/03          Detailed Contents Update
+1.0.2     2020/05          Added Open API Interface
 ========  ===============  ========================================
 
 
