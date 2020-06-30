@@ -14,20 +14,20 @@ SK Open API 등록 및 key 생성
 
 서비스 사용을 위해서는 SK Open API 가입 및 key 생성이 필요합니다. 자세한 절차는 :ref:`4. 서비스 세부 절차<service-procedure>` 를 참고하시기 바랍니다. 
 
-아래는 샘플로 사용가능한 등록정보이며, SK Open API 포털의 OVSE API상품을 이용하여 직접 생성할 수 있습니다. 
+아래는 기등록되어 샘플로 사용가능한 등록정보이며, SK Open API 포털의 OVSE API상품을 이용하여 직접 생성할 수 있습니다. 
 
 +--------------+-----------------------------+-------------------------------------------------------------------+
 | Key          | Description                 | 샘플값                                                            |
 +==============+=============================+===================================================================+
-| API key      | OVSE API 호출을 위한 token  | eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0Y29tcGFueTFAc2tvcGVuYXBpLm\  |
-|              |                             | NvbSIsInNjb3BlcyI6WyJPVlNfQ09NUEFOWV9BRE1JTiJdLCJ1c2VySWQiOiJlN\  |
-|              |                             | zQ0MzU5MC1iNWQ1LTExZWEtOGYwMC02NzMwZThlZjFhOWUiLCJlbmFibGVkIjp0\  |
-|              |                             | cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiZTczZDdlZDAtYjVkNS0\  |
-|              |                             | xMWVhLThmMDAtNjczMGU4ZWYxYTllIiwiY3VzdG9tZXJJZCI6IjEzODE0MDAwLT\  |
-|              |                             | FkZDItMTFiMi04MDgwLTgwODA4MDgwODA4MCIsInNlcnZpY2VUeXBlIjoic2tvY\  |
-|              |                             | V90ZXN0Y29tcGFueTEiLCJpc3MiOiJUIFJlbW90RXllLlNLIFRlbGVjb20iLCJp\  |
-|              |                             | YXQiOjE1OTI5NzQwOTAsImV4cCI6NDEwMjMyNjAwMH0.15p2NCfzAe41BleJhiM\  |
-|              |                             | gPJKenM3wPbdk7MY3ohatGNRG8J3pZUSaILfXuAta62UsoBKFMDn7J0I3cjzo1e\  |
+| API key      | OVSE API 호출을 위한 token  | eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0Y29tcGFueTFAc2tvcGVuYXBpLm   |
+|              |                             | NvbSIsInNjb3BlcyI6WyJPVlNfQ09NUEFOWV9BRE1JTiJdLCJ1c2VySWQiOiJlN   |
+|              |                             | zQ0MzU5MC1iNWQ1LTExZWEtOGYwMC02NzMwZThlZjFhOWUiLCJlbmFibGVkIjp0   |
+|              |                             | cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiZTczZDdlZDAtYjVkNS0   |
+|              |                             | xMWVhLThmMDAtNjczMGU4ZWYxYTllIiwiY3VzdG9tZXJJZCI6IjEzODE0MDAwLT   |
+|              |                             | FkZDItMTFiMi04MDgwLTgwODA4MDgwODA4MCIsInNlcnZpY2VUeXBlIjoic2tvY   |
+|              |                             | V90ZXN0Y29tcGFueTEiLCJpc3MiOiJUIFJlbW90RXllLlNLIFRlbGVjb20iLCJp   |
+|              |                             | YXQiOjE1OTI5NzQwOTAsImV4cCI6NDEwMjMyNjAwMH0.15p2NCfzAe41BleJhiM   |
+|              |                             | gPJKenM3wPbdk7MY3ohatGNRG8J3pZUSaILfXuAta62UsoBKFMDn7J0I3cjzo1e   |
 |              |                             | pfgg                                                              |  |
 +--------------+-----------------------------+-------------------------------------------------------------------+
 | username     | 단말 serialNo               | csx13123451234500001,                                             |
