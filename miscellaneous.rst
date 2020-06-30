@@ -9,17 +9,17 @@ Get Started
 
 .. _get-started-SKOA:
 
-SK Open API 등록 및 key 생성
+SK Open API 등록 및 token 생성
 -----------------------------------
 
-서비스 사용을 위해서는 SK Open API 가입 및 key 생성이 필요합니다. 자세한 절차는 :ref:`4. 서비스 세부 절차<service-procedure>` 를 참고하시기 바랍니다. 
+서비스 사용을 위해서는 SK Open API 가입 및 toekn 생성이 필요합니다. 자세한 절차는 :ref:`4. 서비스 세부 절차<service-procedure>` 를 참고하시기 바랍니다. 
 
-아래는 기등록되어 샘플로 사용가능한 등록정보이며, SK Open API 포털의 OVSE API상품을 이용하여 직접 생성할 수 있습니다. 
+아래는 기등록되어 샘플로 사용가능한 계정 및 단말 정보이며, SK Open API 포털의 OVSE API상품을 이용하여 사용자가 직접 생성할 수 있습니다. 
 
 +--------------+-----------------------------+-------------------------------------------------------------------+
 | Key          | Description                 | 샘플값                                                            |
 +==============+=============================+===================================================================+
-| API key      | OVSE API 호출을 위한 token  | eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0Y29tcGFueTFAc2tvcGVuYXBpLm   |
+| API token    | OVSE API 호출을 위한 token  | eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0Y29tcGFueTFAc2tvcGVuYXBpLm   |
 |              |                             | NvbSIsInNjb3BlcyI6WyJPVlNfQ09NUEFOWV9BRE1JTiJdLCJ1c2VySWQiOiJlN   |
 |              |                             | zQ0MzU5MC1iNWQ1LTExZWEtOGYwMC02NzMwZThlZjFhOWUiLCJlbmFibGVkIjp0   |
 |              |                             | cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiZTczZDdlZDAtYjVkNS0   |
@@ -51,7 +51,7 @@ OVS device simulator의 자세한 동작은 :ref:`9. Device Simulator<device-sim
 
     $ git clone https://github.com/ovseadmin/ovse_device_simulator.git 
     $ cd ovse_device_simulator/ovsClient_nodeJS
-    $ npm install
+    $ npm install express pem
     $ node device.js
 
 
@@ -61,7 +61,7 @@ API 사용 및 통계
 -----------------------------------
 
 API 사용은 postman 과 같은 API 시험툴이나 shell 상에서 curl을 이용하여 확인할 수 있습니다. 
-SK open API 포털 등록 이전에는 아래의 샘플 값으로 시험할 수 있습니다. 
+SK open API 포털에서 샘플 API 호출가능하며, 아래의 샘플 값으로도 시험할 수 있습니다. 
 
 .. code-block:: none
 
