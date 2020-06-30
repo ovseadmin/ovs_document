@@ -28,7 +28,7 @@ SK Open API 등록 및 key 생성
 |              |                             | V90ZXN0Y29tcGFueTEiLCJpc3MiOiJUIFJlbW90RXllLlNLIFRlbGVjb20iLCJp   |
 |              |                             | YXQiOjE1OTI5NzQwOTAsImV4cCI6NDEwMjMyNjAwMH0.15p2NCfzAe41BleJhiM   |
 |              |                             | gPJKenM3wPbdk7MY3ohatGNRG8J3pZUSaILfXuAta62UsoBKFMDn7J0I3cjzo1e   |
-|              |                             | pfgg                                                              |  |
+|              |                             | pfgg                                                              |
 +--------------+-----------------------------+-------------------------------------------------------------------+
 | username     | 단말 serialNo               | csx13123451234500001,                                             |
 |              |                             | csx13123451234500002                                              |
