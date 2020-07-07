@@ -282,7 +282,7 @@ OVS에서 발송한 메시지의 처리 결과를 일정 시간(To-be-specified)
 
 
 
-vsc Interface for ``OVC-m``
+vsc Interface for ``OVC-M``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 

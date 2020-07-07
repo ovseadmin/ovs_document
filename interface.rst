@@ -93,7 +93,7 @@ keepAlive      60
 
 2.
 ``Subscribe a topic for receiving V2X notification`` 순서에서는 
-OVC-g가 향후에 V2X Event 수신 할 수 있도록 V2X Event을 제공하는 Topic에 Subscription을 합니다. 
+OVC-G가 향후에 V2X Event 수신 할 수 있도록 V2X Event을 제공하는 Topic에 Subscription을 합니다. 
 Topic은 아래와 같은 룰을 따라 설정합니다.
 
 =============  =============================================
@@ -118,5 +118,5 @@ Topic          v2x/device/{userName}
 
 3.
 
-vsc Interface for ``OVC-m``
+vsc Interface for ``OVC-M``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
