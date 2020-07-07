@@ -28,7 +28,6 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
  Device     | -  단말 등록                                   | POST      | /api/ovs/v1/device                                 
             | -  단말 정보 조회                              | GET       | /api/ovs/v1/device/{serialNo}                      
-            | -  단말 정보 수정                              | PUT       | /api/ovs/v1/device/{serialNo}                      
             | -  단말 삭제                                   | DELETE    | /api/ovs/v1/device/{serialNo}                      
             | -  전체 단말 정보 조회                         | GET       | /api/ovs/v1/devices                                
             | -  회사 전체 단말 수 조회                      | GET       | /api/ovs/v1/devices/owned/cnt                      
@@ -53,7 +52,6 @@ SK open API 포털의 gateway 연동시는 위의 API는 아래와 같이 사용
 ----------  --------------------------------------------------------------------------------
 | POST      | https://apis.openapi.sk.com/api/ovs/v1/device                                 
 | GET       | https://apis.openapi.sk.com/api/ovs/v1/device/{serialNo}                      
-| PUT       | https://apis.openapi.sk.com/api/ovs/v1/device/{serialNo}                      
 | DELETE    | https://apis.openapi.sk.com/api/ovs/v1/device/{serialNo}                      
 | GET       | https://apis.openapi.sk.com/api/ovs/v1/devices                                
 | GET       | https://apis.openapi.sk.com/api/ovs/v1/devices/owned/cnt                      
@@ -726,132 +724,6 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
     }
 
 .. rst-class:: text-align-justify
-
-
-
-.. _api-specification_device-modification:
-
-단말 정보 수정
-~~~~~~~~~~~~~~~~~~
-
-소속 회사, 단말 type, credentialsId 등 단말의 등록정보를 수정할 수 있습니다. 본 API에는 유효한 token이 필요합니다. 
-
-.. rst-class:: table-width-fix
-.. rst-class:: text-align-justify
-
-+------------+---------------------------------------------------+
-| **PUT**    | `/api/ovs/v1/device{serialNo}    <https://TBD>`__ |
-+------------+---------------------------------------------------+
-
-- Request Header
-
-.. rst-class:: table-width-fix
-.. rst-class:: table-width-full
-.. rst-class:: text-align-justify
-
-+-----------------+--------+------------------+--------------+
-| option          | Type   | Default          | Description  |
-+=================+========+==================+==============+
-| Content-Type    | string | application/json | content type |
-+-----------------+--------+------------------+--------------+
-| X-authorization | string | {{authToken}}    | auth token   |
-+-----------------+--------+------------------+--------------+
-
-- Request Body
-
-.. rst-class:: table-width-fix
-.. rst-class:: table-width-full
-.. rst-class:: text-align-justify
-
-+----------------+--------+--------------------------------------------------------------------+
-| Key            | Type   | Description                                                        |
-+================+========+====================================================================+
-| vendor         | string | company name                                                       |
-+----------------+--------+--------------------------------------------------------------------+
-| type           | string | device type(OVC-G or OVC-M)                                        |
-+----------------+--------+--------------------------------------------------------------------+
-| credentialsId  | string | device credentails (5 digit company prefix + 15 digit credentails) |
-+----------------+--------+--------------------------------------------------------------------+
-| serialNo       | string | device serialNo (5 digit company prefix + unique serial number)    |
-+----------------+--------+--------------------------------------------------------------------+
-| additionalInfo | string | any information of the device                                      |
-+----------------+--------+--------------------------------------------------------------------+
-
-
-- Response Body
-
-.. rst-class:: table-width-fix
-.. rst-class:: table-width-full
-.. rst-class:: text-align-justify
-
-+----------------+--------+--------------------------------------------------------------------+
-| Key            | Type   | Description                                                        |
-+================+========+====================================================================+
-| id             | string | unique device ID                                                   |
-+----------------+--------+--------------------------------------------------------------------+
-| companyId      | string | company ID                                                         |
-+----------------+--------+--------------------------------------------------------------------+
-| vendor         | string | manufacture name of the device                                     |
-+----------------+--------+--------------------------------------------------------------------+
-| credentialsId  | string | device credentails (5 digit company prefix + 15 digit credentails) |
-+----------------+--------+--------------------------------------------------------------------+
-| serialNo       | string | device serialNo (5 digit company prefix + unique serial number)    |
-+----------------+--------+--------------------------------------------------------------------+
-| additionalInfo | string | any information of the device                                      |
-+----------------+--------+--------------------------------------------------------------------+
-
-.. role:: underline
-        :class: underline
-
-- Example Code
-
-:underline:`Request`
-
-.. code-block:: none
-
-    content-type:"application/json"
-    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
-    {
-        "vendor": "SKT",
-        "type": "OVC-G",
-        "credentialsId":"{{prefix}}123451234512349",
-        "serialNo":"{{prefix}}fine1236"
-    }
-
-:underline:`Request` in curl format
-
-.. code-block:: none
-
-    curl --location --request PUT 'https://apis.openapi.sk.com/api/ovs/v1/device/uio3512345678911234' \
-        --header 'Content-Type: application/json' \
-        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
-        --data-raw '{
-            "additionalInfo" : "for test"
-        }'
-
-
-:underline:`Response (code: 200)`
-
-.. code-block:: json
-
-    {
-        "id": {
-            "id": "128fe3e0-ab98-11ea-b482-911940102f00"
-        },
-        "createdTime": 1591848022149,
-        "companyId": {
-            "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
-        },
-        "vendor": "SKT",
-        "type": "OVC-G",
-        "additionalInfo": "for test",
-        "activationRequired": false,
-        "serialNo": "uio3512345678911234",
-        "credentialsId": null
-    }
-
-.. rst-class:: text-align-justify
-
 
 
 .. _api-specification_device-deletion:
