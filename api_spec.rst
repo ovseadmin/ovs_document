@@ -52,7 +52,7 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
 .. rst-class:: text-align-justify
 
 등록된 회사의 정보를 조회하는 API 입니다. 회사정보를 조회하기 위해서는 인증받은 token과 회사ID(companyId) 가 필요합니다. 
-token은 SK Open API 홈페이지에서, 회사ID(companyId)는 "내 회사 정보 조회" API로 확인할 수 있습니다. 
+token은 SK open API 홈페이지에서, 회사ID(companyId)는 "내 회사 정보 조회" API로 확인할 수 있습니다. 
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify

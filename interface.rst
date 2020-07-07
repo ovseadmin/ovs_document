@@ -20,10 +20,10 @@ vsc Interface
 
 
 
-vsc Interface for ``OVC-g`` (a.k.a. vsc-g Interface)
+vsc Interface for ``OVC-G`` (a.k.a. vsc-g Interface)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-OVC-g 단말을 위한 vsc Interface의 Flow는 다음과 같으며, 각 단계별로 절차를 ``Node.js`` 기반 코드로 소개합니다.
+OVC-G 단말을 위한 vsc Interface의 Flow는 다음과 같으며, 각 단계별로 절차를 ``Node.js`` 기반 코드로 소개합니다.
 
 .. image:: /images/interface_01.png
 	:width: 100%
@@ -36,18 +36,18 @@ OVC-g 단말을 위한 vsc Interface의 Flow는 다음과 같으며, 각 단계�
 ================================  ===================================================================
 Stages                            Description              
 ================================  ===================================================================
-Preparation                       | OVC-g가 OVS 상호 간 서비스를 호출하기 위해서 필요한 연결, 인증, 푸시 메시지 수신을
+Preparation                       | OVC-G가 OVS 상호 간 서비스를 호출하기 위해서 필요한 연결, 인증, 푸시 메시지 수신을
                                   | 위한 설정 등 기본적인 항목을 준비하는 단계
-Location Report                   | OVC-g가 GPS로부터 수신한 현재 위치를 OVS에 주기적으로 반복 보고하는 단계
-V2X Event Report                  | OVC-g가 VAC로부터 전달받은 V2X Event를 OVS에 보고하는 단계
-V2X Event Notification Reception  | OVS가 타 OVC로부터 전달받은 V2X Event 중 해당 OVC-g와 연계된 Event를 
-                                  | 푸시하여 OVC-g가 수신하는 단계
+Location Report                   | OVC-G가 GPS로부터 수신한 현재 위치를 OVS에 주기적으로 반복 보고하는 단계
+V2X Event Report                  | OVC-G가 VAC로부터 전달받은 V2X Event를 OVS에 보고하는 단계
+V2X Event Notification Reception  | OVS가 타 OVC로부터 전달받은 V2X Event 중 해당 OVC-G와 연계된 Event를 
+                                  | 푸시하여 OVC-G가 수신하는 단계
 ================================  ===================================================================
 
 아래부터는 상기 vsc-g Flow의 순서를 간단한 예제 코드와 함께 설명합니다.
 
 1. 
-``Connect to OVS`` 순서에서는 OVC-g가 OVS에 연결하는 단계입니다. MQTT Broker에 접속하는 connect 단계 
+``Connect to OVS`` 순서에서는 OVC-G가 OVS에 연결하는 단계입니다. MQTT Broker에 접속하는 connect 단계 
 `MQTT Connect 참고 <https://www.hivemq.com/blog/mqtt-essentials-part-3-client-broker-connection-establishment/>`__ 와 동일합니다.
 단, 접속할 때는 다음 Parameter를 적용하여 connect 합니다.
 

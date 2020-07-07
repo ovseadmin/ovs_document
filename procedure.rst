@@ -19,7 +19,7 @@ OVSE 플랫폼을 사용하려는 파트너들을 위한 매뉴얼입니다.
 .. rst-class:: text-align-justify
 
 OVSE 플랫폼을 이용하기 위한 절차는 다음과 같이 구성되어 있으며,
-SK Open API 포털에서 제공하는 `OVSE API <https://openapi.sk.com/>`__ 혹은 본 `OVSE 웹문서 <https://ovs-document.readthedocs.io/>`__ 에서 확인할 수 있습니다.
+SK open API 포털에서 제공하는 `OVSE API <https://openapi.sk.com/>`__ 혹은 본 `OVSE 웹문서 <https://ovs-document.readthedocs.io/>`__ 에서 확인할 수 있습니다.
 
 .. image:: images/procedure_ovs4.png
 	:width: 70%
@@ -28,9 +28,9 @@ SK Open API 포털에서 제공하는 `OVSE API <https://openapi.sk.com/>`__ 혹
 
 .. _service-procedure-step1:
 
-SK Open API 가입
+SK open API 가입
 ---------------------
-OVSE 플랫폼 및 API는 `SK Open API 포털 <https://openapi.sk.com/>`__ 가입후 이용할 수 있습니다. 
+OVSE 플랫폼 및 API는 `SK open API 포털 <https://openapi.sk.com/>`__ 가입후 이용할 수 있습니다. 
 https://openapi.sk.com 접속 후 "회원가입" 메뉴를 통해 가입절차를 진행합니다. 
 
 .. image:: images/skoa_1.png
@@ -42,7 +42,7 @@ https://openapi.sk.com 접속 후 "회원가입" 메뉴를 통해 가입절차�
 
 프로젝트 생성
 ---------------------
-OVSE API 사용을 위해 SK Open API 포털내 "My Project" 메뉴에서 "프로젝트 생성" 하면 신규 프로젝트가 생성됩니다. 
+OVSE API 사용을 위해 SK open API 포털내 "My Project" 메뉴에서 "프로젝트 생성" 하면 신규 프로젝트가 생성됩니다. 
 
 .. image:: images/skoa_2.png
 	:width: 70%

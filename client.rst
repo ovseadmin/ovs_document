@@ -9,17 +9,17 @@ Client Types
 Two OVC Types
 -------------
 
-OVSE 시스템에서 연동될 수 있는 ``OVC`` 타입은 2가지로 구분할 수 있습니다. ``GPS only OVC (OVC-g)`` 와 ``Map Mapping Capable OVC (OVC-m)`` 입니다. 
+OVSE 시스템에서 연동될 수 있는 ``OVC`` 타입은 2가지로 구분할 수 있습니다. ``GPS only OVC (OVC-G)`` 와 ``Map Mapping Capable OVC (OVC-M)`` 입니다. 
 각 타입은 다음 표와 같이 구분될 수 있습니다.
 
 ========  ===================================================================
 Type      Description              
 ========  ===================================================================
-OVC-g     | OVC-g는 단말에 탑재되는 OVC 미들웨어 또는 외부 S/W에 Map Matching 기능이 없는 OVC를 의미합니다.
-          | 해당 OVC-g는 GPS 칩을 통해 WGS84 좌표계를 획득할 수 있습니다. 
-OVC-m     | OVC-m은 단말에 탑재되는 OVC 미들웨어 또는 외부 S/W에 GPS 좌표로부터 Map Matching을 할 수 있는 기능이 있으며,
+OVC-G     | OVC-G는 단말에 탑재되는 OVC 미들웨어 또는 외부 S/W에 Map Matching 기능이 없는 OVC를 의미합니다.
+          | 해당 OVC-G는 GPS 칩을 통해 WGS84 좌표계를 획득할 수 있습니다. 
+OVC-M     | OVC-M은 단말에 탑재되는 OVC 미들웨어 또는 외부 S/W에 GPS 좌표로부터 Map Matching을 할 수 있는 기능이 있으며,
           | 매칭을 위한 맵은 T맵 지도 및 도로 링크 체계를 따르는 OVC를 의미합니다. 
-          | 해당 OVC-m는 OVC-g의 기능에 자체적으로 T맵 Map Matching 기능과 주기적으로 갱신되는 T맵 지도을 갱신하는 기능을 가지고 있습니다.
+          | 해당 OVC-M는 OVC-G의 기능에 자체적으로 T맵 Map Matching 기능과 주기적으로 갱신되는 T맵 지도을 갱신하는 기능을 가지고 있습니다.
 ========  ===================================================================
 
 

@@ -20,10 +20,10 @@ vsc Interface
 
 
 
-vsc Interface for ``OVC-g`` (a.k.a. vsc-g Interface)
+vsc Interface for ``OVC-G`` (a.k.a. vsc-g Interface)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-OVC-g 단말을 위한 vsc Interface의 Flow는 다음과 같으며, 각 단계별로 절차를 ``Node.js`` 기반 코드로 소개합니다.
+OVC-G 단말을 위한 vsc Interface의 Flow는 다음과 같으며, 각 단계별로 절차를 ``Node.js`` 기반 코드로 소개합니다.
 
 .. image:: /images/interface_01.png
 	:width: 100%
@@ -36,18 +36,18 @@ OVC-g 단말을 위한 vsc Interface의 Flow는 다음과 같으며, 각 단계�
 ================================  ===================================================================
 Stages                            Description              
 ================================  ===================================================================
-Preparation                       | OVC-g가 OVS 상호 간 서비스를 호출하기 위해서 필요한 연결, 인증, 푸시 메시지 수신을
+Preparation                       | OVC-G가 OVS 상호 간 서비스를 호출하기 위해서 필요한 연결, 인증, 푸시 메시지 수신을
                                   | 위한 설정 등 기본적인 항목을 준비하는 단계
-Location Report                   | OVC-g가 GPS로부터 수신한 현재 위치를 OVS에 주기적으로 반복 보고하는 단계
-V2X Event Report                  | OVC-g가 VAC로부터 전달받은 V2X Event를 OVS에 보고하는 단계
-V2X Event Notification Reception  | OVS가 타 OVC로부터 전달받은 V2X Event 중 해당 OVC-g와 연계된 Event를 
-                                  | 푸시하여 OVC-g가 수신하는 단계
+Location Report                   | OVC-G가 GPS로부터 수신한 현재 위치를 OVS에 주기적으로 반복 보고하는 단계
+V2X Event Report                  | OVC-G가 VAC로부터 전달받은 V2X Event를 OVS에 보고하는 단계
+V2X Event Notification Reception  | OVS가 타 OVC로부터 전달받은 V2X Event 중 해당 OVC-G와 연계된 Event를 
+                                  | 푸시하여 OVC-G가 수신하는 단계
 ================================  ===================================================================
 
 아래부터는 상기 vsc-g Flow의 순서를 간단한 예제 코드와 함께 설명합니다.
 
 1. 
-``Connect to OVS`` 순서에서는 OVC-g가 OVS에 연결하는 단계입니다. MQTT Broker에 접속하는 connect 단계 
+``Connect to OVS`` 순서에서는 OVC-G가 OVS에 연결하는 단계입니다. MQTT Broker에 접속하는 connect 단계 
 `MQTT Connect 참고 <https://www.hivemq.com/blog/mqtt-essentials-part-3-client-broker-connection-establishment/>`__ 와 동일합니다.
 단, 접속할 때는 다음 Parameter를 적용하여 connect 합니다.
 
@@ -93,7 +93,7 @@ keepAlive      60
 
 2.
 ``Subscribe a topic for receiving V2X notification`` 순서에서는 
-OVC-g가 향후에 V2X Event 수신 할 수 있도록 V2X Event을 제공하는 Topic에 Subscription을 합니다. 
+OVC-G가 향후에 V2X Event 수신 할 수 있도록 V2X Event을 제공하는 Topic에 Subscription을 합니다. 
 Topic은 아래와 같은 룰을 따라 설정합니다.
 
 =============  =============================================
@@ -117,10 +117,10 @@ Topic          v2x/device/{userName}
 
 
 3.
-``Publish OVC-g's Current Location`` 순서에서 선행되어야 하는 조건은 OVC-g 단말이 GPS 센서로 현재 자신의 위치 좌표를 받는 것입니다. 
-GPS 좌표를 정상적으로 수신 한 경우에 OVC-g는 자신의 위치를 OVS에 전달 ``Publish`` 합니다. 전달 시에는 다음의 Topic에 Publish를 합니다.
+``Publish OVC-G's Current Location`` 순서에서 선행되어야 하는 조건은 OVC-G 단말이 GPS 센서로 현재 자신의 위치 좌표를 받는 것입니다. 
+GPS 좌표를 정상적으로 수신 한 경우에 OVC-G는 자신의 위치를 OVS에 전달 ``Publish`` 합니다. 전달 시에는 다음의 Topic에 Publish를 합니다.
 
-추가로 본 과정은 OVS-g가 GPS 좌표를 획득할때 마다 반복되며, 일반적으로 V2X 서비스 품질을 고려하여서는 1초마다 진행해야 하나 고객사의 입장에
+추가로 본 과정은 OVC-G가 GPS 좌표를 획득할때 마다 반복되며, 일반적으로 V2X 서비스 품질을 고려하여서는 1초마다 진행해야 하나 고객사의 입장에
 따라 주기가 증가할 수 있으나 주기가 증가할 수록 일부 V2X 서비스 및 서비스 품질이 떨어집니다.
 
 =============  =============================================
@@ -132,7 +132,7 @@ Topic          v2x/location
 =============  ====  ========  =============================================
 Key            M/O   Type      Description
 =============  ====  ========  =============================================
-dev_type       M     Integer   OVC-g를 탑재한 단말의 타입
+dev_type       M     Integer   OVC-G를 탑재한 단말의 타입
 time           M     Integer   메시지 전달 시간 (msec, epoch)
 dev_id         M     String    OVS에 등록된 단말 식별자
 speed          O     Integer   현재 속도 값
@@ -173,7 +173,7 @@ location       M               | 현재 위치 좌표 (WGS84 Coordination)
   sendingMSG = JSON.stringify(eval(locationReportData));
   messageSender.publish('v2x/location', sendingMSG, {qos: 1}, function());
 
-4. ``Publish V2X Event detected by OVC-g`` 순서에서는 OVC-g가 VAC로부터 
+4. ``Publish V2X Event detected by OVC-G`` 순서에서는 OVC-G가 VAC로부터 
 해당 단말이 인식한 V2X Event를 수신 받은 경우, 이를 OVS에 리포팅하여 OVS가 다른 OVC 에게 전달하는 과정을 유도하는 과정을 기술합니다.
 
 Topic은 아래와 같은 룰을 따라 설정합니다.
@@ -229,8 +229,8 @@ location          M               | 이벤트 발생 위치 정보 (WGS84 Coordi
   });
 
 
-5. ``Receive a V2X Event Notification relevant to OVC-g`` 순서는 OVS에서 타 OVC로부터 수신 받은 V2X 이벤트 중에서 
-해당 OVC-g와 연계된 이벤트인 경우에 해당 이벤트 메시지를 푸시 형태로 수신하는 순서입니다. 
+5. ``Receive a V2X Event Notification relevant to OVC-G`` 순서는 OVS에서 타 OVC로부터 수신 받은 V2X 이벤트 중에서 
+해당 OVC-G와 연계된 이벤트인 경우에 해당 이벤트 메시지를 푸시 형태로 수신하는 순서입니다. 
 
 기존 2번 순서에서 Subscribe한 Topic으로 해당 메시지를 수신하게 되며, 해당 단계를 구현하기 위한 샘플 코드는 아래와 같습니다.
 
