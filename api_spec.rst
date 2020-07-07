@@ -39,6 +39,36 @@ OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내�
 =========  ===============================================  ===========  =====================================================
 .. rst-class:: text-align-justify
 
+SK open API 포털의 gateway 연동시는 위의 API는 아래와 같이 사용되어야 합니다. 
+
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
+
+==========  ===============================================================================
+| Method    | URL example                                                
+==========  ===============================================================================
+| GET       | http://apis.openapi.sk.com/api/ovs/v1/company/{companyId}                    
+| GET       | http://apis.openapi.sk.com/api/ovs/v1/company/me                             
+| POST      | http://apis.openapi.sk.com/api/ovs/v1/company/{companyId}/message            
+----------  -----------------------------------------------------
+| POST      | http://apis.openapi.sk.com/api/ovs/v1/device                                 
+| GET       | http://apis.openapi.sk.com/api/ovs/v1/device/{serialNo}                      
+| PUT       | http://apis.openapi.sk.com/api/ovs/v1/device/{serialNo}                      
+| DELETE    | http://apis.openapi.sk.com/api/ovs/v1/device/{serialNo}                      
+| GET       | http://apis.openapi.sk.com/api/ovs/v1/devices                                
+| GET       | http://apis.openapi.sk.com/api/ovs/v1/devices/owned/cnt                      
+| POST      | http://apis.openapi.sk.com/api/ovs/v1/device/{serialNo}/message              
+----------  -----------------------------------------------------
+| GET       | http://apis.openapi.sk.com/api/ovs/v1/company/{companyId}/statistics/event   
+| GET       | http://apis.openapi.sk.com/api/ovs/v1/device/{serialNo}/statistics/event     
+==========  ===============================================================================
+
+.. rst-class:: text-align-justify
+
+
+
+.. rst-class:: text-align-justify
+
 .. _api-specification_information:
 
 정보 조회 API
@@ -613,7 +643,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 +================+========+====================================================================+
 | vendor         | string | company name                                                       |
 +----------------+--------+--------------------------------------------------------------------+
-| type           | string | device type(OVS-G or OVS-M)                                        |
+| type           | string | device type(OVC-G or OVC-M)                                        |
 +----------------+--------+--------------------------------------------------------------------+
 | credentialsId  | string | device credentails (5 digit company prefix + 15 digit credentails) |
 +----------------+--------+--------------------------------------------------------------------+
@@ -664,7 +694,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
 .. code-block:: none
 
-    curl --location --request POST 'http://openapi_gatweay:18080/api/ovs/v1/device' \
+    curl --location --request POST 'http://apis.openapi.sk.com:18080/api/ovs/v1/device' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         --data-raw '{
@@ -738,7 +768,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 +================+========+====================================================================+
 | vendor         | string | company name                                                       |
 +----------------+--------+--------------------------------------------------------------------+
-| type           | string | device type(OVS-G or OVS-M)                                        |
+| type           | string | device type(OVC-G or OVC-M)                                        |
 +----------------+--------+--------------------------------------------------------------------+
 | credentialsId  | string | device credentails (5 digit company prefix + 15 digit credentails) |
 +----------------+--------+--------------------------------------------------------------------+
@@ -792,7 +822,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
 .. code-block:: none
 
-    curl --location --request PUT 'http://openapi_gateway:18080/api/ovs/v1/device/uio3512345678911234' \
+    curl --location --request PUT 'http://apis.openapi.sk.com:18080/api/ovs/v1/device/uio3512345678911234' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         --data-raw '{
@@ -902,7 +932,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
 .. code-block:: none
 
-    curl --location --request DELETE 'http://openapi_gateway:18080/api/ovs/v1/device/uio3512345678911234' \
+    curl --location --request DELETE 'http://apis.openapi.sk.com:18080/api/ovs/v1/device/uio3512345678911234' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         --data-raw ''
@@ -1002,7 +1032,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
 .. code-block:: none
 
-    curl --location --request POST 'http://openapi_gateway:18080/api/ovs/v1/device/uio35fine1236/message' \
+    curl --location --request POST 'http://apis.openapi.sk.com:18080/api/ovs/v1/device/uio35fine1236/message' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         --data-raw '{
@@ -1113,7 +1143,7 @@ companyId는 유효한 token이 있는 경우 /api/ovs/v1/company/me 에서 조�
 
 .. code-block:: none
 
-    curl --location --request POST 'http://openapi_gateway:18080/api/ovs/v1/company/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f/message' \
+    curl --location --request POST 'http://apis.openapi.sk.com:18080/api/ovs/v1/company/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f/message' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         --data-raw '{
@@ -1224,7 +1254,7 @@ companyId는 유효한 token이 있는 경우 /api/ovs/v1/company/me 에서 조�
 
 .. code-block:: none
 
-    curl --location --request POST 'http://openapi_gateway:18080/api/ovs/v1/device/uio35123451234512345/statistics/event ' \
+    curl --location --request POST 'http://apis.openapi.sk.com:18080/api/ovs/v1/device/uio35123451234512345/statistics/event ' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         --data-raw ''
@@ -1307,7 +1337,7 @@ companyId는 유효한 token이 있는 경우 /api/ovs/v1/company/me 에서 조�
 
 .. code-block:: none
 
-    curl --location --request GET 'http://openapi_gateway:18080/api/ovs/v1/company/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f/statistics/event' \
+    curl --location --request GET 'http://apis.openapi.sk.com:18080/api/ovs/v1/company/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f/statistics/event' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         --data-raw ''
