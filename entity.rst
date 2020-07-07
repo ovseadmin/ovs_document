@@ -37,7 +37,7 @@ App 개발자는 :ref:`7. API 규격 <api-specification>` 과 :ref:`9. Device Si
 단말 등록 (Device Registration)
 -------------------------------
 
-OVSE 플랫폼 사용을 위해서는 단말이 등록되어야 하며, 유효한 token을 포함한 OVSE API로 등록할 수 있습니다. token 조회 방법은 :ref:`4.4 토큰 조회 <service-procedure-step3>` 을 참조하세요.
+OVSE 플랫폼 사용을 위해서는 단말이 등록되어야 하며, 유효한 auth token을 포함한 OVSE API로 등록할 수 있습니다. token 조회 방법은 :ref:`4.4 토큰 조회 <service-procedure-step3>` 을 참조하세요.
 단말등록시 단말의 일련번호(SerialNo)와 단말비밀번호(CredentialsId)는 정해진 규칙을 따라야 하며,
 둘 필드 모두 5자리의 company prefix로 시작해야 합니다. company prefix는  :ref:`7.2.2 내 회사 정보 조회 <api-specification_my-company-information>` API로 조회할 수 있습니다. 
 

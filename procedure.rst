@@ -62,15 +62,15 @@ OVSE API 사용을 위해 SK open API 포털내 "My Project" 메뉴에서 "프�
 
 토큰 조회
 ---------------------
-OVSE API 호출시 인증을 위하여 유효한 token을 포함하여야 합니다. 
-token은 "My Project"의 "Key" 메뉴에서 조회 가능합니다. 
+OVSE API 호출시 인증을 위하여 유효한 auth token과 appKey을 포함하여야 합니다. 
+auth token과 appKey는 "My Project"의 "Key" 메뉴에서 조회 가능합니다. 
 TBD: OVSE API 추가하고 Key값 표시된 화면으로 업데이트할것(현재 key 없음)
 
 .. image:: images/skoa_4.png
 	:width: 70%
 	:align: center
 
-token을 포함한 API 규격은 :ref:`7. API 규격 <api-specification>` 을 참고하십시오.
+auth token을 포함한 API 규격은 :ref:`7. API 규격 <api-specification>` 을 참고하십시오.
 
 
 .. _service-procedure-step4:
@@ -88,9 +88,9 @@ TBD: SK open API console을 통하여 등록하는 장면 캡쳐
 +---------------+--------+-----------------------------------+--------------------------+
 | Key           | Type   | Description                       | Example                  |
 +===============+========+===================================+==========================+
-| credentialsId | string | {company prefix}{unique no}       | abcde123456789012345     |
+| credentialsId | string | {company prefix}{unique no}       | csx13123451234500001     |
 +---------------+--------+-----------------------------------+--------------------------+
-| serialNo      | string | {company prefix}{device serialNo} | a1b2c3d4e5               |
+| serialNo      | string | {company prefix}{device serialNo} | csx13123451234500001               |
 +---------------+--------+-----------------------------------+--------------------------+
 
 단말등록 API의 세부 필드는 :ref:`5.2 단말 등록 <device-registration>` 을 참조하세요. 

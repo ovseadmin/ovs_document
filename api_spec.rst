@@ -79,8 +79,8 @@ SK open API 포털의 gateway 연동시는 위의 API는 아래와 같이 사용
 
 .. rst-class:: text-align-justify
 
-등록된 회사의 정보를 조회하는 API 입니다. 회사정보를 조회하기 위해서는 인증받은 token과 회사ID(companyId) 가 필요합니다. 
-token은 SK open API 홈페이지에서, 회사ID(companyId)는 "내 회사 정보 조회" API로 확인할 수 있습니다. 
+등록된 회사의 정보를 조회하는 API 입니다. 회사정보를 조회하기 위해서는 인증받은 auth token과 회사ID(companyId) 가 필요합니다. 
+auth token은 SK open API 홈페이지에서, 회사ID(companyId)는 "내 회사 정보 조회" API로 확인할 수 있습니다. 
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -298,7 +298,6 @@ token은 SK open API 홈페이지에서, 회사ID(companyId)는 "내 회사 정�
 
 .. rst-class:: text-align-justify
 
-token이 유효한 경우 정상적으로 조회할 수 있습니다. 
 
 
 .. _api-specification_device-information:
@@ -308,7 +307,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 
 .. rst-class:: text-align-justify
 
-단말 시리얼번호(serialNo)를 통해 단말 ID, 단말 형태 등 단말정보를 조회하는 API 입니다. token이 유효한 경우 정상적으로 조회할 수 있습니다. 
+단말 시리얼번호(serialNo)를 통해 단말 ID, 단말 형태 등 단말정보를 조회하는 API 입니다. 
 
 
 .. rst-class:: table-width-fix
@@ -404,7 +403,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 
 .. rst-class:: text-align-justify
 
-전체 단말 정보를 조회하는 API 입니다. token이 유효한 경우 정상적으로 조회할 수 있습니다. 
+전체 단말 정보를 조회하는 API 입니다. 
 
 
 .. rst-class:: table-width-fix
@@ -525,7 +524,7 @@ token이 유효한 경우 정상적으로 조회할 수 있습니다.
 
 .. rst-class:: text-align-justify
 
-회사 전체 단말 수를 조회하는 API 입니다. token이 유효한 경우 정상적으로 조회할 수 있습니다. 
+회사 전체 단말 수를 조회하는 API 입니다. 
 
 
 .. rst-class:: table-width-fix
@@ -731,7 +730,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 단말 삭제
 ~~~~~~~~~~~~~~~~~~
 
-등록된 단말을 삭제할 수 있습니다. 본 API에는 유효한 token이 필요합니다. 
+등록된 단말을 삭제할 수 있습니다. 
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -826,7 +825,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 단말별 메시지 전달
 ~~~~~~~~~~~~~~~~~~
 
-특정 단말에 공지 등의 메시지를 전달할 수 있습니다. 본 API에는 유효한 token이 필요합니다. 
+특정 단말에 공지 등의 메시지를 전달할 수 있습니다. 
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -936,8 +935,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 전체 단말 메시지 전달
 ~~~~~~~~~~~~~~~~~~~~~
 
-회사의 전체 단말에 공지 등의 메시지를 전달할 수 있습니다. 본 API에는 유효한 token과 companyId가 필요합니다. 
-companyId는 유효한 token이 있는 경우 /api/ovs/v1/company/me 에서 조회할 수 있습니다. 
+회사의 전체 단말에 공지 등의 메시지를 전달할 수 있습니다. 본 API에는 companyId가 필요하며, companyId는 /api/ovs/v1/company/me 에서 조회할 수 있습니다. 
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -1063,7 +1061,7 @@ companyId는 유효한 token이 있는 경우 /api/ovs/v1/company/me 에서 조�
 단말별 이벤트 통계
 ~~~~~~~~~~~~~~~~~~
 
-단말별 이벤트 통계를 조회할 수 있습니다. 본 API에는 유효한 token과 단말의 serialNo가 필요합니다. 
+단말별 이벤트 통계를 조회할 수 있습니다. 본 API에는 단말의 serialNo가 필요합니다. 
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -1146,8 +1144,7 @@ companyId는 유효한 token이 있는 경우 /api/ovs/v1/company/me 에서 조�
 회사별 이벤트 통계 
 ~~~~~~~~~~~~~~~~~~~~~
 
-회사별 이벤트 통계를 조회할 수 있습니다. 본 API에는 유효한 token과 companyId가 필요합니다. 
-companyId는 유효한 token이 있는 경우 /api/ovs/v1/company/me 에서 조회할 수 있습니다. 
+회사별 이벤트 통계를 조회할 수 있습니다. 본 API에는 companyId가 필요하며, companyId는 /api/ovs/v1/company/me 에서 조회할 수 있습니다. 
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
