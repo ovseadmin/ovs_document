@@ -42,4 +42,4 @@ Contents:
    api_spec
    message_format
    device_simulator
-   miscellaneous
+   getstart_skoai
