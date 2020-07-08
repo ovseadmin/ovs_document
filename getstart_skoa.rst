@@ -25,7 +25,7 @@ SK open API 등록 및 Project Key 생성
 +--------------+-----------------------------+-------------------------------------------------------------------+
 | Key          | Description                 | 샘플값                                                            |
 +==============+=============================+===================================================================+
-| API token    | OVSE API 호출을 위한 token  | eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0Y29tcGFueTFAc2tvcGVuYXBpLm   |
+| auth token   | OVSE API 호출을 위한 token  | eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0Y29tcGFueTFAc2tvcGVuYXBpLm   |
 |              |                             | NvbSIsInNjb3BlcyI6WyJPVlNfQ09NUEFOWV9BRE1JTiJdLCJ1c2VySWQiOiJlN   |
 |              |                             | zQ0MzU5MC1iNWQ1LTExZWEtOGYwMC02NzMwZThlZjFhOWUiLCJlbmFibGVkIjp0   |
 |              |                             | cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiZTczZDdlZDAtYjVkNS0   |
