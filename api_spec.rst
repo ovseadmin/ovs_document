@@ -1126,9 +1126,11 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
 :underline:`Request` in curl format
 
+serialNo가 bjx84_ovse_server1이고 2020년 7월 1일 통계를 요청한 경우.
+
 .. code-block:: none
 
-    curl --location --request GET 'http://223.39.121.188:8080/api/ovs/v1/device/bjx84_ovse_server1/statistics/event?year=2020&month=7&day=1' \
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/device/bjx84_ovse_server1/statistics/event?year=2020&month=7&day=1' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0MUB....' \
         -d ''
@@ -1224,9 +1226,11 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
 :underline:`Request` in curl format
 
+CompanyId가 52631da0-b5ef-11ea-8f00-6730e8ef1a9e이고 2020년 7월 1일 통계를 요청한 경우.
+
 .. code-block:: none
 
-    curl --location --request GET 'http://223.39.121.188:8080/api/ovs/v1/company/52631da0-b5ef-11ea-8f00-6730e8ef1a9e/statistics/event?year=2020&&month=7&day=1' \
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/company/52631da0-b5ef-11ea-8f00-6730e8ef1a9e/statistics/event?year=2020&&month=7&day=1' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0M0Bz....' \
         -d ''
