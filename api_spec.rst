@@ -1137,7 +1137,19 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
 .. code-block:: json
 
-    {"serialNo":"bjx84_ovse_server1","requestDate":{"year":2020,"month":7,"day":1},"statistics":{"event":{"msgNotification":7}}}
+    {
+        "serialNo":"bjx84_ovse_server1",
+        "requestDate":{
+            "year":2020,
+            "month":7,
+            "day":1
+        },
+        "statistics":{
+            "event":{
+                "msgNotification":7
+            }
+        }
+    }
 
 .. rst-class:: text-align-justify
 
@@ -1224,7 +1236,19 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
 .. code-block:: json
 
-    {"companyId":"52631da0-b5ef-11ea-8f00-6730e8ef1a9e","requestDate":{"year":2020,"month":7,"day":1},"statistics":{"event":{"msgNotification":16}}}
+    {
+        "companyId":"52631da0-b5ef-11ea-8f00-6730e8ef1a9e",
+        "requestDate":{
+            "year":2020,
+            "month":7,
+            "day":1
+        },
+        "statistics":{
+            "event":{
+                "msgNotification":16
+            }
+        }
+    }
 
 .. rst-class:: text-align-justify
 
