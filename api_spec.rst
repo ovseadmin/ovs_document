@@ -1090,11 +1090,15 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 .. rst-class:: table-width-full
 .. rst-class:: text-align-justify
 
-+----------+--------+-------------------------+
-| Key      | Type   | Description             |
-+==========+========+=========================+
-| N/A      | N/A    | N/A                     |
-+----------+--------+-------------------------+
++----------+---------+------------------+-------------------------+
+| Key      | Type    | Default          | Description             |
++==========+=========+==================+=========================+
+| year     | integer | Mandatory        | 요청하고자 하는 특정 연도     |
++----------+---------+------------------+-------------------------+
+| month    | integer | Optional         | 요청하고자 하는 특정월        |
++----------+---------+------------------+-------------------------+
+| day      | integer | Optional         | 요청하고자 하는 특정일        |
++----------+---------+------------------+-------------------------+
 
 - Response Body
 
@@ -1118,16 +1122,16 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 .. code-block:: none
 
     content-type:"application/json"
-    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0MUB...."
 
 :underline:`Request` in curl format
 
 .. code-block:: none
 
-    curl --location --request POST 'https://apis.openapi.sk.com/api/ovs/v1/device/uio35123451234512345/statistics/event ' \
+    curl --location --request GET 'http://223.39.121.188:8080/api/ovs/v1/device/bjx84_ovse_server1/statistics/event?year=2020&month=7&day=1' \
         --header 'Content-Type: application/json' \
-        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
-        --data-raw ''
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0MUB....' \
+        -d ''
 
 :underline:`Response (code: 200)`
 
