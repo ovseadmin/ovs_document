@@ -80,6 +80,7 @@ OVSE API 접근을 위한 auth token:
 ......................................
 OVSE 서비스 가입 후, Company 정보 조회 API를 이용하여 확인하실 수 있습니다. 
 
+가입 및 서비스 생성 직후에는 Company Id를 알 수 없으니, company/me API를 사용하시면 됩니다. 
 
 auth token을 포함한 API 규격은 :ref:`7. API 규격 <api-specification>` 을 참고하십시오.
 
@@ -101,7 +102,7 @@ TBD: SK open API console을 통하여 등록하는 장면 캡쳐
 +===============+========+===================================+==========================+
 | credentialsId | string | {company prefix}{unique no}       | csx13123451234500001     |
 +---------------+--------+-----------------------------------+--------------------------+
-| serialNo      | string | {company prefix}{device serialNo} | csx13123451234500001               |
+| serialNo      | string | {company prefix}{device serialNo} | csx13123451234500001     |
 +---------------+--------+-----------------------------------+--------------------------+
 
 단말등록 API의 세부 필드는 :ref:`5.2 단말 등록 <device-registration>` 을 참조하세요. 
