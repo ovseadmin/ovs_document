@@ -8,7 +8,7 @@
 서비스 세부 절차
 =======================================
 
-OVSE 플랫폼을 사용하려는 파트너들을 위한 매뉴얼입니다. 
+OVSE 플랫폼을 사용하려는 파트너분들은 하기의 절차를 참고하셔서 진행하셔야 합니다. 
 
 
 .. _service-procedure-overview:
@@ -69,7 +69,7 @@ SK open API 접근을 위한 auth token
 ......................................
 프로젝트를 생성하면, My Project의 Key 탭의 Project Key에서 확인가능합니다.
 
-.. image:: images/skoa_4.png
+.. image:: images/skoa_4_1.png
 	:width: 80%
 	:align: center
 
