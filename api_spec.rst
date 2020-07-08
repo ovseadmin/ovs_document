@@ -79,7 +79,8 @@ SK open API 포털의 gateway 연동시는 위의 API는 아래와 같이 사용
 
 .. rst-class:: text-align-justify
 
-등록된 회사의 정보를 조회하는 API 입니다. 회사정보를 조회하기 위해서는 인증받은 auth token과 회사ID(companyId) 가 필요합니다. 
+등록된 회사의 정보를 조회하는 API는 두가지가 있습니다. 
+회사정보를 조회하기 위해서는 인증받은 auth token과 회사ID(companyId) 가 필요합니다. 
 auth token은 SK open API 홈페이지에서, 회사ID(companyId)는 "내 회사 정보 조회" API로 확인할 수 있습니다. 
 
 .. rst-class:: table-width-fix
@@ -127,9 +128,9 @@ auth token은 SK open API 홈페이지에서, 회사ID(companyId)는 "내 회사
 +=================+====================================================+
 | id              | ID of my company                                   |
 +-----------------+----------------------------------------------------+
-| name            | service name(automatically generated)              |
+| name            | service name                                       |
 +-----------------+----------------------------------------------------+
-| serviceType     | service type(automatically generated)              |
+| serviceType     | service type                                       |
 +-----------------+----------------------------------------------------+
 | tokenPrefix     | company prefix for serialNo and credentialsId      |
 +-----------------+----------------------------------------------------+
@@ -146,6 +147,16 @@ auth token은 SK open API 홈페이지에서, 회사ID(companyId)는 "내 회사
 
     content-type:"application/json"
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+
+
+:underline:`Request` in curl format
+
+.. code-block:: none
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/company/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
+        -d ''
+
 
 
 :underline:`Response (code: 200)`
@@ -240,9 +251,9 @@ auth token은 SK open API 홈페이지에서, 회사ID(companyId)는 "내 회사
 +=================+====================================================+
 | id              | ID of my company                                   |
 +-----------------+----------------------------------------------------+
-| name            | service name(automatically generated)              |
+| name            | service name                                       |
 +-----------------+----------------------------------------------------+
-| serviceType     | service type(automatically generated)              |
+| serviceType     | service type                                       |
 +-----------------+----------------------------------------------------+
 | tokenPrefix     | company prefix for serialNo and credentialsId      |
 +-----------------+----------------------------------------------------+
@@ -259,6 +270,16 @@ auth token은 SK open API 홈페이지에서, 회사ID(companyId)는 "내 회사
 
     content-type:"application/json"
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+
+
+:underline:`Request` in curl format
+
+.. code-block:: none
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/company/me' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
+        -d ''
+
 
 
 :underline:`Response (code: 200)`
@@ -736,7 +757,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 .. rst-class:: text-align-justify
 
 +------------+---------------------------------------------------+
-| **DELETE** | `/api/ovs/v1/device{serialNo}    <https://TBD>`__ |
+| **DELETE** | `/api/ovs/v1/device/{serialNo}    <https://TBD>`__ |
 +------------+---------------------------------------------------+
 
 - Request Header
@@ -1226,7 +1247,7 @@ serialNo가 bjx84_ovse_server1이고 2020년 7월 1일 통계를 요청한 경�
 
 :underline:`Request` in curl format
 
-CompanyId가 52631da0-b5ef-11ea-8f00-6730e8ef1a9e이고 2020년 7월 1일 통계를 요청한 경우.
+CompanyId가 52631da0-b5ef-11ea-8f00-6730e8ef1a9e 이고 2020년 7월 1일 통계를 요청한 경우.
 
 .. code-block:: none
 
