@@ -7,7 +7,9 @@
 구성요소(Entity) 등록
 =======================================
 
-이 매뉴얼은 OVSE 플랫폼 사용을 위한 단말 등록절차를 설명하기 위한 것입니다.
+이 매뉴얼은 OVSE 플랫폼 사용을 위한 회사 및 단말 등록절차를 설명하기 위한 것입니다.
+
+기본적으로 SK open API 포털을 통해서 OVSE API를 사용하시는 경우를 기술하였습니다. 
 
 SK open API 포털에서 프로젝트 생성 및 OVSE API 추가 후에는 HTTP 기반 REST API로 등록할 수 있습니다. 
 
@@ -18,21 +20,14 @@ App 개발자는 :ref:`7. API 규격 <api-specification>` 과 :ref:`9. Device Si
 
 .. _service-registration-api:
 
-서비스 및 회사 등록 (Service Registration)
+회사 등록 (Company Registration)
 -----------------------------------
 
-서비스 및 회사는 포털내 프로젝트에서 OVSE API 포함시 자동으로 등록됩니다. 
+회사는 포털내 프로젝트에서 OVSE API를 구매하면 자동으로 생성 및 등록됩니다. 
 
 
 .. _director-registration:
 
-관리자 등록 (Director Registration)
------------------------------------
-
-관리자는 프로젝트내 멤버 추가시 자동으로 등록됩니다. 
-
-
-.. _device-registration:
 
 단말 등록 (Device Registration)
 -------------------------------

@@ -41,4 +41,5 @@ Contents:
    api_spec
    message_format
    device_simulator
+   procedure
    getstart_skoa
