@@ -149,14 +149,16 @@ auth token은 SK open API 홈페이지에서, 회사ID(companyId)는 "내 회사
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
 
 
+
 :underline:`Request` in curl format
 
-.. code-block:: none
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/company/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f' \
-        --header 'Content-Type: application/json' \
-        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
-        -d ''
+CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
 
+.. code-block:: none
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/company/52631da0-b5ef-11ea-8f00-6730e8ef1a9e/statistics/event?year=2020&&month=7&day=1' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0M0Bz....' \
+        -d ''
 
 
 :underline:`Response (code: 200)`
@@ -274,12 +276,14 @@ auth token은 SK open API 홈페이지에서, 회사ID(companyId)는 "내 회사
 
 :underline:`Request` in curl format
 
+
+auth token 만으로 내 회사 정보 조회.
+
 .. code-block:: none
     curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/company/me' \
         --header 'Content-Type: application/json' \
-        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0M0Bz....' \
         -d ''
-
 
 
 :underline:`Response (code: 200)`

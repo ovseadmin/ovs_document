@@ -36,7 +36,6 @@ Contents:
    introduction
    ovse_intro
    entity_architecture
-   procedure
    entity
    device_procedure
    api_spec
