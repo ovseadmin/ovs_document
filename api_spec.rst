@@ -5,7 +5,7 @@
 Northbound API Specification 
 =======================================
 
-OVSE 플랫폼은 정보 조회, 단말 관리, 통계를 위한 Northbound API를 제공합니다. 
+OVS 플랫폼은 정보 조회, 단말 관리, 통계를 위한 Northbound API를 제공합니다. 
 
 
 .. _api-specification_rest-api:
@@ -13,7 +13,7 @@ OVSE 플랫폼은 정보 조회, 단말 관리, 통계를 위한 Northbound API�
 REST API
 -----------
 
-OVSE northbound는 다음과 같은 REST API를 제공합니다. 상세한 내용은 `OVSE Document <https://ovs-document.readthedocs.io/en/latest/index.html>`__ 내용을 참고하시기 바랍니다.
+OVS는 다음과 같은 REST API를 제공합니다.
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
@@ -141,7 +141,7 @@ auth token은 SK open API 홈페이지에서, 회사ID(companyId)는 "내 회사
 
 - Example Code
 
-:underline:`Request`
+``Request``
 
 .. code-block:: none
 
@@ -150,7 +150,7 @@ auth token은 SK open API 홈페이지에서, 회사ID(companyId)는 "내 회사
 
 
 
-:underline:`Request` in curl format
+``Request in curl format``
 
 CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
 
@@ -161,7 +161,7 @@ CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
         -d ''
 
 
-:underline:`Response (code: 200)`
+``Response (code: 200)``
 
 .. code-block:: json
 
@@ -266,7 +266,7 @@ CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
 
 - Example Code
 
-:underline:`Request`
+``Request``
 
 .. code-block:: none
 
@@ -274,7 +274,7 @@ CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
 
 
-:underline:`Request` in curl format
+``Request in curl format``
 
 
 auth token 만으로 내 회사 정보 조회.
@@ -286,7 +286,7 @@ auth token 만으로 내 회사 정보 조회.
         -d ''
 
 
-:underline:`Response (code: 200)`
+``Response (code: 200)``
 
 .. code-block:: json
 
@@ -332,7 +332,7 @@ auth token 만으로 내 회사 정보 조회.
 
 .. rst-class:: text-align-justify
 
-단말 시리얼번호(serialNo)를 통해 단말 ID, 단말 형태 등 단말정보를 조회하는 API 입니다. 
+단말 시리얼번호(serialNo)를 통해 단말 ID, 단말  형태 등 단말정보를 조회하는 API 입니다. 
 
 
 .. rst-class:: table-width-fix
@@ -390,7 +390,7 @@ auth token 만으로 내 회사 정보 조회.
 
 - Example Code
 
-:underline:`Request`
+``Request``
 
 .. code-block:: none
 
@@ -398,7 +398,7 @@ auth token 만으로 내 회사 정보 조회.
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
 
 
-:underline:`Response (code: 200)`
+``Response (code: 200)``
 
 .. code-block:: json
 
@@ -488,7 +488,7 @@ auth token 만으로 내 회사 정보 조회.
 
 - Example Code
 
-:underline:`Request`
+``Request``
 
 .. code-block:: none
 
@@ -496,7 +496,7 @@ auth token 만으로 내 회사 정보 조회.
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
 
 
-:underline:`Response (code: 200)`
+``Response (code: 200)``
 
 .. code-block:: json
 
@@ -602,7 +602,7 @@ auth token 만으로 내 회사 정보 조회.
 
 - Example Code
 
-:underline:`Request`
+``Request``
 
 .. code-block:: none
 
@@ -610,7 +610,7 @@ auth token 만으로 내 회사 정보 조회.
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
 
 
-:underline:`Response (code: 200)`
+``Response (code: 200)``
 
 .. code-block:: json
 
@@ -699,7 +699,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
 - Example Code
 
-:underline:`Request`
+``Request``
 
 .. code-block:: none
 
@@ -712,7 +712,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
         "serialNo":"{{prefix}}12345678911234"
     }
 
-:underline:`Request` in curl format
+``Request in curl format``
 
 .. code-block:: none
 
@@ -727,7 +727,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
         }'
 
 
-:underline:`Response (code: 200)`
+``Response (code: 200)``
 
 .. code-block:: json
 
@@ -817,14 +817,14 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
 - Example Code
 
-:underline:`Request`
+``Request``
 
 .. code-block:: none
 
     content-type:"application/json"
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
 
-:underline:`Request` in curl format
+``Request in curl format``
 
 .. code-block:: none
 
@@ -834,7 +834,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
         --data-raw ''
 
 
-:underline:`Response (code: 200)`
+``Response (code: 200)``
 
 .. code-block:: json
 
@@ -912,7 +912,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
 - Example Code
 
-:underline:`Request`
+``Request``
 
 .. code-block:: none
 
@@ -924,7 +924,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
         "message": "test message"
     }
 
-:underline:`Request` in curl format
+``Request in curl format``
 
 .. code-block:: none
 
@@ -938,7 +938,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
         }'
 
 
-:underline:`Response (code: 200)`
+``Response (code: 200)``
 
 .. code-block:: json
 
@@ -1022,7 +1022,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
 - Example Code
 
-:underline:`Request`
+``Request``
 
 .. code-block:: none
 
@@ -1034,7 +1034,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
         "message": "test message all"
     }
 
-:underline:`Request` in curl format
+``Request in curl format``
 
 .. code-block:: none
 
@@ -1048,7 +1048,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
         }
 
 
-:underline:`Response (code: 200)`
+``Response (code: 200)``
 
 .. code-block:: json
 
@@ -1142,30 +1142,30 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
 - Example Code
 
-:underline:`Request`
+``Request``
 
 .. code-block:: none
 
     content-type:"application/json"
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0MUB...."
 
-:underline:`Request` in curl format
+``Request in curl format``
 
-serialNo가 bjx84_ovse_server1이고 2020년 7월 1일 통계를 요청한 경우.
+serialNo가 bjx84_ovs_server1이고 2020년 7월 1일 통계를 요청한 경우.
 
 .. code-block:: none
 
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/device/bjx84_ovse_server1/statistics/event?year=2020&month=7&day=1' \
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/device/bjx84_ovs_server1/statistics/event?year=2020&month=7&day=1' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0MUB....' \
         -d ''
 
-:underline:`Response (code: 200)`
+``Response (code: 200)``
 
 .. code-block:: json
 
     {
-        "serialNo":"bjx84_ovse_server1",
+        "serialNo":"bjx84_ovs_server1",
         "requestDate":{
             "year":2020,
             "month":7,
@@ -1242,14 +1242,14 @@ serialNo가 bjx84_ovse_server1이고 2020년 7월 1일 통계를 요청한 경�
 
 - Example Code
 
-:underline:`Request`
+``Request``
 
 .. code-block:: none
 
     content-type:"application/json"
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0M0Bz...."
 
-:underline:`Request` in curl format
+``Request in curl format``
 
 CompanyId가 52631da0-b5ef-11ea-8f00-6730e8ef1a9e 이고 2020년 7월 1일 통계를 요청한 경우.
 
@@ -1261,7 +1261,7 @@ CompanyId가 52631da0-b5ef-11ea-8f00-6730e8ef1a9e 이고 2020년 7월 1일 통�
         -d ''
 
 
-:underline:`Response (code: 200)`
+``Response (code: 200)``
 
 .. code-block:: json
 

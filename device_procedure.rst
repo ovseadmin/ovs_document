@@ -75,7 +75,7 @@ host           tcp://192.168.1.170 (*Will be changed*)
 port           1883 (*Will be changed*) 
 username       발급된 고객사의 userName (ex. 제조사 할당 Serial Number)
 password       발급된 고객사의 passWord (ex. 제조사 할당 Access Token(20자리) 값)
-clientId       단말 식별 번호 (기능상 UserName과 동일하게 처리 가능)
+clientId       단말 식별 번호 (기능상 UserName과 동일하게 처리 가능) 
 cleanSession   true
 keepAlive      60
 =============  =================================================================
