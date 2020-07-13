@@ -5,7 +5,7 @@
 Device 연동 절차
 =================
 
-이 매뉴얼은 OVS 플랫폼에 연결되는 단말장치, OVC를 개발하는 파트너들을 위한 것으로 장치(OVC)가 어떻게 플랫폼과 통신하는지 설명합니다.
+이 매뉴얼은 OVS플랫폼에 연결되는 단말장치, OVC를 개발하는 파트너들을 위한 것으로 장치(OVC)가 어떻게 플랫폼과 통신하는지 설명합니다.
 
 장치 연동을 위해서는  :ref:`5. 구성요소(Entity) 등록 <entity-registration>` 를 참고하여 구성요소 등록을 마치셔야합니다. 
 자세한 API 규격 및 Device 연동 예는 :ref:`7. API 규격 <api-specification>`  과 :ref:`9. Device Simulator <device-simulator>` 를 참고하십시오.
