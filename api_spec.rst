@@ -22,16 +22,16 @@ OVS는 다음과 같은 REST API를 제공합니다.
 =========  ===============================================  ===========  =====================================================
 | 구분      |  설명                                          | Method    | URL                                                
 =========  ===============================================  ===========  =====================================================
- Company    | -  회사 정보 조회                              | GET       | /api/ovs/v1/company/{companyId}                    
-            | -  내 회사 정보 조회                           | GET       | /api/ovs/v1/company/me                             
-            | -  전체 단말에 메시지 전달                     | POST      | /api/ovs/v1/company/{companyId}/message            
+ Company    | -  내 회사 정보 조회                           | GET       | /api/ovs/v1/company/me
+            | -  회사 정보 조회                              | GET       | /api/ovs/v1/company/{companyId}                       
+            | -  전체 단말 정보 조회                         | GET       | /api/ovs/v1/company/{companyId}/devices                                                               
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
  Device     | -  단말 등록                                   | POST      | /api/ovs/v1/device                                 
             | -  단말 정보 조회                              | GET       | /api/ovs/v1/device/{serialNo}                      
-            | -  단말 삭제                                   | DELETE    | /api/ovs/v1/device/{serialNo}                      
-            | -  전체 단말 정보 조회                         | GET       | /api/ovs/v1/devices                                
-            | -  회사 전체 단말 수 조회                      | GET       | /api/ovs/v1/devices/owned/cnt                      
-            | -  단말별 메시지 전달                          | POST      | /api/ovs/v1/device/{serialNo}/message              
+            | -  단말 삭제                                   | DELETE    | /api/ovs/v1/device/{serialNo}                                                                    
+---------  -----------------------------------------------  -----------  -----------------------------------------------------
+ Message    | -  단말별 메시지 전달                          | POST      | /api/ovs/v1/device/{serialNo}/message
+            | -  전체 단말에 메시지 전달                     | POST      | /api/ovs/v1/company/{companyId}/message                                                
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
  Stats      | -  특정 회사 단말의 기간별 이벤트 통계         | GET       | /api/ovs/v1/company/{companyId}/statistics/event   
             | -  특정 단말 기간별 이벤트 통계                | GET       | /api/ovs/v1/device/{serialNo}/statistics/event     
@@ -46,16 +46,16 @@ SK open API 포털의 gateway 연동시는 위의 API는 아래와 같이 사용
 ==========  ================================================================================
 | Method    | URL example                                                                   
 ==========  ================================================================================
-| GET       | https://apis.openapi.sk.com/api/ovs/v1/company/{companyId}                    
-| GET       | https://apis.openapi.sk.com/api/ovs/v1/company/me                             
-| POST      | https://apis.openapi.sk.com/api/ovs/v1/company/{companyId}/message            
+| GET       | https://apis.openapi.sk.com/api/ovs/v1/company/me 
+| GET       | https://apis.openapi.sk.com/api/ovs/v1/company/{companyId}                                
+| GET       | https://apis.openapi.sk.com/api/ovs/v1/company/{companyId}/devices                       
 ----------  --------------------------------------------------------------------------------
 | POST      | https://apis.openapi.sk.com/api/ovs/v1/device                                 
 | GET       | https://apis.openapi.sk.com/api/ovs/v1/device/{serialNo}                      
-| DELETE    | https://apis.openapi.sk.com/api/ovs/v1/device/{serialNo}                      
-| GET       | https://apis.openapi.sk.com/api/ovs/v1/devices                                
-| GET       | https://apis.openapi.sk.com/api/ovs/v1/devices/owned/cnt                      
-| POST      | https://apis.openapi.sk.com/api/ovs/v1/device/{serialNo}/message              
+| DELETE    | https://apis.openapi.sk.com/api/ovs/v1/device/{serialNo}                                                 
+----------  --------------------------------------------------------------------------------                    
+| POST      | https://apis.openapi.sk.com/api/ovs/v1/device/{serialNo}/message    
+| POST      | https://apis.openapi.sk.com/api/ovs/v1/company/{companyId}/message             
 ----------  --------------------------------------------------------------------------------
 | GET       | https://apis.openapi.sk.com/api/ovs/v1/company/{companyId}/statistics/event   
 | GET       | https://apis.openapi.sk.com/api/ovs/v1/device/{serialNo}/statistics/event     
@@ -71,6 +71,136 @@ SK open API 포털의 gateway 연동시는 위의 API는 아래와 같이 사용
 
 정보 조회 API
 ------------------------
+정보조회 API는 회사 정보 조회 API 2종과 Device 정보 조회 1종이 있습니다.
+
+
+.. _api-specification_my-company-information:
+
+
+내 회사 정보 조회
+~~~~~~~~~~~~~~~~~~
+
+.. rst-class:: text-align-justify
+
+내가 속한 회사의 정보를 조회하는 API로, auth-token 만으로 조회가 가능합니다. 
+auth token은 초기 company 생성시에 return 됩니다.
+SK open API 포탈에서 확인하실 수 있습니다. (수정필요)
+
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
+
++------------+------------------------------------------+
+| **GET**    | `/api/ovs/v1/company/me <https://TBD>`__ |
++------------+------------------------------------------+
+
+- Request Header
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+--------+------------------+--------------+
+| option          | Type   | Default          | Description  |
++=================+========+==================+==============+
+| Content-Type    | string | application/json | content type |
++-----------------+--------+------------------+--------------+
+| X-authorization | string | {{authToken}}    | auth token   |
++-----------------+--------+------------------+--------------+
+
+- Request Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------+--------+-------------------------+
+| Key      | Type   | Description             |
++==========+========+=========================+
+| N/A      | N/A    | N/A                     |
++----------+--------+-------------------------+
+
+- Response fields
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+----------------------------------------------------+
+| Field           | Description                                        |
++=================+====================================================+
+| id              | ID of my company                                   |
++-----------------+----------------------------------------------------+
+| name            | service name                                       |
++-----------------+----------------------------------------------------+
+| serviceType     | service type                                       |
++-----------------+----------------------------------------------------+
+| tokenPrefix     | company prefix for serialNo and credentialsId      |
++-----------------+----------------------------------------------------+
+
+
+.. role:: underline
+        :class: underline
+
+- Example Code
+
+``Request``
+
+.. code-block:: none
+
+    content-type:"application/json"
+    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+
+
+``Request in curl format``
+
+
+auth token 만으로 내 회사 정보 조회.
+
+.. code-block:: none
+
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/company/me' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0M0Bz....' \
+        -d ''
+
+
+``Response (code: 200)``
+
+.. code-block:: json
+
+    {
+        "id": {
+            "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
+        },
+        "createdTime": 1590654831577,
+        "name": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
+        "serviceType": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
+        "master": true,
+        "masterId": {
+            "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
+        },
+        "picPasswd": null,
+        "picName": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
+        "picPhone": null,
+        "picEmail": "l7xx73e3323ea2124bd89d5ce708bcb26fd8@skopenapi.com",
+        "picDivision": null,
+        "sktManagerName": null,
+        "sktManagerEmail": null,
+        "cooperationTask": null,
+        "description": null,
+        "notifyHost": null,
+        "notifyMsgType": null,
+        "notifyErrIdleMin": 0,
+        "pwAccess": null,
+        "dataAnalytics": null,
+        "bcn": null,
+        "tokenPrefix": "uio35",
+        "ovs": true,
+        "tokenExpr": -1
+    }
+
+.. rst-class:: text-align-justify
+
 
 .. _api-specification_company-information:
 
@@ -79,7 +209,6 @@ SK open API 포털의 gateway 연동시는 위의 API는 아래와 같이 사용
 
 .. rst-class:: text-align-justify
 
-등록된 회사의 정보를 조회하는 API는 두가지가 있습니다. 
 회사정보를 조회하기 위해서는 인증받은 auth token과 회사ID(companyId) 가 필요합니다. 
 auth token은 SK open API 홈페이지에서, 회사ID(companyId)는 "내 회사 정보 조회" API로 확인할 수 있습니다. 
 
@@ -201,128 +330,6 @@ CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
 
 
 
-.. _api-specification_my-company-information:
-
-내 회사 정보 조회
-~~~~~~~~~~~~~~~~~~
-
-.. rst-class:: text-align-justify
-
-내가 속한 회사의 Company ID를 조회하는 API 입니다. 
-
-.. rst-class:: table-width-fix
-.. rst-class:: text-align-justify
-
-+------------+------------------------------------------+
-| **GET**    | `/api/ovs/v1/company/me <https://TBD>`__ |
-+------------+------------------------------------------+
-
-- Request Header
-
-.. rst-class:: table-width-fix
-.. rst-class:: table-width-full
-.. rst-class:: text-align-justify
-
-+-----------------+--------+------------------+--------------+
-| option          | Type   | Default          | Description  |
-+=================+========+==================+==============+
-| Content-Type    | string | application/json | content type |
-+-----------------+--------+------------------+--------------+
-| X-authorization | string | {{authToken}}    | auth token   |
-+-----------------+--------+------------------+--------------+
-
-- Request Body
-
-.. rst-class:: table-width-fix
-.. rst-class:: table-width-full
-.. rst-class:: text-align-justify
-
-+----------+--------+-------------------------+
-| Key      | Type   | Description             |
-+==========+========+=========================+
-| N/A      | N/A    | N/A                     |
-+----------+--------+-------------------------+
-
-- Response fields
-
-.. rst-class:: table-width-fix
-.. rst-class:: table-width-full
-.. rst-class:: text-align-justify
-
-+-----------------+----------------------------------------------------+
-| Field           | Description                                        |
-+=================+====================================================+
-| id              | ID of my company                                   |
-+-----------------+----------------------------------------------------+
-| name            | service name                                       |
-+-----------------+----------------------------------------------------+
-| serviceType     | service type                                       |
-+-----------------+----------------------------------------------------+
-| tokenPrefix     | company prefix for serialNo and credentialsId      |
-+-----------------+----------------------------------------------------+
-
-
-.. role:: underline
-        :class: underline
-
-- Example Code
-
-``Request``
-
-.. code-block:: none
-
-    content-type:"application/json"
-    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
-
-
-``Request in curl format``
-
-
-auth token 만으로 내 회사 정보 조회.
-
-.. code-block:: none
-
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/company/me' \
-        --header 'Content-Type: application/json' \
-        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0M0Bz....' \
-        -d ''
-
-
-``Response (code: 200)``
-
-.. code-block:: json
-
-    {
-        "id": {
-            "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
-        },
-        "createdTime": 1590654831577,
-        "name": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
-        "serviceType": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
-        "master": true,
-        "masterId": {
-            "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
-        },
-        "picPasswd": null,
-        "picName": "skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8",
-        "picPhone": null,
-        "picEmail": "l7xx73e3323ea2124bd89d5ce708bcb26fd8@skopenapi.com",
-        "picDivision": null,
-        "sktManagerName": null,
-        "sktManagerEmail": null,
-        "cooperationTask": null,
-        "description": null,
-        "notifyHost": null,
-        "notifyMsgType": null,
-        "notifyErrIdleMin": 0,
-        "pwAccess": null,
-        "dataAnalytics": null,
-        "bcn": null,
-        "tokenPrefix": "uio35",
-        "ovs": true,
-        "tokenExpr": -1
-    }
-
 .. rst-class:: text-align-justify
 
 
@@ -334,7 +341,7 @@ auth token 만으로 내 회사 정보 조회.
 
 .. rst-class:: text-align-justify
 
-단말 시리얼번호(serialNo)를 통해 단말 ID, 단말  형태 등 단말정보를 조회하는 API 입니다. 
+단말 시리얼번호(serialNo)를 통해 단말 ID, 단말 형태 등 단말정보를 조회하는 API 입니다. 
 
 
 .. rst-class:: table-width-fix
@@ -400,6 +407,20 @@ auth token 만으로 내 회사 정보 조회.
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
 
 
+``Request in curl format``
+
+SerialNo가 jdd46_ovs_device_1 인 경우.
+
+.. code-block:: none
+
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/device/jdd46_ovs_device_1' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
+        -d ''
+
+
+
+
 ``Response (code: 200)``
 
 .. code-block:: json
@@ -430,17 +451,16 @@ auth token 만으로 내 회사 정보 조회.
 
 .. rst-class:: text-align-justify
 
-전체 단말 정보를 조회하는 API 입니다. 
+현재 회사에서 등록/관리하고 있는 전체 단말 정보를 조회하는 API 입니다. 
 
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
 
-+------------+-------------------------------------------------+
-| **GET**    | `/api/ovs/v1/devices <https://TBD>`__           |
-+------------+-------------------------------------------------+
-| **GET**    | `/api/ovs/v1/devices?limit=10 <https://TBD>`__  |
-+------------+-------------------------------------------------+
++------------+------------------------------------------------------------------------------+
+| **GET**    | `/api/ovs/v1/company/{companyId}/devices?limit=10 <https://TBD>`__           |
++------------+------------------------------------------------------------------------------+
+
 
 - Request Header
 
@@ -483,7 +503,8 @@ auth token 만으로 내 회사 정보 조회.
 +-----------------+--------+----------------------------------------------------+
 | type            | string | device type(OVC-G or OVC-M)                        |
 +-----------------+--------+----------------------------------------------------+
-
+| serialNo        | string | device serialNo                                    |
++-----------------+--------+----------------------------------------------------+
 
 .. role:: underline
         :class: underline
@@ -496,6 +517,21 @@ auth token 만으로 내 회사 정보 조회.
 
     content-type:"application/json"
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+
+
+``Request in curl format``
+
+CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
+
+.. code-block:: none
+
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/company/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f/devices?limit=10' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
+        -d ''
+
+
+
 
 
 ``Response (code: 200)``
@@ -551,15 +587,15 @@ auth token 만으로 내 회사 정보 조회.
 
 .. rst-class:: text-align-justify
 
-회사 전체 단말 수를 조회하는 API 입니다. 
+회사에 등록된 전체 단말 수를 조회하는 API 입니다. 
 
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
 
-+------------+-------------------------------------------------+
-| **GET**    | `/api/ovs/v1/devices/owned/cnt <https://TBD>`__ |
-+------------+-------------------------------------------------+
++------------+--------------------------------------------------------------------+
+| **GET**    | `/api/ovs/v1/company/{companyId}/devices?limit=10 <https://TBD>`__ |
++------------+--------------------------------------------------------------------+
 
 - Request Header
 
@@ -610,6 +646,25 @@ auth token 만으로 내 회사 정보 조회.
 
     content-type:"application/json"
     X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+
+
+
+
+``Request in curl format``
+
+CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
+
+.. code-block:: none
+
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/company/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f/devices?limit=10' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
+        -d ''
+
+
+
+
+
 
 
 ``Response (code: 200)``
