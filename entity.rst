@@ -102,7 +102,7 @@ Company Prefix
 
 - Example Code
 
-:underline:`Request`
+``Request``
 
 .. code-block:: none
 
@@ -116,7 +116,7 @@ Company Prefix
     }
 
 
-:underline:`Response (code: 200)`
+``Response (code: 200)``
 
 .. code-block:: json
 
