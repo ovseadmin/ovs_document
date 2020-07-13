@@ -7,7 +7,7 @@ OVS는 SKT에서 제공하는 OPEN API 플랫폼으로 V2N 솔루션을 개발 �
 
 아래 그림과 같이 코어 엔진 부분에 V2N Service Enabler, Map Matcher, Road Translator, Route Planning, Message Controller 등의 다양한 핵심기능이 구현되어 있습니다.
 
-.. image:: /images/ovse_intro/ovse_arch.png
+.. image:: /images/ovs_intro/ovse_arch.png
 
 OVS의 주요 특징 및 핵심 기능은 다음과 같습니다.
 
