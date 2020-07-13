@@ -7,15 +7,12 @@
 구성요소(Entity) 등록
 =======================================
 
-이 매뉴얼은 OVSE 플랫폼 사용을 위한 회사 및 단말 등록절차를 설명하기 위한 것입니다.
+OVS 서비스 활용을 위해서는 기본 Entity인 회사와 단말의 등록이 필요합니다. 
 
-기본적으로 SK open API 포털을 통해서 OVSE API를 사용하시는 경우를 기술하였습니다. 
 
-SK open API 포털에서 프로젝트 생성 및 OVSE API 추가 후에는 HTTP 기반 REST API로 등록할 수 있습니다. 
-
-Device와 플랫폼을 연동하는 방법은 :ref:`6. Device 연동 절차 <device-procedure>` 와 :ref:`8. 메시지 포맷 <message-format>` 을 참고하십시오. 
-
-App 개발자는 :ref:`7. API 규격 <api-specification>` 과 :ref:`9. Device Simulator <device-simulator>` 를 참고하십시오.
+.. note::
+	
+    기본적으로 SK open API를 통한 OVS 서비스의 구매를 가정하고 그 절차를 기술합니다. 
 
 
 .. _service-registration-api:
@@ -23,7 +20,9 @@ App 개발자는 :ref:`7. API 규격 <api-specification>` 과 :ref:`9. Device Si
 회사 등록 (Company Registration)
 -----------------------------------
 
-회사는 포털내 프로젝트에서 OVSE API를 구매하면 자동으로 생성 및 등록됩니다. 
+회사는 SK open API 포털내 프로젝트에서 OVS API를 구매하면 자동으로 생성 및 등록됩니다. 
+
+생성된 회사의 정보 확인은 :ref:`6. Northbound API Specification <api-specification_rest-api>` 에 명세된 API를 이용하여 하실 수 있습니다.
 
 
 .. _director-registration:
@@ -32,7 +31,13 @@ App 개발자는 :ref:`7. API 규격 <api-specification>` 과 :ref:`9. Device Si
 단말 등록 (Device Registration)
 -------------------------------
 
-OVSE 플랫폼 사용을 위해서는 단말이 등록되어야 하며, 유효한 auth token을 포함한 OVSE API로 등록할 수 있습니다. token 조회 방법은 :ref:`4.4 토큰 조회 <service-procedure-step3>` 을 참조하세요.
+Auth Token
+~~~~~~~~~~~~~~~~~
+OVS 플랫폼 사용을 위해서는 단말이 등록되어야 하며, 유효한 auth token을 포함한 OVS API로 등록할 수 있습니다. 
+token 조회 방법은 :ref:`4.4 토큰 조회 <service-procedure-step3>` 을 참조하세요.
+
+Company Prefix
+~~~~~~~~~~~~~~~~~
 단말등록시 단말의 일련번호(SerialNo)와 단말비밀번호(CredentialsId)는 정해진 규칙을 따라야 하며,
 둘 필드 모두 5자리의 company prefix로 시작해야 합니다. company prefix는  :ref:`7.2.2 내 회사 정보 조회 <api-specification_my-company-information>` API로 조회할 수 있습니다. 
 
