@@ -84,7 +84,7 @@ Company Prefix
 +====================+=========+===========+====================================+
 | vendor             | string  |           | vendor or manufacturer             |
 +--------------------+---------+-----------+------------------------------------+
-| type               | string  | OVC-G,    | OVS device type                   |
+| type               | string  | OVC-G,    | OVS device type                    |
 |                    |         | OVC-M     |                                    |
 +--------------------+---------+-----------+------------------------------------+
 | credentialsId      | string  |           | Device credential                  |
