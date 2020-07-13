@@ -5,9 +5,9 @@
 
 .. rst-class:: text-align-justify
 
-OVSE 플랫폼은 서비스 특성에 맞도록 설계된 유연한 데이터 구조를 지원합니다.
+OVS 플랫폼은 서비스 특성에 맞도록 설계된 유연한 데이터 구조를 지원합니다.
 
-OVSE 서비스를 생성하면, 해당 서비스를 제공하는 Company Entity와 그 Company에 속해있는 Device Entity의 등록 및 관계 형성이 이루어집니다. 
+OVS 서비스를 생성하면, 해당 서비스를 제공하는 Company Entity와 그 Company에 속해있는 Device Entity의 등록 및 관계 형성이 이루어집니다. 
 
 1. Company
 2. Device
@@ -25,10 +25,10 @@ OVSE 서비스를 생성하면, 해당 서비스를 제공하는 Company Entity�
 =============================   ==================================================================================================
 Company                         | * Company는 V2N 서비스 단말의 제조사 혹은 관리 업체를 의미합니다. 
                                 |  (예: 블랙박스, IVI 제조사, 자체 Backend를 보유한 OEM ) 
-                                | * OVSE 시스템 관리자 (sysadmin)에 의해서 등록됩니다.
-                                | * OVSE sysadmin은 SKT 담당자들이 관리하며, 사용자가 서비스 생성 시 Company 및 Company Admin을 자동으로 진행합니다.
+                                | * OVS 시스템 관리자 (sysadmin)에 의해서 등록됩니다.
+                                | * OVS sysadmin은 SKT 담당자들이 관리하며, 사용자가 서비스 생성 시 Company 및 Company Admin을 자동으로 진행합니다.
                                 | * 관리자 계정(Company admin)을 통해서 서비스 대상 단말을 등록 및 관리스터(수정/삭제)합니다.
-Device                          | * OVSE와 플랫폼과 통신하여 V2N Application을 제공하는 주체. 
+Device                          | * OVS와 플랫폼과 통신하여 V2N Application을 제공하는 주체. 
                                 | * 차량의 위치, Event 정보를 센싱하여 플랫폼으로 전달하고, 플랫폼으로 부터 V2N Event 메세지를 수신하여 서비스한다. 
 =============================   ==================================================================================================
 
@@ -39,11 +39,11 @@ Device Types
 --------------
 
 다음은 단말의 특성에 따라 구분될 수 있는 Open V2N Service Client 인 ''OVC''의 두 가지 타입을 명세합니다.
-실제 Device는 GPS, ADAS, IVI 등 여러 종류가 있을 수 있으나, OVSE플랫폼 입장에서는 연동되는 Device를 T맵의 탑재 유무를 기준으로 크게 두 가지로 나눕니다. 
+실제 Device는 GPS, ADAS, IVI 등 여러 종류가 있을 수 있으나, OVS플랫폼 입장에서는 연동되는 Device를 T맵의 탑재 유무를 기준으로 크게 두 가지로 나눕니다. 
 
 * Open V2N Service Client (이하 OVC) Types
 
-OVSE 플랫폼에서 연동할 수 있는 ``OVC`` 타입은 ``GPS only OVC (OVC-G)`` 와 ``Map Mapping Capable OVC (OVC-M)`` 로 구분됩니다.
+OVS 플랫폼에서 연동할 수 있는 ``OVC`` 타입은 ``GPS only OVC (OVC-G)`` 와 ``Map Mapping Capable OVC (OVC-M)`` 로 구분됩니다.
 각 타입의 특징은 아래 표를 참고하시기 바랍니다. 
 
 ========  =======================================================================================================================

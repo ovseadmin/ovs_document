@@ -1,4 +1,4 @@
-Open V2N Service Enabler 소개
+Open V2N Service (OVS) 소개
 =======================================
 
 .. rst-class:: text-align-justify
@@ -107,16 +107,16 @@ T맵 이용 차량이 급제동할 경우, 스마트폰 모션 센서와 위성�
 .. image:: /images/introduction/tmap_excits.png
 
 
-Open V2N Service Enabler
+Open V2N Service (OVS) Platform
 ----------------------------
 
-SKT의 Open V2N Service Enabler(이하 OVSE)는 위에서 소개된 현재 T맵에 제공 중인 V2N 서비스를 OEM, 단말 제조사 등과 같은 외부 개발 파트너사에서 쉽게 개발할 수 있도록, API (Application Programming Interface)를 제공하는 Platform 입니다. 
+SKT의 Open V2N Service (이하 OVS)는 위에서 소개된 현재 T맵에 제공 중인 V2N 서비스를 OEM, 단말 제조사 등과 같은 외부 개발 파트너사에서 쉽게 개발할 수 있도록, API (Application Programming Interface)를 제공하는 Platform 입니다. 
 
 
 .. image:: /images/introduction/ovse_concept.png
 
 (그림 변경 필요)
 
-OVSE를 활용하시면 단말 및 서버의 연동에 상관없이 쉽고 빠르게 V2N Application을 구현하실 수 있습니다.
+OVS를 활용하시면 단말 및 서버의 연동에 상관없이 쉽고 빠르게 V2N Application을 구현하실 수 있습니다.
 
-OVSE의 주요 기능 및 특징은 다음 페이지에서 보다 자세히 확인하실 수 있습니다. 
+OVS의 주요 기능 및 특징은 다음 페이지에서 보다 자세히 확인하실 수 있습니다. 
