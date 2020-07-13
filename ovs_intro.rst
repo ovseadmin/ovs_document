@@ -3,13 +3,13 @@
 
 .. rst-class:: text-align-justify
 
-OVSE는 SKT에서 제공하는 OPEN API 플랫폼으로 V2N 솔루션을 개발 및 적용하고자 하는 파트너사들에게 보다 쉽고, 빠르게, 유용한 서비스를 안전하게 개발할 수 있는 기능들을 제공합니다.
+OVS는 SKT에서 제공하는 OPEN API 플랫폼으로 V2N 솔루션을 개발 및 적용하고자 하는 파트너사들에게 보다 쉽고, 빠르게, 유용한 서비스를 안전하게 개발할 수 있는 기능들을 제공합니다.
 
 아래 그림과 같이 코어 엔진 부분에 V2N Service Enabler, Map Matcher, Road Translator, Route Planning, Message Controller 등의 다양한 핵심기능이 구현되어 있습니다.
 
 .. image:: /images/ovse_intro/ovse_arch.png
 
-OVSE의 주요 특징 및 핵심 기능은 다음과 같습니다.
+OVS의 주요 특징 및 핵심 기능은 다음과 같습니다.
 
 
 .. rst-class:: text-align-justify
@@ -27,19 +27,19 @@ OVSE의 주요 특징 및 핵심 기능은 다음과 같습니다.
 
 .. rst-class:: text-align-justify
 
-OVSE 플랫폼과 V2N Application Device/Server간 연동을 쉽게 개발할 수 있도록 간결하고, 다양한 API들을 제공하고 있습니다.
+OVS 플랫폼과 V2N Application Device/Server간 연동을 쉽게 개발할 수 있도록 간결하고, 다양한 API들을 제공하고 있습니다.
 
 * Simple API
 
-OVSE 연동 Device (예 : ADAS, IVI, Blackbox 등) 에게는 최소한의 API만을 제공하여 개발의 복잡도를 낮춰 드립니다.  
+OVS 연동 Device (예 : ADAS, IVI, Blackbox 등) 에게는 최소한의 API만을 제공하여 개발의 복잡도를 낮춰 드립니다.  
 이를 위해서 기존에 많이 사용되는 HTTP 프로토콜과 비교하여 저전력, 보다 빠른 데이터 처리, 가벼운 통신 규격을 지원하는 MQTT 프로토콜을 지원하고 있습니다.  
 
-OVSE와 Server (예 : OEM Backend 등) 간 연동을 위한 REST API 역시 제공합니다. 
+OVS와 Server (예 : OEM Backend 등) 간 연동을 위한 REST API 역시 제공합니다. 
 
 * Useful API
 
 회사 등록/관리, Device 등록/관리, V2N Message 전송, 서비스 통계 관리 등과 같은 다양한 서비스를 간편하게 구현할 수 있습니다. 
-Device 연동 API를 통해서 정보를 올려주면, OVSE 플랫폼에서 복잡한 분석 절차를 처리하고 RESTful API를 통해 고객들에게 원하는 정보를 제공해드립니다.   
+Device 연동 API를 통해서 정보를 올려주면, OVS 플랫폼에서 복잡한 분석 절차를 처리하고 RESTful API를 통해 고객들에게 원하는 정보를 제공해드립니다.   
 
 
 유연한 연동 인터페이스 및 SDK 제공
@@ -62,12 +62,12 @@ V2N 솔루션을 효과적으로 구현하기 위한 Device 연동 규격을 제
 
 ADAS, Blackbox, IVI, 스마트폰 등을 통해서 V2N Application을 제공할 유연한 인터페이스를 제공합니다. 
 
-OVSE의 메세지 전송 및 데이터 분석 기능을 활용하기 위해서는 SKT에서 제공하는 메시지 포맷 규약을 따라야 합니다. 
+OVS의 메세지 전송 및 데이터 분석 기능을 활용하기 위해서는 SKT에서 제공하는 메시지 포맷 규약을 따라야 합니다. 
 
 
 * 다양한 SDK 제공 
 
-OVSE 플랫폼과 Device간의 연동 기능 개발을 보다 쉽게 하실 수 있도록 다양한 언어의 SDK를 제공합니다.  
+OVS 플랫폼과 Device간의 연동 기능 개발을 보다 쉽게 하실 수 있도록 다양한 언어의 SDK를 제공합니다.  
 
 또한 Starter Kit(링크 - 김경훈님 작업필요) 솔루션을 활용하여 쉽게 단말 연동 기능 시험 및 프로토타입 솔루션을 기획하실 수 있습니다.
 
@@ -75,7 +75,7 @@ OVSE 플랫폼과 Device간의 연동 기능 개발을 보다 쉽게 하실 수 
 V2N Partner with Server 
 '''''''''''''''''''''''''''
 
-디바이스를 OVSE에 직접 연결하지 않고, 보유하고 있는 Server를 이용하여 V2N 서비스를 이용하고자 하는 파트너들 (예: 자체 Backend를 보유한 OEM 등) 을 위한 인터페이스 역시 제공합니다. 
+디바이스를 OVS에 직접 연결하지 않고, 보유하고 있는 Server를 이용하여 V2N 서비스를 이용하고자 하는 파트너들 (예: 자체 Backend를 보유한 OEM 등) 을 위한 인터페이스 역시 제공합니다. 
 
 SKT의 지능형 도로 교통 정보 제공 플랫폼 (Intelligent Road Data Service 플랫폼, a.k.a. RUUT)를 통해서 V2N 서비스 연동 개발을 진행하실 수 있습니다.
 
@@ -97,7 +97,7 @@ T맵 Compatible V2N Service 제공
 주요 기능
 -----------------------------------------
 
-OVSE 플랫폼은 파트너업체들이 시장에서 경쟁력 있는 V2N Application 쉽게 개발할 수 있도록 내부에 다음과 같은 다양한 기능이 구현되어 있습니다.
+OVS 플랫폼은 파트너업체들이 시장에서 경쟁력 있는 V2N Application 쉽게 개발할 수 있도록 내부에 다음과 같은 다양한 기능이 구현되어 있습니다.
 
 * V2N Service Enabler
 * Map Matcher
@@ -112,7 +112,7 @@ V2N Service Enabler (이하 VSE)는 V2N 서비스를 하기 위한 도로 내의
 
 차량의 선후 관계, 동일차선/반대차선, 각각의 거리는 어떻게 되는지, 공공으로 부터 들어오는 정보는 어떻게 되는 지 등을 종합적으로 분석하여 알람이 필요한 차량에게만 선별적으로 메세지를 전달합니다. 
 
-.. image:: /images/ovse_intro/vse.png
+.. image:: /images/ovs_intro/vse.png
 
 그리고 이런 기능은 하기의 Map Matcher, Road Translator, Route Planning, Message Controller 등과의 연계를 통해 이루어집니다.
 
@@ -123,7 +123,7 @@ Map Matcher는 Device에서 올라온 GPS 좌표를 SKT가 관리하는 T맵 도
 
 (*) 책임의 한계: 본 Mat Matching 기능은 단말에서 수집된 GPS위치정보에 기반하여 제공됩니다. 따라서 GPS위치정보의 오차로 인하여 Map Matching 기능의 성능이 저하될 수 있으며, 오차가 클 경우 실제 주행하는 도로와 다른 도로로 매칭될 수 있습니다. 
 
-.. image:: /images/ovse_intro/mapmatching.png
+.. image:: /images/ovs_intro/mapmatching.png
 
 
 Road Translator
@@ -139,7 +139,7 @@ Route Planning (이하 RP) Origin-Destination(O-D)에 따른 T맵의 경로를 �
 
 V2N 서비스 시나리오에 따라 RP를 활용하여, 메세지 전달 대상을 파악합니다. (예: 응급차량 출동 알람)
 
-.. image:: /images/ovse_intro/routeplanning.png
+.. image:: /images/ovs_intro/routeplanning.png
 
 
 Message Controller
@@ -151,7 +151,7 @@ Message Controller는 단말들과 통신하여 데이터를 송/수신 하는 �
 
 AAA
 ````````````````````````````````````````````````````````````````
-OVSE는 Authentication, Authorization, Accounting을 위한 기능들을 지원합니다. 
+OVS는 Authentication, Authorization, Accounting을 위한 기능들을 지원합니다. 
 
 REST API를 기반으로 단말을 등록, 인증하고 관리하며, 등록된 정상 단말에 한해서만 V2N 서비스를 제공하고 있습니다.
 
