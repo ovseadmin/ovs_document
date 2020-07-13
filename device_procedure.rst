@@ -124,7 +124,7 @@ OVC-G가 향후에 V2N Event 수신 할 수 있도록 V2N Event을 제공하는 
 Topic은 아래와 같은 룰을 따라 설정합니다. 
 
 =============  =============================================
-Topic          v2x/device/{deviceId}
+Topic          v2x/device/{SerialNo}
 =============  =============================================
 
 OVS에서는 각각의 OVC-G 디바이스 위치를 관리하여, 해당 디바이스에 V2N Event를 전달합니다. 
@@ -134,7 +134,7 @@ OVS에서는 각각의 OVC-G 디바이스 위치를 관리하여, 해당 디바�
 
 .. code-block:: javascript
 
-    messageSender.subscribe('v2x/device/{deviceId}, {qos: 1}, function(err, granted) {
+    messageSender.subscribe('v2x/device/{SerialNo}, {qos: 1}, function(err, granted) {
 
         if (err)
         {
