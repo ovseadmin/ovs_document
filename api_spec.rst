@@ -71,7 +71,7 @@ SK open API 포털의 gateway 연동시는 위의 API는 아래와 같이 사용
 
 Company 관리 API
 ------------------------
-정보조회 API는 회사 정보 조회 API 2종과 Device 정보 조회 1종이 있습니다.
+회사 관련 정보 조회 API는 3종이 있습니다.
 
 
 .. _api-specification_my-company-information:
