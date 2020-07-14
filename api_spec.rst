@@ -24,7 +24,7 @@ OVS는 다음과 같은 REST API를 제공합니다.
 =========  ===============================================  ===========  =====================================================
  Company    | -  내 회사 정보 조회                           | GET       | /api/ovs/v1/company/me
             | -  회사 정보 조회                              | GET       | /api/ovs/v1/company/{companyId}                       
-            | -  전체 단말 정보 조회                         | GET       | /api/ovs/v1/company/{companyId}/devices                                                               
+            | -  회사 전체 단말 정보 조회                      | GET       | /api/ovs/v1/company/{companyId}/devices                                                               
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
  Device     | -  단말 등록                                   | POST      | /api/ovs/v1/device                                 
             | -  단말 정보 조회                              | GET       | /api/ovs/v1/device/{serialNo}                      
@@ -69,7 +69,7 @@ SK open API 포털의 gateway 연동시는 위의 API는 아래와 같이 사용
 
 .. _api-specification_information:
 
-정보 조회 API
+Company 관리 API
 ------------------------
 정보조회 API는 회사 정보 조회 API 2종과 Device 정보 조회 1종이 있습니다.
 
@@ -329,129 +329,15 @@ CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
 .. rst-class:: text-align-justify
 
 
-
-.. rst-class:: text-align-justify
-
-
-
-.. _api-specification_device-information:
-
-단말 정보 조회
-~~~~~~~~~~~~~~~~~~
-
-.. rst-class:: text-align-justify
-
-단말 시리얼번호(serialNo)를 통해 단말 ID, 단말 형태 등 단말정보를 조회하는 API 입니다. 
-
-
-.. rst-class:: table-width-fix
-.. rst-class:: text-align-justify
-
-+------------+-------------------------------------------------+
-| **GET**    | `/api/ovs/v1/device/{serialNo} <https://TBD>`__ |
-+------------+-------------------------------------------------+
-
-- Request Header
-
-.. rst-class:: table-width-fix
-.. rst-class:: table-width-full
-.. rst-class:: text-align-justify
-
-+-----------------+--------+------------------+--------------+
-| option          | Type   | Default          | Description  |
-+=================+========+==================+==============+
-| Content-Type    | string | application/json | content type |
-+-----------------+--------+------------------+--------------+
-| X-authorization | string | {{authToken}}    | auth token   |
-+-----------------+--------+------------------+--------------+
-
-- Request Body
-
-.. rst-class:: table-width-fix
-.. rst-class:: table-width-full
-.. rst-class:: text-align-justify
-
-+----------+--------+-------------------------+
-| Key      | Type   | Description             |
-+==========+========+=========================+
-| N/A      | N/A    | N/A                     |
-+----------+--------+-------------------------+
-
-- Response fields
-
-.. rst-class:: table-width-fix
-.. rst-class:: table-width-full
-.. rst-class:: text-align-justify
-
-+-----------------+----------------------------------------------------+
-| Field           | Description                                        |
-+=================+====================================================+
-| id              | unique device id                                   |
-+-----------------+----------------------------------------------------+
-| companyId       | unique company id                                  |
-+-----------------+----------------------------------------------------+
-| type            | device type(OVC-G or OVC-M)                        |
-+-----------------+----------------------------------------------------+
-
-
-.. role:: underline
-        :class: underline
-
-- Example Code
-
-``Request``
-
-.. code-block:: none
-
-    content-type:"application/json"
-    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
-
-
-``Request in curl format``
-
-SerialNo가 jdd46_ovs_device_1 인 경우.
-
-.. code-block:: none
-
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/device/jdd46_ovs_device_1' \
-        --header 'Content-Type: application/json' \
-        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
-        -d ''
-
-
-
-
-``Response (code: 200)``
-
-.. code-block:: json
-
-    {
-        "id": {
-            "id": "37c6b060-a0be-11ea-a9b8-ff6a8104c32f"
-        },
-        "createdTime": 1590654942693,
-        "companyId": {
-            "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
-        },
-        "vendor": "SKT1",
-        "type": "OVC-G",
-        "additionalInfo": null,
-        "activationRequired": false,
-        "serialNo": "uio35fine1236",
-        "credentialsId": null
-    }
-
-.. rst-class:: text-align-justify
-
-
 .. _api-specification_device-list-information:
 
-전체 단말 리스트 조회
+회사 전체 단말 리스트 조회
 ~~~~~~~~~~~~~~~~~~~~
 
 .. rst-class:: text-align-justify
 
 현재 회사에서 등록/관리하고 있는 전체 단말 정보를 조회하는 API 입니다. 
+단말관리 API를 통해서 회사에 등록된 단말의 정보를 확인하실 수 있습니다.
 
 
 .. rst-class:: table-width-fix
@@ -575,103 +461,6 @@ CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
         "hasNext": false
     }
 
-
-.. rst-class:: text-align-justify
-
-
-
-.. _api-specification_device-count:
-
-회사 전체 단말 수 조회
-~~~~~~~~~~~~~~~~~~~~~~~
-
-.. rst-class:: text-align-justify
-
-회사에 등록된 전체 단말 수를 조회하는 API 입니다. 
-
-
-.. rst-class:: table-width-fix
-.. rst-class:: text-align-justify
-
-+------------+--------------------------------------------------------------------+
-| **GET**    | `/api/ovs/v1/company/{companyId}/devices?limit=10 <https://TBD>`__ |
-+------------+--------------------------------------------------------------------+
-
-- Request Header
-
-.. rst-class:: table-width-fix
-.. rst-class:: table-width-full
-.. rst-class:: text-align-justify
-
-+-----------------+--------+------------------+--------------+
-| option          | Type   | Default          | Description  |
-+=================+========+==================+==============+
-| Content-Type    | string | application/json | content type |
-+-----------------+--------+------------------+--------------+
-| X-authorization | string | {{authToken}}    | auth token   |
-+-----------------+--------+------------------+--------------+
-
-- Request Body
-
-.. rst-class:: table-width-fix
-.. rst-class:: table-width-full
-.. rst-class:: text-align-justify
-
-+----------+--------+-------------------------+
-| Key      | Type   | Description             |
-+==========+========+=========================+
-| N/A      | N/A    | N/A                     |
-+----------+--------+-------------------------+
-
-- Response fields
-
-.. rst-class:: table-width-fix
-.. rst-class:: table-width-full
-.. rst-class:: text-align-justify
-
-+-----------------+----------------------------------------------------+
-| Field           | Description                                        |
-+=================+====================================================+
-| count           | number of my registered devices                    |
-+-----------------+----------------------------------------------------+
-
-.. role:: underline
-        :class: underline
-
-- Example Code
-
-``Request``
-
-.. code-block:: none
-
-    content-type:"application/json"
-    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
-
-
-
-
-``Request in curl format``
-
-CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
-
-.. code-block:: none
-
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/company/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f/devices?limit=10' \
-        --header 'Content-Type: application/json' \
-        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
-        -d ''
-
-
-
-
-
-
-
-``Response (code: 200)``
-
-.. code-block:: json
-
-    1
 
 .. rst-class:: text-align-justify
 
@@ -807,6 +596,115 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 .. rst-class:: text-align-justify
 
 
+.. _api-specification_device-information:
+
+단말 정보 조회
+~~~~~~~~~~~~~~~~~~
+
+.. rst-class:: text-align-justify
+
+단말 시리얼번호(serialNo)를 통해 단말 ID, 단말 형태 등 단말정보를 조회하는 API 입니다. 
+
+
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
+
++------------+-------------------------------------------------+
+| **GET**    | `/api/ovs/v1/device/{serialNo} <https://TBD>`__ |
++------------+-------------------------------------------------+
+
+- Request Header
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+--------+------------------+--------------+
+| option          | Type   | Default          | Description  |
++=================+========+==================+==============+
+| Content-Type    | string | application/json | content type |
++-----------------+--------+------------------+--------------+
+| X-authorization | string | {{authToken}}    | auth token   |
++-----------------+--------+------------------+--------------+
+
+- Request Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------+--------+-------------------------+
+| Key      | Type   | Description             |
++==========+========+=========================+
+| N/A      | N/A    | N/A                     |
++----------+--------+-------------------------+
+
+- Response fields
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+----------------------------------------------------+
+| Field           | Description                                        |
++=================+====================================================+
+| id              | unique device id                                   |
++-----------------+----------------------------------------------------+
+| companyId       | unique company id                                  |
++-----------------+----------------------------------------------------+
+| type            | device type(OVC-G or OVC-M)                        |
++-----------------+----------------------------------------------------+
+
+
+.. role:: underline
+        :class: underline
+
+- Example Code
+
+``Request``
+
+.. code-block:: none
+
+    content-type:"application/json"
+    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+
+
+``Request in curl format``
+
+SerialNo가 jdd46_ovs_device_1 인 경우.
+
+.. code-block:: none
+
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/device/jdd46_ovs_device_1' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
+        -d ''
+
+
+
+
+``Response (code: 200)``
+
+.. code-block:: json
+
+    {
+        "id": {
+            "id": "37c6b060-a0be-11ea-a9b8-ff6a8104c32f"
+        },
+        "createdTime": 1590654942693,
+        "companyId": {
+            "id": "f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f"
+        },
+        "vendor": "SKT1",
+        "type": "OVC-G",
+        "additionalInfo": null,
+        "activationRequired": false,
+        "serialNo": "uio35fine1236",
+        "credentialsId": null
+    }
+
+.. rst-class:: text-align-justify
+
 .. _api-specification_device-deletion:
 
 단말 삭제
@@ -900,7 +798,10 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 .. rst-class:: text-align-justify
 
 
+Message Notification API
+------------------------
 
+OVS는 특정 단말 또는 특정 회사 소속의 전체 단말에 Message 알림 기능을 제공합니다.
 
 .. _api-specification_message-delivery:
 
@@ -1136,7 +1037,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
 이벤트 통계 API
 ------------------------
-
+OVS를 통해 전달했던 Event 통계 정보를 단말 또는 회사 별로 기간 조건을 두고 조회 할 수 있습니다.
 
 .. _api-specification_statistics-device:
 
@@ -1241,10 +1142,10 @@ serialNo가 bjx84_ovs_server1이고 2020년 7월 1일 통계를 요청한 경우
 
 .. _api-specification_statistics-company:
 
-회사별 이벤트 통계 
+회사 별 이벤트 통계 
 ~~~~~~~~~~~~~~~~~~~~~
 
-회사별 이벤트 통계를 조회할 수 있습니다. 본 API에는 companyId가 필요하며, companyId는 /api/ovs/v1/company/me 에서 조회할 수 있습니다. 
+회사 별 이벤트 통계를 조회할 수 있습니다. 본 API에는 companyId가 필요하며, companyId는 /api/ovs/v1/company/me 에서 조회할 수 있습니다. 
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
