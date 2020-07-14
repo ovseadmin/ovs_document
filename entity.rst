@@ -25,7 +25,7 @@ OVS 서비스 활용을 위해서는 기본 Entity인 회사와 단말의 등록
 생성된 회사의 정보 확인은 :ref:`6. Northbound API Specification <api-specification_rest-api>` 에 명세된 API를 이용하여 하실 수 있습니다.
 
 
-.. _director-registration:
+.. _device-registration:
 
 
 단말 등록 (Device Registration)
