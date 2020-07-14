@@ -24,7 +24,7 @@ OVS는 다음과 같은 REST API를 제공합니다.
 =========  ===============================================  ===========  =====================================================
  Company    | -  내 회사 정보 조회                           | GET       | /api/ovs/v1/company/me
             | -  회사 정보 조회                              | GET       | /api/ovs/v1/company/{companyId}                       
-            | -  회사 전체 단말 정보 조회                      | GET       | /api/ovs/v1/company/{companyId}/devices                                                               
+            | -  회사 전체 단말 정보 조회                       | GET       | /api/ovs/v1/company/{companyId}/devices                                                               
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
  Device     | -  단말 등록                                   | POST      | /api/ovs/v1/device                                 
             | -  단말 정보 조회                              | GET       | /api/ovs/v1/device/{serialNo}                      
