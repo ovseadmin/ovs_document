@@ -166,5 +166,4 @@ OVS Device Simulator의 자세한 동작은 :ref:`9. Device Simulator<device-sim
 ---------------------
 OVS플랫폼에 단말 등록 및 연동절차가 진행되었으면 OVS 서비스를 이용하실 수 있으며, 단말별, 회사별 통계를 조회할 수 있습니다. 
 
-통계 조회 API는 :ref:`6.5. 이벤트 통계 API <api-specification_statistics>` 를 참조하시기 바랍니다. 
-
+통계 조회 API는 :ref:`6.5. 이벤트 통계 API<api-specification_statistics>` 를 참조하시기 바랍니다. 
