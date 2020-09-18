@@ -115,7 +115,6 @@ SKT의 Open V2N Service (이하 OVS)는 위에서 소개된 현재 T맵에 제�
 
 .. image:: /images/introduction/ovse_concept.png
 
-(그림 변경 필요)
 
 OVS를 활용하시면 단말 및 서버의 연동에 상관없이 쉽고 빠르게 V2N Application을 구현하실 수 있습니다.
 
