@@ -23,15 +23,16 @@ OVS는 다음과 같은 REST API를 제공합니다.
 | 구분      |  설명                                          | Method    | URL                                                
 =========  ===============================================  ===========  =====================================================
  Company    | -  내 회사 정보 조회                           | GET       | /api/ovs/v1/company/me
-            | -  회사 정보 조회                              | GET       | /api/ovs/v1/company/{companyId}                       
-            | -  전체 단말 정보 조회                         | GET       | /api/ovs/v1/company/{companyId}/devices                                                               
+            | -  회사 정보 조회                              | GET       | /api/ovs/v1/company/{companyId}                    
+            | -  전체 단말 정보 조회                         | GET       | /api/ovs/v1/company/{companyId}/devices            
+            | -  전체 단말 수 조회                           | GET       | /api/ovs/v1/devices/cnt          
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
  Device     | -  단말 등록                                   | POST      | /api/ovs/v1/device                                 
             | -  단말 정보 조회                              | GET       | /api/ovs/v1/device/{serialNo}                      
-            | -  단말 삭제                                   | DELETE    | /api/ovs/v1/device/{serialNo}                                                                    
+            | -  단말 삭제                                   | DELETE    | /api/ovs/v1/device/{serialNo}                      
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
  Message    | -  단말별 메시지 전달                          | POST      | /api/ovs/v1/device/{serialNo}/message
-            | -  전체 단말에 메시지 전달                     | POST      | /api/ovs/v1/company/{companyId}/message                                                
+            | -  전체 단말에 메시지 전달                     | POST      | /api/ovs/v1/company/{companyId}/message            
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
  Stats      | -  특정 회사 단말의 기간별 이벤트 통계         | GET       | /api/ovs/v1/company/{companyId}/statistics/event   
             | -  특정 단말 기간별 이벤트 통계                | GET       | /api/ovs/v1/device/{serialNo}/statistics/event     
@@ -49,6 +50,7 @@ SK open API 포털의 gateway 연동시는 위의 API는 아래와 같이 사용
 | GET       | https://apis.openapi.sk.com/api/ovs/v1/company/me 
 | GET       | https://apis.openapi.sk.com/api/ovs/v1/company/{companyId}                                
 | GET       | https://apis.openapi.sk.com/api/ovs/v1/company/{companyId}/devices                       
+| GET       | https://apis.openapi.sk.com/api/ovs/v1/devices/cnt
 ----------  --------------------------------------------------------------------------------
 | POST      | https://apis.openapi.sk.com/api/ovs/v1/device                                 
 | GET       | https://apis.openapi.sk.com/api/ovs/v1/device/{serialNo}                      
@@ -464,7 +466,95 @@ CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
 
 .. rst-class:: text-align-justify
 
+.. _api-specification_device-count:
 
+회사 전체 단말 수 조회
+~~~~~~~~~~~~~~~~~~~~
+
+.. rst-class:: text-align-justify
+
+현재 회사에서 등록/관리하고 있는 전체 단말 수를 조회하는 API 입니다. 
+
+
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
+
++------------+------------------------------------------------------------------------------+
+| **GET**    | `/api/ovs/v1/devices/cnt                          <https://TBD>`__           |
++------------+------------------------------------------------------------------------------+
+
+
+- Request Header
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+--------+------------------+--------------+
+| option          | Type   | Default          | Description  |
++=================+========+==================+==============+
+| Content-Type    | string | application/json | content type |
++-----------------+--------+------------------+--------------+
+| X-authorization | string | {{authToken}}    | auth token   |
++-----------------+--------+------------------+--------------+
+
+- Request Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------+--------+-------------------------+
+| Key      | Type   | Description             |
++==========+========+=========================+
+| N/A      | N/A    | N/A                     |
++----------+--------+-------------------------+
+
+- Response fields
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+--------+----------------------------------------------------+
+| Field           | Type   | Description                                        |
++=================+========+====================================================+
+| count           | string | total number of registered devices                 |
++-----------------+--------+----------------------------------------------------+
+
+.. role:: underline
+        :class: underline
+
+- Example Code
+
+``Request``
+
+.. code-block:: none
+
+    content-type:"application/json"
+    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+
+
+``Request in curl format``
+
+CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
+
+.. code-block:: none
+
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/devices/cnt' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
+        -d ''
+
+
+``Response (code: 200)``
+
+.. code-block:: json
+
+    7000
+
+
+.. rst-class:: text-align-justify
 
 
 .. _api-specification_device-management:
