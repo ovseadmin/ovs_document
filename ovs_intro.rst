@@ -69,7 +69,7 @@ OVS의 메세지 전송 및 데이터 분석 기능을 활용하기 위해서는
 
 OVS 플랫폼과 Device간의 연동 기능 개발을 보다 쉽게 하실 수 있도록 다양한 언어의 SDK를 제공합니다.  
 
-또한 Starter Kit(링크 - 김경훈님 작업필요) 솔루션을 활용하여 쉽게 단말 연동 기능 시험 및 프로토타입 솔루션을 기획하실 수 있습니다.
+또한 `Starter Kit <https://github.com/ovseadmin/ovs_device_simulator>` 솔루션을 활용하여 쉽게 단말 연동 기능 시험 및 프로토타입 솔루션을 기획하실 수 있습니다.
 
 
 V2N Partner with Server 
