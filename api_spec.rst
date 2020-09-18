@@ -86,7 +86,7 @@ Company 관리 API
 
 내가 속한 회사의 정보를 조회하는 API로, auth-token 만으로 조회가 가능합니다. 
 auth token은 초기 company 생성시에 return 됩니다.
-SK open API 포탈에서 확인하실 수 있습니다. (수정필요)
+SK open API 포탈에서 확인하실 수 있습니다.
 
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
