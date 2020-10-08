@@ -70,7 +70,7 @@ Company Prefix
 +=================+========+==================+==============+
 | Content-Type    | string | application/json | content type |
 +-----------------+--------+------------------+--------------+
-| X-authorization | string | Bearer {{token}} | auth token   |
+| X-Authorization | string | Bearer {{token}} | auth token   |
 +-----------------+--------+------------------+--------------+
 
 - Body

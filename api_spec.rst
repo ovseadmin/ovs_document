@@ -106,7 +106,7 @@ SK open API 포탈에서 확인하실 수 있습니다.
 +=================+========+==================+==============+
 | Content-Type    | string | application/json | content type |
 +-----------------+--------+------------------+--------------+
-| X-authorization | string | {{authToken}}    | auth token   |
+| X-Authorization | string | {{authToken}}    | auth token   |
 +-----------------+--------+------------------+--------------+
 
 - Request Body
@@ -233,7 +233,7 @@ auth token은 SK open API 홈페이지에서, 회사ID(companyId)는 "내 회사
 +=================+========+==================+=============================+
 | Content-Type    | string | application/json | content type                |
 +-----------------+--------+------------------+-----------------------------+
-| X-authorization | string | {{authToken}}    | auth token of each company  |
+| X-Authorization | string | {{authToken}}    | auth token of each company  |
 +-----------------+--------+------------------+-----------------------------+
 
 - Request Body
@@ -361,7 +361,7 @@ CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
 +=================+========+==================+==============+
 | Content-Type    | string | application/json | content type |
 +-----------------+--------+------------------+--------------+
-| X-authorization | string | {{authToken}}    | auth token   |
+| X-Authorization | string | {{authToken}}    | auth token   |
 +-----------------+--------+------------------+--------------+
 
 - Request Body
@@ -495,7 +495,7 @@ CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
 +=================+========+==================+==============+
 | Content-Type    | string | application/json | content type |
 +-----------------+--------+------------------+--------------+
-| X-authorization | string | {{authToken}}    | auth token   |
+| X-Authorization | string | {{authToken}}    | auth token   |
 +-----------------+--------+------------------+--------------+
 
 - Request Body
@@ -587,7 +587,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 +=================+========+==================+==============+
 | Content-Type    | string | application/json | content type |
 +-----------------+--------+------------------+--------------+
-| X-authorization | string | {{authToken}}    | auth token   |
+| X-Authorization | string | {{authToken}}    | auth token   |
 +-----------------+--------+------------------+--------------+
 
 - Request Body
@@ -714,7 +714,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 +=================+========+==================+==============+
 | Content-Type    | string | application/json | content type |
 +-----------------+--------+------------------+--------------+
-| X-authorization | string | {{authToken}}    | auth token   |
+| X-Authorization | string | {{authToken}}    | auth token   |
 +-----------------+--------+------------------+--------------+
 
 - Request Body
@@ -820,7 +820,7 @@ SerialNo가 jdd46_ovs_device_1 인 경우.
 +=================+========+==================+==============+
 | Content-Type    | string | application/json | content type |
 +-----------------+--------+------------------+--------------+
-| X-authorization | string | {{authToken}}    | auth token   |
+| X-Authorization | string | {{authToken}}    | auth token   |
 +-----------------+--------+------------------+--------------+
 
 - Request Body
@@ -918,7 +918,7 @@ OVS는 특정 단말 또는 특정 회사 소속의 전체 단말에 Message 알
 +=================+========+==================+==============+
 | Content-Type    | string | application/json | content type |
 +-----------------+--------+------------------+--------------+
-| X-authorization | string | {{authToken}}    | auth token   |
+| X-Authorization | string | {{authToken}}    | auth token   |
 +-----------------+--------+------------------+--------------+
 
 - Request Body
@@ -1028,7 +1028,7 @@ OVS는 특정 단말 또는 특정 회사 소속의 전체 단말에 Message 알
 +=================+========+==================+==============+
 | Content-Type    | string | application/json | content type |
 +-----------------+--------+------------------+--------------+
-| X-authorization | string | {{authToken}}    | auth token   |
+| X-Authorization | string | {{authToken}}    | auth token   |
 +-----------------+--------+------------------+--------------+
 
 - Request Body
@@ -1154,7 +1154,7 @@ OVS를 통해 전달했던 Event 통계 정보를 단말 또는 회사 별로 �
 +=================+========+==================+==============+
 | Content-Type    | string | application/json | content type |
 +-----------------+--------+------------------+--------------+
-| X-authorization | string | {{authToken}}    | auth token   |
+| X-Authorization | string | {{authToken}}    | auth token   |
 +-----------------+--------+------------------+--------------+
 
 - Request Body
@@ -1254,7 +1254,7 @@ serialNo가 bjx84_ovs_server1이고 2020년 7월 1일 통계를 요청한 경우
 +=================+========+==================+==============+
 | Content-Type    | string | application/json | content type |
 +-----------------+--------+------------------+--------------+
-| X-authorization | string | {{authToken}}    | auth token   |
+| X-Authorization | string | {{authToken}}    | auth token   |
 +-----------------+--------+------------------+--------------+
 
 - Request Body
