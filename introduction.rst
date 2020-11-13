@@ -107,7 +107,7 @@ Open V2N Service (OVS) Platform
 SKT의 Open V2N Service (이하 OVS)는 위에서 소개된 현재 T맵에 제공 중인 V2N 서비스를 스마트폰앱, 단말 제조사 등과 같은 외부 개발 파트너사에서 쉽게 개발할 수 있도록, API (Application Programming Interface)를 제공하는 Platform 입니다. 
 
 
-.. image:: /images/introduction/ovse_concept.png
+.. image:: /images/introduction/ovse_concept2.png
 
 
 OVS를 활용하시면 단말 및 서버의 연동에 상관없이 쉽고 빠르게 V2N Application을 구현하실 수 있습니다.
