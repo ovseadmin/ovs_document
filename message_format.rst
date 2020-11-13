@@ -220,7 +220,7 @@ OVC-M Message Format
 
 OVC-M >> OVS Message
 '''''''''''''''''''''''''
-OVC-M은 OVC-G와 달리 내부에 T맵을 이용하여 도로상의 위치를 파악할 수 있기 때문에, OVS로 위치 주기보고 메세지를 보낼 필요가 없습니다.
+OVC-M은 OVC-G와 달리 내부의 지도정보를 이용하여 도로상의 위치를 파악할 수 있기 때문에, OVS로 위치 주기보고 메세지를 보낼 필요가 없습니다.
 그래서 OVC-M은 비주기 보고 타입만 있으며, 그 형태는 OVC-G와 유사합니다. 
 
 .. _message-format-ovcm-ovceventreport:
@@ -245,9 +245,9 @@ distanceToEvent   O     Integer   | 이벤트 지점까지의 거리 (m)
                                   | - : 후방
 location          M               | 이벤트 발생 위치 정보 (WGS84 Coordination)
                                   | Child key로 "latitude", "longitude" 를 적시
-meshid            O     Integer   T맵 meshid 정보
-linkid            O     Integer   T맵 linkid 정보
-roadType          O     Integer   T맵 기준 현 RoadType 정보    
+meshid            O     Integer   도로 meshid 정보
+linkid            O     Integer   도로 linkid 정보
+roadType          O     Integer   현 RoadType 정보    
 ================  ====  ========  =============================================
 
 비주기 이벤트는 그 종류를 eventType으로 구분하고 있습니다. (*고객사의 제안에 따라 추가될 수 있습니다*)
