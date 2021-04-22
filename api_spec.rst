@@ -22,20 +22,20 @@ OVS는 다음과 같은 REST API를 제공합니다.
 =========  ===============================================  ===========  =====================================================
 | 구분      |  설명                                          | Method    | URL                                                
 =========  ===============================================  ===========  =====================================================
- Company    | -  내 회사 정보 조회                           | GET       | /api/ovs/v1/company/me
-            | -  회사 정보 조회                              | GET       | /api/ovs/v1/company/{companyId}                    
-            | -  전체 단말 정보 조회                         | GET       | /api/ovs/v1/company/{companyId}/devices            
-            | -  전체 단말 수 조회                           | GET       | /api/ovs/v1/devices/cnt          
+ Company    | -  내 회사 정보 조회                           | GET       | /api/ovs/v1/company/info/me
+            | -  회사 정보 조회                              | GET       | /api/ovs/v1/company/info/{companyId}                    
+            | -  전체 단말 정보 조회                         | GET       | /api/ovs/v1/company/info/devices/{companyId}
+            | -  전체 단말 수 조회                           | GET       | /api/ovs/v1/company/info/devices/cnt/{companyId}
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
  Device     | -  단말 등록                                   | POST      | /api/ovs/v1/device                                 
             | -  단말 정보 조회                              | GET       | /api/ovs/v1/device/{serialNo}                      
             | -  단말 삭제                                   | DELETE    | /api/ovs/v1/device/{serialNo}                      
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
- Message    | -  단말별 메시지 전달                          | POST      | /api/ovs/v1/device/{serialNo}/message
-            | -  전체 단말에 메시지 전달                     | POST      | /api/ovs/v1/company/{companyId}/message            
+ Message    | -  단말별 메시지 전달                          | POST      | /api/ovs/v1/message/device/{serialNo}
+            | -  전체 단말에 메시지 전달                     | POST      | /api/ovs/v1/message/company/{companyId}
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
- Stats      | -  특정 회사 단말의 기간별 이벤트 통계         | GET       | /api/ovs/v1/company/{companyId}/statistics/event   
-            | -  특정 단말 기간별 이벤트 통계                | GET       | /api/ovs/v1/device/{serialNo}/statistics/event     
+ Stats      | -  특정 회사 단말의 기간별 이벤트 통계         | GET       | /api/ovs/v1/statistics/company/event/{companyId}
+            | -  특정 단말 기간별 이벤트 통계                | GET       | /api/ovs/v1/statistics/device/event/{serialNo}
 =========  ===============================================  ===========  =====================================================
 .. rst-class:: text-align-justify
 
