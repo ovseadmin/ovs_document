@@ -77,7 +77,7 @@ OVS API 호출시 인증을 위하여 유효한 auth token을 포함하여야 �
 
 SK open API 접근을 위한 auth token
 ......................................
-프로젝트를 생성하면, My Project의 Key 탭의 Project Key에서 확인가능합니다.
+프로젝트를 생성이후 My Project의 Key 탭의 Project Key에서 확인가능합니다.
 
 .. image:: images/skoa_4_1.png
 	:width: 80%
@@ -88,9 +88,13 @@ SK open API 접근을 위한 auth token
 
 OVS API 접근을 위한 auth token: 
 .....................................
-OVS 서비스 가입 후, Company 정보 조회 API를 이용하여 확인하실 수 있습니다. 
+프로젝트를 생성이후 My Project의 Key 탭의 Project Key에서 확인가능합니다.
 
-가입 및 서비스 생성 직후에는 Company Id를 알 수 없으니, 내 회사 정보 조회 (company/me) API를 사용하시면 됩니다. 
+.. image:: images/skoa_4_2.png
+	:width: 80%
+	:align: center
+
+이후 API의 header 내 X-Authentication 으로 입력이 필요합니다. 
 
 auth token을 포함한 API 규격은 :ref:`7. API 규격 <api-specification>` 을 참고하십시오.
 
