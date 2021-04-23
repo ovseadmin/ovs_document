@@ -31,8 +31,8 @@ OVS는 다음과 같은 REST API를 제공합니다.
             | -  단말 정보 조회                              | GET       | /api/ovs/v1/device/{serialNo}                      
             | -  단말 삭제                                   | DELETE    | /api/ovs/v1/device/{serialNo}                      
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
- Message    | -  단말별 메시지 전달                          | POST      | /api/ovs/v1/message/device/{serialNo}
-            | -  전체 단말에 메시지 전달                     | POST      | /api/ovs/v1/message/company/{companyId}
+ Message    | -  전체 단말에 메시지 전달                     | POST      | /api/ovs/v1/message/company/{companyId}
+            | -  단말별 메시지 전달                          | POST      | /api/ovs/v1/message/device/{serialNo}
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
  Stats      | -  특정 회사 단말의 기간별 이벤트 통계         | GET       | /api/ovs/v1/statistics/company/event/{companyId}
             | -  특정 단말 기간별 이벤트 통계                | GET       | /api/ovs/v1/statistics/device/event/{serialNo}
@@ -56,8 +56,8 @@ SK open API 포털의 gateway 연동시는 위의 API는 아래와 같이 사용
 | GET       | https://apis.openapi.sk.com/api/ovs/v11/device/{serialNo}                      
 | DELETE    | https://apis.openapi.sk.com/api/ovs/v11/device/{serialNo}                                                 
 ----------  --------------------------------------------------------------------------------                    
-| POST      | https://apis.openapi.sk.com/api/ovs/v11/message/device/{serialNo}
 | POST      | https://apis.openapi.sk.com/api/ovs/v11/message/company/{companyId}
+| POST      | https://apis.openapi.sk.com/api/ovs/v11/message/device/{serialNo}
 ----------  --------------------------------------------------------------------------------
 | GET       | https://apis.openapi.sk.com/api/ovs/v11/statistics/company/event/{companyId}
 | GET       | https://apis.openapi.sk.com/api/ovs/v11/statistics/device/event/{serialNo}
@@ -893,115 +893,6 @@ Message Notification API
 
 OVS는 특정 단말 또는 특정 회사 소속의 전체 단말에 Message 알림 기능을 제공합니다.
 
-.. _api-specification_message-delivery:
-
-단말별 메시지 전달
-~~~~~~~~~~~~~~~~~~
-
-특정 단말에 공지 등의 메시지를 전달할 수 있습니다. 
-
-.. rst-class:: table-width-fix
-.. rst-class:: text-align-justify
-
-+------------+----------------------------------------------------------+
-| **POST**   | `/api/ovs/v1/message/device/{serialNo}  <https://TBD>`__ |
-+------------+----------------------------------------------------------+
-
-- Request Header
-
-.. rst-class:: table-width-fix
-.. rst-class:: table-width-full
-.. rst-class:: text-align-justify
-
-+-----------------+--------+------------------+--------------+
-| option          | Type   | Default          | Description  |
-+=================+========+==================+==============+
-| Content-Type    | string | application/json | content type |
-+-----------------+--------+------------------+--------------+
-| X-Authorization | string | {{authToken}}    | auth token   |
-+-----------------+--------+------------------+--------------+
-
-- Request Body
-
-.. rst-class:: table-width-fix
-.. rst-class:: table-width-full
-.. rst-class:: text-align-justify
-
-+----------------+--------+--------------------------------------------------------------------+
-| Key            | Type   | Description                                                        |
-+================+========+====================================================================+
-| type           | int    | type of message (OTA, event ID et al.)                             |
-+----------------+--------+--------------------------------------------------------------------+
-| timestamp      | int    | linux epoch time in miliseconds                                    |
-+----------------+--------+--------------------------------------------------------------------+
-| message        | string | message contents                                                   |
-+----------------+--------+--------------------------------------------------------------------+
-
-- Response Body
-
-.. rst-class:: table-width-fix
-.. rst-class:: table-width-full
-.. rst-class:: text-align-justify
-
-+----------------+--------+--------------------------------------------------------------------+
-| Key            | Type   | Description                                                        |
-+================+========+====================================================================+
-| type           | int    | type of message (OTA, event ID et al.)                             |
-+----------------+--------+--------------------------------------------------------------------+
-| timestamp      | int    | linux epoch time in miliseconds                                    |
-+----------------+--------+--------------------------------------------------------------------+
-| message        | string | message contents                                                   |
-+----------------+--------+--------------------------------------------------------------------+
-| serialNo       | string | the device which the message was delivered                         |
-+----------------+--------+--------------------------------------------------------------------+
-
-.. role:: underline
-        :class: underline
-
-- Example Code
-
-``Request``
-
-.. code-block:: none
-
-    content-type:"application/json"
-    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
-    {
-        "type": 9999,
-        "timestamp": 1590654942693,
-        "message": "test message"
-    }
-
-``Request in curl format``
-
-.. code-block:: none
-
-    curl --location --request POST 'https://apis.openapi.sk.com/api/ovs/v11/message/device/uio35fine1236' \
-        --header 'Content-Type: application/json' \
-        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
-        --data-raw '{
-            "type": 9999,
-            "timestamp": 1590654942693,
-            "message": "test message"
-        }'
-
-
-``Response (code: 200)``
-
-.. code-block:: json
-
-    {
-        "message": {
-            "type": 9999,
-            "timestamp": 1590654942693,
-            "message": "test message"
-        },
-        "serialNo": "uio35fine1236"
-    }
-
-.. rst-class:: text-align-justify
-
-
 
 .. _api-specification_message-delivery-all:
 
@@ -1121,6 +1012,118 @@ OVS는 특정 단말 또는 특정 회사 소속의 전체 단말에 Message 알
 
 
 
+.. _api-specification_message-delivery:
+
+단말별 메시지 전달
+~~~~~~~~~~~~~~~~~~
+
+특정 단말에 공지 등의 메시지를 전달할 수 있습니다. 
+
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
+
++------------+----------------------------------------------------------+
+| **POST**   | `/api/ovs/v1/message/device/{serialNo}  <https://TBD>`__ |
++------------+----------------------------------------------------------+
+
+- Request Header
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+--------+------------------+--------------+
+| option          | Type   | Default          | Description  |
++=================+========+==================+==============+
+| Content-Type    | string | application/json | content type |
++-----------------+--------+------------------+--------------+
+| X-Authorization | string | {{authToken}}    | auth token   |
++-----------------+--------+------------------+--------------+
+
+- Request Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------------+--------+--------------------------------------------------------------------+
+| Key            | Type   | Description                                                        |
++================+========+====================================================================+
+| type           | int    | type of message (OTA, event ID et al.)                             |
++----------------+--------+--------------------------------------------------------------------+
+| timestamp      | int    | linux epoch time in miliseconds                                    |
++----------------+--------+--------------------------------------------------------------------+
+| message        | string | message contents                                                   |
++----------------+--------+--------------------------------------------------------------------+
+
+- Response Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------------+--------+--------------------------------------------------------------------+
+| Key            | Type   | Description                                                        |
++================+========+====================================================================+
+| type           | int    | type of message (OTA, event ID et al.)                             |
++----------------+--------+--------------------------------------------------------------------+
+| timestamp      | int    | linux epoch time in miliseconds                                    |
++----------------+--------+--------------------------------------------------------------------+
+| message        | string | message contents                                                   |
++----------------+--------+--------------------------------------------------------------------+
+| serialNo       | string | the device which the message was delivered                         |
++----------------+--------+--------------------------------------------------------------------+
+
+.. role:: underline
+        :class: underline
+
+- Example Code
+
+``Request``
+
+.. code-block:: none
+
+    content-type:"application/json"
+    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…"
+    {
+        "type": 9999,
+        "timestamp": 1590654942693,
+        "message": "test message"
+    }
+
+``Request in curl format``
+
+.. code-block:: none
+
+    curl --location --request POST 'https://apis.openapi.sk.com/api/ovs/v11/message/device/uio35fine1236' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
+        --data-raw '{
+            "type": 9999,
+            "timestamp": 1590654942693,
+            "message": "test message"
+        }'
+
+
+``Response (code: 200)``
+
+.. code-block:: json
+
+    {
+        "message": {
+            "type": 9999,
+            "timestamp": 1590654942693,
+            "message": "test message"
+        },
+        "serialNo": "uio35fine1236"
+    }
+
+.. rst-class:: text-align-justify
+
+
+
+
+
 
 
 .. _api-specification_statistics:
@@ -1128,6 +1131,107 @@ OVS는 특정 단말 또는 특정 회사 소속의 전체 단말에 Message 알
 이벤트 통계 API
 ------------------------
 OVS를 통해 전달했던 Event 통계 정보를 단말 또는 회사 별로 기간 조건을 두고 조회 할 수 있습니다.
+
+
+.. _api-specification_statistics-company:
+
+회사별 이벤트 통계 
+~~~~~~~~~~~~~~~~~~~~~
+
+회사별 이벤트 통계를 조회할 수 있습니다. 본 API에는 companyId가 필요하며, companyId는 /api/ovs/v1/company/me 에서 조회할 수 있습니다. 
+
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
+
++------------+----------------------------------------------------------------------+
+| **GET**    | `/api/ovs/v1/statistics/company/event/{companyId}  <https://TBD>`__  |
++------------+----------------------------------------------------------------------+
+- Request Header
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+--------+------------------+--------------+
+| option          | Type   | Default          | Description  |
++=================+========+==================+==============+
+| Content-Type    | string | application/json | content type |
++-----------------+--------+------------------+--------------+
+| X-Authorization | string | {{authToken}}    | auth token   |
++-----------------+--------+------------------+--------------+
+
+- Request Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------+---------+------------------+-------------------------------+
+| Key      | Type    | Default          | Description                   |
++==========+=========+==================+===============================+
+| year     | integer | Mandatory        | 요청하고자 하는 특정 연도     |
++----------+---------+------------------+-------------------------------+
+| month    | integer | Optional         | 요청하고자 하는 특정월        |
++----------+---------+------------------+-------------------------------+
+| day      | integer | Optional         | 요청하고자 하는 특정일        |
++----------+---------+------------------+-------------------------------+
+
+- Response Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------------+--------+--------------------------------------------------------------------+
+| Key            | Type   | Description                                                        |
++================+========+====================================================================+
+| to be added    | int    | to be added                                                        |
++----------------+--------+--------------------------------------------------------------------+
+
+.. role:: underline
+        :class: underline
+
+- Example Code
+
+``Request``
+
+.. code-block:: none
+
+    content-type:"application/json"
+    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0M0Bz...."
+
+``Request in curl format``
+
+CompanyId가 52631da0-b5ef-11ea-8f00-6730e8ef1a9e 이고 2020년 7월 1일 통계를 요청한 경우.
+
+.. code-block:: none
+
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v11/statistics/company/event/52631da0-b5ef-11ea-8f00-6730e8ef1a9e?year=2020&&month=7&day=1' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0M0Bz....' \
+        -d ''
+
+
+``Response (code: 200)``
+
+.. code-block:: json
+
+    {
+        "companyId":"52631da0-b5ef-11ea-8f00-6730e8ef1a9e",
+        "requestDate":{
+            "year":2020,
+            "month":7,
+            "day":1
+        },
+        "statistics":{
+            "event":{
+                "msgNotification":16
+            }
+        }
+    }
+
+.. rst-class:: text-align-justify
+
 
 .. _api-specification_statistics-device:
 
@@ -1229,103 +1333,4 @@ serialNo가 uio3512345678911234 2020년 7월 1일 통계를 요청한 경우.
 .. rst-class:: text-align-justify
 
 
-
-.. _api-specification_statistics-company:
-
-회사 별 이벤트 통계 
-~~~~~~~~~~~~~~~~~~~~~
-
-회사 별 이벤트 통계를 조회할 수 있습니다. 본 API에는 companyId가 필요하며, companyId는 /api/ovs/v1/company/me 에서 조회할 수 있습니다. 
-
-.. rst-class:: table-width-fix
-.. rst-class:: text-align-justify
-
-+------------+----------------------------------------------------------------------+
-| **GET**    | `/api/ovs/v1/statistics/company/event/{companyId}  <https://TBD>`__  |
-+------------+----------------------------------------------------------------------+
-- Request Header
-
-.. rst-class:: table-width-fix
-.. rst-class:: table-width-full
-.. rst-class:: text-align-justify
-
-+-----------------+--------+------------------+--------------+
-| option          | Type   | Default          | Description  |
-+=================+========+==================+==============+
-| Content-Type    | string | application/json | content type |
-+-----------------+--------+------------------+--------------+
-| X-Authorization | string | {{authToken}}    | auth token   |
-+-----------------+--------+------------------+--------------+
-
-- Request Body
-
-.. rst-class:: table-width-fix
-.. rst-class:: table-width-full
-.. rst-class:: text-align-justify
-
-+----------+---------+------------------+-------------------------------+
-| Key      | Type    | Default          | Description                   |
-+==========+=========+==================+===============================+
-| year     | integer | Mandatory        | 요청하고자 하는 특정 연도     |
-+----------+---------+------------------+-------------------------------+
-| month    | integer | Optional         | 요청하고자 하는 특정월        |
-+----------+---------+------------------+-------------------------------+
-| day      | integer | Optional         | 요청하고자 하는 특정일        |
-+----------+---------+------------------+-------------------------------+
-
-- Response Body
-
-.. rst-class:: table-width-fix
-.. rst-class:: table-width-full
-.. rst-class:: text-align-justify
-
-+----------------+--------+--------------------------------------------------------------------+
-| Key            | Type   | Description                                                        |
-+================+========+====================================================================+
-| to be added    | int    | to be added                                                        |
-+----------------+--------+--------------------------------------------------------------------+
-
-.. role:: underline
-        :class: underline
-
-- Example Code
-
-``Request``
-
-.. code-block:: none
-
-    content-type:"application/json"
-    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0M0Bz...."
-
-``Request in curl format``
-
-CompanyId가 52631da0-b5ef-11ea-8f00-6730e8ef1a9e 이고 2020년 7월 1일 통계를 요청한 경우.
-
-.. code-block:: none
-
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v11/statistics/company/event/52631da0-b5ef-11ea-8f00-6730e8ef1a9e?year=2020&&month=7&day=1' \
-        --header 'Content-Type: application/json' \
-        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0M0Bz....' \
-        -d ''
-
-
-``Response (code: 200)``
-
-.. code-block:: json
-
-    {
-        "companyId":"52631da0-b5ef-11ea-8f00-6730e8ef1a9e",
-        "requestDate":{
-            "year":2020,
-            "month":7,
-            "day":1
-        },
-        "statistics":{
-            "event":{
-                "msgNotification":16
-            }
-        }
-    }
-
-.. rst-class:: text-align-justify
 
