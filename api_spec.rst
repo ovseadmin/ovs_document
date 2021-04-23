@@ -91,9 +91,9 @@ SK open API 포탈에서 확인하실 수 있습니다.
 .. rst-class:: table-width-fix
 .. rst-class:: text-align-justify
 
-+------------+------------------------------------------+
-| **GET**    | `/api/ovs/v1/company/me <https://TBD>`__ |
-+------------+------------------------------------------+
++------------+-----------------------------------------------+
+| **GET**    | `/api/ovs/v1/company/info/me <https://TBD>`__ |
++------------+-----------------------------------------------+
 
 - Request Header
 
@@ -160,7 +160,7 @@ auth token 만으로 내 회사 정보 조회.
 
 .. code-block:: none
 
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/company/me' \
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v11/company/info/me' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0M0Bz....' \
         -d ''
@@ -218,9 +218,9 @@ auth token은 SK open API 홈페이지에서, 회사ID(companyId)는 "내 회사
 .. rst-class:: text-align-justify
 
 - Request API URL
-+------------+----------------------------------------------------+
-| **GET**    | `/api/ovs/v1/company/{companyId} <https://TBD>`__  |
-+------------+----------------------------------------------------+
++------------+---------------------------------------------------------+
+| **GET**    | `/api/ovs/v1/company/info/{companyId} <https://TBD>`__  |
++------------+---------------------------------------------------------+
 
 - Request Header
 
@@ -287,7 +287,7 @@ CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
 
 .. code-block:: none
 
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/company/52631da0-b5ef-11ea-8f00-6730e8ef1a9e/statistics/event?year=2020&&month=7&day=1' \
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v11/company/info/52631da0-b5ef-11ea-8f00-6730e8ef1a9e' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0M0Bz....' \
         -d ''
@@ -346,7 +346,7 @@ CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
 .. rst-class:: text-align-justify
 
 +------------+------------------------------------------------------------------------------+
-| **GET**    | `/api/ovs/v1/company/{companyId}/devices?limit=10 <https://TBD>`__           |
+| **GET**    | `/api/ovs/v1/company/info/devices/{companyId}?limit=10 <https://TBD>`__      |
 +------------+------------------------------------------------------------------------------+
 
 
@@ -413,7 +413,7 @@ CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
 
 .. code-block:: none
 
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/company/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f/devices?limit=10' \
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v11/company/info/devices/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f?limit=10' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         -d ''
@@ -480,7 +480,7 @@ CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
 .. rst-class:: text-align-justify
 
 +------------+------------------------------------------------------------------------------+
-| **GET**    | `/api/ovs/v1/devices/cnt                          <https://TBD>`__           |
+| **GET**    | `/api/ovs/v1/company/info/devices/cnt             <https://TBD>`__           |
 +------------+------------------------------------------------------------------------------+
 
 
@@ -541,7 +541,7 @@ CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
 
 .. code-block:: none
 
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/devices/cnt' \
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v11/company/info/devices/cnt' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         -d ''
@@ -652,7 +652,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
 .. code-block:: none
 
-    curl --location --request POST 'https://apis.openapi.sk.com/api/ovs/v1/device' \
+    curl --location --request POST 'https://apis.openapi.sk.com/api/ovs/v11/device' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         --data-raw '{
@@ -761,11 +761,11 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
 ``Request in curl format``
 
-SerialNo가 jdd46_ovs_device_1 인 경우.
+SerialNo가 uio3512345678911234 인 경우.
 
 .. code-block:: none
 
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/device/jdd46_ovs_device_1' \
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v11/device/uio3512345678911234' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         -d ''
@@ -873,7 +873,7 @@ SerialNo가 jdd46_ovs_device_1 인 경우.
 
 .. code-block:: none
 
-    curl --location --request DELETE 'https://apis.openapi.sk.com/api/ovs/v1/device/uio3512345678911234' \
+    curl --location --request DELETE 'https://apis.openapi.sk.com/api/ovs/v11/device/uio3512345678911234' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         --data-raw ''
@@ -904,7 +904,7 @@ OVS는 특정 단말 또는 특정 회사 소속의 전체 단말에 Message 알
 .. rst-class:: text-align-justify
 
 +------------+----------------------------------------------------------+
-| **POST**   | `/api/ovs/v1/device/{serialNo}/message  <https://TBD>`__ |
+| **POST**   | `/api/ovs/v1/message/device/{serialNo}  <https://TBD>`__ |
 +------------+----------------------------------------------------------+
 
 - Request Header
@@ -976,7 +976,7 @@ OVS는 특정 단말 또는 특정 회사 소속의 전체 단말에 Message 알
 
 .. code-block:: none
 
-    curl --location --request POST 'https://apis.openapi.sk.com/api/ovs/v1/device/uio35fine1236/message' \
+    curl --location --request POST 'https://apis.openapi.sk.com/api/ovs/v11/message/device/uio35fine1236' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         --data-raw '{
@@ -1014,7 +1014,7 @@ OVS는 특정 단말 또는 특정 회사 소속의 전체 단말에 Message 알
 .. rst-class:: text-align-justify
 
 +------------+-------------------------------------------------------------+
-| **POST**   | `/api/ovs/v1/company/{companyId}/message  <https://TBD>`__  |
+| **POST**   | `/api/ovs/v1/message/company/{companyId}  <https://TBD>`__  |
 +------------+-------------------------------------------------------------+
 
 - Request Header
@@ -1086,7 +1086,7 @@ OVS는 특정 단말 또는 특정 회사 소속의 전체 단말에 Message 알
 
 .. code-block:: none
 
-    curl --location --request POST 'https://apis.openapi.sk.com/api/ovs/v1/company/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f/message' \
+    curl --location --request POST 'https://apis.openapi.sk.com/api/ovs/v11/messasge/company/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         --data-raw '{
@@ -1140,7 +1140,7 @@ OVS를 통해 전달했던 Event 통계 정보를 단말 또는 회사 별로 �
 .. rst-class:: text-align-justify
 
 +------------+-------------------------------------------------------------------+
-| **GET**    | `/api/ovs/v1/device/{serialNo}/statistics/event  <https://TBD>`__ |
+| **GET**    | `/api/ovs/v1/statistics/device/event/{serialNo}  <https://TBD>`__ |
 +------------+-------------------------------------------------------------------+
 
 - Request Header
@@ -1199,11 +1199,11 @@ OVS를 통해 전달했던 Event 통계 정보를 단말 또는 회사 별로 �
 
 ``Request in curl format``
 
-serialNo가 bjx84_ovs_server1이고 2020년 7월 1일 통계를 요청한 경우.
+serialNo가 uio3512345678911234 2020년 7월 1일 통계를 요청한 경우.
 
 .. code-block:: none
 
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/device/bjx84_ovs_server1/statistics/event?year=2020&month=7&day=1' \
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v11/statistics/device/event/uio3512345678911234//event?year=2020&month=7&day=1' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0MUB....' \
         -d ''
@@ -1241,7 +1241,7 @@ serialNo가 bjx84_ovs_server1이고 2020년 7월 1일 통계를 요청한 경우
 .. rst-class:: text-align-justify
 
 +------------+----------------------------------------------------------------------+
-| **GET**    | `/api/ovs/v1/company/{companyId}/statistics/event  <https://TBD>`__  |
+| **GET**    | `/api/ovs/v1/statistics/company/event/{companyId}  <https://TBD>`__  |
 +------------+----------------------------------------------------------------------+
 - Request Header
 
@@ -1303,7 +1303,7 @@ CompanyId가 52631da0-b5ef-11ea-8f00-6730e8ef1a9e 이고 2020년 7월 1일 통�
 
 .. code-block:: none
 
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v1/company/52631da0-b5ef-11ea-8f00-6730e8ef1a9e/statistics/event?year=2020&&month=7&day=1' \
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v11/statistics/company/event/52631da0-b5ef-11ea-8f00-6730e8ef1a9e?year=2020&&month=7&day=1' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0M0Bz....' \
         -d ''
