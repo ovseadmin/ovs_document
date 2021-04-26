@@ -47,20 +47,20 @@ SK open API 포털의 gateway 연동시는 위의 API는 아래와 같이 사용
 ==========  ================================================================================
 | Method    | URL example                                                                   
 ==========  ================================================================================
-| GET       | https://apis.openapi.sk.com/api/ovs/v11/company/me 
-| GET       | https://apis.openapi.sk.com/api/ovs/v11/company/info/{companyId}                                
-| GET       | https://apis.openapi.sk.com/api/ovs/v11/company/info/devices/{companyId}
-| GET       | https://apis.openapi.sk.com/api/ovs/v11/company/info/devices/cnt/{companyId}
+| GET       | https://apis.openapi.sk.com/api/ovs/v20/company/me 
+| GET       | https://apis.openapi.sk.com/api/ovs/v20/company/info/{companyId}                                
+| GET       | https://apis.openapi.sk.com/api/ovs/v20/company/info/devices/{companyId}
+| GET       | https://apis.openapi.sk.com/api/ovs/v20/company/info/devices/cnt/{companyId}
 ----------  --------------------------------------------------------------------------------
-| POST      | https://apis.openapi.sk.com/api/ovs/v11/device                                 
-| GET       | https://apis.openapi.sk.com/api/ovs/v11/device/{serialNo}                      
-| DELETE    | https://apis.openapi.sk.com/api/ovs/v11/device/{serialNo}                                                 
+| POST      | https://apis.openapi.sk.com/api/ovs/v20/device                                 
+| GET       | https://apis.openapi.sk.com/api/ovs/v20/device/{serialNo}                      
+| DELETE    | https://apis.openapi.sk.com/api/ovs/v20/device/{serialNo}                                                 
 ----------  --------------------------------------------------------------------------------                    
-| POST      | https://apis.openapi.sk.com/api/ovs/v11/message/company/{companyId}
-| POST      | https://apis.openapi.sk.com/api/ovs/v11/message/device/{serialNo}
+| POST      | https://apis.openapi.sk.com/api/ovs/v20/message/company/{companyId}
+| POST      | https://apis.openapi.sk.com/api/ovs/v20/message/device/{serialNo}
 ----------  --------------------------------------------------------------------------------
-| GET       | https://apis.openapi.sk.com/api/ovs/v11/statistics/company/event/{companyId}
-| GET       | https://apis.openapi.sk.com/api/ovs/v11/statistics/device/event/{serialNo}
+| GET       | https://apis.openapi.sk.com/api/ovs/v20/statistics/company/event/{companyId}
+| GET       | https://apis.openapi.sk.com/api/ovs/v20/statistics/device/event/{serialNo}
 ==========  ================================================================================
 
 .. rst-class:: text-align-justify
