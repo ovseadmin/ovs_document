@@ -36,6 +36,8 @@ OVS는 다음과 같은 REST API를 제공합니다.
 ---------  -----------------------------------------------  -----------  -----------------------------------------------------
  Stats      | -  특정 회사 단말의 기간별 이벤트 통계         | GET       | /api/ovs/v1/statistics/company/event/{companyId}
             | -  특정 단말 기간별 이벤트 통계                | GET       | /api/ovs/v1/statistics/device/event/{serialNo}
+---------  -----------------------------------------------  -----------  -----------------------------------------------------
+ Raw Data   | -  기간별 이벤트 Raw Data                      | GET       | /api/ovs/v1/statistics/event/raw
 =========  ===============================================  ===========  =====================================================
 .. rst-class:: text-align-justify
 
@@ -61,6 +63,8 @@ SK open API 포털의 gateway 연동시는 위의 API는 아래와 같이 사용
 ----------  --------------------------------------------------------------------------------
 | GET       | https://apis.openapi.sk.com/api/ovs/v20/statistics/company/event/{companyId}
 | GET       | https://apis.openapi.sk.com/api/ovs/v20/statistics/device/event/{serialNo}
+----------  --------------------------------------------------------------------------------
+| GET       | https://apis.openapi.sk.com/api/ovs/v20/statistics/event/raw
 ==========  ================================================================================
 
 .. rst-class:: text-align-justify
@@ -160,7 +164,7 @@ auth token 만으로 내 회사 정보 조회.
 
 .. code-block:: none
 
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v11/company/info/me' \
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v20/company/info/me' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0M0Bz....' \
         -d ''
@@ -287,7 +291,7 @@ CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
 
 .. code-block:: none
 
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v11/company/info/52631da0-b5ef-11ea-8f00-6730e8ef1a9e' \
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v20/company/info/52631da0-b5ef-11ea-8f00-6730e8ef1a9e' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0M0Bz....' \
         -d ''
@@ -413,7 +417,7 @@ CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
 
 .. code-block:: none
 
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v11/company/info/devices/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f?limit=10' \
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v20/company/info/devices/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f?limit=10' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         -d ''
@@ -541,7 +545,7 @@ CompanyId가 f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f 인 경우.
 
 .. code-block:: none
 
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v11/company/info/devices/cnt' \
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v20/company/info/devices/cnt' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         -d ''
@@ -652,7 +656,7 @@ OVS 서비스를 이용할 신규 단말을 등록합니다.
 
 .. code-block:: none
 
-    curl --location --request POST 'https://apis.openapi.sk.com/api/ovs/v11/device' \
+    curl --location --request POST 'https://apis.openapi.sk.com/api/ovs/v20/device' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         --data-raw '{
@@ -765,7 +769,7 @@ SerialNo가 uio3512345678911234 인 경우.
 
 .. code-block:: none
 
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v11/device/uio3512345678911234' \
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v20/device/uio3512345678911234' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         -d ''
@@ -873,7 +877,7 @@ SerialNo가 uio3512345678911234 인 경우.
 
 .. code-block:: none
 
-    curl --location --request DELETE 'https://apis.openapi.sk.com/api/ovs/v11/device/uio3512345678911234' \
+    curl --location --request DELETE 'https://apis.openapi.sk.com/api/ovs/v20/device/uio3512345678911234' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         --data-raw ''
@@ -977,7 +981,7 @@ OVS는 특정 단말 또는 특정 회사 소속의 전체 단말에 Message 알
 
 .. code-block:: none
 
-    curl --location --request POST 'https://apis.openapi.sk.com/api/ovs/v11/messasge/company/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f' \
+    curl --location --request POST 'https://apis.openapi.sk.com/api/ovs/v20/messasge/company/f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         --data-raw '{
@@ -1095,7 +1099,7 @@ OVS는 특정 단말 또는 특정 회사 소속의 전체 단말에 Message 알
 
 .. code-block:: none
 
-    curl --location --request POST 'https://apis.openapi.sk.com/api/ovs/v11/message/device/uio35fine1236' \
+    curl --location --request POST 'https://apis.openapi.sk.com/api/ovs/v20/message/device/uio35fine1236' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzeXNhZG1pbkB0aG…' \
         --data-raw '{
@@ -1206,7 +1210,7 @@ CompanyId가 52631da0-b5ef-11ea-8f00-6730e8ef1a9e 이고 2020년 7월 1일 통�
 
 .. code-block:: none
 
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v11/statistics/company/event/52631da0-b5ef-11ea-8f00-6730e8ef1a9e?year=2020&&month=7&day=1' \
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v20/statistics/company/event/52631da0-b5ef-11ea-8f00-6730e8ef1a9e?year=2020&&month=7&day=1' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0M0Bz....' \
         -d ''
@@ -1307,7 +1311,7 @@ serialNo가 uio3512345678911234 2020년 7월 1일 통계를 요청한 경우.
 
 .. code-block:: none
 
-    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v11/statistics/device/event/uio3512345678911234//event?year=2020&month=7&day=1' \
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v20/statistics/device/event/uio3512345678911234/event?year=2020&month=7&day=1' \
         --header 'Content-Type: application/json' \
         --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0MUB....' \
         -d ''
@@ -1334,3 +1338,108 @@ serialNo가 uio3512345678911234 2020년 7월 1일 통계를 요청한 경우.
 
 
 
+
+.. _api-specification_statistics-rawdata:
+
+이벤트 Raw Data API
+------------------------
+OVS를 통해 전달했던 Event raw data를 월별로 조회할 수 있습니다.
+
+
+.. _api-specification_statistics-rawdata-getlink:
+
+이벤트 Raw Data 정보 조회 
+~~~~~~~~~~~~~~~~~~~~~
+
+월별 이벤트 Raw Data 정보를 조회할 수 있습니다. 조회결과로 1개월의 이벤트 raw data 파일
+
+.. rst-class:: table-width-fix
+.. rst-class:: text-align-justify
+
++------------+-------------------------------------------------------------------+
+| **GET**    | `/api/ovs/v1/statistics/statistics/event/raw     <https://TBD>`__ |
++------------+-------------------------------------------------------------------+
+
+- Request Header
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++-----------------+--------+------------------+--------------+
+| option          | Type   | Default          | Description  |
++=================+========+==================+==============+
+| Content-Type    | string | application/json | content type |
++-----------------+--------+------------------+--------------+
+| X-Authorization | string | {{authToken}}    | auth token   |
++-----------------+--------+------------------+--------------+
+
+- Request Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------+---------+------------------+-------------------------------+
+| Key      | Type    | Default          | Description                   |
++==========+=========+==================+===============================+
+| year     | integer | Mandatory        | 요청하고자 하는 특정 연도     |
++----------+---------+------------------+-------------------------------+
+| month    | integer | Optional         | 요청하고자 하는 특정월        |
++----------+---------+------------------+-------------------------------+
+
+- Response Body
+
+.. rst-class:: table-width-fix
+.. rst-class:: table-width-full
+.. rst-class:: text-align-justify
+
++----------------+--------+--------------------------------------------------------------------+
+| Key            | Type   | Description                                                        |
++================+========+====================================================================+
+| url            | string | URL of the raw data file(zip format)                               |
++----------------+--------+--------------------------------------------------------------------+
+| passworld      | string | password for the raw data zip file                                 |
++----------------+--------+--------------------------------------------------------------------+
+| expiry         | string | expiration date of the download URL                                |
++----------------+--------+--------------------------------------------------------------------+
+
+.. role:: underline
+        :class: underline
+
+- Example Code
+
+``Request``
+
+.. code-block:: none
+
+    content-type:"application/json"
+    X-Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0MUB...."
+
+``Request in curl format``
+
+2021년 03월의 이벤트 raw data 정보를 조회하는 경우.
+
+.. code-block:: none
+
+    curl --location --request GET 'https://apis.openapi.sk.com/api/ovs/v20/statistics/event/raw?year=2021&month=3' \
+        --header 'Content-Type: application/json' \
+        --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJuYml0ZXN0MUB....' \
+        -d ''
+
+``Response (code: 200)``
+
+.. code-block:: json
+
+    {
+        "url":"https://ovs.sktelecom.com:8082/repository/wioadlsl.zip",
+        "password":"abcd1234",
+        "expiry":"2021-04-31"
+    }
+
+.. rst-class:: text-align-justify
+
+.. _api-specification_statistics-rawdata-download:
+
+이벤트 Raw Data 파일 다운로드 
+~~~~~~~~~~~~~~~~~~~~~
