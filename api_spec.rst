@@ -1443,3 +1443,9 @@ OVS를 통해 전달했던 Event raw data를 월별로 조회할 수 있습니�
 
 이벤트 Raw Data 파일 다운로드 
 ~~~~~~~~~~~~~~~~~~~~~
+
+위의 "이벤트 Raw Data 정보 조회" API를 통해 얻은 raw data URL을 이용하여 다운로드 합니다. 
+파일은 zip 파일 형식이며, password는 "이벤트 Raw Data 정보 조회" API에서 URL과 함께 제공됩니다. 
+
+.. rst-class:: text-align-justify
+
