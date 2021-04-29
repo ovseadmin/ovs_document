@@ -53,7 +53,7 @@ Device Simulator 사용
 -----------------------------------
 OVS device simulator의 자세한 동작은 :ref:`9. Device Simulator<device-simulator>` 를 참고하시기 바랍니다. 
 
-.. code-block:: none
+.. code-block:: python
 
     $ git clone https://github.com/ovseadmin/ovse_device_simulator.git 
     $ cd ovse_device_simulator/ovsClient_nodeJS
@@ -69,7 +69,7 @@ API 사용 및 통계
 API 사용은 postman 과 같은 API 시험툴이나 shell 상에서 curl을 이용하여 확인할 수 있습니다. 
 SK open API 포털에서 샘플 API 호출가능하며, 아래의 샘플 값으로도 시험할 수 있습니다. 
 
-.. code-block:: none
+.. code-block:: python
 
     // 내 회사 정보 조회 
     $ curl --location --request GET https://apis.openapi.sk.com/api/ovs/v20/company/me --header 'Content-Type: application/json' --header 'X-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0Y29tcGFueTFAc2tvcGVuYXBpLmNvbSIsInNjb3BlcyI6WyJPVlNfQ09NUEFOWV9BRE1JTiJdLCJ1c2VySWQiOiJlNzQ0MzU5MC1iNWQ1LTExZWEtOGYwMC02NzMwZThlZjFhOWUiLCJlbmFibGVkIjp0cnVlLCJpc1B1YmxpYyI6ZmFsc2UsInRlbmFudElkIjoiZTczZDdlZDAtYjVkNS0xMWVhLThmMDAtNjczMGU4ZWYxYTllIiwiY3VzdG9tZXJJZCI6IjEzODE0MDAwLTFkZDItMTFiMi04MDgwLTgwODA4MDgwODA4MCIsInNlcnZpY2VUeXBlIjoic2tvYV90ZXN0Y29tcGFueTEiLCJpc3MiOiJUIFJlbW90RXllLlNLIFRlbGVjb20iLCJpYXQiOjE1OTI5NzQwOTAsImV4cCI6NDEwMjMyNjAwMH0.15p2NCfzAe41BleJhiMgPJKenM3wPbdk7MY3ohatGNRG8J3pZUSaILfXuAta62UsoBKFMDn7J0I3cjzo1epfgg' -d ''
